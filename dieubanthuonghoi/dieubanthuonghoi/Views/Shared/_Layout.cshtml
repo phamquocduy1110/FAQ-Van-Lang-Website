@@ -1,0 +1,118 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Concerted Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+    <!--Custom Theme files-->
+    <link href='//fonts.googleapis.com/css?family=Viga' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:400,700,300' rel='stylesheet' type='text/css'>
+
+    <!-- Custom CSS files-->
+    <link href="@Url.Content("~/Assets/css/LayoutCss/bootstrap.css")" rel='stylesheet' type='text/css' />
+    <link href="@Url.Content("~/Assets/css/LayoutCss/style.css")" rel='stylesheet' type='text/css' />
+    <link href="@Url.Content("~/Assets/css/LayoutCss/flexslider.css")" rel="stylesheet" type="text/css" media="screen" />
+    <link href="@Url.Content("~/Assets/css/LayoutCss/chocolat.css")" rel="stylesheet" type="text/css" media="all" />
+    <link href="@Url.Content("~/Assets/css/LayoutCss/animate.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Assets/css/LayoutCss/layout.css")" rel="stylesheet" type="text/css" media="all">
+    <link href="@Url.Content("~/Assets/css/LayoutCss/fontawesome-all.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Assets/css/LayoutCss/framework.css")" rel="stylesheet">
+</head>
+<body>
+    <div class="banner w3l-1">
+        <nav class="navbar navbar-default navbar-fixed-top" style="background-color:deeppink">
+            <div class="container" style="padding: initial">
+                <div class="navbar-header wow fadeInLeft animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInLeft;">
+
+                    <!--toggle button-->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <h1>
+                        <img class="navbar-brand" src="@Url.Content("~/Assets/images/logo/VanLangLogo.png")" style="padding:initial">
+                    </h1>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            @Html.ActionLink("Home", "Index", "Home")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Questions", "Index", "Questions")
+                        </li>
+                        <li>
+                            @Html.ActionLink("About", "About", "Home")
+                        </li>
+                        <li><a href="#portfolio" class="scroll">Projects</a></li>
+                        <li>
+                            @Html.ActionLink("Contact", "Contact", "Home")
+                        </li>
+                        @Html.Partial("_LoginPartial")
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    @RenderBody()
+
+    <script src="@Url.Content("~/Assets/js/LayoutJS/jquery-1.11.1.min.js")"></script>
+    <script src="@Url.Content("~/Assets/js/LayoutJS/bootstrap.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Assets/js/LayoutJS/move-top.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Assets/js/LayoutJS/easing.js")"></script>
+    <script src="@Url.Content("~/Assets/js/LayoutJS/jquery.chocolat.js")"></script>
+    <script src="@Url.Content("~/Assets/js/LayoutJS/wow.min.js")"></script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1200);
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $().UItoTop({ easingType: 'easeOutQuart' });
+        });
+    </script>
+
+    <!--light-box-files -->
+    <script type="text/javascript">
+        $(function () {
+            $('#example1 a').Chocolat();
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#portfolio a').Chocolat();
+        });
+    </script>
+
+    <!-- animation-effect -->
+    <script>
+        new WOW().init();
+    </script>
+    <!-- //animation-effect -->
+    <!-- JAVASCRIPTS -->
+    <script src="@Url.Content("~/Assets/js/IndexJS/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Assets/js/IndexJS/jquery.backtotop.js")"></script>
+    <script src="@Url.Content("~/Assets/js/IndexJS/jquery.mobilemenu.js")"></script>
+    <!-- Homepage specific -->
+    <script src="@Url.Content("~/Assets/js/IndexJS/jquery.easypiechart.min.js")"></script>
+    <!-- / Homepage specific -->
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
