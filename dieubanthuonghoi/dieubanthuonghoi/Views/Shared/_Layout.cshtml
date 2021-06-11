@@ -13,7 +13,7 @@
     <link href='//fonts.googleapis.com/css?family=Viga' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Lato:400,700,300' rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,700|Roboto:300,400,700" rel="stylesheet">
+    <link href="@Url.Content("//fonts.googleapis.com/css?family=Oswald:300,400,500,700|Roboto:300,400,700")" rel="stylesheet">
 
     <link rel="stylesheet" href="@Url.Content("~/Assets/css/UserPageCss/bootstrap.min.css")" />
     <link rel="stylesheet" href="@Url.Content("~/Assets/css/UserPageCss/font-awesome.min.css")" />
@@ -43,7 +43,7 @@
                 <li class="active"><a href="@Url.Action("Index", "Home")" style="background-color:white; color: black">Trang Chủ</a></li>
                 <li><a href="@Url.Action("Index", "Services")">Dịch vụ</a></li>
                 <li><a href="@Url.Action("Index", "Questions")">Câu hỏi thường gặp</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="@Url.Action("Contact", "Home")">Liên hệ</a></li>
                 <li><a href="elements.html">Elements</a></li>
             </ul>
         </nav>
