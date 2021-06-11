@@ -13,5 +13,11 @@ namespace dieubanthuonghoi.Areas.Admin.Controllers
         {
             return View();
         }
+
+        // GET: Admin/ListQuestionsAdmin Create Question
+        public ActionResult CreateQuestion()
+        {
+            return View();
+        }
     }
 }
