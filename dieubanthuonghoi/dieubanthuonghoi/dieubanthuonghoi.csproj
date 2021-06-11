@@ -177,6 +177,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -205,12 +206,19 @@
     <Content Include="Assets\images\avatar\test-man.png" />
     <Content Include="Assets\images\backgrounds\01.jpg" />
     <Content Include="Assets\images\backgrounds\02.jpg" />
+    <Content Include="Assets\images\backgrounds\beautifulbackground.jpg" />
+    <Content Include="Assets\images\backgrounds\beautifulbackground2.jpg" />
+    <Content Include="Assets\images\backgrounds\homebackground.jpg" />
     <Content Include="Assets\images\backgrounds\VanLangUniversity.jpg" />
     <Content Include="Assets\images\backgrounds\Video.PNG" />
     <Content Include="Assets\images\blog\add.jpg" />
     <Content Include="Assets\images\blog\blog-1.jpg" />
     <Content Include="Assets\images\blog\blog-2.jpg" />
     <Content Include="Assets\images\blog\blog-3.jpg" />
+    <Content Include="Assets\images\cards\card-1.jpg" />
+    <Content Include="Assets\images\cards\card-2.jpg" />
+    <Content Include="Assets\images\cards\card-3.jpg" />
+    <Content Include="Assets\images\cards\device.png" />
     <Content Include="Assets\images\icons\homeicon.png" />
     <Content Include="Assets\images\icons\user.png" />
     <Content Include="Assets\images\instagram\1.jpg" />
@@ -516,6 +524,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Questions\Index.cshtml" />
+    <Content Include="Views\Services\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
