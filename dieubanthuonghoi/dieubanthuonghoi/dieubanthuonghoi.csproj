@@ -207,8 +207,18 @@
     <Content Include="Assets\images\backgrounds\02.jpg" />
     <Content Include="Assets\images\backgrounds\VanLangUniversity.jpg" />
     <Content Include="Assets\images\backgrounds\Video.PNG" />
+    <Content Include="Assets\images\blog\add.jpg" />
+    <Content Include="Assets\images\blog\blog-1.jpg" />
+    <Content Include="Assets\images\blog\blog-2.jpg" />
+    <Content Include="Assets\images\blog\blog-3.jpg" />
     <Content Include="Assets\images\icons\homeicon.png" />
     <Content Include="Assets\images\icons\user.png" />
+    <Content Include="Assets\images\instagram\1.jpg" />
+    <Content Include="Assets\images\instagram\2.jpg" />
+    <Content Include="Assets\images\instagram\3.jpg" />
+    <Content Include="Assets\images\instagram\4.jpg" />
+    <Content Include="Assets\images\instagram\5.jpg" />
+    <Content Include="Assets\images\instagram\6.jpg" />
     <Content Include="Assets\images\logo\IT-ADMIN_Logo.png" />
     <Content Include="Assets\images\logo\LoadingLogo.png" />
     <Content Include="Assets\images\logo\logo.png" />
@@ -395,7 +405,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\Flaticon.svg" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Assets\images\backgrounds\footerbackground.png" />
@@ -451,6 +462,14 @@
     <Content Include="Areas\Admin\Views\AdminAccount\SendCode.cshtml" />
     <Content Include="Areas\Admin\Views\AdminAccount\VerifyCode.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_AdminLoginPartial.cshtml" />
+    <Content Include="fonts\Flaticon.eot" />
+    <Content Include="fonts\Flaticon.ttf" />
+    <Content Include="fonts\Flaticon.woff" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -503,10 +522,6 @@
     <Folder Include="Areas\Admin\Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />

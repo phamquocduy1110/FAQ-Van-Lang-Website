@@ -6,7 +6,13 @@
     <meta name="keywords" content="lab, onepage, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Favicon -->
+    <link href="@Url.Content("~/Assets/images/logo/VanLangLogoPage.png")" rel="shortcut icon" />
+
     <!-- Google Fonts -->
+    <link href='//fonts.googleapis.com/css?family=Viga' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:400,700,300' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,700|Roboto:300,400,700" rel="stylesheet">
 
     <link rel="stylesheet" href="@Url.Content("~/Assets/css/UserPageCss/bootstrap.min.css")" />
@@ -20,15 +26,15 @@
     <!-- Header section -->
     <header class="header-section">
         <div class="logo">
-            <img src="@Url.Content("~/Assets/images/logo/logo.png")" alt=""><!-- Logo -->
+            <img src="@Url.Content("~/Assets/images/logo/logo.png")"><!-- Logo -->
         </div>
         <!-- Navigation -->
         <div class="responsive"><i class="fa fa-bars"></i></div>
         <nav>
             <ul class="menu-list">
-                <li class="active"><a href="@Url.Action("Index", "Home")">Home</a></li>
+                <li class="active"><a href="@Url.Action("Index", "Home")">Trang Chủ</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="blog.html">Blog</a></li>
+                <li><a href="@Url.Action("Index", "Questions")">Câu hỏi thường gặp</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="elements.html">Elements</a></li>
             </ul>
@@ -45,8 +51,5 @@
     <script src="@Url.Content("~/Assets/js/UserPageJS/circle-progress.min.js")"></script>
     <script src="@Url.Content("~/Assets/js/UserPageJS/main.js")"></script>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
 </body>
 </html>
