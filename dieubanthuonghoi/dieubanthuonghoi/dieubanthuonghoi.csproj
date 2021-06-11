@@ -178,6 +178,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="Controllers\StatisticalController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -208,6 +209,8 @@
     <Content Include="Assets\images\backgrounds\02.jpg" />
     <Content Include="Assets\images\backgrounds\beautifulbackground.jpg" />
     <Content Include="Assets\images\backgrounds\beautifulbackground2.jpg" />
+    <Content Include="Assets\images\backgrounds\beautifulbackground3.jpg" />
+    <Content Include="Assets\images\backgrounds\beautifulbackground4.jpg" />
     <Content Include="Assets\images\backgrounds\homebackground.jpg" />
     <Content Include="Assets\images\backgrounds\VanLangUniversity.jpg" />
     <Content Include="Assets\images\backgrounds\Video.PNG" />
@@ -525,6 +528,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Questions\Index.cshtml" />
     <Content Include="Views\Services\Index.cshtml" />
+    <Content Include="Views\Statistical\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
