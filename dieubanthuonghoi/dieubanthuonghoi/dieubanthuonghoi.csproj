@@ -211,6 +211,7 @@
     <Content Include="Assets\images\backgrounds\beautifulbackground2.jpg" />
     <Content Include="Assets\images\backgrounds\beautifulbackground3.jpg" />
     <Content Include="Assets\images\backgrounds\beautifulbackground4.jpg" />
+    <Content Include="Assets\images\backgrounds\cs3-01.jpg" />
     <Content Include="Assets\images\backgrounds\homebackground.jpg" />
     <Content Include="Assets\images\backgrounds\VanLangUniversity.jpg" />
     <Content Include="Assets\images\backgrounds\Video.PNG" />
@@ -235,6 +236,7 @@
     <Content Include="Assets\images\logo\logo.png" />
     <Content Include="Assets\images\backgrounds\03.jpg" />
     <Content Include="Assets\images\logo\VanLangLogo.png" />
+    <Content Include="Assets\images\logo\VanLangLogoMenu.png" />
     <Content Include="Assets\images\logo\VanLangLogoPage.png" />
     <Content Include="Assets\js\AdminIndexJS\bootstrap-datetimepicker.js" />
     <Content Include="Assets\js\AdminIndexJS\main.js" />
