@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace dieubanthuonghoi.Areas.Admin.Controllers
 {
-    public class ListQuestionsAdminController : Controller
+    public class ManageQuestionsController : Controller
     {
         // GET: Admin/ListQuestionsAdmin
         public ActionResult Index()
