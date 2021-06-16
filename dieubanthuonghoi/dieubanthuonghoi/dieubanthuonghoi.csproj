@@ -171,8 +171,9 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminAccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
-    <Compile Include="Areas\Admin\Controllers\AdminUsersRoleController.cs" />
-    <Compile Include="Areas\Admin\Controllers\ListQuestionsAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ManageCatalogController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ManageQuestionsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UsersRoleController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -494,7 +495,7 @@
     <Content Include="Assets\vendor\AdminIndexVendor\slick\slick.less" />
     <Content Include="Assets\vendor\AdminIndexVendor\slick\slick.scss" />
     <Content Include="Areas\Admin\Views\ManageQuestions\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminUsersRole\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\UsersRole\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminAccount\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Areas\Admin\Views\AdminAccount\ConfirmEmail.cshtml" />
     <Content Include="Areas\Admin\Views\AdminAccount\ExternalLoginConfirmation.cshtml" />
@@ -523,6 +524,7 @@
     <Content Include="fonts\fa-solid-900.ttf" />
     <Content Include="fonts\fa-solid-900.woff" />
     <Content Include="fonts\fa-solid-900.woff2" />
+    <Content Include="Areas\Admin\Views\ManageCatalog\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

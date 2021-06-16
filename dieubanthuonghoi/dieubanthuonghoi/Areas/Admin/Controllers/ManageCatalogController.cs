@@ -6,16 +6,10 @@ using System.Web.Mvc;
 
 namespace dieubanthuonghoi.Areas.Admin.Controllers
 {
-    public class ManageQuestionsController : Controller
+    public class ManageCatalogController : Controller
     {
-        // GET: Admin/ListQuestionsAdmin
+        // GET: Admin/AdminManageCatalog
         public ActionResult Index()
-        {
-            return View();
-        }
-
-        // GET: Admin/ListQuestionsAdmin Create Question
-        public ActionResult CreateQuestion()
         {
             return View();
         }

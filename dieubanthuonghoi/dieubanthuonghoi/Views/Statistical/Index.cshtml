@@ -1,5 +1,8 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 <head>
     <title>Thống kê</title>
     <meta charset="UTF-8">
@@ -15,7 +18,7 @@
             <div class="page-info">
                 <h2>Thống kê</h2>
                 <div class="page-links">
-                    <a href="#">Home</a>
+                    <a href="@Url.Action("Index", "Home")">Home</a>
                     <span>Thống kê</span>
                 </div>
             </div>
