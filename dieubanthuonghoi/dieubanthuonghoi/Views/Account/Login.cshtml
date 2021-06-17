@@ -1,70 +1,62 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="en">
-
 <head>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="au theme template">
-    <meta name="author" content="Hau Nguyen">
-    <meta name="keywords" content="au theme template">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
-    <!-- Title Page-->
-    <title>User Login</title>
+    <!-- Favicon -->
+    <link href="@Url.Content("~/Assets/images/logo/VanLangLogoPage.png")" rel="shortcut icon" />
 
-    <!-- Fontfaces CSS-->
-    <link href="@Url.Content("~/Assets/css/AdminIndexCss/font-face.css")" rel="stylesheet" media="all">
-    <link href="@Url.Content("~/Assets/vendor/AdminIndexVendor/font-awesome-4.7/css/font-awesome.min.css")" rel="stylesheet" media="all">
-    <link href="@Url.Content("~/Assets/vendor/AdminIndexVendor/font-awesome-5/css/fontawesome-all.min.css")" rel="stylesheet" media="all">
-    <link href="@Url.Content("~/Assets/vendor/AdminIndexVendor/mdi-font/css/material-design-iconic-font.min.css")" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="@Url.Content("~/Assets/css/LoginCss/font.css")">
 
-    <!-- Bootstrap CSS-->
-    <link href="@Url.Content("~/Assets/vendor/AdminIndexVendor/bootstrap-4.1/bootstrap.min.css")" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="@Url.Content("~/Assets/css/LoginCss/owl.carousel.min.css")">
 
-    <!-- Vendor CSS-->
-    <link href="@Url.Content("~/Assets/vendor/AdminIndexVendor/animsition/animsition.min.css")" rel="stylesheet" media="all">
-    <link href="@Url.Content("~/Assets/vendor/AdminIndexVendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css")" rel="stylesheet" media="all">
-    <link href="@Url.Content("~/Assets/vendor/AdminIndexVendor/wow/animate.css")" rel="stylesheet" media="all">
-    <link href="@Url.Content("~/Assets/vendor/AdminIndexVendor/css-hamburgers/hamburgers.min.css")" rel="stylesheet" media="all">
-    <link href="@Url.Content("~/Assets/vendor/AdminIndexVendor/slick/slick.css")" rel="stylesheet" media="all">
-    <link href="@Url.Content("~/Assets/vendor/AdminIndexVendor/select2/select2.min.css")" rel="stylesheet" media="all">
-    <link href="@Url.Content("~/Assets/vendor/AdminIndexVendor/perfect-scrollbar/perfect-scrollbar.css")" rel="stylesheet" media="all">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="@Url.Content("~/Assets/css/LoginCss/bootstrap.min.css")">
 
-    <!-- Main CSS-->
-    <link href="@Url.Content("~/Assets/css/AdminIndexCss/theme.css")" rel="stylesheet" media="all">
+    <!-- Style -->
+    <link rel="stylesheet" href="@Url.Content("~/Assets/css/LoginCss/style.css")">
 
+    <title>Đăng nhập</title>
 </head>
+<body>
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="@Url.Content("~/Assets/images/avatar/undraw_remotely_2j6y.svg")" alt="Image" class="img-fluid">
+                </div>
+                <div class="col-md-6 contents">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="mb-4">
+                                <h3>Chào mừng đến với trang đăng nhập</h3>
+                                <p class="mb-4">Website các câu hỏi thường gặp khoa công nghệ thông tin</p>
+                            </div>
+                            <form action="#" method="post">
+                                <div class="form-group first">
+                                    <label for="username">Tên tài khoản</label>
+                                    <input type="text" class="form-control" id="username">
 
-<body class="animsition">
-    <div class="page-wrapper">
-        <div class="page-content--bge5">
-            <div class="container">
-                <div class="login-wrap">
-                    <div class="login-content">
-                        <div class="login-logo">
-                            <a href="#">
-                                <img src="@Url.Content("~/Assets/images/logo/VanLangLogo.png")" alt="CoolAdmin">
-                            </a>
-                        </div>
-                        <div class="login-form">
-                            <form action="" method="post">
-                                <div class="form-group">
-                                    <label>Email Address</label>
-                                    <input class="au-input au-input--full" type="email" name="email" placeholder="Email">
                                 </div>
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input class="au-input au-input--full" type="password" name="password" placeholder="Password">
+                                <div class="form-group last mb-4">
+                                    <label for="password">Mật khẩu</label>
+                                    <input type="password" class="form-control" id="password">
+
                                 </div>
-                                <div class="login-checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember">Remember Me
+
+                                <div class="d-flex mb-5 align-items-center">
+                                    <label class="control control--checkbox mb-0">
+                                        <span class="caption">Ghi nhớ tài khoản</span>
+                                        <input type="checkbox" checked="checked" />
+                                        <div class="control__indicator"></div>
                                     </label>
-                                    <label>
-                                        <a href="#">Forgotten Password?</a>
-                                    </label>
+                                    <span class="ml-auto"><a href="@Url.Action("Index", "Home")" class="forgot-pass">Trở về trang chủ</a></span>
                                 </div>
-                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign in</button>
+
+                                <input type="submit" value="Đăng nhập" class="btn btn-block btn-primary">
                             </form>
                         </div>
                     </div>
@@ -73,31 +65,9 @@
         </div>
     </div>
 
-    <!-- Jquery JS-->
-    <script src="@Url.Content("~/Assets/vendor/AdminIndexVendor/jquery-3.2.1.min.js")"></script>
-    <!-- Bootstrap JS-->
-    <script src="@Url.Content("~/Assets/vendor/AdminIndexVendor/bootstrap-4.1/popper.min.js")"></script>
-    <script src="@Url.Content("~/Assets/vendor/AdminIndexVendor/bootstrap-4.1/bootstrap.min.js")"></script>
-    <!-- Vendor JS       -->
-    <script src="@Url.Content("~/Assets/vendor/AdminIndexVendor/slick/slick.min.js")">
-    </script>
-    <script src="@Url.Content("~/Assets/vendor/AdminIndexVendor/wow/wow.min.js")"></script>
-    <script src="@Url.Content("~/Assets/vendor/AdminIndexVendor/animsition/animsition.min.js")"></script>
-    <script src="@Url.Content("~/Assets/vendor/AdminIndexVendor/bootstrap-progressbar/bootstrap-progressbar.min.js")">
-    </script>
-    <script src="@Url.Content("~/Assets/vendor/AdminIndexVendor/counter-up/jquery.waypoints.min.js")"></script>
-    <script src="@Url.Content("~/Assets/vendor/AdminIndexVendor/counter-up/jquery.counterup.min.js")">
-    </script>
-    <script src="@Url.Content("~/Assets/vendor/AdminIndexVendor/circle-progress/circle-progress.min.js")"></script>
-    <script src="@Url.Content("~/Assets/vendor/AdminIndexVendor/perfect-scrollbar/perfect-scrollbar.js")"></script>
-    <script src="@Url.Content("~/Assets/vendor/AdminIndexVendor/chartjs/Chart.bundle.min.js")"></script>
-    <script src="@Url.Content("~/Assets/vendor/AdminIndexVendor/select2/select2.min.js")">
-    </script>
-
-    <!-- Main JS-->
-    <script src="@Url.Content("~/Assets/js/AdminIndexJs/main.js")"></script>
-
+    <script src="@Url.Content("~/Assets/js/LoginJS/jquery-3.3.1.min.js")"></script>
+    <script src="@Url.Content("~/Assets/js/LoginJS/popper.min.js")"></script>
+    <script src="@Url.Content("~/Assets/js/LoginJS/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/Assets/js/LoginJS/main.js")"></script>
 </body>
-
 </html>
-<!-- end document-->
