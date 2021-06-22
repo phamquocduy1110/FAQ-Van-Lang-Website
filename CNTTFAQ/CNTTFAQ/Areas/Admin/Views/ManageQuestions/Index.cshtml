@@ -1,0 +1,127 @@
+﻿@model IEnumerable<CNTTFAQ.Models.QUESTION>
+
+<!DOCTYPE html>
+<html lang="en">
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Danh sách câu hỏi</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>Danh sách câu hỏi</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="@Url.Action("Index", "AdminHome")">Trang chủ</a></li>
+                                <li class="breadcrumb-item active">Danh sách câu hỏi</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Xem danh sách câu hỏi</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table id="example1" class="table table-bordered table-striped">
+                                    @Html.ActionLink("Tạo câu hỏi", "Create", "ManageQuestions")
+                                    <thead>
+                                        <tr>
+                                            <th>Mã câu hỏi</th>
+                                            <th>Tên câu hỏi</th>
+                                            <th>Nội dung</th>
+                                            <th>Danh mục</th>
+                                            <th>Điều chỉnh</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.QUESTION_CODE)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.QUESTION_NAME)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.CONTENT)
+                                                </td>
+
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.CATEGORY.CATEGORY_NAME)
+                                                </td>
+                                                <td>
+                                                    @Html.ActionLink("Edit", "Edit", new { id = item.ID })
+                                                    @Html.ActionLink("Details", "Details", new { id = item.ID })
+                                                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Mã câu hỏi</th>
+                                            <th>Tên câu hỏi</th>
+                                            <th>Danh mục</th>
+                                            <th>Nội dung</th>
+                                            <th>Điều chỉnh</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <footer class="main-footer">
+            <div class="float-right d-none d-sm-block">
+                <b>Version</b> 3.0.1
+            </div>
+            <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
+            reserved.
+        </footer>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+
+    <!-- ./wrapper -->
+    <script src="@Url.Content("~/Assets/js/AdminPageJS/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Assets/js/AdminPageJS/bootstrap.bundle.min.js")"></script>
+    <script src="@Url.Content("~/Assets/js/AdminPageJS/jquery.dataTables.js")"></script>
+    <script src="@Url.Content("~/Assets/js/AdminPageJS/dataTables.bootstrap4.js")"></script>
+    <script src="@Url.Content("~/Assets/js/AdminPageJS/adminlte.min.js")"></script>
+</body>
+</html>
