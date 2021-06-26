@@ -19,8 +19,8 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         // GET: Admin/AdminManageQuestions
         public ActionResult Index()
         {
-            var question = model.QUESTIONS.ToList().OrderByDescending(x => x.ID).ToList();
-            return View(question);
+/*            var question = model.QUESTIONS.ToList().OrderByDescending(x => x.ID).ToList();
+*/            return View();
         }
 
         [HttpGet]

@@ -8,8 +8,14 @@ namespace CNTTFAQ.Areas.Admin.Controllers
 {
     public class AdminHomeController : Controller
     {
-        // GET: Admin/AdminHome
+        // GET: Admin Index/AdminHome
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        // GET: Admin Calendar/AdminHome
+        public ActionResult Calendar()
         {
             return View();
         }
