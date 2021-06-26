@@ -255,11 +255,13 @@
     <Content Include="Assets\images\avatar\03.jpg" />
     <Content Include="Assets\images\avatar\04.jpg" />
     <Content Include="Assets\images\avatar\05.jpg" />
+    <Content Include="Assets\images\avatar\profile-pic.jpg" />
     <Content Include="Assets\images\avatar\test-man.png" />
     <Content Include="Assets\images\avatar\undraw_remotely_2j6y.svg" />
     <Content Include="Assets\images\backgrounds\01.jpg" />
     <Content Include="Assets\images\backgrounds\02.jpg" />
     <Content Include="Assets\images\backgrounds\03.jpg" />
+    <Content Include="Assets\images\backgrounds\auth-bg.jpg" />
     <Content Include="Assets\images\backgrounds\beautifulbackground.jpg" />
     <Content Include="Assets\images\backgrounds\beautifulbackground2.jpg" />
     <Content Include="Assets\images\backgrounds\beautifulbackground3.jpg" />
@@ -278,6 +280,7 @@
     <Content Include="Assets\images\cards\card-3.jpg" />
     <Content Include="Assets\images\cards\device.png" />
     <Content Include="Assets\images\icons\homeicon.png" />
+    <Content Include="Assets\images\icons\icon.png" />
     <Content Include="Assets\images\icons\user.png" />
     <Content Include="Assets\images\instagram\1.jpg" />
     <Content Include="Assets\images\instagram\2.jpg" />
