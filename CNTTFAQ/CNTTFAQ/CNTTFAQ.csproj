@@ -580,6 +580,7 @@
     <Content Include="Areas\Admin\Views\AdminHome\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminHome\Calendar.cshtml" />
     <Content Include="Areas\Admin\Views\ManageQuestions\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminHome\FontAwesomeIcons.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

@@ -105,7 +105,7 @@
                                      width="40">
                                 <span class="ml-2 d-none d-lg-inline-block">
                                     <span>Xin chào,</span> <span class="text-dark">duy.187pm13901@vanlanguni.vn</span> <i data-feather="chevron-down"
-                                                                                                    class="svg-icon"></i>
+                                                                                                                          class="svg-icon"></i>
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
@@ -435,7 +435,7 @@
                             </a>
                             <ul aria-expanded="false" class="collapse first-level base-level-line">
                                 <li class="sidebar-item">
-                                    <a href="icon-fontawesome.html" class="sidebar-link">
+                                    <a href="@Url.Action("FontAwesomeIcons", "AdminHome")" class="sidebar-link">
                                         <span class="hide-menu"> Fontawesome Icons </span>
                                     </a>
                                 </li>
@@ -573,7 +573,5 @@
     <!--This page plugins -->
     <script src="@Url.Content("~/Assets/js/AdminPageJS/jquery.dataTables.min.js")"></script>
     <script src="@Url.Content("~/Assets/js/AdminPageJS/datatable-basic.init.js")"></script>
-
-    @RenderSection("scripts", required: false)
 </body>
 </html>
