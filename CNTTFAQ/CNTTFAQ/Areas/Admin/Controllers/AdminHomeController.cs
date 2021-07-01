@@ -19,5 +19,11 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         {
             return View();
         }
+
+        // GET: Admin Fontawesome Icons/AdminHome
+        public ActionResult FontawesomeIcons()
+        {
+            return View();
+        }
     }
 }

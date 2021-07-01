@@ -14,7 +14,10 @@ namespace CNTTFAQ.Areas.Admin.Controllers
 {
     public class ManageQuestionsController : Controller
     {
+<<<<<<< HEAD
         DIEUBANTHUONGHOIWEBSITEEntities model = new DIEUBANTHUONGHOIWEBSITEEntities();
+=======
+>>>>>>> 56fbbedbc75c134afb30dd7d86177d41dd806aa3
 
         // GET: Admin/AdminManageQuestions
         public ActionResult Index()
