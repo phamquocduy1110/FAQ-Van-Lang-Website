@@ -4,77 +4,152 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QUANLYCAUHOIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="CATEGORY">
+      <Schema Namespace="DIEUBANTHUONGHOIWEBSITE.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CATEGORY_CODE" Type="varchar" MaxLength="5" />
-          <Property Name="CATEGORY_NAME" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="IMAGE_URL" Type="nvarchar(max)" />
-          <Property Name="STATUS" Type="bit" Nullable="false" />
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
         </EntityType>
-        <EntityType Name="CONTACT">
+        <EntityType Name="AspNetRoles">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="EMAIL" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="TITLE" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="DATE" Type="datetime" Nullable="false" />
-          <Property Name="CONTENT" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
         </EntityType>
-        <EntityType Name="CUSTOMER">
+        <EntityType Name="AspNetUserClaims">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="EMAIL" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="PASSWORD" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="FULL_NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="PHONE_NUMBER" Type="varchar" MaxLength="15" />
-          <Property Name="STATUS" Type="bit" Nullable="false" />
-          <Property Name="CUSTOMER_TYPE" Type="int" Nullable="false" />
-          <Property Name="FACULTY_ID" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
         </EntityType>
-        <EntityType Name="FACULTY">
+        <EntityType Name="AspNetUserLogins">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FACULTY_CODE" Type="varchar" MaxLength="5" />
-          <Property Name="FACULTY_NAME" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="STATUS" Type="bit" Nullable="false" />
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
         </EntityType>
-        <EntityType Name="INTRODUCTION">
+        <EntityType Name="AspNetUserRoles">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CONTENT" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
         </EntityType>
-        <EntityType Name="QUESTIONS">
+        <EntityType Name="AspNetUsers">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="QUESTION_CODE" Type="varchar" MaxLength="8" />
-          <Property Name="QUESTION_NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="CATEGORY_ID" Type="int" Nullable="false" />
-          <Property Name="CONTENT" Type="nvarchar" MaxLength="500" />
-          <Property Name="IMAGE_URL" Type="nvarchar(max)" />
-          <Property Name="STATUS" Type="bit" Nullable="false" />
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
         </EntityType>
-        <EntityType Name="SLIDER">
+        <EntityType Name="CAU_HOI">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IMAGE_URL" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="TEXT" Type="nvarchar" MaxLength="50" />
-          <Property Name="ORDER" Type="int" />
-          <Property Name="IS_VISIBLE" Type="bit" />
+          <Property Name="CAU_HOI" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MO_TA" Type="nvarchar(max)" />
+          <Property Name="NGAY_TAO" Type="datetime2" Precision="7" />
+          <Property Name="ID_DANH_MUC" Type="int" Nullable="false" />
+          <Property Name="ID_TAI_KHOAN" Type="int" Nullable="false" />
+          <Property Name="LUOT_XEM" Type="int" Nullable="false" />
+          <Property Name="DUYET_DANG" Type="bit" />
+        </EntityType>
+        <EntityType Name="CAU_TRA_LOI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_CAU_HOI" Type="int" Nullable="false" />
+          <Property Name="CAU_TRA_LOI" Type="nvarchar(max)" />
+          <Property Name="NGAY_TRA_LOI" Type="datetime2" Precision="7" />
+          <Property Name="ID_TAI_KHOAN" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DANH_MUC">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DANH_MUC" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MO_TA" Type="nvarchar(max)" />
+          <Property Name="HINH_ANH" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="NGAY_TAO" Type="datetime2" Precision="7" />
+          <Property Name="ID_TAI_KHOAN" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LICH_SU_CHINH_SUA_CAU_HOI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CAU_HOI_TRUOC_CHINH_SUA" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MO_TA_TRUOC_CHINH_SUA" Type="nvarchar(max)" />
+          <Property Name="NGAY_CHINH_SUA" Type="datetime2" Precision="7" />
+          <Property Name="ID_DANH_MUC_TRUOC_CHINH_SUA" Type="int" Nullable="false" />
+          <Property Name="CAU_HOI_SAU_CHINH_SUA" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MO_TA_SAU_CHINH_SUA" Type="nvarchar(max)" />
+          <Property Name="ID_DANH_MUC_SAU_CHINH_SUA" Type="int" Nullable="false" />
+          <Property Name="ID_TAI_KHOAN" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LICH_SU_CHINH_SUA_DANH_MUC">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DANH_MUC_TRUOC_CHINH_SUA" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MO_TA_TRUOC_CHINH_SUA" Type="nvarchar(max)" />
+          <Property Name="NGAY_CHINH_SUA" Type="datetime2" Precision="7" />
+          <Property Name="HINH_ANH_TRUOC_CHINH_SUA" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DANH_MUC_SAU_CHINH_SUA" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MO_TA_SAU_CHINH_SUA" Type="nvarchar(max)" />
+          <Property Name="HINH_ANH_SAU_CHINH_SUA" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ID_TAI_KHOAN" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LUOT_TIM_TU_KHOA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TU_KHOA" Type="nvarchar(max)" />
+          <Property Name="LUOT_TIM" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="QUYEN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TEN_QUYEN" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="QUYEN_CUA_USER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_TAI_KHOAN" Type="int" Nullable="false" />
+          <Property Name="ID_QUYEN" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -86,127 +161,420 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <Association Name="FK__CUSTOMERS__FACUL__0519C6AF">
-          <End Role="FACULTY" Type="Self.FACULTY" Multiplicity="1" />
-          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="*" />
+        <EntityType Name="TAI_KHOAN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AVATAR" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MAT_KHAU" Type="varchar" MaxLength="50" />
+          <Property Name="EMAIL" Type="varchar(max)" Nullable="false" />
+          <Property Name="MA_SO_NGUOI_DUNG" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserTokenCaches">
+          <Key>
+            <PropertyRef Name="UserTokenCacheId" />
+          </Key>
+          <Property Name="UserTokenCacheId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="webUserUniqueId" Type="nvarchar(max)" />
+          <Property Name="cacheBits" Type="varbinary(max)" />
+          <Property Name="LastWrite" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CAU_HOI_DANH_MUC">
+          <End Role="DANH_MUC" Type="Self.DANH_MUC" Multiplicity="1" />
+          <End Role="CAU_HOI" Type="Self.CAU_HOI" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="FACULTY">
+            <Principal Role="DANH_MUC">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="CUSTOMER">
-              <PropertyRef Name="FACULTY_ID" />
+            <Dependent Role="CAU_HOI">
+              <PropertyRef Name="ID_DANH_MUC" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__FOOD__MENU_ID__117F9D94">
-          <End Role="CATEGORY" Type="Self.CATEGORY" Multiplicity="1" />
-          <End Role="QUESTIONS" Type="Self.QUESTIONS" Multiplicity="*" />
+        <Association Name="FK_CAU_HOI_TAI_KHOAN">
+          <End Role="TAI_KHOAN" Type="Self.TAI_KHOAN" Multiplicity="1" />
+          <End Role="CAU_HOI" Type="Self.CAU_HOI" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="CATEGORY">
+            <Principal Role="TAI_KHOAN">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="QUESTIONS">
-              <PropertyRef Name="CATEGORY_ID" />
+            <Dependent Role="CAU_HOI">
+              <PropertyRef Name="ID_TAI_KHOAN" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="QUANLYCAUHOIModelStoreContainer">
-          <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CONTACT" EntityType="Self.CONTACT" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="FACULTY" EntityType="Self.FACULTY" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="INTRODUCTION" EntityType="Self.INTRODUCTION" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="QUESTIONS" EntityType="Self.QUESTIONS" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SLIDER" EntityType="Self.SLIDER" Schema="dbo" store:Type="Tables" />
+        <Association Name="FK_CAU_TRA_LOI_CAU_HOI">
+          <End Role="CAU_HOI" Type="Self.CAU_HOI" Multiplicity="1" />
+          <End Role="CAU_TRA_LOI" Type="Self.CAU_TRA_LOI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAU_HOI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CAU_TRA_LOI">
+              <PropertyRef Name="ID_CAU_HOI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CAU_TRA_LOI_TAI_KHOAN">
+          <End Role="TAI_KHOAN" Type="Self.TAI_KHOAN" Multiplicity="1" />
+          <End Role="CAU_TRA_LOI" Type="Self.CAU_TRA_LOI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAI_KHOAN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CAU_TRA_LOI">
+              <PropertyRef Name="ID_TAI_KHOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DANH_MUC_TAI_KHOAN">
+          <End Role="TAI_KHOAN" Type="Self.TAI_KHOAN" Multiplicity="1" />
+          <End Role="DANH_MUC" Type="Self.DANH_MUC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAI_KHOAN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DANH_MUC">
+              <PropertyRef Name="ID_TAI_KHOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LICH_SU_CHINH_SUA_CAU_HOI_TAI_KHOAN">
+          <End Role="TAI_KHOAN" Type="Self.TAI_KHOAN" Multiplicity="1" />
+          <End Role="LICH_SU_CHINH_SUA_CAU_HOI" Type="Self.LICH_SU_CHINH_SUA_CAU_HOI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAI_KHOAN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LICH_SU_CHINH_SUA_CAU_HOI">
+              <PropertyRef Name="ID_TAI_KHOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LICH_SU_CHINH_SUA_DANH_MUC_TAI_KHOAN">
+          <End Role="TAI_KHOAN" Type="Self.TAI_KHOAN" Multiplicity="1" />
+          <End Role="LICH_SU_CHINH_SUA_DANH_MUC" Type="Self.LICH_SU_CHINH_SUA_DANH_MUC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAI_KHOAN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LICH_SU_CHINH_SUA_DANH_MUC">
+              <PropertyRef Name="ID_TAI_KHOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QUYEN_CUA_USER_QUYEN">
+          <End Role="QUYEN" Type="Self.QUYEN" Multiplicity="1" />
+          <End Role="QUYEN_CUA_USER" Type="Self.QUYEN_CUA_USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QUYEN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="QUYEN_CUA_USER">
+              <PropertyRef Name="ID_QUYEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QUYEN_CUA_USER_TAI_KHOAN">
+          <End Role="TAI_KHOAN" Type="Self.TAI_KHOAN" Multiplicity="1" />
+          <End Role="QUYEN_CUA_USER" Type="Self.QUYEN_CUA_USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAI_KHOAN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="QUYEN_CUA_USER">
+              <PropertyRef Name="ID_TAI_KHOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DIEUBANTHUONGHOIWEBSITEStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CAU_HOI" EntityType="Self.CAU_HOI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CAU_TRA_LOI" EntityType="Self.CAU_TRA_LOI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DANH_MUC" EntityType="Self.DANH_MUC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LICH_SU_CHINH_SUA_CAU_HOI" EntityType="Self.LICH_SU_CHINH_SUA_CAU_HOI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LICH_SU_CHINH_SUA_DANH_MUC" EntityType="Self.LICH_SU_CHINH_SUA_DANH_MUC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LUOT_TIM_TU_KHOA" EntityType="Self.LUOT_TIM_TU_KHOA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QUYEN" EntityType="Self.QUYEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QUYEN_CUA_USER" EntityType="Self.QUYEN_CUA_USER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__CUSTOMERS__FACUL__0519C6AF" Association="Self.FK__CUSTOMERS__FACUL__0519C6AF">
-            <End Role="FACULTY" EntitySet="FACULTY" />
-            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+          <EntitySet Name="TAI_KHOAN" EntityType="Self.TAI_KHOAN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserTokenCaches" EntityType="Self.UserTokenCaches" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CAU_HOI_DANH_MUC" Association="Self.FK_CAU_HOI_DANH_MUC">
+            <End Role="DANH_MUC" EntitySet="DANH_MUC" />
+            <End Role="CAU_HOI" EntitySet="CAU_HOI" />
           </AssociationSet>
-          <AssociationSet Name="FK__FOOD__MENU_ID__117F9D94" Association="Self.FK__FOOD__MENU_ID__117F9D94">
-            <End Role="CATEGORY" EntitySet="CATEGORY" />
-            <End Role="QUESTIONS" EntitySet="QUESTIONS" />
+          <AssociationSet Name="FK_CAU_HOI_TAI_KHOAN" Association="Self.FK_CAU_HOI_TAI_KHOAN">
+            <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
+            <End Role="CAU_HOI" EntitySet="CAU_HOI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CAU_TRA_LOI_CAU_HOI" Association="Self.FK_CAU_TRA_LOI_CAU_HOI">
+            <End Role="CAU_HOI" EntitySet="CAU_HOI" />
+            <End Role="CAU_TRA_LOI" EntitySet="CAU_TRA_LOI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CAU_TRA_LOI_TAI_KHOAN" Association="Self.FK_CAU_TRA_LOI_TAI_KHOAN">
+            <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
+            <End Role="CAU_TRA_LOI" EntitySet="CAU_TRA_LOI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DANH_MUC_TAI_KHOAN" Association="Self.FK_DANH_MUC_TAI_KHOAN">
+            <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
+            <End Role="DANH_MUC" EntitySet="DANH_MUC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LICH_SU_CHINH_SUA_CAU_HOI_TAI_KHOAN" Association="Self.FK_LICH_SU_CHINH_SUA_CAU_HOI_TAI_KHOAN">
+            <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
+            <End Role="LICH_SU_CHINH_SUA_CAU_HOI" EntitySet="LICH_SU_CHINH_SUA_CAU_HOI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LICH_SU_CHINH_SUA_DANH_MUC_TAI_KHOAN" Association="Self.FK_LICH_SU_CHINH_SUA_DANH_MUC_TAI_KHOAN">
+            <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
+            <End Role="LICH_SU_CHINH_SUA_DANH_MUC" EntitySet="LICH_SU_CHINH_SUA_DANH_MUC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QUYEN_CUA_USER_QUYEN" Association="Self.FK_QUYEN_CUA_USER_QUYEN">
+            <End Role="QUYEN" EntitySet="QUYEN" />
+            <End Role="QUYEN_CUA_USER" EntitySet="QUYEN_CUA_USER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QUYEN_CUA_USER_TAI_KHOAN" Association="Self.FK_QUYEN_CUA_USER_TAI_KHOAN">
+            <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
+            <End Role="QUYEN_CUA_USER" EntitySet="QUYEN_CUA_USER" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="QUANLYCAUHOIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="CATEGORY">
+      <Schema Namespace="DIEUBANTHUONGHOIWEBSITE" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CATEGORY_CODE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="CATEGORY_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="IMAGE_URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="STATUS" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="QUESTIONS" Relationship="Self.FK__FOOD__MENU_ID__117F9D94" FromRole="CATEGORY" ToRole="QUESTIONS" />
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
-        <EntityType Name="CONTACT">
+        <EntityType Name="AspNetRole">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="TITLE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DATE" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CONTENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
         </EntityType>
-        <EntityType Name="CUSTOMER">
+        <EntityType Name="AspNetUserClaim">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="FULL_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="PHONE_NUMBER" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="STATUS" Type="Boolean" Nullable="false" />
-          <Property Name="CUSTOMER_TYPE" Type="Int32" Nullable="false" />
-          <Property Name="FACULTY_ID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="FACULTY" Relationship="Self.FK__CUSTOMERS__FACUL__0519C6AF" FromRole="CUSTOMER" ToRole="FACULTY" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
         </EntityType>
-        <EntityType Name="FACULTY">
+        <EntityType Name="AspNetUserLogin">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FACULTY_CODE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="FACULTY_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="STATUS" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="CUSTOMERs" Relationship="Self.FK__CUSTOMERS__FACUL__0519C6AF" FromRole="FACULTY" ToRole="CUSTOMER" />
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
         </EntityType>
-        <EntityType Name="INTRODUCTION">
+        <EntityType Name="AspNetUser">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CONTENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
         </EntityType>
-        <EntityType Name="QUESTION">
+        <EntityType Name="CAU_HOI">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="QUESTION_CODE" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
-          <Property Name="QUESTION_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CATEGORY_ID" Type="Int32" Nullable="false" />
-          <Property Name="CONTENT" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="IMAGE_URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="STATUS" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="CATEGORY" Relationship="Self.FK__FOOD__MENU_ID__117F9D94" FromRole="QUESTIONS" ToRole="CATEGORY" />
+          <Property Name="CAU_HOI1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MO_TA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NGAY_TAO" Type="DateTime" Precision="7" />
+          <Property Name="ID_DANH_MUC" Type="Int32" Nullable="false" />
+          <Property Name="ID_TAI_KHOAN" Type="Int32" Nullable="false" />
+          <Property Name="LUOT_XEM" Type="Int32" Nullable="false" />
+          <Property Name="DUYET_DANG" Type="Boolean" />
+          <NavigationProperty Name="DANH_MUC" Relationship="Self.FK_CAU_HOI_DANH_MUC" FromRole="CAU_HOI" ToRole="DANH_MUC" />
+          <NavigationProperty Name="TAI_KHOAN" Relationship="Self.FK_CAU_HOI_TAI_KHOAN" FromRole="CAU_HOI" ToRole="TAI_KHOAN" />
+          <NavigationProperty Name="CAU_TRA_LOI" Relationship="Self.FK_CAU_TRA_LOI_CAU_HOI" FromRole="CAU_HOI" ToRole="CAU_TRA_LOI" />
         </EntityType>
-        <EntityType Name="SLIDER">
+        <EntityType Name="CAU_TRA_LOI">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IMAGE_URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TEXT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ORDER" Type="Int32" />
-          <Property Name="IS_VISIBLE" Type="Boolean" />
+          <Property Name="ID_CAU_HOI" Type="Int32" Nullable="false" />
+          <Property Name="CAU_TRA_LOI1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NGAY_TRA_LOI" Type="DateTime" Precision="7" />
+          <Property Name="ID_TAI_KHOAN" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CAU_HOI" Relationship="Self.FK_CAU_TRA_LOI_CAU_HOI" FromRole="CAU_TRA_LOI" ToRole="CAU_HOI" />
+          <NavigationProperty Name="TAI_KHOAN" Relationship="Self.FK_CAU_TRA_LOI_TAI_KHOAN" FromRole="CAU_TRA_LOI" ToRole="TAI_KHOAN" />
+        </EntityType>
+        <EntityType Name="DANH_MUC">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DANH_MUC1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MO_TA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HINH_ANH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NGAY_TAO" Type="DateTime" Precision="7" />
+          <Property Name="ID_TAI_KHOAN" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CAU_HOI" Relationship="Self.FK_CAU_HOI_DANH_MUC" FromRole="DANH_MUC" ToRole="CAU_HOI" />
+          <NavigationProperty Name="TAI_KHOAN" Relationship="Self.FK_DANH_MUC_TAI_KHOAN" FromRole="DANH_MUC" ToRole="TAI_KHOAN" />
+        </EntityType>
+        <EntityType Name="LICH_SU_CHINH_SUA_CAU_HOI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CAU_HOI_TRUOC_CHINH_SUA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MO_TA_TRUOC_CHINH_SUA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NGAY_CHINH_SUA" Type="DateTime" Precision="7" />
+          <Property Name="ID_DANH_MUC_TRUOC_CHINH_SUA" Type="Int32" Nullable="false" />
+          <Property Name="CAU_HOI_SAU_CHINH_SUA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MO_TA_SAU_CHINH_SUA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ID_DANH_MUC_SAU_CHINH_SUA" Type="Int32" Nullable="false" />
+          <Property Name="ID_TAI_KHOAN" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TAI_KHOAN" Relationship="Self.FK_LICH_SU_CHINH_SUA_CAU_HOI_TAI_KHOAN" FromRole="LICH_SU_CHINH_SUA_CAU_HOI" ToRole="TAI_KHOAN" />
+        </EntityType>
+        <EntityType Name="LICH_SU_CHINH_SUA_DANH_MUC">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DANH_MUC_TRUOC_CHINH_SUA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MO_TA_TRUOC_CHINH_SUA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NGAY_CHINH_SUA" Type="DateTime" Precision="7" />
+          <Property Name="HINH_ANH_TRUOC_CHINH_SUA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DANH_MUC_SAU_CHINH_SUA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MO_TA_SAU_CHINH_SUA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HINH_ANH_SAU_CHINH_SUA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_TAI_KHOAN" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TAI_KHOAN" Relationship="Self.FK_LICH_SU_CHINH_SUA_DANH_MUC_TAI_KHOAN" FromRole="LICH_SU_CHINH_SUA_DANH_MUC" ToRole="TAI_KHOAN" />
+        </EntityType>
+        <EntityType Name="LUOT_TIM_TU_KHOA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TU_KHOA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LUOT_TIM" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="QUYEN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TEN_QUYEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="QUYEN_CUA_USER" Relationship="Self.FK_QUYEN_CUA_USER_QUYEN" FromRole="QUYEN" ToRole="QUYEN_CUA_USER" />
+        </EntityType>
+        <EntityType Name="QUYEN_CUA_USER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_TAI_KHOAN" Type="Int32" Nullable="false" />
+          <Property Name="ID_QUYEN" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="QUYEN" Relationship="Self.FK_QUYEN_CUA_USER_QUYEN" FromRole="QUYEN_CUA_USER" ToRole="QUYEN" />
+          <NavigationProperty Name="TAI_KHOAN" Relationship="Self.FK_QUYEN_CUA_USER_TAI_KHOAN" FromRole="QUYEN_CUA_USER" ToRole="TAI_KHOAN" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -218,46 +586,235 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <Association Name="FK__FOOD__MENU_ID__117F9D94">
-          <End Role="CATEGORY" Type="Self.CATEGORY" Multiplicity="1" />
-          <End Role="QUESTIONS" Type="Self.QUESTION" Multiplicity="*" />
+        <EntityType Name="TAI_KHOAN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AVATAR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MAT_KHAU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MA_SO_NGUOI_DUNG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CAU_HOI" Relationship="Self.FK_CAU_HOI_TAI_KHOAN" FromRole="TAI_KHOAN" ToRole="CAU_HOI" />
+          <NavigationProperty Name="CAU_TRA_LOI" Relationship="Self.FK_CAU_TRA_LOI_TAI_KHOAN" FromRole="TAI_KHOAN" ToRole="CAU_TRA_LOI" />
+          <NavigationProperty Name="DANH_MUC" Relationship="Self.FK_DANH_MUC_TAI_KHOAN" FromRole="TAI_KHOAN" ToRole="DANH_MUC" />
+          <NavigationProperty Name="LICH_SU_CHINH_SUA_CAU_HOI" Relationship="Self.FK_LICH_SU_CHINH_SUA_CAU_HOI_TAI_KHOAN" FromRole="TAI_KHOAN" ToRole="LICH_SU_CHINH_SUA_CAU_HOI" />
+          <NavigationProperty Name="LICH_SU_CHINH_SUA_DANH_MUC" Relationship="Self.FK_LICH_SU_CHINH_SUA_DANH_MUC_TAI_KHOAN" FromRole="TAI_KHOAN" ToRole="LICH_SU_CHINH_SUA_DANH_MUC" />
+          <NavigationProperty Name="QUYEN_CUA_USER" Relationship="Self.FK_QUYEN_CUA_USER_TAI_KHOAN" FromRole="TAI_KHOAN" ToRole="QUYEN_CUA_USER" />
+        </EntityType>
+        <EntityType Name="UserTokenCach">
+          <Key>
+            <PropertyRef Name="UserTokenCacheId" />
+          </Key>
+          <Property Name="UserTokenCacheId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="webUserUniqueId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="cacheBits" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="LastWrite" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="CATEGORY">
-              <PropertyRef Name="ID" />
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="QUESTIONS">
-              <PropertyRef Name="CATEGORY_ID" />
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CUSTOMERS__FACUL__0519C6AF">
-          <End Role="FACULTY" Type="Self.FACULTY" Multiplicity="1" />
-          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="*" />
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="FACULTY">
-              <PropertyRef Name="ID" />
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="CUSTOMER">
-              <PropertyRef Name="FACULTY_ID" />
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="QUANLYCAUHOIEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="CATEGORies" EntityType="Self.CATEGORY" />
-          <EntitySet Name="CONTACTs" EntityType="Self.CONTACT" />
-          <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />
-          <EntitySet Name="FACULTies" EntityType="Self.FACULTY" />
-          <EntitySet Name="INTRODUCTIONs" EntityType="Self.INTRODUCTION" />
-          <EntitySet Name="QUESTIONS" EntityType="Self.QUESTION" />
-          <EntitySet Name="SLIDERs" EntityType="Self.SLIDER" />
+        <Association Name="FK_CAU_HOI_DANH_MUC">
+          <End Role="DANH_MUC" Type="Self.DANH_MUC" Multiplicity="1" />
+          <End Role="CAU_HOI" Type="Self.CAU_HOI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DANH_MUC">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CAU_HOI">
+              <PropertyRef Name="ID_DANH_MUC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CAU_HOI_TAI_KHOAN">
+          <End Role="TAI_KHOAN" Type="Self.TAI_KHOAN" Multiplicity="1" />
+          <End Role="CAU_HOI" Type="Self.CAU_HOI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAI_KHOAN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CAU_HOI">
+              <PropertyRef Name="ID_TAI_KHOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CAU_TRA_LOI_CAU_HOI">
+          <End Role="CAU_HOI" Type="Self.CAU_HOI" Multiplicity="1" />
+          <End Role="CAU_TRA_LOI" Type="Self.CAU_TRA_LOI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAU_HOI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CAU_TRA_LOI">
+              <PropertyRef Name="ID_CAU_HOI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CAU_TRA_LOI_TAI_KHOAN">
+          <End Role="TAI_KHOAN" Type="Self.TAI_KHOAN" Multiplicity="1" />
+          <End Role="CAU_TRA_LOI" Type="Self.CAU_TRA_LOI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAI_KHOAN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CAU_TRA_LOI">
+              <PropertyRef Name="ID_TAI_KHOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DANH_MUC_TAI_KHOAN">
+          <End Role="TAI_KHOAN" Type="Self.TAI_KHOAN" Multiplicity="1" />
+          <End Role="DANH_MUC" Type="Self.DANH_MUC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAI_KHOAN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DANH_MUC">
+              <PropertyRef Name="ID_TAI_KHOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LICH_SU_CHINH_SUA_CAU_HOI_TAI_KHOAN">
+          <End Role="TAI_KHOAN" Type="Self.TAI_KHOAN" Multiplicity="1" />
+          <End Role="LICH_SU_CHINH_SUA_CAU_HOI" Type="Self.LICH_SU_CHINH_SUA_CAU_HOI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAI_KHOAN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LICH_SU_CHINH_SUA_CAU_HOI">
+              <PropertyRef Name="ID_TAI_KHOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LICH_SU_CHINH_SUA_DANH_MUC_TAI_KHOAN">
+          <End Role="TAI_KHOAN" Type="Self.TAI_KHOAN" Multiplicity="1" />
+          <End Role="LICH_SU_CHINH_SUA_DANH_MUC" Type="Self.LICH_SU_CHINH_SUA_DANH_MUC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAI_KHOAN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LICH_SU_CHINH_SUA_DANH_MUC">
+              <PropertyRef Name="ID_TAI_KHOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QUYEN_CUA_USER_QUYEN">
+          <End Role="QUYEN" Type="Self.QUYEN" Multiplicity="1" />
+          <End Role="QUYEN_CUA_USER" Type="Self.QUYEN_CUA_USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QUYEN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="QUYEN_CUA_USER">
+              <PropertyRef Name="ID_QUYEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QUYEN_CUA_USER_TAI_KHOAN">
+          <End Role="TAI_KHOAN" Type="Self.TAI_KHOAN" Multiplicity="1" />
+          <End Role="QUYEN_CUA_USER" Type="Self.QUYEN_CUA_USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAI_KHOAN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="QUYEN_CUA_USER">
+              <PropertyRef Name="ID_TAI_KHOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="DIEUBANTHUONGHOIWEBSITEEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="CAU_HOI" EntityType="Self.CAU_HOI" />
+          <EntitySet Name="CAU_TRA_LOI" EntityType="Self.CAU_TRA_LOI" />
+          <EntitySet Name="DANH_MUC" EntityType="Self.DANH_MUC" />
+          <EntitySet Name="LICH_SU_CHINH_SUA_CAU_HOI" EntityType="Self.LICH_SU_CHINH_SUA_CAU_HOI" />
+          <EntitySet Name="LICH_SU_CHINH_SUA_DANH_MUC" EntityType="Self.LICH_SU_CHINH_SUA_DANH_MUC" />
+          <EntitySet Name="LUOT_TIM_TU_KHOA" EntityType="Self.LUOT_TIM_TU_KHOA" />
+          <EntitySet Name="QUYENs" EntityType="Self.QUYEN" />
+          <EntitySet Name="QUYEN_CUA_USER" EntityType="Self.QUYEN_CUA_USER" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <AssociationSet Name="FK__FOOD__MENU_ID__117F9D94" Association="Self.FK__FOOD__MENU_ID__117F9D94">
-            <End Role="CATEGORY" EntitySet="CATEGORies" />
-            <End Role="QUESTIONS" EntitySet="QUESTIONS" />
+          <EntitySet Name="TAI_KHOAN" EntityType="Self.TAI_KHOAN" />
+          <EntitySet Name="UserTokenCaches" EntityType="Self.UserTokenCach" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
           </AssociationSet>
-          <AssociationSet Name="FK__CUSTOMERS__FACUL__0519C6AF" Association="Self.FK__CUSTOMERS__FACUL__0519C6AF">
-            <End Role="FACULTY" EntitySet="FACULTies" />
-            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CAU_HOI_DANH_MUC" Association="Self.FK_CAU_HOI_DANH_MUC">
+            <End Role="DANH_MUC" EntitySet="DANH_MUC" />
+            <End Role="CAU_HOI" EntitySet="CAU_HOI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CAU_HOI_TAI_KHOAN" Association="Self.FK_CAU_HOI_TAI_KHOAN">
+            <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
+            <End Role="CAU_HOI" EntitySet="CAU_HOI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CAU_TRA_LOI_CAU_HOI" Association="Self.FK_CAU_TRA_LOI_CAU_HOI">
+            <End Role="CAU_HOI" EntitySet="CAU_HOI" />
+            <End Role="CAU_TRA_LOI" EntitySet="CAU_TRA_LOI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CAU_TRA_LOI_TAI_KHOAN" Association="Self.FK_CAU_TRA_LOI_TAI_KHOAN">
+            <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
+            <End Role="CAU_TRA_LOI" EntitySet="CAU_TRA_LOI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DANH_MUC_TAI_KHOAN" Association="Self.FK_DANH_MUC_TAI_KHOAN">
+            <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
+            <End Role="DANH_MUC" EntitySet="DANH_MUC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LICH_SU_CHINH_SUA_CAU_HOI_TAI_KHOAN" Association="Self.FK_LICH_SU_CHINH_SUA_CAU_HOI_TAI_KHOAN">
+            <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
+            <End Role="LICH_SU_CHINH_SUA_CAU_HOI" EntitySet="LICH_SU_CHINH_SUA_CAU_HOI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LICH_SU_CHINH_SUA_DANH_MUC_TAI_KHOAN" Association="Self.FK_LICH_SU_CHINH_SUA_DANH_MUC_TAI_KHOAN">
+            <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
+            <End Role="LICH_SU_CHINH_SUA_DANH_MUC" EntitySet="LICH_SU_CHINH_SUA_DANH_MUC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QUYEN_CUA_USER_QUYEN" Association="Self.FK_QUYEN_CUA_USER_QUYEN">
+            <End Role="QUYEN" EntitySet="QUYENs" />
+            <End Role="QUYEN_CUA_USER" EntitySet="QUYEN_CUA_USER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QUYEN_CUA_USER_TAI_KHOAN" Association="Self.FK_QUYEN_CUA_USER_TAI_KHOAN">
+            <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
+            <End Role="QUYEN_CUA_USER" EntitySet="QUYEN_CUA_USER" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -265,87 +822,157 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QUANLYCAUHOIModelStoreContainer" CdmEntityContainer="QUANLYCAUHOIEntities">
-          <EntitySetMapping Name="CATEGORies">
-            <EntityTypeMapping TypeName="QUANLYCAUHOIModel.CATEGORY">
-              <MappingFragment StoreEntitySet="CATEGORY">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="CATEGORY_CODE" ColumnName="CATEGORY_CODE" />
-                <ScalarProperty Name="CATEGORY_NAME" ColumnName="CATEGORY_NAME" />
-                <ScalarProperty Name="IMAGE_URL" ColumnName="IMAGE_URL" />
-                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+        <EntityContainerMapping StorageEntityContainer="DIEUBANTHUONGHOIWEBSITEStoreContainer" CdmEntityContainer="DIEUBANTHUONGHOIWEBSITEEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CONTACTs">
-            <EntityTypeMapping TypeName="QUANLYCAUHOIModel.CONTACT">
-              <MappingFragment StoreEntitySet="CONTACT">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
-                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
-                <ScalarProperty Name="DATE" ColumnName="DATE" />
-                <ScalarProperty Name="CONTENT" ColumnName="CONTENT" />
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CUSTOMERs">
-            <EntityTypeMapping TypeName="QUANLYCAUHOIModel.CUSTOMER">
-              <MappingFragment StoreEntitySet="CUSTOMER">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
-                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
-                <ScalarProperty Name="FULL_NAME" ColumnName="FULL_NAME" />
-                <ScalarProperty Name="PHONE_NUMBER" ColumnName="PHONE_NUMBER" />
-                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
-                <ScalarProperty Name="CUSTOMER_TYPE" ColumnName="CUSTOMER_TYPE" />
-                <ScalarProperty Name="FACULTY_ID" ColumnName="FACULTY_ID" />
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="FACULTies">
-            <EntityTypeMapping TypeName="QUANLYCAUHOIModel.FACULTY">
-              <MappingFragment StoreEntitySet="FACULTY">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="FACULTY_CODE" ColumnName="FACULTY_CODE" />
-                <ScalarProperty Name="FACULTY_NAME" ColumnName="FACULTY_NAME" />
-                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="INTRODUCTIONs">
-            <EntityTypeMapping TypeName="QUANLYCAUHOIModel.INTRODUCTION">
-              <MappingFragment StoreEntitySet="INTRODUCTION">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="CONTENT" ColumnName="CONTENT" />
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="QUESTIONS">
-            <EntityTypeMapping TypeName="QUANLYCAUHOIModel.QUESTION">
-              <MappingFragment StoreEntitySet="QUESTIONS">
+          <EntitySetMapping Name="CAU_HOI">
+            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.CAU_HOI">
+              <MappingFragment StoreEntitySet="CAU_HOI">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="QUESTION_CODE" ColumnName="QUESTION_CODE" />
-                <ScalarProperty Name="QUESTION_NAME" ColumnName="QUESTION_NAME" />
-                <ScalarProperty Name="CATEGORY_ID" ColumnName="CATEGORY_ID" />
-                <ScalarProperty Name="CONTENT" ColumnName="CONTENT" />
-                <ScalarProperty Name="IMAGE_URL" ColumnName="IMAGE_URL" />
-                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="CAU_HOI1" ColumnName="CAU_HOI" />
+                <ScalarProperty Name="MO_TA" ColumnName="MO_TA" />
+                <ScalarProperty Name="NGAY_TAO" ColumnName="NGAY_TAO" />
+                <ScalarProperty Name="ID_DANH_MUC" ColumnName="ID_DANH_MUC" />
+                <ScalarProperty Name="ID_TAI_KHOAN" ColumnName="ID_TAI_KHOAN" />
+                <ScalarProperty Name="LUOT_XEM" ColumnName="LUOT_XEM" />
+                <ScalarProperty Name="DUYET_DANG" ColumnName="DUYET_DANG" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SLIDERs">
-            <EntityTypeMapping TypeName="QUANLYCAUHOIModel.SLIDER">
-              <MappingFragment StoreEntitySet="SLIDER">
+          <EntitySetMapping Name="CAU_TRA_LOI">
+            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.CAU_TRA_LOI">
+              <MappingFragment StoreEntitySet="CAU_TRA_LOI">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="IMAGE_URL" ColumnName="IMAGE_URL" />
-                <ScalarProperty Name="TEXT" ColumnName="TEXT" />
-                <ScalarProperty Name="ORDER" ColumnName="ORDER" />
-                <ScalarProperty Name="IS_VISIBLE" ColumnName="IS_VISIBLE" />
+                <ScalarProperty Name="ID_CAU_HOI" ColumnName="ID_CAU_HOI" />
+                <ScalarProperty Name="CAU_TRA_LOI1" ColumnName="CAU_TRA_LOI" />
+                <ScalarProperty Name="NGAY_TRA_LOI" ColumnName="NGAY_TRA_LOI" />
+                <ScalarProperty Name="ID_TAI_KHOAN" ColumnName="ID_TAI_KHOAN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DANH_MUC">
+            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.DANH_MUC">
+              <MappingFragment StoreEntitySet="DANH_MUC">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DANH_MUC1" ColumnName="DANH_MUC" />
+                <ScalarProperty Name="MO_TA" ColumnName="MO_TA" />
+                <ScalarProperty Name="HINH_ANH" ColumnName="HINH_ANH" />
+                <ScalarProperty Name="NGAY_TAO" ColumnName="NGAY_TAO" />
+                <ScalarProperty Name="ID_TAI_KHOAN" ColumnName="ID_TAI_KHOAN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LICH_SU_CHINH_SUA_CAU_HOI">
+            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.LICH_SU_CHINH_SUA_CAU_HOI">
+              <MappingFragment StoreEntitySet="LICH_SU_CHINH_SUA_CAU_HOI">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CAU_HOI_TRUOC_CHINH_SUA" ColumnName="CAU_HOI_TRUOC_CHINH_SUA" />
+                <ScalarProperty Name="MO_TA_TRUOC_CHINH_SUA" ColumnName="MO_TA_TRUOC_CHINH_SUA" />
+                <ScalarProperty Name="NGAY_CHINH_SUA" ColumnName="NGAY_CHINH_SUA" />
+                <ScalarProperty Name="ID_DANH_MUC_TRUOC_CHINH_SUA" ColumnName="ID_DANH_MUC_TRUOC_CHINH_SUA" />
+                <ScalarProperty Name="CAU_HOI_SAU_CHINH_SUA" ColumnName="CAU_HOI_SAU_CHINH_SUA" />
+                <ScalarProperty Name="MO_TA_SAU_CHINH_SUA" ColumnName="MO_TA_SAU_CHINH_SUA" />
+                <ScalarProperty Name="ID_DANH_MUC_SAU_CHINH_SUA" ColumnName="ID_DANH_MUC_SAU_CHINH_SUA" />
+                <ScalarProperty Name="ID_TAI_KHOAN" ColumnName="ID_TAI_KHOAN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LICH_SU_CHINH_SUA_DANH_MUC">
+            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.LICH_SU_CHINH_SUA_DANH_MUC">
+              <MappingFragment StoreEntitySet="LICH_SU_CHINH_SUA_DANH_MUC">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DANH_MUC_TRUOC_CHINH_SUA" ColumnName="DANH_MUC_TRUOC_CHINH_SUA" />
+                <ScalarProperty Name="MO_TA_TRUOC_CHINH_SUA" ColumnName="MO_TA_TRUOC_CHINH_SUA" />
+                <ScalarProperty Name="NGAY_CHINH_SUA" ColumnName="NGAY_CHINH_SUA" />
+                <ScalarProperty Name="HINH_ANH_TRUOC_CHINH_SUA" ColumnName="HINH_ANH_TRUOC_CHINH_SUA" />
+                <ScalarProperty Name="DANH_MUC_SAU_CHINH_SUA" ColumnName="DANH_MUC_SAU_CHINH_SUA" />
+                <ScalarProperty Name="MO_TA_SAU_CHINH_SUA" ColumnName="MO_TA_SAU_CHINH_SUA" />
+                <ScalarProperty Name="HINH_ANH_SAU_CHINH_SUA" ColumnName="HINH_ANH_SAU_CHINH_SUA" />
+                <ScalarProperty Name="ID_TAI_KHOAN" ColumnName="ID_TAI_KHOAN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LUOT_TIM_TU_KHOA">
+            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.LUOT_TIM_TU_KHOA">
+              <MappingFragment StoreEntitySet="LUOT_TIM_TU_KHOA">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TU_KHOA" ColumnName="TU_KHOA" />
+                <ScalarProperty Name="LUOT_TIM" ColumnName="LUOT_TIM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QUYENs">
+            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.QUYEN">
+              <MappingFragment StoreEntitySet="QUYEN">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TEN_QUYEN" ColumnName="TEN_QUYEN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QUYEN_CUA_USER">
+            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.QUYEN_CUA_USER">
+              <MappingFragment StoreEntitySet="QUYEN_CUA_USER">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_TAI_KHOAN" ColumnName="ID_TAI_KHOAN" />
+                <ScalarProperty Name="ID_QUYEN" ColumnName="ID_QUYEN" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="QUANLYCAUHOIModel.sysdiagram">
+            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -355,6 +982,35 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TAI_KHOAN">
+            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.TAI_KHOAN">
+              <MappingFragment StoreEntitySet="TAI_KHOAN">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AVATAR" ColumnName="AVATAR" />
+                <ScalarProperty Name="MAT_KHAU" ColumnName="MAT_KHAU" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="MA_SO_NGUOI_DUNG" ColumnName="MA_SO_NGUOI_DUNG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTokenCaches">
+            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.UserTokenCach">
+              <MappingFragment StoreEntitySet="UserTokenCaches">
+                <ScalarProperty Name="UserTokenCacheId" ColumnName="UserTokenCacheId" />
+                <ScalarProperty Name="webUserUniqueId" ColumnName="webUserUniqueId" />
+                <ScalarProperty Name="cacheBits" ColumnName="cacheBits" />
+                <ScalarProperty Name="LastWrite" ColumnName="LastWrite" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="DIEUBANTHUONGHOIWEBSITE.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

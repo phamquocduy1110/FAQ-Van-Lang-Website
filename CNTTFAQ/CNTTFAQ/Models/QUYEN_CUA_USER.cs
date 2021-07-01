@@ -12,9 +12,13 @@ namespace CNTTFAQ.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class INTRODUCTION
+    public partial class QUYEN_CUA_USER
     {
         public int ID { get; set; }
-        public string CONTENT { get; set; }
+        public int ID_TAI_KHOAN { get; set; }
+        public int ID_QUYEN { get; set; }
+    
+        public virtual QUYEN QUYEN { get; set; }
+        public virtual TAI_KHOAN TAI_KHOAN { get; set; }
     }
 }

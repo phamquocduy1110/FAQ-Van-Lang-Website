@@ -185,20 +185,38 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\CATEGORY.cs">
+    <Compile Include="Models\AspNetRole.cs">
       <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CONTACT.cs">
+    <Compile Include="Models\AspNetUser.cs">
       <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CUSTOMER.cs">
+    <Compile Include="Models\AspNetUserClaim.cs">
       <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\FACULTY.cs">
+    <Compile Include="Models\AspNetUserLogin.cs">
+      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CAU_HOI.cs">
+      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CAU_TRA_LOI.cs">
+      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C__MigrationHistory.cs">
+      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DANH_MUC.cs">
       <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\INTRODUCTION.cs">
+    <Compile Include="Models\LICH_SU_CHINH_SUA_CAU_HOI.cs">
+      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LICH_SU_CHINH_SUA_DANH_MUC.cs">
+      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LUOT_TIM_TU_KHOA.cs">
       <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
@@ -217,13 +235,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyCauHoi.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\QUESTION.cs">
+    <Compile Include="Models\QUYEN.cs">
       <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SLIDER.cs">
+    <Compile Include="Models\QUYEN_CUA_USER.cs">
       <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TAI_KHOAN.cs">
+      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserTokenCach.cs">
       <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -553,13 +577,6 @@
     <Content Include="Assets\vendor\AdminIndexVendor\slick\slick-theme.scss" />
     <Content Include="Assets\vendor\AdminIndexVendor\slick\slick.less" />
     <Content Include="Assets\vendor\AdminIndexVendor\slick\slick.scss" />
-    <EntityDeploy Include="Models\QuanLyCauHoi.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QuanLyCauHoi.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\QuanLyCauHoi.edmx.diagram">
-      <DependentUpon>QuanLyCauHoi.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\AdminAccount\ConfirmEmail.cshtml" />
     <Content Include="Areas\Admin\Views\AdminAccount\ExternalLoginConfirmation.cshtml" />
     <Content Include="Areas\Admin\Views\AdminAccount\ExternalLoginFailure.cshtml" />
@@ -580,6 +597,13 @@
     <Content Include="Areas\Admin\Views\AdminHome\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminHome\Calendar.cshtml" />
     <Content Include="Areas\Admin\Views\ManageQuestions\Index.cshtml" />
+    <EntityDeploy Include="Models\QuanLyCauHoi.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QuanLyCauHoi.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\QuanLyCauHoi.edmx.diagram">
+      <DependentUpon>QuanLyCauHoi.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

@@ -12,12 +12,11 @@ namespace CNTTFAQ.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class SLIDER
+    public partial class UserTokenCach
     {
-        public int ID { get; set; }
-        public string IMAGE_URL { get; set; }
-        public string TEXT { get; set; }
-        public Nullable<int> ORDER { get; set; }
-        public Nullable<bool> IS_VISIBLE { get; set; }
+        public int UserTokenCacheId { get; set; }
+        public string webUserUniqueId { get; set; }
+        public byte[] cacheBits { get; set; }
+        public System.DateTime LastWrite { get; set; }
     }
 }

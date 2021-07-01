@@ -12,21 +12,18 @@ namespace CNTTFAQ.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class CATEGORY
+    public partial class AspNetRole
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CATEGORY()
+        public AspNetRole()
         {
-            this.QUESTIONS = new HashSet<QUESTION>();
+            this.AspNetUsers = new HashSet<AspNetUser>();
         }
     
-        public int ID { get; set; }
-        public string CATEGORY_CODE { get; set; }
-        public string CATEGORY_NAME { get; set; }
-        public string IMAGE_URL { get; set; }
-        public bool STATUS { get; set; }
+        public string Id { get; set; }
+        public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QUESTION> QUESTIONS { get; set; }
+        public virtual ICollection<AspNetUser> AspNetUsers { get; set; }
     }
 }

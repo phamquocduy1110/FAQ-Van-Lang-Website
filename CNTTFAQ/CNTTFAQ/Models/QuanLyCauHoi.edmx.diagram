@@ -4,17 +4,35 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="aec32550010b46a7bb03977a35c73df6" Name="Diagram1">
-        <EntityTypeShape EntityType="QUANLYCAUHOIModel.CATEGORY" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="QUANLYCAUHOIModel.CONTACT" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QUANLYCAUHOIModel.CUSTOMER" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QUANLYCAUHOIModel.FACULTY" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="QUANLYCAUHOIModel.INTRODUCTION" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QUANLYCAUHOIModel.QUESTION" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="QUANLYCAUHOIModel.SLIDER" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QUANLYCAUHOIModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <AssociationConnector Association="QUANLYCAUHOIModel.FK__FOOD__MENU_ID__117F9D94" ManuallyRouted="false" />
-        <AssociationConnector Association="QUANLYCAUHOIModel.FK__CUSTOMERS__FACUL__0519C6AF" ManuallyRouted="false" />
+      <Diagram DiagramId="591ceb5d43104a11947a7b2b3846e344" Name="Diagram1">
+        <EntityTypeShape EntityType="DIEUBANTHUONGHOIWEBSITE.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DIEUBANTHUONGHOIWEBSITE.AspNetRole" Width="1.5" PointX="5.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DIEUBANTHUONGHOIWEBSITE.AspNetUserClaim" Width="1.5" PointX="10.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DIEUBANTHUONGHOIWEBSITE.AspNetUserLogin" Width="1.5" PointX="10.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DIEUBANTHUONGHOIWEBSITE.AspNetUser" Width="1.5" PointX="8" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DIEUBANTHUONGHOIWEBSITE.CAU_HOI" Width="1.5" PointX="5.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DIEUBANTHUONGHOIWEBSITE.CAU_TRA_LOI" Width="1.5" PointX="7.5" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DIEUBANTHUONGHOIWEBSITE.DANH_MUC" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DIEUBANTHUONGHOIWEBSITE.LICH_SU_CHINH_SUA_CAU_HOI" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DIEUBANTHUONGHOIWEBSITE.LICH_SU_CHINH_SUA_DANH_MUC" Width="1.5" PointX="3" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DIEUBANTHUONGHOIWEBSITE.LUOT_TIM_TU_KHOA" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DIEUBANTHUONGHOIWEBSITE.QUYEN" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DIEUBANTHUONGHOIWEBSITE.QUYEN_CUA_USER" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="DIEUBANTHUONGHOIWEBSITE.sysdiagram" Width="1.5" PointX="9.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DIEUBANTHUONGHOIWEBSITE.TAI_KHOAN" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DIEUBANTHUONGHOIWEBSITE.UserTokenCach" Width="1.5" PointX="9.75" PointY="9.75" IsExpanded="true" />
+        <AssociationConnector Association="DIEUBANTHUONGHOIWEBSITE.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DIEUBANTHUONGHOIWEBSITE.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DIEUBANTHUONGHOIWEBSITE.FK_CAU_HOI_DANH_MUC" ManuallyRouted="false" />
+        <AssociationConnector Association="DIEUBANTHUONGHOIWEBSITE.FK_CAU_HOI_TAI_KHOAN" ManuallyRouted="false" />
+        <AssociationConnector Association="DIEUBANTHUONGHOIWEBSITE.FK_CAU_TRA_LOI_CAU_HOI" ManuallyRouted="false" />
+        <AssociationConnector Association="DIEUBANTHUONGHOIWEBSITE.FK_CAU_TRA_LOI_TAI_KHOAN" ManuallyRouted="false" />
+        <AssociationConnector Association="DIEUBANTHUONGHOIWEBSITE.FK_DANH_MUC_TAI_KHOAN" ManuallyRouted="false" />
+        <AssociationConnector Association="DIEUBANTHUONGHOIWEBSITE.FK_LICH_SU_CHINH_SUA_CAU_HOI_TAI_KHOAN" ManuallyRouted="false" />
+        <AssociationConnector Association="DIEUBANTHUONGHOIWEBSITE.FK_LICH_SU_CHINH_SUA_DANH_MUC_TAI_KHOAN" ManuallyRouted="false" />
+        <AssociationConnector Association="DIEUBANTHUONGHOIWEBSITE.FK_QUYEN_CUA_USER_QUYEN" ManuallyRouted="false" />
+        <AssociationConnector Association="DIEUBANTHUONGHOIWEBSITE.FK_QUYEN_CUA_USER_TAI_KHOAN" ManuallyRouted="false" />
+        <AssociationConnector Association="DIEUBANTHUONGHOIWEBSITE.AspNetUserRoles" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

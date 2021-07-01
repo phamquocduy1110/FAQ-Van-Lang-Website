@@ -12,16 +12,10 @@ namespace CNTTFAQ.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class QUESTION
+    public partial class LUOT_TIM_TU_KHOA
     {
         public int ID { get; set; }
-        public string QUESTION_CODE { get; set; }
-        public string QUESTION_NAME { get; set; }
-        public int CATEGORY_ID { get; set; }
-        public string CONTENT { get; set; }
-        public string IMAGE_URL { get; set; }
-        public bool STATUS { get; set; }
-    
-        public virtual CATEGORY CATEGORY { get; set; }
+        public string TU_KHOA { get; set; }
+        public int LUOT_TIM { get; set; }
     }
 }

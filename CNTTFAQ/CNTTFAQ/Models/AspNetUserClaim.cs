@@ -12,12 +12,13 @@ namespace CNTTFAQ.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class CONTACT
+    public partial class AspNetUserClaim
     {
-        public int ID { get; set; }
-        public string EMAIL { get; set; }
-        public string TITLE { get; set; }
-        public System.DateTime DATE { get; set; }
-        public string CONTENT { get; set; }
+        public int Id { get; set; }
+        public string UserId { get; set; }
+        public string ClaimType { get; set; }
+        public string ClaimValue { get; set; }
+    
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }

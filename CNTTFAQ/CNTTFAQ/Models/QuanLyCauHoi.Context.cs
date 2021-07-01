@@ -13,10 +13,10 @@ namespace CNTTFAQ.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QUANLYCAUHOIEntities : DbContext
+    public partial class DIEUBANTHUONGHOIWEBSITEEntities : DbContext
     {
-        public QUANLYCAUHOIEntities()
-            : base("name=QUANLYCAUHOIEntities")
+        public DIEUBANTHUONGHOIWEBSITEEntities()
+            : base("name=DIEUBANTHUONGHOIWEBSITEEntities")
         {
         }
     
@@ -25,13 +25,21 @@ namespace CNTTFAQ.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<CATEGORY> CATEGORies { get; set; }
-        public virtual DbSet<CONTACT> CONTACTs { get; set; }
-        public virtual DbSet<CUSTOMER> CUSTOMERs { get; set; }
-        public virtual DbSet<FACULTY> FACULTies { get; set; }
-        public virtual DbSet<INTRODUCTION> INTRODUCTIONs { get; set; }
-        public virtual DbSet<QUESTION> QUESTIONS { get; set; }
-        public virtual DbSet<SLIDER> SLIDERs { get; set; }
+        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
+        public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
+        public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
+        public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
+        public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
+        public virtual DbSet<CAU_HOI> CAU_HOI { get; set; }
+        public virtual DbSet<CAU_TRA_LOI> CAU_TRA_LOI { get; set; }
+        public virtual DbSet<DANH_MUC> DANH_MUC { get; set; }
+        public virtual DbSet<LICH_SU_CHINH_SUA_CAU_HOI> LICH_SU_CHINH_SUA_CAU_HOI { get; set; }
+        public virtual DbSet<LICH_SU_CHINH_SUA_DANH_MUC> LICH_SU_CHINH_SUA_DANH_MUC { get; set; }
+        public virtual DbSet<LUOT_TIM_TU_KHOA> LUOT_TIM_TU_KHOA { get; set; }
+        public virtual DbSet<QUYEN> QUYENs { get; set; }
+        public virtual DbSet<QUYEN_CUA_USER> QUYEN_CUA_USER { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<TAI_KHOAN> TAI_KHOAN { get; set; }
+        public virtual DbSet<UserTokenCach> UserTokenCaches { get; set; }
     }
 }

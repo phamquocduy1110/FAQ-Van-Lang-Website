@@ -12,17 +12,11 @@ namespace CNTTFAQ.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class CUSTOMER
+    public partial class C__MigrationHistory
     {
-        public int ID { get; set; }
-        public string EMAIL { get; set; }
-        public string PASSWORD { get; set; }
-        public string FULL_NAME { get; set; }
-        public string PHONE_NUMBER { get; set; }
-        public bool STATUS { get; set; }
-        public int CUSTOMER_TYPE { get; set; }
-        public int FACULTY_ID { get; set; }
-    
-        public virtual FACULTY FACULTY { get; set; }
+        public string MigrationId { get; set; }
+        public string ContextKey { get; set; }
+        public byte[] Model { get; set; }
+        public string ProductVersion { get; set; }
     }
 }
