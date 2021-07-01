@@ -23,6 +23,7 @@
     <link href="@Url.Content("~/Assets/css/AdminPageCss/dataTables.bootstrap4.css")" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="@Url.Content("~/Assets/css/AdminPageCss/style.min.css")" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Assets/css/AdminPageCss/prism.css")">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -110,8 +111,9 @@
                                 <img src="@Url.Content("~/Assets/images/avatar/profile-pic.jpg")" alt="user" class="rounded-circle"
                                      width="40">
                                 <span class="ml-2 d-none d-lg-inline-block">
-                                    <span>Xin chào,</span> <span class="text-dark">duy.187pm13901@vanlanguni.vn</span> <i data-feather="chevron-down"
-                                                                                                                          class="svg-icon"></i>
+                                    <span>Xin chào,</span>
+                                    <span class="text-dark">duy.187pm13901@vanlanguni.vn</span>
+                                    <i data-feather="chevron-down" class="svg-icon"></i>
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
@@ -178,21 +180,6 @@
                         </li>
                         <li class="list-divider"></li>
                         <li class="nav-small-cap"><span class="hide-menu">Applications</span></li>
-
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="ticket-list.html"
-                               aria-expanded="false">
-                                <i data-feather="tag" class="feather-icon"></i><span class="hide-menu">
-                                    Ticket List
-                                </span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link" href="app-chat.html"
-                               aria-expanded="false">
-                                <i data-feather="message-square" class="feather-icon"></i><span class="hide-menu">Chat</span>
-                            </a>
-                        </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link sidebar-link" href="@Url.Action("Calendar", "AdminHome")"
                                aria-expanded="false">
@@ -205,72 +192,20 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                aria-expanded="false">
-                                <i data-feather="file-text" class="feather-icon"></i><span class="hide-menu">Forms </span>
-                            </a>
-                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
-                                <li class="sidebar-item">
-                                    <a href="form-inputs.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Form Inputs
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="form-input-grid.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Form Grids
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="form-checkbox-radio.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Checkboxes &
-                                            Radios
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow" href="javascript:void(0)"
-                               aria-expanded="false">
                                 <i data-feather="grid" class="feather-icon"></i><span class="hide-menu">Quản lý câu hỏi </span>
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                 <li class="sidebar-item">
-                                    <a href="table-basic.html" class="sidebar-link">
+                                    <a href="@Url.Action("Index", "ManageCatalog")" class="sidebar-link">
                                         <span class="hide-menu">
-                                            Basic Table
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="table-dark-basic.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Dark Basic Table
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="table-sizing.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Sizing Table
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="table-layout-coloured.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Coloured
-                                            Table Layout
+                                            Danh mục
                                         </span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
                                     <a href="@Url.Action("Index", "ManageQuestions")" class="sidebar-link">
                                         <span class="hide-menu">
-                                            Xem danh sách các câu hỏi
+                                            Câu hỏi
                                         </span>
                                     </a>
                                 </li>
@@ -312,104 +247,13 @@
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                 <li class="sidebar-item">
-                                    <a href="ui-buttons.html" class="sidebar-link">
+                                    <a href="@Url.Action("Index", "UIElements")" class="sidebar-link">
                                         <span class="hide-menu">
                                             Buttons
                                         </span>
                                     </a>
                                 </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-modals.html" class="sidebar-link">
-                                        <span class="hide-menu"> Modals </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-tab.html" class="sidebar-link">
-                                        <span class="hide-menu"> Tabs </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-tooltip-popover.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Tooltip &
-                                            Popover
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-notification.html" class="sidebar-link">
-                                        <span class="hide-menu">Notification</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-progressbar.html" class="sidebar-link">
-                                        <span class="hide-menu">Progressbar</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-typography.html" class="sidebar-link">
-                                        <span class="hide-menu">Typography</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-bootstrap.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Bootstrap
-                                            UI
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-breadcrumb.html" class="sidebar-link">
-                                        <span class="hide-menu">Breadcrumb</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-list-media.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            List
-                                            Media
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-grid.html" class="sidebar-link">
-                                        <span class="hide-menu"> Grid </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-carousel.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Carousel
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-scrollspy.html" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Scrollspy
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-toasts.html" class="sidebar-link">
-                                        <span class="hide-menu"> Toasts</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ui-spinner.html" class="sidebar-link">
-                                        <span class="hide-menu"> Spinner </span>
-                                    </a>
-                                </li>
                             </ul>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link" href="ui-cards.html"
-                               aria-expanded="false">
-                                <i data-feather="sidebar" class="feather-icon"></i><span class="hide-menu">
-                                    Cards
-                                </span>
-                            </a>
                         </li>
                         <li class="list-divider"></li>
                         <li class="nav-small-cap"><span class="hide-menu">Authentication</span></li>
@@ -453,89 +297,6 @@
                                 </li>
                             </ul>
                         </li>
-
-                        <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow" href="javascript:void(0)"
-                               aria-expanded="false">
-                                <i data-feather="crosshair" class="feather-icon"></i><span class="hide-menu">
-                                    Multi
-                                    level
-                                    dd
-                                </span>
-                            </a>
-                            <ul aria-expanded="false" class="collapse first-level base-level-line">
-                                <li class="sidebar-item">
-                                    <a href="javascript:void(0)" class="sidebar-link">
-                                        <span class="hide-menu"> item 1.1</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="javascript:void(0)" class="sidebar-link">
-                                        <span class="hide-menu"> item 1.2</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a class="has-arrow sidebar-link" href="javascript:void(0)"
-                                       aria-expanded="false"><span class="hide-menu">Menu 1.3</span></a>
-                                    <ul aria-expanded="false" class="collapse second-level base-level-line">
-                                        <li class="sidebar-item">
-                                            <a href="javascript:void(0)" class="sidebar-link">
-                                                <span class="hide-menu">
-                                                    item
-                                                    1.3.1
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="sidebar-item">
-                                            <a href="javascript:void(0)" class="sidebar-link">
-                                                <span class="hide-menu">
-                                                    item
-                                                    1.3.2
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="sidebar-item">
-                                            <a href="javascript:void(0)" class="sidebar-link">
-                                                <span class="hide-menu">
-                                                    item
-                                                    1.3.3
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="sidebar-item">
-                                            <a href="javascript:void(0)" class="sidebar-link">
-                                                <span class="hide-menu">
-                                                    item
-                                                    1.3.4
-                                                </span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="javascript:void(0)" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            item
-                                            1.4
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="list-divider"></li>
-                        <li class="nav-small-cap"><span class="hide-menu">Extra</span></li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link" href="docs/docs.html"
-                               aria-expanded="false">
-                                <i data-feather="edit-3" class="feather-icon"></i><span class="hide-menu">Documentation</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link" href="authentication-login1.html"
-                               aria-expanded="false">
-                                <i data-feather="log-out" class="feather-icon"></i><span class="hide-menu">Logout</span>
-                            </a>
-                        </li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -573,12 +334,13 @@
     <script src="@Url.Content("~/Assets/js/AdminPageJS/moment.min.js")"></script>
     <script src="@Url.Content("~/Assets/js/AdminPageJS/fullcalendar.min.js")"></script>
     <script src="@Url.Content("~/Assets/js/AdminPageJS/cal-init.js")"></script>
-
     <!-- JavaScript trang xem danh sách các câu hỏi-->
     <script src="@Url.Content("~/Assets/js/AdminPageJS/sparkline.js")"></script>
     <!--This page plugins -->
     <script src="@Url.Content("~/Assets/js/AdminPageJS/jquery.dataTables.min.js")"></script>
     <script src="@Url.Content("~/Assets/js/AdminPageJS/datatable-basic.init.js")"></script>
+    <!-- JavaScript trang xem danh mục-->
+    <script src="@Url.Content("~/Assets/js/AdminPageJS/prism/prism.js")"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
