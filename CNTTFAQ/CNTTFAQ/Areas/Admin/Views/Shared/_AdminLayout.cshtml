@@ -9,6 +9,12 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="@Url.Content("~/Assets/images/logo/VanLangLogoPage.png")">
+    <!-- Fontfaces CSS-->
+    <link href="@Url.Content("~/Assets/css/AdminIndexCss/font-face.css")" rel="stylesheet" media="all">
+    <link href="@Url.Content("~/Assets/vendor/AdminIndexVendor/font-awesome-4.7/css/font-awesome.min.css")" rel="stylesheet" media="all">
+    <link href="@Url.Content("~/Assets/vendor/AdminIndexVendor/font-awesome-5/css/fontawesome-all.min.css")" rel="stylesheet" media="all">
+    <link href="@Url.Content("~/Assets/vendor/AdminIndexVendor/mdi-font/css/material-design-iconic-font.min.css")" rel="stylesheet" media="all">
+
     <!-- Custom CSS -->
     <link href="@Url.Content("~/Assets/css/AdminPageCss/c3.min.css")" rel="stylesheet">
     <link href="@Url.Content("~/Assets/css/AdminPageCss/chartist.min.css")" rel="stylesheet">
@@ -573,5 +579,6 @@
     <!--This page plugins -->
     <script src="@Url.Content("~/Assets/js/AdminPageJS/jquery.dataTables.min.js")"></script>
     <script src="@Url.Content("~/Assets/js/AdminPageJS/datatable-basic.init.js")"></script>
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

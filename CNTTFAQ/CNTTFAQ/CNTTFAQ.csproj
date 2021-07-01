@@ -606,6 +606,10 @@
     <Content Include="Models\QuanLyCauHoi.edmx.diagram">
       <DependentUpon>QuanLyCauHoi.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\ManageQuestions\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ManageQuestions\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ManageQuestions\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\ManageQuestions\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
