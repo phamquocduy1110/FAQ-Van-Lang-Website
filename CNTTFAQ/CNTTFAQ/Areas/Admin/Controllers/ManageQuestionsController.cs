@@ -22,5 +22,11 @@ namespace CNTTFAQ.Areas.Admin.Controllers
 */            return View();
         }
 
+        public ActionResult Index2()
+        {
+            /*            var question = model.QUESTIONS.ToList().OrderByDescending(x => x.ID).ToList();
+            */
+            return View();
+        }
     }
 }
