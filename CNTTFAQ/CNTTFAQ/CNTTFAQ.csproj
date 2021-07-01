@@ -185,40 +185,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\AspNetRole.cs">
-      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUser.cs">
-      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUserClaim.cs">
-      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUserLogin.cs">
-      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CAU_HOI.cs">
-      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CAU_TRA_LOI.cs">
-      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\C__MigrationHistory.cs">
-      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DANH_MUC.cs">
-      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\LICH_SU_CHINH_SUA_CAU_HOI.cs">
-      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\LICH_SU_CHINH_SUA_DANH_MUC.cs">
-      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\LUOT_TIM_TU_KHOA.cs">
-      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\QuanLyCauHoi.Context.cs">
       <AutoGen>True</AutoGen>
