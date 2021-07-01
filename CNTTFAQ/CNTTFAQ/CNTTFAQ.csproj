@@ -610,6 +610,11 @@
     <Content Include="Areas\Admin\Views\ManageQuestions\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\ManageQuestions\Details.cshtml" />
     <Content Include="Areas\Admin\Views\ManageQuestions\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ManageCatalog\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ManageCatalog\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ManageCatalog\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\ManageCatalog\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ManageCatalog\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -663,7 +668,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\Add\" />
-    <Folder Include="Areas\Admin\Views\ManageCatalog\" />
     <Folder Include="Areas\Admin\Views\Test\" />
   </ItemGroup>
   <ItemGroup>
