@@ -185,8 +185,71 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AspNetRole.cs">
+      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUser.cs">
+      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserClaim.cs">
+      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserLogin.cs">
+      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CAU_HOI.cs">
+      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CAU_TRA_LOI.cs">
+      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C__MigrationHistory.cs">
+      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DANH_MUC.cs">
+      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LICH_SU_CHINH_SUA_CAU_HOI.cs">
+      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LICH_SU_CHINH_SUA_DANH_MUC.cs">
+      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LUOT_TIM_TU_KHOA.cs">
+      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\QuanLyCauHoi.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyCauHoi.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuanLyCauHoi.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuanLyCauHoi.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyCauHoi.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QUYEN.cs">
+      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QUYEN_CUA_USER.cs">
+      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TAI_KHOAN.cs">
+      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserTokenCach.cs">
+      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -524,7 +587,13 @@
     <Content Include="Areas\Admin\Views\AdminHome\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminHome\Calendar.cshtml" />
     <Content Include="Areas\Admin\Views\ManageQuestions\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminHome\FontAwesomeIcons.cshtml" />
+    <EntityDeploy Include="Models\QuanLyCauHoi.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QuanLyCauHoi.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\QuanLyCauHoi.edmx.diagram">
+      <DependentUpon>QuanLyCauHoi.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

@@ -14,6 +14,10 @@ namespace CNTTFAQ.Areas.Admin.Controllers
 {
     public class ManageQuestionsController : Controller
     {
+<<<<<<< HEAD
+        DIEUBANTHUONGHOIWEBSITEEntities model = new DIEUBANTHUONGHOIWEBSITEEntities();
+=======
+>>>>>>> 56fbbedbc75c134afb30dd7d86177d41dd806aa3
 
         // GET: Admin/AdminManageQuestions
         public ActionResult Index()
@@ -25,15 +29,15 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var product = model.QUESTIONS.FirstOrDefault(x => x.ID == id);
-            ViewBag.product_type = model.CATEGORies.OrderByDescending(x => x.ID).ToList();
+            var product = model.CAU_HOI.FirstOrDefault(x => x.ID == id);
+            ViewBag.product_type = model.DANH_MUC.OrderByDescending(x => x.ID).ToList();
             return View(product);
         }
 
-        [HttpPost, ValidateInput(false)]
-        public ActionResult Edit(int id, QUESTION f, HttpPostedFileBase IMAGE_URL)
+        /*[HttpPost, ValidateInput(false)]
+        public ActionResult Edit(int id, CAU_HOI f, HttpPostedFileBase IMAGE_URL)
         {
-            var product = model.QUESTIONS.FirstOrDefault(x => x.ID == id);
+            var product = model.CAU_HOI.FirstOrDefault(x => x.ID == id);
             product.QUESTION_CODE = f.QUESTION_CODE;
             product.QUESTION_NAME = f.QUESTION_NAME;
             product.CATEGORY = f.CATEGORY;
@@ -54,6 +58,6 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             product.STATUS = f.STATUS;
             model.SaveChanges();
             return RedirectToAction("Index");
-        }
+        }*/
     }
 }
