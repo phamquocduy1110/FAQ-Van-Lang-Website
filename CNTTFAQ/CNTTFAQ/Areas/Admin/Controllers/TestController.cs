@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using CNTTFAQ.Models;
 
 namespace CNTTFAQ.Areas.Admin.Controllers
 {
-    public class ManageCatalogController : Controller
+    public class TestController : Controller
     {
-
-        // GET: Admin/AdminManageCatalog
+        // GET: Admin/Test
         public ActionResult Index()
         {
             return View();
