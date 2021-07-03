@@ -18,9 +18,9 @@ namespace CNTTFAQ.Models
         public int ID_CAU_HOI { get; set; }
         public string CAU_TRA_LOI1 { get; set; }
         public Nullable<System.DateTime> NGAY_TRA_LOI { get; set; }
-        public int ID_TAI_KHOAN { get; set; }
+        public string ID_TAI_KHOAN { get; set; }
     
+        public virtual AspNetUser AspNetUser { get; set; }
         public virtual CAU_HOI CAU_HOI { get; set; }
-        public virtual TAI_KHOAN TAI_KHOAN { get; set; }
     }
 }

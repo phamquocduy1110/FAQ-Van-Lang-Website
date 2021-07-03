@@ -75,7 +75,7 @@
           <Property Name="MO_TA" Type="nvarchar(max)" />
           <Property Name="NGAY_TAO" Type="datetime2" Precision="7" />
           <Property Name="ID_DANH_MUC" Type="int" Nullable="false" />
-          <Property Name="ID_TAI_KHOAN" Type="int" Nullable="false" />
+          <Property Name="ID_TAI_KHOAN" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="LUOT_XEM" Type="int" Nullable="false" />
           <Property Name="DUYET_DANG" Type="bit" />
         </EntityType>
@@ -87,7 +87,7 @@
           <Property Name="ID_CAU_HOI" Type="int" Nullable="false" />
           <Property Name="CAU_TRA_LOI" Type="nvarchar(max)" />
           <Property Name="NGAY_TRA_LOI" Type="datetime2" Precision="7" />
-          <Property Name="ID_TAI_KHOAN" Type="int" Nullable="false" />
+          <Property Name="ID_TAI_KHOAN" Type="nvarchar" MaxLength="128" Nullable="false" />
         </EntityType>
         <EntityType Name="DANH_MUC">
           <Key>
@@ -98,7 +98,7 @@
           <Property Name="MO_TA" Type="nvarchar(max)" />
           <Property Name="HINH_ANH" Type="nvarchar(max)" Nullable="false" />
           <Property Name="NGAY_TAO" Type="datetime2" Precision="7" />
-          <Property Name="ID_TAI_KHOAN" Type="int" Nullable="false" />
+          <Property Name="ID_TAI_KHOAN" Type="nvarchar" MaxLength="128" Nullable="false" />
         </EntityType>
         <EntityType Name="LICH_SU_CHINH_SUA_CAU_HOI">
           <Key>
@@ -112,7 +112,7 @@
           <Property Name="CAU_HOI_SAU_CHINH_SUA" Type="nvarchar(max)" Nullable="false" />
           <Property Name="MO_TA_SAU_CHINH_SUA" Type="nvarchar(max)" />
           <Property Name="ID_DANH_MUC_SAU_CHINH_SUA" Type="int" Nullable="false" />
-          <Property Name="ID_TAI_KHOAN" Type="int" Nullable="false" />
+          <Property Name="ID_TAI_KHOAN" Type="nvarchar" MaxLength="128" Nullable="false" />
         </EntityType>
         <EntityType Name="LICH_SU_CHINH_SUA_DANH_MUC">
           <Key>
@@ -126,7 +126,7 @@
           <Property Name="DANH_MUC_SAU_CHINH_SUA" Type="nvarchar(max)" Nullable="false" />
           <Property Name="MO_TA_SAU_CHINH_SUA" Type="nvarchar(max)" />
           <Property Name="HINH_ANH_SAU_CHINH_SUA" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="ID_TAI_KHOAN" Type="int" Nullable="false" />
+          <Property Name="ID_TAI_KHOAN" Type="nvarchar" MaxLength="128" Nullable="false" />
         </EntityType>
         <EntityType Name="LUOT_TIM_TU_KHOA">
           <Key>
@@ -135,21 +135,6 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TU_KHOA" Type="nvarchar(max)" />
           <Property Name="LUOT_TIM" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="QUYEN">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TEN_QUYEN" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
-        <EntityType Name="QUYEN_CUA_USER">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ID_TAI_KHOAN" Type="int" Nullable="false" />
-          <Property Name="ID_QUYEN" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -161,16 +146,6 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <EntityType Name="TAI_KHOAN">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AVATAR" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="MAT_KHAU" Type="varchar" MaxLength="50" />
-          <Property Name="EMAIL" Type="varchar(max)" Nullable="false" />
-          <Property Name="MA_SO_NGUOI_DUNG" Type="varchar" MaxLength="50" />
-        </EntityType>
         <EntityType Name="UserTokenCaches">
           <Key>
             <PropertyRef Name="UserTokenCacheId" />
@@ -180,6 +155,18 @@
           <Property Name="cacheBits" Type="varbinary(max)" />
           <Property Name="LastWrite" Type="datetime" Nullable="false" />
         </EntityType>
+        <Association Name="FK_CAU_HOI_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="CAU_HOI" Type="Self.CAU_HOI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CAU_HOI">
+              <PropertyRef Name="ID_TAI_KHOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_CAU_HOI_DANH_MUC">
           <End Role="DANH_MUC" Type="Self.DANH_MUC" Multiplicity="1" />
           <End Role="CAU_HOI" Type="Self.CAU_HOI" Multiplicity="*" />
@@ -192,14 +179,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CAU_HOI_TAI_KHOAN">
-          <End Role="TAI_KHOAN" Type="Self.TAI_KHOAN" Multiplicity="1" />
-          <End Role="CAU_HOI" Type="Self.CAU_HOI" Multiplicity="*" />
+        <Association Name="FK_CAU_TRA_LOI_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="CAU_TRA_LOI" Type="Self.CAU_TRA_LOI" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TAI_KHOAN">
-              <PropertyRef Name="ID" />
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="CAU_HOI">
+            <Dependent Role="CAU_TRA_LOI">
               <PropertyRef Name="ID_TAI_KHOAN" />
             </Dependent>
           </ReferentialConstraint>
@@ -216,24 +203,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CAU_TRA_LOI_TAI_KHOAN">
-          <End Role="TAI_KHOAN" Type="Self.TAI_KHOAN" Multiplicity="1" />
-          <End Role="CAU_TRA_LOI" Type="Self.CAU_TRA_LOI" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TAI_KHOAN">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="CAU_TRA_LOI">
-              <PropertyRef Name="ID_TAI_KHOAN" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DANH_MUC_TAI_KHOAN">
-          <End Role="TAI_KHOAN" Type="Self.TAI_KHOAN" Multiplicity="1" />
+        <Association Name="FK_DANH_MUC_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
           <End Role="DANH_MUC" Type="Self.DANH_MUC" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TAI_KHOAN">
-              <PropertyRef Name="ID" />
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="DANH_MUC">
               <PropertyRef Name="ID_TAI_KHOAN" />
@@ -296,50 +271,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_LICH_SU_CHINH_SUA_CAU_HOI_TAI_KHOAN">
-          <End Role="TAI_KHOAN" Type="Self.TAI_KHOAN" Multiplicity="1" />
+        <Association Name="FK_LICH_SU_CHINH_SUA_CAU_HOI_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
           <End Role="LICH_SU_CHINH_SUA_CAU_HOI" Type="Self.LICH_SU_CHINH_SUA_CAU_HOI" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TAI_KHOAN">
-              <PropertyRef Name="ID" />
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="LICH_SU_CHINH_SUA_CAU_HOI">
               <PropertyRef Name="ID_TAI_KHOAN" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_LICH_SU_CHINH_SUA_DANH_MUC_TAI_KHOAN">
-          <End Role="TAI_KHOAN" Type="Self.TAI_KHOAN" Multiplicity="1" />
+        <Association Name="FK_LICH_SU_CHINH_SUA_DANH_MUC_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
           <End Role="LICH_SU_CHINH_SUA_DANH_MUC" Type="Self.LICH_SU_CHINH_SUA_DANH_MUC" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TAI_KHOAN">
-              <PropertyRef Name="ID" />
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="LICH_SU_CHINH_SUA_DANH_MUC">
-              <PropertyRef Name="ID_TAI_KHOAN" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_QUYEN_CUA_USER_QUYEN">
-          <End Role="QUYEN" Type="Self.QUYEN" Multiplicity="1" />
-          <End Role="QUYEN_CUA_USER" Type="Self.QUYEN_CUA_USER" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="QUYEN">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="QUYEN_CUA_USER">
-              <PropertyRef Name="ID_QUYEN" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_QUYEN_CUA_USER_TAI_KHOAN">
-          <End Role="TAI_KHOAN" Type="Self.TAI_KHOAN" Multiplicity="1" />
-          <End Role="QUYEN_CUA_USER" Type="Self.QUYEN_CUA_USER" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TAI_KHOAN">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="QUYEN_CUA_USER">
               <PropertyRef Name="ID_TAI_KHOAN" />
             </Dependent>
           </ReferentialConstraint>
@@ -357,29 +308,26 @@
           <EntitySet Name="LICH_SU_CHINH_SUA_CAU_HOI" EntityType="Self.LICH_SU_CHINH_SUA_CAU_HOI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LICH_SU_CHINH_SUA_DANH_MUC" EntityType="Self.LICH_SU_CHINH_SUA_DANH_MUC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LUOT_TIM_TU_KHOA" EntityType="Self.LUOT_TIM_TU_KHOA" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="QUYEN" EntityType="Self.QUYEN" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="QUYEN_CUA_USER" EntityType="Self.QUYEN_CUA_USER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TAI_KHOAN" EntityType="Self.TAI_KHOAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserTokenCaches" EntityType="Self.UserTokenCaches" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CAU_HOI_AspNetUsers" Association="Self.FK_CAU_HOI_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="CAU_HOI" EntitySet="CAU_HOI" />
+          </AssociationSet>
           <AssociationSet Name="FK_CAU_HOI_DANH_MUC" Association="Self.FK_CAU_HOI_DANH_MUC">
             <End Role="DANH_MUC" EntitySet="DANH_MUC" />
             <End Role="CAU_HOI" EntitySet="CAU_HOI" />
           </AssociationSet>
-          <AssociationSet Name="FK_CAU_HOI_TAI_KHOAN" Association="Self.FK_CAU_HOI_TAI_KHOAN">
-            <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
-            <End Role="CAU_HOI" EntitySet="CAU_HOI" />
+          <AssociationSet Name="FK_CAU_TRA_LOI_AspNetUsers" Association="Self.FK_CAU_TRA_LOI_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="CAU_TRA_LOI" EntitySet="CAU_TRA_LOI" />
           </AssociationSet>
           <AssociationSet Name="FK_CAU_TRA_LOI_CAU_HOI" Association="Self.FK_CAU_TRA_LOI_CAU_HOI">
             <End Role="CAU_HOI" EntitySet="CAU_HOI" />
             <End Role="CAU_TRA_LOI" EntitySet="CAU_TRA_LOI" />
           </AssociationSet>
-          <AssociationSet Name="FK_CAU_TRA_LOI_TAI_KHOAN" Association="Self.FK_CAU_TRA_LOI_TAI_KHOAN">
-            <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
-            <End Role="CAU_TRA_LOI" EntitySet="CAU_TRA_LOI" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DANH_MUC_TAI_KHOAN" Association="Self.FK_DANH_MUC_TAI_KHOAN">
-            <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
+          <AssociationSet Name="FK_DANH_MUC_AspNetUsers" Association="Self.FK_DANH_MUC_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="DANH_MUC" EntitySet="DANH_MUC" />
           </AssociationSet>
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
@@ -398,21 +346,13 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
           </AssociationSet>
-          <AssociationSet Name="FK_LICH_SU_CHINH_SUA_CAU_HOI_TAI_KHOAN" Association="Self.FK_LICH_SU_CHINH_SUA_CAU_HOI_TAI_KHOAN">
-            <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
+          <AssociationSet Name="FK_LICH_SU_CHINH_SUA_CAU_HOI_AspNetUsers" Association="Self.FK_LICH_SU_CHINH_SUA_CAU_HOI_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="LICH_SU_CHINH_SUA_CAU_HOI" EntitySet="LICH_SU_CHINH_SUA_CAU_HOI" />
           </AssociationSet>
-          <AssociationSet Name="FK_LICH_SU_CHINH_SUA_DANH_MUC_TAI_KHOAN" Association="Self.FK_LICH_SU_CHINH_SUA_DANH_MUC_TAI_KHOAN">
-            <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
+          <AssociationSet Name="FK_LICH_SU_CHINH_SUA_DANH_MUC_AspNetUsers" Association="Self.FK_LICH_SU_CHINH_SUA_DANH_MUC_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="LICH_SU_CHINH_SUA_DANH_MUC" EntitySet="LICH_SU_CHINH_SUA_DANH_MUC" />
-          </AssociationSet>
-          <AssociationSet Name="FK_QUYEN_CUA_USER_QUYEN" Association="Self.FK_QUYEN_CUA_USER_QUYEN">
-            <End Role="QUYEN" EntitySet="QUYEN" />
-            <End Role="QUYEN_CUA_USER" EntitySet="QUYEN_CUA_USER" />
-          </AssociationSet>
-          <AssociationSet Name="FK_QUYEN_CUA_USER_TAI_KHOAN" Association="Self.FK_QUYEN_CUA_USER_TAI_KHOAN">
-            <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
-            <End Role="QUYEN_CUA_USER" EntitySet="QUYEN_CUA_USER" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -477,6 +417,11 @@
           <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
           <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="CAU_HOI" Relationship="Self.FK_CAU_HOI_AspNetUsers" FromRole="AspNetUsers" ToRole="CAU_HOI" />
+          <NavigationProperty Name="CAU_TRA_LOI" Relationship="Self.FK_CAU_TRA_LOI_AspNetUsers" FromRole="AspNetUsers" ToRole="CAU_TRA_LOI" />
+          <NavigationProperty Name="DANH_MUC" Relationship="Self.FK_DANH_MUC_AspNetUsers" FromRole="AspNetUsers" ToRole="DANH_MUC" />
+          <NavigationProperty Name="LICH_SU_CHINH_SUA_CAU_HOI" Relationship="Self.FK_LICH_SU_CHINH_SUA_CAU_HOI_AspNetUsers" FromRole="AspNetUsers" ToRole="LICH_SU_CHINH_SUA_CAU_HOI" />
+          <NavigationProperty Name="LICH_SU_CHINH_SUA_DANH_MUC" Relationship="Self.FK_LICH_SU_CHINH_SUA_DANH_MUC_AspNetUsers" FromRole="AspNetUsers" ToRole="LICH_SU_CHINH_SUA_DANH_MUC" />
           <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
         </EntityType>
         <EntityType Name="CAU_HOI">
@@ -488,11 +433,11 @@
           <Property Name="MO_TA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="NGAY_TAO" Type="DateTime" Precision="7" />
           <Property Name="ID_DANH_MUC" Type="Int32" Nullable="false" />
-          <Property Name="ID_TAI_KHOAN" Type="Int32" Nullable="false" />
+          <Property Name="ID_TAI_KHOAN" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LUOT_XEM" Type="Int32" Nullable="false" />
           <Property Name="DUYET_DANG" Type="Boolean" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_CAU_HOI_AspNetUsers" FromRole="CAU_HOI" ToRole="AspNetUsers" />
           <NavigationProperty Name="DANH_MUC" Relationship="Self.FK_CAU_HOI_DANH_MUC" FromRole="CAU_HOI" ToRole="DANH_MUC" />
-          <NavigationProperty Name="TAI_KHOAN" Relationship="Self.FK_CAU_HOI_TAI_KHOAN" FromRole="CAU_HOI" ToRole="TAI_KHOAN" />
           <NavigationProperty Name="CAU_TRA_LOI" Relationship="Self.FK_CAU_TRA_LOI_CAU_HOI" FromRole="CAU_HOI" ToRole="CAU_TRA_LOI" />
         </EntityType>
         <EntityType Name="CAU_TRA_LOI">
@@ -503,9 +448,9 @@
           <Property Name="ID_CAU_HOI" Type="Int32" Nullable="false" />
           <Property Name="CAU_TRA_LOI1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="NGAY_TRA_LOI" Type="DateTime" Precision="7" />
-          <Property Name="ID_TAI_KHOAN" Type="Int32" Nullable="false" />
+          <Property Name="ID_TAI_KHOAN" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_CAU_TRA_LOI_AspNetUsers" FromRole="CAU_TRA_LOI" ToRole="AspNetUsers" />
           <NavigationProperty Name="CAU_HOI" Relationship="Self.FK_CAU_TRA_LOI_CAU_HOI" FromRole="CAU_TRA_LOI" ToRole="CAU_HOI" />
-          <NavigationProperty Name="TAI_KHOAN" Relationship="Self.FK_CAU_TRA_LOI_TAI_KHOAN" FromRole="CAU_TRA_LOI" ToRole="TAI_KHOAN" />
         </EntityType>
         <EntityType Name="DANH_MUC">
           <Key>
@@ -516,9 +461,9 @@
           <Property Name="MO_TA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="HINH_ANH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NGAY_TAO" Type="DateTime" Precision="7" />
-          <Property Name="ID_TAI_KHOAN" Type="Int32" Nullable="false" />
+          <Property Name="ID_TAI_KHOAN" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_DANH_MUC_AspNetUsers" FromRole="DANH_MUC" ToRole="AspNetUsers" />
           <NavigationProperty Name="CAU_HOI" Relationship="Self.FK_CAU_HOI_DANH_MUC" FromRole="DANH_MUC" ToRole="CAU_HOI" />
-          <NavigationProperty Name="TAI_KHOAN" Relationship="Self.FK_DANH_MUC_TAI_KHOAN" FromRole="DANH_MUC" ToRole="TAI_KHOAN" />
         </EntityType>
         <EntityType Name="LICH_SU_CHINH_SUA_CAU_HOI">
           <Key>
@@ -532,8 +477,8 @@
           <Property Name="CAU_HOI_SAU_CHINH_SUA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MO_TA_SAU_CHINH_SUA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ID_DANH_MUC_SAU_CHINH_SUA" Type="Int32" Nullable="false" />
-          <Property Name="ID_TAI_KHOAN" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="TAI_KHOAN" Relationship="Self.FK_LICH_SU_CHINH_SUA_CAU_HOI_TAI_KHOAN" FromRole="LICH_SU_CHINH_SUA_CAU_HOI" ToRole="TAI_KHOAN" />
+          <Property Name="ID_TAI_KHOAN" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_LICH_SU_CHINH_SUA_CAU_HOI_AspNetUsers" FromRole="LICH_SU_CHINH_SUA_CAU_HOI" ToRole="AspNetUsers" />
         </EntityType>
         <EntityType Name="LICH_SU_CHINH_SUA_DANH_MUC">
           <Key>
@@ -547,8 +492,8 @@
           <Property Name="DANH_MUC_SAU_CHINH_SUA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MO_TA_SAU_CHINH_SUA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="HINH_ANH_SAU_CHINH_SUA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ID_TAI_KHOAN" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="TAI_KHOAN" Relationship="Self.FK_LICH_SU_CHINH_SUA_DANH_MUC_TAI_KHOAN" FromRole="LICH_SU_CHINH_SUA_DANH_MUC" ToRole="TAI_KHOAN" />
+          <Property Name="ID_TAI_KHOAN" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_LICH_SU_CHINH_SUA_DANH_MUC_AspNetUsers" FromRole="LICH_SU_CHINH_SUA_DANH_MUC" ToRole="AspNetUsers" />
         </EntityType>
         <EntityType Name="LUOT_TIM_TU_KHOA">
           <Key>
@@ -557,24 +502,6 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TU_KHOA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="LUOT_TIM" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="QUYEN">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TEN_QUYEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="QUYEN_CUA_USER" Relationship="Self.FK_QUYEN_CUA_USER_QUYEN" FromRole="QUYEN" ToRole="QUYEN_CUA_USER" />
-        </EntityType>
-        <EntityType Name="QUYEN_CUA_USER">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ID_TAI_KHOAN" Type="Int32" Nullable="false" />
-          <Property Name="ID_QUYEN" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="QUYEN" Relationship="Self.FK_QUYEN_CUA_USER_QUYEN" FromRole="QUYEN_CUA_USER" ToRole="QUYEN" />
-          <NavigationProperty Name="TAI_KHOAN" Relationship="Self.FK_QUYEN_CUA_USER_TAI_KHOAN" FromRole="QUYEN_CUA_USER" ToRole="TAI_KHOAN" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -585,22 +512,6 @@
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="TAI_KHOAN">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AVATAR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MAT_KHAU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="EMAIL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="MA_SO_NGUOI_DUNG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="CAU_HOI" Relationship="Self.FK_CAU_HOI_TAI_KHOAN" FromRole="TAI_KHOAN" ToRole="CAU_HOI" />
-          <NavigationProperty Name="CAU_TRA_LOI" Relationship="Self.FK_CAU_TRA_LOI_TAI_KHOAN" FromRole="TAI_KHOAN" ToRole="CAU_TRA_LOI" />
-          <NavigationProperty Name="DANH_MUC" Relationship="Self.FK_DANH_MUC_TAI_KHOAN" FromRole="TAI_KHOAN" ToRole="DANH_MUC" />
-          <NavigationProperty Name="LICH_SU_CHINH_SUA_CAU_HOI" Relationship="Self.FK_LICH_SU_CHINH_SUA_CAU_HOI_TAI_KHOAN" FromRole="TAI_KHOAN" ToRole="LICH_SU_CHINH_SUA_CAU_HOI" />
-          <NavigationProperty Name="LICH_SU_CHINH_SUA_DANH_MUC" Relationship="Self.FK_LICH_SU_CHINH_SUA_DANH_MUC_TAI_KHOAN" FromRole="TAI_KHOAN" ToRole="LICH_SU_CHINH_SUA_DANH_MUC" />
-          <NavigationProperty Name="QUYEN_CUA_USER" Relationship="Self.FK_QUYEN_CUA_USER_TAI_KHOAN" FromRole="TAI_KHOAN" ToRole="QUYEN_CUA_USER" />
         </EntityType>
         <EntityType Name="UserTokenCach">
           <Key>
@@ -639,6 +550,66 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_CAU_HOI_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="CAU_HOI" Type="Self.CAU_HOI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CAU_HOI">
+              <PropertyRef Name="ID_TAI_KHOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CAU_TRA_LOI_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="CAU_TRA_LOI" Type="Self.CAU_TRA_LOI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CAU_TRA_LOI">
+              <PropertyRef Name="ID_TAI_KHOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DANH_MUC_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="DANH_MUC" Type="Self.DANH_MUC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DANH_MUC">
+              <PropertyRef Name="ID_TAI_KHOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LICH_SU_CHINH_SUA_CAU_HOI_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="LICH_SU_CHINH_SUA_CAU_HOI" Type="Self.LICH_SU_CHINH_SUA_CAU_HOI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LICH_SU_CHINH_SUA_CAU_HOI">
+              <PropertyRef Name="ID_TAI_KHOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LICH_SU_CHINH_SUA_DANH_MUC_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="LICH_SU_CHINH_SUA_DANH_MUC" Type="Self.LICH_SU_CHINH_SUA_DANH_MUC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LICH_SU_CHINH_SUA_DANH_MUC">
+              <PropertyRef Name="ID_TAI_KHOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_CAU_HOI_DANH_MUC">
           <End Role="DANH_MUC" Type="Self.DANH_MUC" Multiplicity="1" />
           <End Role="CAU_HOI" Type="Self.CAU_HOI" Multiplicity="*" />
@@ -651,18 +622,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CAU_HOI_TAI_KHOAN">
-          <End Role="TAI_KHOAN" Type="Self.TAI_KHOAN" Multiplicity="1" />
-          <End Role="CAU_HOI" Type="Self.CAU_HOI" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TAI_KHOAN">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="CAU_HOI">
-              <PropertyRef Name="ID_TAI_KHOAN" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_CAU_TRA_LOI_CAU_HOI">
           <End Role="CAU_HOI" Type="Self.CAU_HOI" Multiplicity="1" />
           <End Role="CAU_TRA_LOI" Type="Self.CAU_TRA_LOI" Multiplicity="*" />
@@ -672,78 +631,6 @@
             </Principal>
             <Dependent Role="CAU_TRA_LOI">
               <PropertyRef Name="ID_CAU_HOI" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CAU_TRA_LOI_TAI_KHOAN">
-          <End Role="TAI_KHOAN" Type="Self.TAI_KHOAN" Multiplicity="1" />
-          <End Role="CAU_TRA_LOI" Type="Self.CAU_TRA_LOI" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TAI_KHOAN">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="CAU_TRA_LOI">
-              <PropertyRef Name="ID_TAI_KHOAN" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DANH_MUC_TAI_KHOAN">
-          <End Role="TAI_KHOAN" Type="Self.TAI_KHOAN" Multiplicity="1" />
-          <End Role="DANH_MUC" Type="Self.DANH_MUC" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TAI_KHOAN">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="DANH_MUC">
-              <PropertyRef Name="ID_TAI_KHOAN" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LICH_SU_CHINH_SUA_CAU_HOI_TAI_KHOAN">
-          <End Role="TAI_KHOAN" Type="Self.TAI_KHOAN" Multiplicity="1" />
-          <End Role="LICH_SU_CHINH_SUA_CAU_HOI" Type="Self.LICH_SU_CHINH_SUA_CAU_HOI" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TAI_KHOAN">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="LICH_SU_CHINH_SUA_CAU_HOI">
-              <PropertyRef Name="ID_TAI_KHOAN" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LICH_SU_CHINH_SUA_DANH_MUC_TAI_KHOAN">
-          <End Role="TAI_KHOAN" Type="Self.TAI_KHOAN" Multiplicity="1" />
-          <End Role="LICH_SU_CHINH_SUA_DANH_MUC" Type="Self.LICH_SU_CHINH_SUA_DANH_MUC" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TAI_KHOAN">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="LICH_SU_CHINH_SUA_DANH_MUC">
-              <PropertyRef Name="ID_TAI_KHOAN" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_QUYEN_CUA_USER_QUYEN">
-          <End Role="QUYEN" Type="Self.QUYEN" Multiplicity="1" />
-          <End Role="QUYEN_CUA_USER" Type="Self.QUYEN_CUA_USER" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="QUYEN">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="QUYEN_CUA_USER">
-              <PropertyRef Name="ID_QUYEN" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_QUYEN_CUA_USER_TAI_KHOAN">
-          <End Role="TAI_KHOAN" Type="Self.TAI_KHOAN" Multiplicity="1" />
-          <End Role="QUYEN_CUA_USER" Type="Self.QUYEN_CUA_USER" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TAI_KHOAN">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="QUYEN_CUA_USER">
-              <PropertyRef Name="ID_TAI_KHOAN" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -763,10 +650,7 @@
           <EntitySet Name="LICH_SU_CHINH_SUA_CAU_HOI" EntityType="Self.LICH_SU_CHINH_SUA_CAU_HOI" />
           <EntitySet Name="LICH_SU_CHINH_SUA_DANH_MUC" EntityType="Self.LICH_SU_CHINH_SUA_DANH_MUC" />
           <EntitySet Name="LUOT_TIM_TU_KHOA" EntityType="Self.LUOT_TIM_TU_KHOA" />
-          <EntitySet Name="QUYENs" EntityType="Self.QUYEN" />
-          <EntitySet Name="QUYEN_CUA_USER" EntityType="Self.QUYEN_CUA_USER" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <EntitySet Name="TAI_KHOAN" EntityType="Self.TAI_KHOAN" />
           <EntitySet Name="UserTokenCaches" EntityType="Self.UserTokenCach" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -776,41 +660,33 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
           </AssociationSet>
-          <AssociationSet Name="FK_CAU_HOI_DANH_MUC" Association="Self.FK_CAU_HOI_DANH_MUC">
-            <End Role="DANH_MUC" EntitySet="DANH_MUC" />
+          <AssociationSet Name="FK_CAU_HOI_AspNetUsers" Association="Self.FK_CAU_HOI_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="CAU_HOI" EntitySet="CAU_HOI" />
           </AssociationSet>
-          <AssociationSet Name="FK_CAU_HOI_TAI_KHOAN" Association="Self.FK_CAU_HOI_TAI_KHOAN">
-            <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
+          <AssociationSet Name="FK_CAU_TRA_LOI_AspNetUsers" Association="Self.FK_CAU_TRA_LOI_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="CAU_TRA_LOI" EntitySet="CAU_TRA_LOI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DANH_MUC_AspNetUsers" Association="Self.FK_DANH_MUC_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="DANH_MUC" EntitySet="DANH_MUC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LICH_SU_CHINH_SUA_CAU_HOI_AspNetUsers" Association="Self.FK_LICH_SU_CHINH_SUA_CAU_HOI_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="LICH_SU_CHINH_SUA_CAU_HOI" EntitySet="LICH_SU_CHINH_SUA_CAU_HOI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LICH_SU_CHINH_SUA_DANH_MUC_AspNetUsers" Association="Self.FK_LICH_SU_CHINH_SUA_DANH_MUC_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="LICH_SU_CHINH_SUA_DANH_MUC" EntitySet="LICH_SU_CHINH_SUA_DANH_MUC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CAU_HOI_DANH_MUC" Association="Self.FK_CAU_HOI_DANH_MUC">
+            <End Role="DANH_MUC" EntitySet="DANH_MUC" />
             <End Role="CAU_HOI" EntitySet="CAU_HOI" />
           </AssociationSet>
           <AssociationSet Name="FK_CAU_TRA_LOI_CAU_HOI" Association="Self.FK_CAU_TRA_LOI_CAU_HOI">
             <End Role="CAU_HOI" EntitySet="CAU_HOI" />
             <End Role="CAU_TRA_LOI" EntitySet="CAU_TRA_LOI" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CAU_TRA_LOI_TAI_KHOAN" Association="Self.FK_CAU_TRA_LOI_TAI_KHOAN">
-            <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
-            <End Role="CAU_TRA_LOI" EntitySet="CAU_TRA_LOI" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DANH_MUC_TAI_KHOAN" Association="Self.FK_DANH_MUC_TAI_KHOAN">
-            <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
-            <End Role="DANH_MUC" EntitySet="DANH_MUC" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LICH_SU_CHINH_SUA_CAU_HOI_TAI_KHOAN" Association="Self.FK_LICH_SU_CHINH_SUA_CAU_HOI_TAI_KHOAN">
-            <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
-            <End Role="LICH_SU_CHINH_SUA_CAU_HOI" EntitySet="LICH_SU_CHINH_SUA_CAU_HOI" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LICH_SU_CHINH_SUA_DANH_MUC_TAI_KHOAN" Association="Self.FK_LICH_SU_CHINH_SUA_DANH_MUC_TAI_KHOAN">
-            <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
-            <End Role="LICH_SU_CHINH_SUA_DANH_MUC" EntitySet="LICH_SU_CHINH_SUA_DANH_MUC" />
-          </AssociationSet>
-          <AssociationSet Name="FK_QUYEN_CUA_USER_QUYEN" Association="Self.FK_QUYEN_CUA_USER_QUYEN">
-            <End Role="QUYEN" EntitySet="QUYENs" />
-            <End Role="QUYEN_CUA_USER" EntitySet="QUYEN_CUA_USER" />
-          </AssociationSet>
-          <AssociationSet Name="FK_QUYEN_CUA_USER_TAI_KHOAN" Association="Self.FK_QUYEN_CUA_USER_TAI_KHOAN">
-            <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
-            <End Role="QUYEN_CUA_USER" EntitySet="QUYEN_CUA_USER" />
           </AssociationSet>
           <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
@@ -954,23 +830,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="QUYENs">
-            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.QUYEN">
-              <MappingFragment StoreEntitySet="QUYEN">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="TEN_QUYEN" ColumnName="TEN_QUYEN" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="QUYEN_CUA_USER">
-            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.QUYEN_CUA_USER">
-              <MappingFragment StoreEntitySet="QUYEN_CUA_USER">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="ID_TAI_KHOAN" ColumnName="ID_TAI_KHOAN" />
-                <ScalarProperty Name="ID_QUYEN" ColumnName="ID_QUYEN" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
@@ -979,17 +838,6 @@
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TAI_KHOAN">
-            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.TAI_KHOAN">
-              <MappingFragment StoreEntitySet="TAI_KHOAN">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="AVATAR" ColumnName="AVATAR" />
-                <ScalarProperty Name="MAT_KHAU" ColumnName="MAT_KHAU" />
-                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
-                <ScalarProperty Name="MA_SO_NGUOI_DUNG" ColumnName="MA_SO_NGUOI_DUNG" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
