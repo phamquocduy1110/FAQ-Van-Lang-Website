@@ -25,12 +25,12 @@ namespace CNTTFAQ.Models
         public string MO_TA { get; set; }
         public Nullable<System.DateTime> NGAY_TAO { get; set; }
         public int ID_DANH_MUC { get; set; }
-        public int ID_TAI_KHOAN { get; set; }
+        public string ID_TAI_KHOAN { get; set; }
         public int LUOT_XEM { get; set; }
         public Nullable<bool> DUYET_DANG { get; set; }
     
+        public virtual AspNetUser AspNetUser { get; set; }
         public virtual DANH_MUC DANH_MUC { get; set; }
-        public virtual TAI_KHOAN TAI_KHOAN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CAU_TRA_LOI> CAU_TRA_LOI { get; set; }
     }

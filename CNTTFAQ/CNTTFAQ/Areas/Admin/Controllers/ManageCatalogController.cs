@@ -22,7 +22,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            ViewBag.account_type = model.TAI_KHOAN.OrderByDescending(x => x.ID).ToList();
+            ViewBag.account_type = model.AspNetUsers.OrderByDescending(x => x.Id).ToList();
             return View();
         }
 
@@ -47,7 +47,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         public ActionResult Edit(int id)
         {
             var category = model.DANH_MUC.FirstOrDefault(x => x.ID == id);
-            ViewBag.account_type = model.TAI_KHOAN.OrderByDescending(x => x.ID).ToList();
+            ViewBag.account_type = model.AspNetUsers.OrderByDescending(x => x.Id).ToList();
             return View(category);
         }
 

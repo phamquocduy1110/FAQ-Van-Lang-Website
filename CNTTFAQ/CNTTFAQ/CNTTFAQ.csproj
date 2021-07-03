@@ -237,16 +237,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyCauHoi.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\QUYEN.cs">
-      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\QUYEN_CUA_USER.cs">
-      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TAI_KHOAN.cs">
       <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserTokenCach.cs">
@@ -599,13 +590,6 @@
     <Content Include="Areas\Admin\Views\AdminHome\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminHome\Calendar.cshtml" />
     <Content Include="Areas\Admin\Views\ManageQuestions\Index.cshtml" />
-    <EntityDeploy Include="Models\QuanLyCauHoi.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QuanLyCauHoi.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\QuanLyCauHoi.edmx.diagram">
-      <DependentUpon>QuanLyCauHoi.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\ManageQuestions\Create.cshtml" />
     <Content Include="Areas\Admin\Views\ManageQuestions\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\ManageQuestions\Details.cshtml" />
@@ -615,6 +599,13 @@
     <Content Include="Areas\Admin\Views\ManageCatalog\Details.cshtml" />
     <Content Include="Areas\Admin\Views\ManageCatalog\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ManageCatalog\Index.cshtml" />
+    <EntityDeploy Include="Models\QuanLyCauHoi.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QuanLyCauHoi.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\QuanLyCauHoi.edmx.diagram">
+      <DependentUpon>QuanLyCauHoi.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

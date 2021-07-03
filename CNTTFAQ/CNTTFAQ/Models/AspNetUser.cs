@@ -19,6 +19,11 @@ namespace CNTTFAQ.Models
         {
             this.AspNetUserClaims = new HashSet<AspNetUserClaim>();
             this.AspNetUserLogins = new HashSet<AspNetUserLogin>();
+            this.CAU_HOI = new HashSet<CAU_HOI>();
+            this.CAU_TRA_LOI = new HashSet<CAU_TRA_LOI>();
+            this.DANH_MUC = new HashSet<DANH_MUC>();
+            this.LICH_SU_CHINH_SUA_CAU_HOI = new HashSet<LICH_SU_CHINH_SUA_CAU_HOI>();
+            this.LICH_SU_CHINH_SUA_DANH_MUC = new HashSet<LICH_SU_CHINH_SUA_DANH_MUC>();
             this.AspNetRoles = new HashSet<AspNetRole>();
         }
     
@@ -39,6 +44,16 @@ namespace CNTTFAQ.Models
         public virtual ICollection<AspNetUserClaim> AspNetUserClaims { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AspNetUserLogin> AspNetUserLogins { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CAU_HOI> CAU_HOI { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CAU_TRA_LOI> CAU_TRA_LOI { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DANH_MUC> DANH_MUC { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LICH_SU_CHINH_SUA_CAU_HOI> LICH_SU_CHINH_SUA_CAU_HOI { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LICH_SU_CHINH_SUA_DANH_MUC> LICH_SU_CHINH_SUA_DANH_MUC { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AspNetRole> AspNetRoles { get; set; }
     }

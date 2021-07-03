@@ -36,10 +36,7 @@ namespace CNTTFAQ.Models
         public virtual DbSet<LICH_SU_CHINH_SUA_CAU_HOI> LICH_SU_CHINH_SUA_CAU_HOI { get; set; }
         public virtual DbSet<LICH_SU_CHINH_SUA_DANH_MUC> LICH_SU_CHINH_SUA_DANH_MUC { get; set; }
         public virtual DbSet<LUOT_TIM_TU_KHOA> LUOT_TIM_TU_KHOA { get; set; }
-        public virtual DbSet<QUYEN> QUYENs { get; set; }
-        public virtual DbSet<QUYEN_CUA_USER> QUYEN_CUA_USER { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<TAI_KHOAN> TAI_KHOAN { get; set; }
         public virtual DbSet<UserTokenCach> UserTokenCaches { get; set; }
     }
 }

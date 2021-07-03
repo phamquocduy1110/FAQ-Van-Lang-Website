@@ -22,8 +22,8 @@ namespace CNTTFAQ.Models
         public string CAU_HOI_SAU_CHINH_SUA { get; set; }
         public string MO_TA_SAU_CHINH_SUA { get; set; }
         public int ID_DANH_MUC_SAU_CHINH_SUA { get; set; }
-        public int ID_TAI_KHOAN { get; set; }
+        public string ID_TAI_KHOAN { get; set; }
     
-        public virtual TAI_KHOAN TAI_KHOAN { get; set; }
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }

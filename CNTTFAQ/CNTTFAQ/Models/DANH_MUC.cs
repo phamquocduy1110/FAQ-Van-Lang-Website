@@ -25,10 +25,10 @@ namespace CNTTFAQ.Models
         public string MO_TA { get; set; }
         public string HINH_ANH { get; set; }
         public Nullable<System.DateTime> NGAY_TAO { get; set; }
-        public int ID_TAI_KHOAN { get; set; }
+        public string ID_TAI_KHOAN { get; set; }
     
+        public virtual AspNetUser AspNetUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CAU_HOI> CAU_HOI { get; set; }
-        public virtual TAI_KHOAN TAI_KHOAN { get; set; }
     }
 }
