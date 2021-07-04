@@ -37,25 +37,25 @@
     </div>
 
     <!-- Header section -->
-    <header class="header-section" style="position: fixed">
-        <div class="logo" style="padding: 35px 15px">
-            <a href="@Url.Action("Index", "Home")">
-                <img src="@Url.Content("~/Assets/images/logo/VanLangLogoMenu.png")">
-            </a><!-- Logo -->
+    <div class="navbar navbar-inverse navbar-fixed-top" style="position: fixed; background-color: white; border-color: white">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="@Url.Action("Index", "Home")" style="padding: 15px 15px">
+                    <img src="@Url.Content("~/Assets/images/logo/VanLangLogoMenu.png")">
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="@Url.Action("Index", "Home")">Trang Chủ</a></li>
+                    <li><a href="@Url.Action("Index", "Services")">Dịch vụ</a></li>
+                    <li><a href="@Url.Action("Index", "Questions")">Câu hỏi thường gặp</a></li>
+                    <li><a href="@Url.Action("Contact", "Home")">Liên hệ</a></li>
+                    <li><a href="@Url.Action("Index", "Statistical")">Thống kê</a></li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
         </div>
-        <!-- Navigation -->
-        <div class="responsive"><i class="fa fa-bars"></i></div>
-        <nav>
-            <ul class="menu-list">
-                <li class="active"><a href="@Url.Action("Index", "Home")" style="background-color:white; color: black">Trang Chủ</a></li>
-                <li><a href="@Url.Action("Index", "Services")">Dịch vụ</a></li>
-                <li><a href="@Url.Action("Index", "Questions")">Câu hỏi thường gặp</a></li>
-                <li><a href="@Url.Action("Contact", "Home")">Liên hệ</a></li>
-                <li><a href="@Url.Action("Index", "Statistical")">Thống kê</a></li>
-                <li><a href="@Html.Partial("_LoginPartial")</a></li>
-            </ul>
-        </nav>
-    </header>
+    </div>
     <!-- Header section end -->
     @RenderBody()
 
