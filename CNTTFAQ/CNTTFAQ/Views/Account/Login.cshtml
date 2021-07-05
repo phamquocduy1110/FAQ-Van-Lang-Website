@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using CNTTFAQ.Models
+@model LoginViewModel
+
+<!DOCTYPE html>
 <html dir="ltr">
 <head>
     <meta charset="utf-8">
@@ -69,8 +72,11 @@
                                     <button type="submit" class="btn btn-block btn-dark">Sign In</button>
                                 </div>
 
-                                <div class="col-lg-12 text-center">
-                                    <button type="submit" class="btn btn-block btn-dark" style="background-color: orangered; border-color: orangered">Sign In With Office 365</button>
+                                <div class="col-lg-12 text-center" style="margin-bottom: 10px; margin-top: 10px;">
+
+
+                                    @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                                    @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
                                 </div>
 
                                 <div class="col-lg-12 text-center mt-5">

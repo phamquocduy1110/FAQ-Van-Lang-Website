@@ -1,0 +1,51 @@
+﻿@model IEnumerable<CNTTFAQ.Models.AspNetRole>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Roles</h2>
+
+<p>
+
+    <a href="@Url.Action("Create")">Create New </a>
+</p>
+<table class="table">
+    <tr>
+        <th> Role </th>
+        <th> Users</th>
+        <th></th>
+    </tr>
+
+
+    @foreach (var role in Model)
+    {
+        <tr>
+            <td>
+                @role.Name
+            </td>
+            <td></td>
+            <td>
+
+                <a href="@Url.Action("Edit",new { id = role.Id})">Edit</a>
+                <a href="@Url.Action("Delete",new { id = role.Id})">Delete</a>
+                <a href="@Url.Action("Create","AspNetRoleUser",new { RoleId = role.Id})">Add User </a>
+            </td>
+        </tr>
+
+        foreach (var user in role.AspNetUsers.ToList())
+        {
+            <tr>
+                <td></td>
+                <td>@user.UserName</td>
+                <td>
+                    <a href="@Url.Action("Delete","AspNetRoleUser",new { RoleId = role.Id , UserId = user.Id })">Delete</a>
+                </td>
+            </tr>
+        }
+
+
+    }
+
+</table>
+
