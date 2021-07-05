@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.IO;
+using System.Transactions;
 using System.Web.Mvc;
 using CNTTFAQ.Models;
 
@@ -10,7 +11,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
 {
     public class ManageCatalogController : Controller
     {
-        private DIEUBANTHUONGHOIWEBSITEEntities model = new DIEUBANTHUONGHOIWEBSITEEntities();
+        DIEUBANTHUONGHOIWEBSITEEntities model = new DIEUBANTHUONGHOIWEBSITEEntities();
         private const string PICTURE_PATH = "~/Upload/SanPhams/";
 
         // GET: List of data from DANH_MUC /AdminManageCatalog
@@ -33,7 +34,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         public ActionResult Create(DANH_MUC f, HttpPostedFileBase HINH_ANH)
         {
             var category = new DANH_MUC();
-            /*if (HINH_ANH.ContentLength < 0)
+           /* if (HINH_ANH.ContentLength > 0)
             {
                 f.HINH_ANH = HINH_ANH.FileName;
                 string FolderPath = Path.Combine(Server.MapPath("~/Images"), f.HINH_ANH);

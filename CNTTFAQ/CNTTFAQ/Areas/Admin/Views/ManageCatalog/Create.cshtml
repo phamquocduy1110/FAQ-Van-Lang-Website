@@ -74,10 +74,10 @@
 
                                         <div class="form-group">
                                             <h4 class="card-title">Hình ảnh</h4>
-                                            <div class="col-md-10">
-                                                <input type="file" class="form-control" name="HINH_ANH">
-                                                @Html.ValidationMessageFor(model => model.HINH_ANH, "", new { @class = "text-danger" })
-                                            </div>
+                                            <dir class="col-md-10">
+                                                <input class="form-control" type="file" name="Picture" id="IMG" onchange="readURL(this)" accept="image/gif,image/jpeg,image/png" />
+                                            </dir>
+                                            <img id="pic" />
                                         </div>
 
                                         <div class="form-group">
@@ -141,5 +141,17 @@
             selector: '#MO_TA',
             menubar: false
         });
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#pic').attr('src', e.target.result).attr('width', '300px').attr('height', '150px');
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
     </script>
 }

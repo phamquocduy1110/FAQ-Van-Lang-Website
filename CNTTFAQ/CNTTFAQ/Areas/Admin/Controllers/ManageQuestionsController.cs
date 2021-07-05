@@ -15,7 +15,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
     public class ManageQuestionsController : Controller
     {
 
-        private DIEUBANTHUONGHOIWEBSITEEntities model = new DIEUBANTHUONGHOIWEBSITEEntities();
+        DIEUBANTHUONGHOIWEBSITEEntities model = new DIEUBANTHUONGHOIWEBSITEEntities();
 
         // GET: Load All List Questions / AdminManageQuestions
         public ActionResult Index()
