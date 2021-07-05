@@ -184,6 +184,7 @@
     <Compile Include="Areas\Admin\Controllers\ManageCatalogController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageQuestionsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AspNetRoleUserController.cs" />
     <Compile Include="Controllers\AspNetRoleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -667,6 +668,7 @@
     <Content Include="Views\AspNetRole\Details.cshtml" />
     <Content Include="Views\AspNetRole\Edit.cshtml" />
     <Content Include="Views\AspNetRole\Index.cshtml" />
+    <Content Include="Views\AspNetRoleUser\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
