@@ -25,5 +25,15 @@ namespace CNTTFAQ.Tests.Controllers
             var db = new DIEUBANTHUONGHOIWEBSITEEntities();
             Assert.AreEqual(db.DANH_MUC.Count(), model.Count());
         }
+
+        [TestMethod]
+        public void CreateG()
+        {
+            var controller = new ManageCatalogController();
+
+            var result = controller.Create() as ViewResult;
+
+            Assert.IsNotNull(result);
+        }
     }
 }
