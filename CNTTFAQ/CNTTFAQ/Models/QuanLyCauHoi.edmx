@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DIEUBANTHUONGHOIWEBSITE.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="SEP24Team11ModelDIEUBANTHUONGHOIWEBSITE.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -96,7 +96,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DANH_MUC" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="MO_TA" Type="nvarchar(max)" />
-          <Property Name="HINH_ANH" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="HINH_ANH" Type="nvarchar(max)" />
           <Property Name="NGAY_TAO" Type="datetime2" Precision="7" />
           <Property Name="ID_TAI_KHOAN" Type="nvarchar" MaxLength="128" Nullable="false" />
         </EntityType>
@@ -295,7 +295,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DIEUBANTHUONGHOIWEBSITEStoreContainer">
+        <EntityContainer Name="SEP24Team11ModelDIEUBANTHUONGHOIWEBSITEStoreContainer">
           <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
@@ -359,7 +359,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DIEUBANTHUONGHOIWEBSITE" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="SEP24Team11ModelDIEUBANTHUONGHOIWEBSITE" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="C__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -459,7 +459,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DANH_MUC1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MO_TA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="HINH_ANH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HINH_ANH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="NGAY_TAO" Type="DateTime" Precision="7" />
           <Property Name="ID_TAI_KHOAN" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="AspNetUser" Relationship="Self.FK_DANH_MUC_AspNetUsers" FromRole="DANH_MUC" ToRole="AspNetUsers" />
@@ -698,9 +698,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DIEUBANTHUONGHOIWEBSITEStoreContainer" CdmEntityContainer="DIEUBANTHUONGHOIWEBSITEEntities">
+        <EntityContainerMapping StorageEntityContainer="SEP24Team11ModelDIEUBANTHUONGHOIWEBSITEStoreContainer" CdmEntityContainer="DIEUBANTHUONGHOIWEBSITEEntities">
           <EntitySetMapping Name="C__MigrationHistory">
-            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.C__MigrationHistory">
+            <EntityTypeMapping TypeName="SEP24Team11ModelDIEUBANTHUONGHOIWEBSITE.C__MigrationHistory">
               <MappingFragment StoreEntitySet="__MigrationHistory">
                 <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
                 <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
@@ -710,7 +710,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetRoles">
-            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.AspNetRole">
+            <EntityTypeMapping TypeName="SEP24Team11ModelDIEUBANTHUONGHOIWEBSITE.AspNetRole">
               <MappingFragment StoreEntitySet="AspNetRoles">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -718,7 +718,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUserClaims">
-            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.AspNetUserClaim">
+            <EntityTypeMapping TypeName="SEP24Team11ModelDIEUBANTHUONGHOIWEBSITE.AspNetUserClaim">
               <MappingFragment StoreEntitySet="AspNetUserClaims">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -728,7 +728,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUserLogins">
-            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.AspNetUserLogin">
+            <EntityTypeMapping TypeName="SEP24Team11ModelDIEUBANTHUONGHOIWEBSITE.AspNetUserLogin">
               <MappingFragment StoreEntitySet="AspNetUserLogins">
                 <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
                 <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
@@ -737,7 +737,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUsers">
-            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.AspNetUser">
+            <EntityTypeMapping TypeName="SEP24Team11ModelDIEUBANTHUONGHOIWEBSITE.AspNetUser">
               <MappingFragment StoreEntitySet="AspNetUsers">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
@@ -755,7 +755,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CAU_HOI">
-            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.CAU_HOI">
+            <EntityTypeMapping TypeName="SEP24Team11ModelDIEUBANTHUONGHOIWEBSITE.CAU_HOI">
               <MappingFragment StoreEntitySet="CAU_HOI">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CAU_HOI1" ColumnName="CAU_HOI" />
@@ -769,7 +769,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CAU_TRA_LOI">
-            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.CAU_TRA_LOI">
+            <EntityTypeMapping TypeName="SEP24Team11ModelDIEUBANTHUONGHOIWEBSITE.CAU_TRA_LOI">
               <MappingFragment StoreEntitySet="CAU_TRA_LOI">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ID_CAU_HOI" ColumnName="ID_CAU_HOI" />
@@ -780,7 +780,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DANH_MUC">
-            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.DANH_MUC">
+            <EntityTypeMapping TypeName="SEP24Team11ModelDIEUBANTHUONGHOIWEBSITE.DANH_MUC">
               <MappingFragment StoreEntitySet="DANH_MUC">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="DANH_MUC1" ColumnName="DANH_MUC" />
@@ -792,7 +792,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LICH_SU_CHINH_SUA_CAU_HOI">
-            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.LICH_SU_CHINH_SUA_CAU_HOI">
+            <EntityTypeMapping TypeName="SEP24Team11ModelDIEUBANTHUONGHOIWEBSITE.LICH_SU_CHINH_SUA_CAU_HOI">
               <MappingFragment StoreEntitySet="LICH_SU_CHINH_SUA_CAU_HOI">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CAU_HOI_TRUOC_CHINH_SUA" ColumnName="CAU_HOI_TRUOC_CHINH_SUA" />
@@ -807,7 +807,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LICH_SU_CHINH_SUA_DANH_MUC">
-            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.LICH_SU_CHINH_SUA_DANH_MUC">
+            <EntityTypeMapping TypeName="SEP24Team11ModelDIEUBANTHUONGHOIWEBSITE.LICH_SU_CHINH_SUA_DANH_MUC">
               <MappingFragment StoreEntitySet="LICH_SU_CHINH_SUA_DANH_MUC">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="DANH_MUC_TRUOC_CHINH_SUA" ColumnName="DANH_MUC_TRUOC_CHINH_SUA" />
@@ -822,7 +822,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LUOT_TIM_TU_KHOA">
-            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.LUOT_TIM_TU_KHOA">
+            <EntityTypeMapping TypeName="SEP24Team11ModelDIEUBANTHUONGHOIWEBSITE.LUOT_TIM_TU_KHOA">
               <MappingFragment StoreEntitySet="LUOT_TIM_TU_KHOA">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="TU_KHOA" ColumnName="TU_KHOA" />
@@ -831,7 +831,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.sysdiagram">
+            <EntityTypeMapping TypeName="SEP24Team11ModelDIEUBANTHUONGHOIWEBSITE.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -842,7 +842,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserTokenCaches">
-            <EntityTypeMapping TypeName="DIEUBANTHUONGHOIWEBSITE.UserTokenCach">
+            <EntityTypeMapping TypeName="SEP24Team11ModelDIEUBANTHUONGHOIWEBSITE.UserTokenCach">
               <MappingFragment StoreEntitySet="UserTokenCaches">
                 <ScalarProperty Name="UserTokenCacheId" ColumnName="UserTokenCacheId" />
                 <ScalarProperty Name="webUserUniqueId" ColumnName="webUserUniqueId" />
@@ -851,7 +851,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="AspNetUserRoles" TypeName="DIEUBANTHUONGHOIWEBSITE.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="SEP24Team11ModelDIEUBANTHUONGHOIWEBSITE.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
             <EndProperty Name="AspNetRoles">
               <ScalarProperty Name="Id" ColumnName="RoleId" />
             </EndProperty>

@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-5 align-self-center">
                         <div class="customize-input float-right">
-                            <input type="button" value="Tạo mới danh mục" onclick="location.href='@Url.Action("Create", "ManageCatalog")'" style="color: green" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius"/>
+                            <input type="button" value="Tạo mới danh mục" onclick="location.href='@Url.Action("Create", "ManageCatalog")'" style="color: green" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius" />
                         </div>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                                                         @MvcHtmlString.Create(item.MO_TA)
                                                     </td>
                                                     <td>
-                                                        @Html.DisplayFor(modelItem => item.HINH_ANH)
+                                                        <img src="@Url.Content(item.HINH_ANH)" width="100" />
                                                     </td>
                                                     <td>
                                                         @Html.DisplayFor(modelItem => item.NGAY_TAO)
