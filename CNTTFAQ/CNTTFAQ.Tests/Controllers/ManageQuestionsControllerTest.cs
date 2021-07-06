@@ -39,9 +39,50 @@ namespace CNTTFAQ.Tests.Controllers
         }
 
         [TestMethod]
-        public void TesDeleteG()
+        public void TestCreateP()
         {
+            var rand = new Random();
+            var question = new CAU_HOI
+            {
+                CAU_HOI1 = rand.NextDouble().ToString(),
+                MO_TA = rand.NextDouble().ToString(),
+                ID_DANH_MUC = rand.Next(),
+                NGAY_TAO = DateTime.Now,
+                ID_TAI_KHOAN = "Id"
+            };
+            
+            var controller = new ManageQuestionsController();
+            var result = controller.Create(question) as ViewResult;
+            Assert.IsNotNull(result);
+            controller.ModelState.Clear();
+        }
 
+        [TestMethod]
+        public void TestEditG()
+        {
+            var controller = new ManageQuestionsController();
+            var result0 = controller.Edit(0) as HttpNotFoundResult;
+            Assert.IsNotNull(result0);
+
+            var db = new DIEUBANTHUONGHOIWEBSITEEntities();
+            var question = db.CAU_HOI.First();
+            var result1 = controller.Edit(question.ID) as ViewResult;
+            Assert.IsNotNull(result1);
+
+            var model = result1.Model as CAU_HOI;
+            Assert.IsNotNull(model);
+            Assert.AreEqual(question.CAU_HOI1, model.CAU_HOI1);
+            Assert.AreEqual(question.MO_TA, model.MO_TA);
+            Assert.AreEqual(question.ID_DANH_MUC, model.ID_DANH_MUC);
+            Assert.AreEqual(question.NGAY_TAO, model.NGAY_TAO);
+            Assert.AreEqual(question.ID_TAI_KHOAN, model.ID_TAI_KHOAN);
+            Assert.AreEqual(question.LUOT_XEM, model.LUOT_XEM);
+            Assert.AreEqual(question.DUYET_DANG, model.DUYET_DANG);
+        }
+
+        [TestMethod]
+        public void DeleteG()
+        {
             var controller = new ManageQuestionsController();
             var result0 = controller.Delete(0) as HttpNotFoundResult;
             Assert.IsNotNull(result0);
@@ -63,7 +104,7 @@ namespace CNTTFAQ.Tests.Controllers
         }
 
         [TestMethod]
-        public void TestDeleteP()
+        public void DeleteP()
         {
             var db = new DIEUBANTHUONGHOIWEBSITEEntities();
             var question = db.CAU_HOI.AsNoTracking().First();
