@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
+using System.Transactions;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -20,7 +21,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         // GET: Load All List Questions / AdminManageQuestions
         public ActionResult Index()
         {
-            var question = model.CAU_HOI.ToList().OrderByDescending(x => x.ID).ToList();
+            var question = model.CAU_HOI.ToList();
             return View(question);
         }
 
@@ -28,14 +29,14 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            ViewBag.question_type = model.DANH_MUC.OrderByDescending(x => x.ID).ToList();
-            ViewBag.account_type = model.AspNetUsers.OrderByDescending(x => x.Id).ToList();
+            ViewBag.ID_TAI_KHOAN = new SelectList(model.AspNetUsers, "Id", "Email");
+            ViewBag.ID_DANH_MUC = new SelectList(model.DANH_MUC, "ID", "DANH_MUC1");
             return View();
         }
 
         // POST: CAU_HOI / AdminManageQuestions
         [HttpPost, ValidateInput(false)]
-        public ActionResult Create(CAU_HOI f, HttpPostedFileBase IMAGE_URL)
+        public ActionResult Create(CAU_HOI f)
         {
             var question = new CAU_HOI();
 
@@ -61,7 +62,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
 
         // POST: CAU_HOI / AdminManageQuestions
         [HttpPost, ValidateInput(false)]
-        public ActionResult Edit(int id, CAU_HOI f, HttpPostedFileBase IMAGE_URL)
+        public ActionResult Edit(int id, CAU_HOI f)
         {
             var question = model.CAU_HOI.FirstOrDefault(x => x.ID == id);
             question.CAU_HOI1 = f.CAU_HOI1;
@@ -74,30 +75,50 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         }
 
         // GET: DANH_MUC / AdminManageQuestions
-        [HttpGet]
         public ActionResult Delete(int id)
         {
-            var question = model.CAU_HOI.FirstOrDefault(x => x.ID == id);
+            var question = model.CAU_HOI.Find(id);
+            if (question == null)
+            {
+                return HttpNotFound();
+            }
+
             return View(question);
         }
 
         // POST: DANH_MUC / AdminManageQuestions
-        [HttpPost]
-        [ActionName("Delete")]
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirm(int id)
         {
-            var question = model.CAU_HOI.FirstOrDefault(x => x.ID == id);
-            model.CAU_HOI.Remove(question);
-            model.SaveChanges();
-            return RedirectToAction("Index");
+            using(var scope = new TransactionScope())
+            {
+                var question = model.CAU_HOI.Find(id);
+                model.CAU_HOI.Remove(question);
+                model.SaveChanges();
+                scope.Complete();
+                return RedirectToAction("Index");
+            }
         }
 
         // GET: DANH_MUC / AdminManageQuestions
-        [HttpGet, ValidateInput(false)]
         public ActionResult Details(int id)
         {
-            var question = model.CAU_HOI.FirstOrDefault(x => x.ID == id);
+            var question = model.CAU_HOI.Find(id);
+            if (question == null)
+            {
+                return HttpNotFound();
+            }
             return View(question);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                model.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }
