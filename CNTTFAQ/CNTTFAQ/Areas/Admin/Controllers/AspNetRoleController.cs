@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using CNTTFAQ.Models;
 
-namespace CNTTFAQ.Controllers
+namespace CNTTFAQ.Areas.Admin.Controllers
 {
     public class AspNetRoleController : Controller
     {

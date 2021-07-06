@@ -1,12 +1,12 @@
-﻿@model IEnumerable<CNTTFAQ.Models.DANH_MUC>
+﻿@model IEnumerable<CNTTFAQ.Models.AspNetRole>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 @{
-    ViewBag.Title = "Category Index Page";
+    ViewBag.Title = "AspNetRole Index Page";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 <head>
-    <title>Danh mục</title>
+    <title>Quản lý quyền </title>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-7 align-self-center">
-                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Danh mục</h4>
+                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Quyền tài khoản</h4>
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb m-0 p-0">
@@ -35,8 +35,8 @@
                     </div>
                     <div class="col-5 align-self-center">
                         <div class="customize-input float-right">
-                            <button onclick="location.href='@Url.Action("Create", "ManageCatalog")'" style="color: green" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius">
-                                <i class="fas fa-plus"> Tạo mới danh mục</i>
+                            <button onclick="location.href='@Url.Action("Create", "AspNetRole")'" style="color: green" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius">
+                                <i class="fas fa-plus"> Tạo quyền mới</i>
                             </button>
                         </div>
                     </div>
@@ -57,61 +57,59 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Xem danh sách các danh mục</h4>
+                                <h4 class="card-title">Xem danh sách các quyền tài khoản</h4>
                                 <div class="table-responsive">
                                     <table id="zero_config" class="table table-striped table-bordered no-wrap">
                                         <thead>
                                             <tr>
-                                                <th>Tên danh mục</th>
-                                                <th>Mô tả</th>
-                                                <th>Hình ảnh</th>
-                                                <th>Ngày tạo</th>
-                                                <th>Người tạo</th>
-                                                <th>Tùy chỉnh</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach (var item in Model)
+                                            <tr>
+                                                <th> Quyền </th>
+                                                <th> Tài khoản</th>
+                                                <th> Tùy chỉnh</th>
+                                            </tr>
+
+                                            @foreach (var role in Model)
                                             {
                                                 <tr>
                                                     <td>
-                                                        @Html.DisplayFor(modelItem => item.DANH_MUC1)
+                                                        @role.Name
                                                     </td>
+                                                    <td></td>
                                                     <td>
-                                                        @MvcHtmlString.Create(item.MO_TA)
-                                                    </td>
-                                                    <td>
-                                                        <img src="@Url.Content(item.HINH_ANH)" width="100" />
-                                                    </td>
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.NGAY_TAO)
-                                                    </td>
-                                                    <td>
-                                                        @Html.DisplayFor(modelItem => item.AspNetUser.Email)
-                                                    </td>
-                                                    <td>
-                                                        <a href="@Url.Action("Details", new { id = item.ID })" class="btn btn-primary btn-circle">
-                                                            <i class="fa fa-list"></i>
+                                                        <a href="@Url.Action("Create", "AspNetRoleUser", new { RoleId = role.Id })" class="btn btn-success btn-circle">
+                                                            <i class="fa fa-plus"></i>
                                                         </a>
-                                                        <a href="@Url.Action("Edit", new { id = item.ID })" class="btn btn-warning btn-circle">
+                                                        <a href="@Url.Action("Edit", new { id = role.Id })" class="btn btn-warning btn-circle">
                                                             <i class="fa fa-eye-dropper"></i>
                                                         </a>
-                                                        <a href="@Url.Action("Delete", new { id = item.ID })" class="btn btn-danger btn-circle">
+                                                        <a href="@Url.Action("Delete", new { id = role.Id })" class="btn btn-danger btn-circle">
                                                             <i class="fa fa-times"></i>
                                                         </a>
                                                     </td>
                                                 </tr>
+                                                foreach (var user in role.AspNetUsers)
+                                                {
+                                                    <tr>
+                                                        <td>
+                                                        <td>@user.UserName</td>
+                                                        <td>
+                                                            <a href="@Url.Action("Delete", "AspNetRoleUser", new { RoleId = role.Id, UserId = user.Id })" class="btn btn-danger btn-circle">
+                                                                <i class="fa fa-times"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                }
                                             }
                                         </tbody>
                                         <tfoot>
-                                            <tr>
-                                                <th>Tên danh mục</th>
-                                                <th>Mô tả</th>
-                                                <th>Hình ảnh</th>
-                                                <th>Ngày tạo</th>
-                                                <th>Người tạo</th>
-                                                <th>Tùy chỉnh</th>
-                                            </tr>
+                                                <tr>
+                                                    @*<th> Quyền </th>
+                                                    <th> Tài khoản</th>
+                                                    <th> Tùy chỉnh người dùng</th>*@
+                                                </tr>
                                         </tfoot>
                                     </table>
                                 </div>
@@ -148,3 +146,4 @@
     <!-- ============================================================== -->
 </body>
 </html>
+
