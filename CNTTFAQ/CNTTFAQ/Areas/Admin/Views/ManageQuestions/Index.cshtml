@@ -6,7 +6,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 <head>
-    <title>Các câu hỏi thường gặp</title>
+    <title>Câu hỏi</title>
 </head>
 
 <body>
@@ -35,7 +35,9 @@
                     </div>
                     <div class="col-5 align-self-center">
                         <div class="customize-input float-right">
-                            <input type="button" value="Tạo mới câu hỏi" onclick="location.href='@Url.Action("Create", "ManageQuestions")'" style="color: green" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius" />
+                            <button onclick="location.href='@Url.Action("Create", "ManageQuestions")'" style="color: green" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius">
+                                <i class="fas fa-plus"> Tạo mới câu hỏi</i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -88,11 +90,11 @@
                                                         @Html.DisplayFor(modelItem => item.LUOT_XEM)
                                                     </td>
                                                     <td>
-                                                        <a href="@Url.Action("Edit", new { id = item.ID })" class="btn btn-success btn-circle">
-                                                            <i class="fa fa-link"></i>
-                                                        </a>
                                                         <a href="@Url.Action("Details", new { id = item.ID })" class="btn btn-primary btn-circle">
                                                             <i class="fa fa-list"></i>
+                                                        </a>
+                                                        <a href="@Url.Action("Edit", new { id = item.ID })" class="btn btn-warning btn-circle">
+                                                            <i class="fa fa-eye-dropper"></i>
                                                         </a>
                                                         <a href="@Url.Action("Delete", new { id = item.ID })" class="btn btn-danger btn-circle">
                                                             <i class="fa fa-times"></i>
