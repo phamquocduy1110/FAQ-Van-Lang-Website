@@ -51,12 +51,16 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         }
 
         // GET: List of data from CAU_HOI /AdminManageQuestions
-        [HttpGet]
         public ActionResult Edit(int id)
         {
-            var question = model.CAU_HOI.FirstOrDefault(x => x.ID == id);
-            ViewBag.question_type = model.DANH_MUC.OrderByDescending(x => x.ID).ToList();
-            ViewBag.account_type = model.AspNetUsers.OrderByDescending(x => x.Id).ToList();
+            var question = model.CAU_HOI.Find(id);
+            if (question == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.ID_TAI_KHOAN = new SelectList(model.AspNetUsers, "Id", "Email", question.AspNetUser);
+            ViewBag.ID_DANH_MUC = new SelectList(model.DANH_MUC, "ID", "DANH_MUC1", question.DANH_MUC);
+
             return View(question);
         }
 
@@ -96,12 +100,13 @@ namespace CNTTFAQ.Areas.Admin.Controllers
                 var question = model.CAU_HOI.Find(id);
                 model.CAU_HOI.Remove(question);
                 model.SaveChanges();
+
                 scope.Complete();
                 return RedirectToAction("Index");
             }
         }
 
-        // GET: DANH_MUC / AdminManageQuestions
+        // GET: CAU_HOI / AdminManageQuestions
         public ActionResult Details(int id)
         {
             var question = model.CAU_HOI.Find(id);
