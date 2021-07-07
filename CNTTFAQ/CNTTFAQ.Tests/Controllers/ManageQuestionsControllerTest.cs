@@ -39,7 +39,7 @@ namespace CNTTFAQ.Tests.Controllers
         }
 
         [TestMethod]
-        public void TestCreateP()
+        public void CreateP()
         {
             var rand = new Random();
             var question = new CAU_HOI
@@ -58,7 +58,7 @@ namespace CNTTFAQ.Tests.Controllers
         }
 
         [TestMethod]
-        public void TestEditG()
+        public void EditG()
         {
             var controller = new ManageQuestionsController();
             var result0 = controller.Edit(0) as HttpNotFoundResult;

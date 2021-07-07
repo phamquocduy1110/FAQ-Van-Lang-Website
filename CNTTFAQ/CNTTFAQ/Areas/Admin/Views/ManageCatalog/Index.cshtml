@@ -148,3 +148,16 @@
     <!-- ============================================================== -->
 </body>
 </html>
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#pic').attr('src', e.target.result).attr('width', 'auto').attr('height', 'auto');
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>

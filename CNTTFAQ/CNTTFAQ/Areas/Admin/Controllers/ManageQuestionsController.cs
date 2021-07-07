@@ -100,12 +100,13 @@ namespace CNTTFAQ.Areas.Admin.Controllers
                 var question = model.CAU_HOI.Find(id);
                 model.CAU_HOI.Remove(question);
                 model.SaveChanges();
+
                 scope.Complete();
                 return RedirectToAction("Index");
             }
         }
 
-        // GET: DANH_MUC / AdminManageQuestions
+        // GET: CAU_HOI / AdminManageQuestions
         public ActionResult Details(int id)
         {
             var question = model.CAU_HOI.Find(id);

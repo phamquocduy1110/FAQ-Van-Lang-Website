@@ -17,7 +17,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         // GET: List of data from DANH_MUC /AdminManageCatalog
         public ActionResult Index()
         {
-            var category = model.DANH_MUC.ToList().OrderByDescending(x => x.ID).ToList();
+            var category = model.DANH_MUC.ToList();
             return View(category);
         }
 
@@ -26,7 +26,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            ViewBag.account_type = model.AspNetUsers.OrderByDescending(x => x.Id).ToList();
+            ViewBag.ID_TAI_KHOAN = new SelectList(model.AspNetUsers, "Id", "Email");
             return View();
         }
 
@@ -56,8 +56,13 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var category = model.DANH_MUC.FirstOrDefault(x => x.ID == id);
-            ViewBag.account_type = model.AspNetUsers.OrderByDescending(x => x.Id).ToList();
+            var category = model.DANH_MUC.Find(id);
+            if (category == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.ID_TAI_KHOAN = new SelectList(model.AspNetUsers, "Id", "Email", category.AspNetUser);
+
             return View(category);
         }
 
@@ -83,30 +88,50 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         }
 
         // GET: DANH_MUC / AdminManageCatalog
-        [HttpGet]
         public ActionResult Delete(int id)
         {
-            var category = model.DANH_MUC.FirstOrDefault(x => x.ID == id);
+            var category = model.DANH_MUC.Find(id);
+            if (category == null)
+            {
+                return HttpNotFound();
+            }
             return View(category);
         }
 
         // POST: DANH_MUC / AdminManageCatalog
-        [HttpPost]
-        [ActionName("Delete")]
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirm(int id)
         {
-            var category = model.DANH_MUC.FirstOrDefault(x => x.ID == id);
-            model.DANH_MUC.Remove(category);
-            model.SaveChanges();
-            return RedirectToAction("Index");
+            using (var scope = new TransactionScope())
+            {
+                var category = model.DANH_MUC.Find(id);
+                model.DANH_MUC.Remove(category);
+                model.SaveChanges();
+
+                scope.Complete();
+                return RedirectToAction("Index");
+            }
         }
 
         // GET: DANH_MUC / AdminManageCatalog
-        [HttpGet, ValidateInput(false)]
         public ActionResult Details(int id)
         {
-            var category = model.DANH_MUC.FirstOrDefault(x => x.ID == id);
+            var category = model.DANH_MUC.Find(id);
+            if (category == null)
+            {
+                return HttpNotFound();
+            }
             return View(category);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                model.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }
