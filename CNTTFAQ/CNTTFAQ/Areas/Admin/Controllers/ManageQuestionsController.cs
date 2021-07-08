@@ -18,6 +18,14 @@ namespace CNTTFAQ.Areas.Admin.Controllers
     {
         DIEUBANTHUONGHOIWEBSITEEntities model = new DIEUBANTHUONGHOIWEBSITEEntities();
 
+        public ActionResult Statistic()
+        {
+            var question = model.CAU_HOI.OrderByDescending(x => x.ID).Count();
+            ViewBag.question = question;
+
+            return View();
+        }
+
         // GET: Load All List Questions / AdminManageQuestions
         public ActionResult Index()
         {
