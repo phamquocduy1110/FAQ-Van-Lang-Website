@@ -28,6 +28,7 @@
         <AssociationConnector Association="SEP24Team11ModelDIEUBANTHUONGHOIWEBSITE.FK_CAU_HOI_DANH_MUC" ManuallyRouted="false" />
         <AssociationConnector Association="SEP24Team11ModelDIEUBANTHUONGHOIWEBSITE.FK_CAU_TRA_LOI_CAU_HOI" ManuallyRouted="false" />
         <AssociationConnector Association="SEP24Team11ModelDIEUBANTHUONGHOIWEBSITE.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SEP24Team11ModelDIEUBANTHUONGHOIWEBSITE.TAI_KHOAN" Width="1.5" PointX="7.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

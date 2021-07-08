@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace CNTTFAQ.Areas.Admin.Controllers
 {
+    [Authorize]
     public class AdminHomeController : Controller
     {
         // GET: Admin Index/AdminHome
