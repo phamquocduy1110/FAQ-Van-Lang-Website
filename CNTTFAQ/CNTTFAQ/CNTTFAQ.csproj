@@ -550,7 +550,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\141759897_131190795510636_5295336354847871918_n.jpg" />
     <Content Include="Images\360_F_289616456_wwOUZZTsYTOcIxGbwffOS8iP4QatFHa1.jpg" />
     <Content Include="Images\4550812850_10d35acb9e_b.jpg" />
     <Content Include="Images\beautifulbackground.jpg" />
@@ -559,6 +558,7 @@
     <Content Include="Images\beautifulbackground4.jpg" />
     <Content Include="Images\images %281%29.jpg" />
     <Content Include="Images\images.jfif" />
+    <Content Include="Images\a.jpg" />
     <Content Include="Images\unnamed %281%29.jpg" />
     <Content Include="Images\vanlang2.jpg" />
     <Content Include="Images\yellow-sparkles-dark-blue-background-fireflies-flying-night-golden-stardust-light-effect-abstract-evening-sky-backdrop_134821-79.jpg" />
@@ -628,6 +628,7 @@
     <Content Include="Models\QuanLyCauHoi.edmx.diagram">
       <DependentUpon>QuanLyCauHoi.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\ManageQuestions\Statistic.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
