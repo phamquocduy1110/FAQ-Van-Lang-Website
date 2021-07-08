@@ -15,6 +15,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
     [Authorize]
     public class AdminAccountController : Controller
     {
+        DIEUBANTHUONGHOIWEBSITEEntities model = new DIEUBANTHUONGHOIWEBSITEEntities();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -55,9 +56,10 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         //
         // GET: /Account/Login
         [AllowAnonymous]
-        public ActionResult Login(string returnUrl)
+        public ActionResult Login()
         {
-            ViewBag.ReturnUrl = returnUrl;
+            Session["password-incorrect"] = false;
+            Session["user-not-found"] = false;
             return View();
         }
 
@@ -65,30 +67,26 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public ActionResult Login(string email, string password)
         {
-            if (!ModelState.IsValid)
+            var user = model.AspNetUsers.FirstOrDefault(u => u.Email.Equals(email));
+            if (user != null)
             {
-                return View(model);
+                if (user.PasswordHash.Equals(password))
+                {
+                    Session["user-fullname"] = user.UserName;
+                    Session["user-id"] = user.Id;
+                    Session["user-role"] = user.AspNetRoles;
+                    return RedirectToAction("Index", "ManageQuestions");
+                }
+                else
+                {
+                    Session["Password-incorrect"] = true;
+                    return View();
+                }
             }
-
-            // This doesn't count login failures towards account lockout
-            // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-            switch (result)
-            {
-                case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                case SignInStatus.Failure:
-                default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
-            }
+            Session["user-not-found"] = true;
+            return View();
         }
 
         //
