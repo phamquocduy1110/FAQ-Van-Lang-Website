@@ -93,7 +93,7 @@
                 <!-- ============================================================== -->
                 <!-- End Logo -->
                 <!-- ============================================================== -->
-                <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                <div class="navbar-collapse collapse">
                     <!-- ============================================================== -->
                     <!-- toggle and nav items -->
                     <!-- ============================================================== -->
@@ -102,24 +102,8 @@
                     <!-- Right side toggle and nav items -->
                     <!-- ============================================================== -->
                     <ul class="navbar-nav float-right">
-                        <!-- ============================================================== -->
-                        <!-- User profile and search -->
-                        <!-- ============================================================== -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
-                                <img src="@Url.Content("~/Assets/images/avatar/profile-pic.jpg")" alt="user" class="rounded-circle"
-                                     width="40">
-                                <span class="ml-2 d-none d-lg-inline-block">
-                                    <span>Xin chào,</span>
-                                    <span class="text-dark">@Session["user-fullname"]</span>
-                                    <i data-feather="chevron-down" class="svg-icon"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <!-- ============================================================== -->
-                        <!-- User profile and search -->
-                        <!-- ============================================================== -->
-                    </ul>
+                        @Html.Partial("_LoginPartial")
+                   </ul>
                 </div>
             </nav>
         </header>
@@ -182,15 +166,6 @@
                                aria-expanded="false">
                                 <i data-feather="lock" class="feather-icon"></i><span class="hide-menu">
                                     Quản lý quyền
-                                </span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link"
-                               href="authentication-register1.html" aria-expanded="false">
-                                <i data-feather="lock"
-                                   class="feather-icon"></i><span class="hide-menu">
-                                    Register
                                 </span>
                             </a>
                         </li>

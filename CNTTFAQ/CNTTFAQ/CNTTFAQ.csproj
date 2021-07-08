@@ -192,7 +192,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\AdminAccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageCatalogController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageQuestionsController.cs" />
@@ -259,6 +258,9 @@
       <DependentUpon>QuanLyCauHoi.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TAI_KHOAN.cs">
       <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserTokenCach.cs">
@@ -604,18 +606,6 @@
     <Content Include="Assets\vendor\AdminIndexVendor\slick\slick-theme.scss" />
     <Content Include="Assets\vendor\AdminIndexVendor\slick\slick.less" />
     <Content Include="Assets\vendor\AdminIndexVendor\slick\slick.scss" />
-    <Content Include="Areas\Admin\Views\AdminAccount\ConfirmEmail.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminAccount\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminAccount\ExternalLoginFailure.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminAccount\ForgotPassword.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminAccount\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminAccount\Login.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminAccount\Register.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminAccount\ResetPassword.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminAccount\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminAccount\SendCode.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminAccount\VerifyCode.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminAccount\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_AdminLoginPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />

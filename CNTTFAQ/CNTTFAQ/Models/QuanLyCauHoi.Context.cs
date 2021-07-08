@@ -38,5 +38,6 @@ namespace CNTTFAQ.Models
         public virtual DbSet<LUOT_TIM_TU_KHOA> LUOT_TIM_TU_KHOA { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<UserTokenCach> UserTokenCaches { get; set; }
+        public virtual DbSet<TAI_KHOAN> TAI_KHOAN { get; set; }
     }
 }

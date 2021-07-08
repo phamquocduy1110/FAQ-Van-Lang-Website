@@ -10,6 +10,7 @@ using CNTTFAQ.Models;
 
 namespace CNTTFAQ.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AspNetRoleController : Controller
     {
         private DIEUBANTHUONGHOIWEBSITEEntities db = new DIEUBANTHUONGHOIWEBSITEEntities();
