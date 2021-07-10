@@ -76,7 +76,7 @@
                                     Hình ảnh
                                 </h4>
                                 <p class="card-text">
-                                   <img id="pic" src="@Model.HINH_ANH">
+                                    <img id="pic" src="@Model.HINH_ANH" width="600"/>
                                 </p>
                             </div>
                         </div>
@@ -136,7 +136,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center text-muted">
-                All Rights Reserved by Adminmart. Designed and Developed by <a href="https://github.com/DoAnSEP/DoAnSEP">SEPK24T-Team11</a>.
+                @DateTime.Now.Year - All Rights Reserved by Adminmart. Designed and Developed by <a>SEPK24T-Team11</a>.
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
@@ -160,7 +160,7 @@
             var reader = new FileReader();
 
             reader.onload = function (e) {
-                $('#pic').attr('src', e.target.result).attr('width', 'auto').attr('height', 'auto');
+                $('#pic').attr('src', e.target.result).attr('width', '600').attr('height', '400');
             };
 
             reader.readAsDataURL(input.files[0]);

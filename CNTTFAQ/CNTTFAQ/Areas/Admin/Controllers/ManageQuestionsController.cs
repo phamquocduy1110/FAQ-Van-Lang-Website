@@ -18,18 +18,10 @@ namespace CNTTFAQ.Areas.Admin.Controllers
     {
         DIEUBANTHUONGHOIWEBSITEEntities model = new DIEUBANTHUONGHOIWEBSITEEntities();
 
-        public ActionResult Statistic()
-        {
-            var question = model.CAU_HOI.OrderByDescending(x => x.ID).Count();
-            ViewBag.question = question;
-
-            return View();
-        }
-
         // GET: Load All List Questions / AdminManageQuestions
         public ActionResult Index()
         {
-            var question = model.CAU_HOI.ToList();
+            var question = model.CAU_HOI.AsNoTracking().OrderByDescending(x => x.ID).ToList();
             return View(question);
         }
 
@@ -37,7 +29,6 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            ViewBag.ID_TAI_KHOAN = new SelectList(model.AspNetUsers, "Id", "Email");
             ViewBag.ID_DANH_MUC = new SelectList(model.DANH_MUC, "ID", "DANH_MUC1");
             return View();
         }
@@ -52,7 +43,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             question.MO_TA = f.MO_TA;
             question.ID_DANH_MUC = f.ID_DANH_MUC;
             question.NGAY_TAO = DateTime.Now;
-            question.ID_TAI_KHOAN = f.ID_TAI_KHOAN;
+            question.ID_TAI_KHOAN = User.Identity.GetUserId();
             model.CAU_HOI.Add(question);
             model.SaveChanges();
             return RedirectToAction("Index");
@@ -66,7 +57,6 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ID_TAI_KHOAN = new SelectList(model.AspNetUsers, "Id", "Email", question.AspNetUser);
             ViewBag.ID_DANH_MUC = new SelectList(model.DANH_MUC, "ID", "DANH_MUC1", question.DANH_MUC);
 
             return View(question);
@@ -80,8 +70,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             question.CAU_HOI1 = f.CAU_HOI1;
             question.MO_TA = f.MO_TA;
             question.ID_DANH_MUC = f.ID_DANH_MUC;
-            question.NGAY_TAO = DateTime.Now;
-            question.ID_TAI_KHOAN = f.ID_TAI_KHOAN;
+            question.ID_TAI_KHOAN = User.Identity.GetUserId();
             model.SaveChanges();
             return RedirectToAction("Index");
         }
