@@ -201,8 +201,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
-    <Compile Include="Controllers\ServicesController.cs" />
-    <Compile Include="Controllers\StatisticalController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -673,12 +671,10 @@
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Questions\Index.cshtml" />
-    <Content Include="Views\Services\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Statistical\Index.cshtml" />
     <Content Include="Views\Questions\CategoryPartical.cshtml" />
     <Content Include="Areas\Admin\Views\AspNetRole\Create.cshtml" />
     <Content Include="Areas\Admin\Views\AspNetRole\Delete.cshtml" />
