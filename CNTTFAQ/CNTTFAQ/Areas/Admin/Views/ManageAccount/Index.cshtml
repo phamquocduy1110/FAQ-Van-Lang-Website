@@ -1,14 +1,13 @@
-﻿@model IEnumerable<CNTTFAQ.Models.CAU_HOI>
-
-@{
-    ViewBag.Title = "Statistic";
-    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
-}
+﻿@model IEnumerable<CNTTFAQ.Models.AspNetUser>
 
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
+@{
+    ViewBag.Title = "ListAccount Index Page";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
 <head>
-    <title>Câu hỏi</title>
+    <title>Danh sách tài khoản</title>
 </head>
 
 <body>
@@ -25,21 +24,14 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-7 align-self-center">
-                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Các câu hỏi thường gặp</h4>
+                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Danh sách tài khoản</h4>
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb m-0 p-0">
                                     <li class="breadcrumb-item"><a href="@Url.Action("Index", "AdminHome")" class="text-muted">Trang chủ</a></li>
-                                    <li class="breadcrumb-item text-muted active" aria-current="page">Danh sách các câu hỏi</li>
+                                    <li class="breadcrumb-item text-muted active" aria-current="page">Danh sách các tài khoản</li>
                                 </ol>
                             </nav>
-                        </div>
-                    </div>
-                    <div class="col-5 align-self-center">
-                        <div class="customize-input float-right">
-                            <button onclick="location.href='@Url.Action("Create", "ManageQuestions")'" style="color: green" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius">
-                                <i class="fas fa-plus"> Tạo mới câu hỏi</i>
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -59,25 +51,35 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Xem danh sách các câu hỏi</h4>
+                                <h4 class="card-title">Xem danh sách tài khoản</h4>
                                 <div class="table-responsive">
                                     <table id="zero_config" class="table table-striped table-bordered no-wrap">
                                         <thead>
                                             <tr>
-                                                <th>Tổng số lượng câu hỏi</th>
+                                                <th>Tài khoản</th>
+                                                <th>Tùy chỉnh</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>
-                                                    @ViewBag.question
-                                                </td>
-                                            </tr>
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Email)
+                                                    </td>
+                                                    <td>
+                                                        <a href="@Url.Action("Delete", new { id = item.Id })" class="btn btn-danger btn-circle">
+                                                            <i class="fa fa-times"></i>
+                                                        </a>
+                                                    </td>
+
+                                                </tr>
+                                            }
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th>Tên câu hỏi</th>
-                                                <th>Tổng số lượng câu hỏi</th>
+                                                <th>Tài khoản</th>
+                                                <th>Tùy chỉnh</th>
                                             </tr>
                                         </tfoot>
                                     </table>
@@ -97,7 +99,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center text-muted">
-                All Rights Reserved by Adminmart. Designed and Developed by <a href="https://github.com/DoAnSEP/DoAnSEP">SEPK24T-Team11</a>.
+                @DateTime.Now.Year - All Rights Reserved by Adminmart. Designed and Developed by <a>SEPK24T-Team11</a>.
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->

@@ -85,7 +85,7 @@
                                         <div class="form-group">
                                             <h4 class="card-title">Người tạo</h4>
                                             <div class="col-md-10">
-                                                @Html.DropDownList("ID_TAI_KHOAN", null, htmlAttributes: new { @class = "form-control" })
+                                                <input type="text" value="@User.Identity.Name" disabled class="form-control" />
                                                 @Html.ValidationMessageFor(model => model.ID_TAI_KHOAN, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -118,7 +118,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center text-muted">
-                All Rights Reserved by Adminmart. Designed and Developed by <a href="https://github.com/DoAnSEP/DoAnSEP">SEPK24T-Team11</a>.
+                @DateTime.Now.Year - All Rights Reserved by Adminmart. Designed and Developed by <a>SEPK24T-Team11</a>.
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
@@ -149,7 +149,7 @@
                 var reader = new FileReader();
 
                 reader.onload = function (e) {
-                    $('#pic').attr('src', e.target.result).attr('width', 'auto').attr('height', 'auto');
+                    $('#pic').attr('src', e.target.result).attr('width', '600');
                 };
 
                 reader.readAsDataURL(input.files[0]);
