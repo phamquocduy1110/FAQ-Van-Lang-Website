@@ -79,7 +79,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
                 string FolderPath = Path.Combine(Server.MapPath("~/Images"), f.HINH_ANH);
                 HINH_ANH.SaveAs(FolderPath);
 
-                string path = "/Images/" + f.HINH_ANH;
+                string path = "/SEP24Team11/Images/" + f.HINH_ANH;
                 category.HINH_ANH = path;
             }
             category.DANH_MUC1 = f.DANH_MUC1;

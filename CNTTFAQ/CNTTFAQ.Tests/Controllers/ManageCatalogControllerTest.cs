@@ -52,7 +52,11 @@ namespace CNTTFAQ.Tests.Controllers
 
             var model = r1.Model as DANH_MUC;
             Assert.IsNotNull(model);
-            Assert.AreEqual(category.DANH_MUC1, model.ID);
+            Assert.AreEqual(category.DANH_MUC1, model.DANH_MUC1);
+            Assert.AreEqual(category.MO_TA, model.MO_TA);
+            Assert.AreEqual(category.HINH_ANH, model.HINH_ANH);
+            Assert.AreEqual(category.NGAY_TAO, model.NGAY_TAO);
+            Assert.AreEqual(category.ID_TAI_KHOAN, model.ID_TAI_KHOAN);
         }
 
         [TestMethod]
@@ -70,41 +74,46 @@ namespace CNTTFAQ.Tests.Controllers
             var model = r1.Model as DANH_MUC;
             Assert.IsNotNull(model);
             Assert.AreEqual(category.DANH_MUC1, model.DANH_MUC1);
+            Assert.AreEqual(category.MO_TA, model.MO_TA);
+            Assert.AreEqual(category.HINH_ANH, model.HINH_ANH);
+            Assert.AreEqual(category.NGAY_TAO, model.NGAY_TAO);
+            Assert.AreEqual(category.ID_TAI_KHOAN, model.ID_TAI_KHOAN);
+        }
+
+        [TestMethod]
+        public void DeleteP()
+        {
+            var db = new DIEUBANTHUONGHOIWEBSITEEntities();
+            var category = db.DANH_MUC.AsNoTracking().First();
+
+            var controller = new ManageQuestionsController();
+            using (var scope = new TransactionScope())
+            {
+                var result1 = controller.DeleteConfirm(category.ID) as RedirectToRouteResult;
+                Assert.IsNotNull(result1);
+                Assert.AreEqual("Index", result1.RouteValues["action"]);
+            }
         }
 
         [TestMethod]
         public void Details()
         {
-            var controller = new ManageQuestionsController();
-            var result0 = controller.Details(0) as HttpNotFoundResult;
-            Assert.IsNotNull(result0);
+            var controller = new ManageCatalogController();
+            var r0 = controller.Edit(0) as HttpNotFoundResult;
+            Assert.IsNotNull(r0);
 
             var db = new DIEUBANTHUONGHOIWEBSITEEntities();
             var category = db.DANH_MUC.First();
-            var result1 = controller.Details(category.ID) as ViewResult;
-            Assert.IsNotNull(result1);
+            var r1 = controller.Edit(category.ID) as ViewResult;
+            Assert.IsNotNull(r1);
 
-            var model = result1.Model as DANH_MUC;
+            var model = r1.Model as DANH_MUC;
             Assert.IsNotNull(model);
             Assert.AreEqual(category.DANH_MUC1, model.DANH_MUC1);
             Assert.AreEqual(category.MO_TA, model.MO_TA);
+            Assert.AreEqual(category.HINH_ANH, model.HINH_ANH);
             Assert.AreEqual(category.NGAY_TAO, model.NGAY_TAO);
             Assert.AreEqual(category.ID_TAI_KHOAN, model.ID_TAI_KHOAN);
-
-            /*var controller = new ProductsController();
-            var result0 = controller.Delete(0) as HttpNotFoundResult;
-            Assert.IsNotNull(result0);
-
-            var db = new CsK24T26Entities();
-            var product = db.Products.First();
-            var result1 = controller.Details(product.id) as ViewResult;
-            Assert.IsNotNull(result1);
-
-            var model = result1.Model as Product;
-            Assert.IsNotNull(model);
-            Assert.AreEqual(product.name, model.name);
-            Assert.AreEqual(product.price, model.price);
-            Assert.AreEqual(product.product_description, model.product_description);*/
         }
 
         [TestMethod]

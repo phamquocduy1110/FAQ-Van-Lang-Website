@@ -55,8 +55,7 @@
                                 <p>@MvcHtmlString.Create(item.MO_TA)</p>
                             </div>
                         </div>
-                    }
-
+                     }
                     Tổng số trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
                     @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page, category = ViewBag.category }))
                 </div>
@@ -137,10 +136,5 @@
         </div>
     </div>
     <!-- newsletter section end-->
-    <!-- Footer section -->
-    <footer class="footer-section">
-        <h2>@DateTime.Now.Year - All rights reserved. Designed by <a>SEPK24T-Team11</a></h2>
-    </footer>
-    <!-- Footer section end -->
 </body>
 </html>
