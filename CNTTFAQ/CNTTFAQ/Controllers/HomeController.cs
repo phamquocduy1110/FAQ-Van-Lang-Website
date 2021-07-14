@@ -16,7 +16,7 @@ namespace CNTTFAQ.Controllers
         {
             if (User.IsInRole("BCN Khoa") || User.IsInRole("Admin"))
             {
-                return Redirect("/Admin/AdminHome/Index");
+                return Redirect("/SEP24Team11/Admin/AdminHome/Index");
             }
             var category = model.DANH_MUC.AsNoTracking().OrderByDescending(x => x.ID).ToList();
             return View(category);
