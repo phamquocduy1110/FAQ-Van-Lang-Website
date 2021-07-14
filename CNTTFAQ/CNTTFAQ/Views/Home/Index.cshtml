@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model List<CNTTFAQ.Models.DANH_MUC>
+
+<!DOCTYPE html>
 <html lang="en">
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -15,7 +17,7 @@
     <div class="hero-section" style="background-image:url('@Url.Content("~/Assets/images/backgrounds/cs3-01.jpg")')">
         <div class="hero-content">
             <div class="hero-center">
-                <img src="@Url.Content("~/Assets/images/logo/VanLangLogo.png")" alt="">
+                <p>Chào mừng</p>
             </div>
         </div>
         <!-- slider -->
@@ -63,36 +65,10 @@
         </div>
         <!-- card section end-->
         <!-- About contant -->
-        <div class="about-contant">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Get in <span>the Lab</span> and discover the world</h2>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequat ante ac congue. Quisque porttitor porttitor tempus. Donec maximus ipsum non ornare vporttitor porttitorestibulum. Sed libero nibh, feugiat at enim id, bibendum sollicitudin arcu.</p>
-                    </div>
-                    <div class="col-md-6">
-                        <p>Cras ex mauris, ornare eget pretium sit amet, dignissim et turpis. Nunc nec maximus dui, vel suscipit dolor. Donec elementum velit a orci facilisis rutrum. Nam convallis vel erat id dictum. Sed ut risus in orci convallis viverra a eget nisi. Aenean pellentesque elit vitae eros dignissim ultrices. Quisque porttitor porttitorlaoreet vel risus et luctus.</p>
-                    </div>
-                </div>
-                <!-- popup video -->
-                <div class="intro-video">
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <img src="@Url.Content("~/Assets/images/backgrounds/Video.PNG")" alt="">
-                            <a href="https://www.youtube.com/watch?v=-fG29wVNRLQ" class="video-popup">
-                                <i class="fa fa-play"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
     <!-- About section end -->
     <!-- Testimonial section -->
-    <div class="testimonial-section pb100">
+    <div class="testimonial-section pb100" style="padding: 0px">
         <div class="test-overlay"></div>
         <div class="container">
             <div class="row">
@@ -192,175 +168,27 @@
     </div>
     <!-- Testimonial section end-->
     <!-- Services section -->
-    <div class="services-section spad">
+    <div class="services-section spad" style="padding: 0px">
         <div class="container">
             <div class="section-title dark">
-                <h2>Get in <span>the Lab</span> and see the services</h2>
+                <h2>DANH MỤC</h2>
             </div>
             <div class="row">
-                <!-- single service -->
-                <div class="col-md-4 col-sm-6">
-                    <div class="service">
-                        <div class="service-text">
-                            <h2>Get in the lab</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
+                @foreach (var item in Model)
+                 {
+                    <!-- single service -->
+                    <div class="col-md-4 col-sm-6">
+                        <div class="service">
+                            <div class="service-text">
+                                <h2>@Html.ActionLink(item.DANH_MUC1, "Index", "Questions", new { page = 1, category = @item.ID }, null)</h2>
+                                <p>@MvcHtmlString.Create(item.MO_TA)</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- single service -->
-                <div class="col-md-4 col-sm-6">
-                    <div class="service">
-                        <div class="service-text">
-                            <h2>Projects online</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- single service -->
-                <div class="col-md-4 col-sm-6">
-                    <div class="service">
-                        <div class="service-text">
-                            <h2>SMART MARKETING</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- single service -->
-                <div class="col-md-4 col-sm-6">
-                    <div class="service">
-                        <div class="service-text">
-                            <h2>Social Media</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- single service -->
-                <div class="col-md-4 col-sm-6">
-                    <div class="service">
-                        <div class="service-text">
-                            <h2>Brainstorming</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- single service -->
-                <div class="col-md-4 col-sm-6">
-                    <div class="service">
-                        <div class="service-text">
-                            <h2>Documented</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- single service -->
-                <div class="col-md-4 col-sm-6">
-                    <div class="service">
-                        <div class="service-text">
-                            <h2>Responsive</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- single service -->
-                <div class="col-md-4 col-sm-6">
-                    <div class="service">
-                        <div class="service-text">
-                            <h2>Retina ready</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- single service -->
-                <div class="col-md-4 col-sm-6">
-                    <div class="service">
-                        <div class="service-text">
-                            <h2>Ultra modern</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-                        </div>
-                    </div>
-                </div>
+                 }
             </div>
         </div>
     </div>
     <!-- services section end -->
-    <!-- Team Section -->
-    <div class="team-section spad">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="section-title">
-                <h2>Get in <span>the Lab</span> and  meet the team</h2>
-            </div>
-            <div class="row">
-                <!-- single member -->
-                <div class="col-sm-4">
-                    <div class="member">
-                        <img src="@Url.Content("~/Assets/images/avatar/04.jpg")" alt="">
-                        <h2>Christinne Williams</h2>
-                        <h3>Project Manager</h3>
-                    </div>
-                </div>
-                <!-- single member -->
-                <div class="col-sm-4">
-                    <div class="member">
-                        <img src="@Url.Content("~/Assets/images/avatar/05.jpg")" alt="">
-                        <h2>Christinne Williams</h2>
-                        <h3>Junior developer</h3>
-                    </div>
-                </div>
-                <!-- single member -->
-                <div class="col-sm-4">
-                    <div class="member">
-                        <img src="@Url.Content("~/Assets/images/avatar/03.jpg")" alt="">
-                        <h2>Christinne Williams</h2>
-                        <h3>Digital designer</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <!-- single member -->
-                <div class="col-sm-4">
-                    <div class="member">
-                        <img src="@Url.Content("~/Assets/images/avatar/04.jpg")" alt="">
-                        <h2>Christinne Williams</h2>
-                        <h3>Project Manager</h3>
-                    </div>
-                </div>
-                <!-- single member -->
-                <div class="col-sm-4">
-                    <div class="member">
-                        <img src="@Url.Content("~/Assets/images/avatar/05.jpg")" alt="">
-                        <h2>Christinne Williams</h2>
-                        <h3>Junior developer</h3>
-                    </div>
-                </div>
-                <!-- single member -->
-                <div class="col-sm-4">
-                    <div class="member">
-                        <img src="@Url.Content("~/Assets/images/avatar/03.jpg")" alt="">
-                        <h2>Christinne Williams</h2>
-                        <h3>Digital designer</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Team Section end-->
-    <!-- Promotion section -->
-    <div class="promotion-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-9">
-                    <h2>Are you ready to stand out?</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est.</p>
-                </div>
-                <div class="col-md-3">
-                    <div class="promo-btn-area">
-                        <a href="" class="site-btn btn-2">Browse</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Promotion section end-->
 </body>
 </html>
