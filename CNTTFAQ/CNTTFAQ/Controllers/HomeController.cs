@@ -3,28 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using CNTTFAQ.Models;
 
 namespace CNTTFAQ.Controllers
 {
     public class HomeController : Controller
     {
+        DIEUBANTHUONGHOIWEBSITEEntities model = new DIEUBANTHUONGHOIWEBSITEEntities();
+
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            if (User.IsInRole("BCN Khoa") || User.IsInRole("Admin"))
+            {
+                return Redirect("/Admin/AdminHome/Index");
+            }
+            var category = model.DANH_MUC.AsNoTracking().OrderByDescending(x => x.ID).ToList();
+            return View(category);
         }
     }
 }

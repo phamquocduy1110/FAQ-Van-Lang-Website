@@ -108,7 +108,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-    margin: 0;
+    margin: 0px;
 }
 
 ul {
@@ -139,7 +139,6 @@ label {
 }
 
 .footer-grids {
-    background: #282828;
     padding: 3em 3em;
 }
 
@@ -240,7 +239,6 @@ p.adam {
 .footer.three ul li {
     list-style-type: none;
     display: block;
-    color: #908F8F;
     font-size: 14px;
     line-height: 2.5em;
 }
@@ -267,8 +265,7 @@ p.adam {
     }
 
 .copy-right-grids {
-    padding: 20px 20px;
-    background: #211E1E;
+    padding: 10px 20px;
 }
 
 .copy-left {

@@ -46,24 +46,6 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             return null;
         }
 
-        public ActionResult DonutChart()
-        {
-            var _context = model;
-            ArrayList xValue = new ArrayList();
-            ArrayList yValue = new ArrayList();
-
-            var result = (from c in _context.CAU_HOI select c);
-            result.ToList().ForEach(rs => xValue.Add(rs.ID));
-            result.ToList().ForEach(rs => yValue.Add(rs.LUOT_XEM));
-
-            new Chart(width: 600, height: 400, theme: ChartTheme.Vanilla)
-            .AddTitle("Chart for Growth [Donut Chart]")
-            .AddSeries("Default", chartType: "Doughnut", xValue: xValue, yValues: yValue)
-            .Write("19");
-
-            return null;
-        }
-
         // GET: Admin Calendar/AdminHome
         public ActionResult Calendar()
         {
