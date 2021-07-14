@@ -112,12 +112,11 @@
 </html>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-
     <script>
         function Confirmmessage() {
             var alert = confirm("Cảnh báo: quá trình chưa hoàn tất! Xác nhận nếu như bạn muốn hủy bỏ?");
             if (alert) {
-                document.location.href = ("Index");
+                document.location.href = '/SEP24Team11/Admin/AspNetRole/Index';
             } else {
                 return false;
             }
