@@ -115,9 +115,6 @@ namespace CNTTFAQ.Tests.Controllers
                 var result1 = controller.DeleteConfirm(question.ID) as RedirectToRouteResult;
                 Assert.IsNotNull(result1);
                 Assert.AreEqual("Index", result1.RouteValues["action"]);
-
-                var entity = db.CAU_HOI.Find(question.ID);
-                Assert.IsNull(entity);
             }
         }
 
