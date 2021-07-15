@@ -196,6 +196,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AuthController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageAccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageCatalogController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageQuestionsController.cs" />
@@ -344,16 +345,14 @@
     <Content Include="Assets\images\instagram\4.jpg" />
     <Content Include="Assets\images\instagram\5.jpg" />
     <Content Include="Assets\images\instagram\6.jpg" />
-    <Content Include="Assets\images\logo\AdminLTELogo.png" />
     <Content Include="Assets\images\logo\beautifulbackground3.jpg" />
-    <Content Include="Assets\images\logo\IT-ADMIN_Logo.png" />
+    <Content Include="Assets\images\logo\HE_THONG_LOGO_CUA_TRUONG-02.png" />
     <Content Include="Assets\images\logo\LoadingLogo.png" />
     <Content Include="Assets\images\logo\logo-icon.png" />
     <Content Include="Assets\images\logo\logo-light-text.png" />
     <Content Include="Assets\images\logo\logo-text.png" />
-    <Content Include="Assets\images\logo\logo.png" />
+    <Content Include="Assets\images\logo\MicrosoftTeams-image.png" />
     <Content Include="Assets\images\logo\navigation-bar-background.jpg" />
-    <Content Include="Assets\images\logo\VanLangCNTT_Logo.png" />
     <Content Include="Assets\images\logo\VanLangLogo.png" />
     <Content Include="Assets\images\logo\VanLangLogoMenu.png" />
     <Content Include="Assets\images\logo\VanLangLogoPage.png" />
@@ -578,6 +577,7 @@
     <Content Include="Images\images %281%29.jpg" />
     <Content Include="Images\images.jfif" />
     <Content Include="Images\a.jpg" />
+    <Content Include="Images\navigation-bar-background.jpg" />
     <Content Include="Images\unnamed %281%29.jpg" />
     <Content Include="Images\vanlang2.jpg" />
     <Content Include="Images\yellow-sparkles-dark-blue-background-fireflies-flying-night-golden-stardust-light-effect-abstract-evening-sky-backdrop_134821-79.jpg" />

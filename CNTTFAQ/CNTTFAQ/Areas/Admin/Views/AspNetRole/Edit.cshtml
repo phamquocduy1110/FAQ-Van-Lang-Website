@@ -75,7 +75,7 @@
 
                                         <div class="form-group">
                                             <div class="customize-input float-left" style="margin-left: 10px">
-                                                <input type="button" value="Hủy bỏ" onclick="location.href='@Url.Action("Index", "AspNetRole")'" style="color: red" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius" />
+                                                <input type="button" value="Hủy bỏ" onclick="return Confirmmessage()" style="color: red" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius" />
                                             </div>
                                         </div>
                                     </div>
@@ -114,4 +114,15 @@
 </html>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        function Confirmmessage() {
+            var alert = confirm("Cảnh báo: quá trình chưa hoàn tất! Xác nhận nếu như bạn muốn hủy bỏ?");
+            if (alert) {
+                document.location.href = '/SEP24Team11/Admin/AspNetRole/Index';
+            } else {
+                return false;
+            }
+        }
+    </script>
+
 }

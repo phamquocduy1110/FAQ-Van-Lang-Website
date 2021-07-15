@@ -102,8 +102,16 @@
                     <!-- Right side toggle and nav items -->
                     <!-- ============================================================== -->
                     <ul class="navbar-nav float-right">
-                        @Html.Partial("_LoginPartial")
-                   </ul>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
+                                <span class="ml-2 d-none d-lg-inline-block">
+                                    <span style="color: black">Xin chào, </span>
+                                    <span class="text-dark">@User.Identity.Name</span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </nav>
         </header>
@@ -126,7 +134,6 @@
                             </a>
                         </li>
                         <li class="list-divider"></li>
-                        <li class="nav-small-cap"><span class="hide-menu">Lịch</span></li>
                         <li class="sidebar-item">
                             <a class="sidebar-link sidebar-link" href="@Url.Action("Calendar", "AdminHome")"
                                aria-expanded="false">
@@ -134,54 +141,70 @@
                             </a>
                         </li>
 
+                        @if (this.User.IsInRole("BCN Khoa"))
+                        {
+                            <li class="list-divider"></li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                                   aria-expanded="false">
+                                    <i data-feather="grid" class="feather-icon"></i><span class="hide-menu">Quản lý câu hỏi </span>
+                                </a>
+                                <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                    <li class="sidebar-item">
+                                        <a href="@Url.Action("Index", "ManageCatalog")" class="sidebar-link">
+                                            <span class="hide-menu">
+                                                Danh mục
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="@Url.Action("Index", "ManageQuestions")" class="sidebar-link">
+                                            <span class="hide-menu">
+                                                Câu hỏi
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                        @if (this.User.IsInRole("Admin"))
+                        {
+                            <li class="list-divider"></li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                                   aria-expanded="false">
+                                    <i data-feather="lock" class="feather-icon"></i><span class="hide-menu">Quản lý tài khoản</span>
+                                </a>
+                                <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                    <li class="sidebar-item">
+                                        <a href="@Url.Action("Index", "AspNetRole")" class="sidebar-link">
+                                            <span class="hide-menu">
+                                                Quản lý quyền
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="@Url.Action("Index", "ManageAccount")" class="sidebar-link">
+                                            <span class="hide-menu">
+                                                Danh sách tài khoản
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
                         <li class="list-divider"></li>
-                        <li class="nav-small-cap"><span class="hide-menu">Câu hỏi</span></li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow" href="javascript:void(0)"
-                               aria-expanded="false">
-                                <i data-feather="grid" class="feather-icon"></i><span class="hide-menu">Quản lý câu hỏi </span>
-                            </a>
-                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
-                                <li class="sidebar-item">
-                                    <a href="@Url.Action("Index", "ManageCatalog")" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Danh mục
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="@Url.Action("Index", "ManageQuestions")" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Câu hỏi
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="list-divider"></li>
-                        <li class="nav-small-cap"><span class="hide-menu">Tài khoản</span></li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow" href="javascript:void(0)"
-                               aria-expanded="false">
-                                <i data-feather="grid" class="feather-icon"></i><span class="hide-menu">Quản lý tài khoản</span>
-                            </a>
-                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
-                                <li class="sidebar-item">
-                                    <a href="@Url.Action("Index", "AspNetRole")" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Quản lý quyền
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="@Url.Action("Index", "ManageAccount")" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Danh sách tài khoản
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                        @using (Html.BeginForm("LogOff", "Auth", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <li class="sidebar-item">
+                                <a class="sidebar-link sidebar-link" href="javascript:document.getElementById('logoutForm').submit()"
+                                   aria-expanded="false">
+                                    <i data-feather="log-out" class="feather-icon"></i><span class="hide-menu">Đăng xuất</span>
+                                </a>
+                            </li>
+                        }
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
