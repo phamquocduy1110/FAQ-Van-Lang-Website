@@ -59,7 +59,7 @@
                                         <div class="form-group">
                                             <h4 class="card-title">Câu hỏi</h4>
                                             <div class="col-md-10">
-                                                @Html.EditorFor(model => model.CAU_HOI1, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.EditorFor(model => model.CAU_HOI1, new { htmlAttributes = new { @class = "form-control", @required = true } })
                                                 @Html.ValidationMessageFor(model => model.CAU_HOI1, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -67,7 +67,7 @@
                                         <div class="form-group">
                                             <h4 class="card-title">Mô tả</h4>
                                             <div class="col-md-10">
-                                                @Html.TextAreaFor(model => model.MO_TA, new { @class = "form-control" })
+                                                @Html.TextAreaFor(model => model.MO_TA, new { htmlAttributes = new { @class = "form-control", @required = true } })
                                                 @Html.ValidationMessageFor(model => model.MO_TA, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
