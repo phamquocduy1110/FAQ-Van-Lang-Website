@@ -703,7 +703,6 @@
     <Content Include="Areas\Admin\Views\AspNetRoleUser\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
   </ItemGroup>
   <ItemGroup>
