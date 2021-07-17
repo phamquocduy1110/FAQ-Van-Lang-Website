@@ -342,7 +342,7 @@ p.adam {
 
 @media (max-width: 1080px) {
     .content {
-        width: 80%;
+        width: fit-content;
     }
 
     .footer h3 {
