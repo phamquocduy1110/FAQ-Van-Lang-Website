@@ -63,9 +63,11 @@
                 <div class="col-md-4 col-sm-5 sidebar">
                     <!-- Single widget -->
                     <div class="widget-item">
-                        <form action="#" class="search-form">
-                            <input type="text" placeholder="Nhập câu hỏi hoặc từ khóa bạn cầm tìm">
-                            <button class="search-btn"><i class="fab fa-searchengin"></i></button>
+                        <form action="@Url.Action("Search", "Questions")" method="get" class="search-form">
+                            <input type="text" name="Keyword" placeholder="Nhập câu hỏi hoặc từ khóa bạn cầm tìm">
+                            <button type="submit" class="search-btn">
+                                <i class="fab fa-searchengin"></i>
+                            </button>
                         </form>
                     </div>
                     <!-- Single widget -->
