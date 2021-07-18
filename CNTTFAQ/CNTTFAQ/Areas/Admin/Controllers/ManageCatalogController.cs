@@ -42,11 +42,13 @@ namespace CNTTFAQ.Areas.Admin.Controllers
                 f.HINH_ANH = HINH_ANH.FileName;
                 string FolderPath = Path.Combine(Server.MapPath("~/Images"), f.HINH_ANH);
                 HINH_ANH.SaveAs(FolderPath);
+
+                string path = "/SEP24Team11/Images/" + f.HINH_ANH;
+                category.HINH_ANH = path;
             }
-            string path = "/SEP24Team11/Images/" + f.HINH_ANH;
+
             category.DANH_MUC1 = f.DANH_MUC1;
             category.MO_TA = f.MO_TA;
-            category.HINH_ANH = path;
             category.NGAY_TAO = DateTime.Now;
             category.ID_TAI_KHOAN = User.Identity.GetUserId();
             model.DANH_MUC.Add(category);

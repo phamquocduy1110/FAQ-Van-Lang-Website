@@ -40,7 +40,7 @@
     </div>
 
     <!-- Header section -->
-    <div class="navbar navbar-inverse navbar-fixed-top" style="position: fixed; background-size:cover; background-image: url('https://tuyensinh.vanlanguni.edu.vn/vlu-include/images/vlu-header-footer.jpg')">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="position: fixed; background-size:cover; background-image: url('@Url.Content("~/Assets/images/backgrounds/beautifulbackground3.jpg")')">
         <div class="container" style="padding: 10px 0px">
             <div class="navbar-header" style="width: 120px; height: 50px; margin-right: 40px">
                 <a href="@Url.Action("Index", "Home")">
@@ -59,13 +59,12 @@
     <!-- Header section end -->
     @RenderBody()
     <!-- Start Footer -->
-    <div class="main">
-        <div class="content">
+    <div class="page-section spad" style="padding: 0px">
+        <div class="col-10">
             <div class="footer-grids" style="background-size: cover; background-image: url('https://tuyensinh.vanlanguni.edu.vn/vlu-include/images/vlu-header-footer.jpg')">
                 <div class="footer one">
-                    <br />
                     <p style="max-width:300px">
-                        <img src="@Url.Content("~/Assets/images/logo/MicrosoftTeams-image.png")" />
+                        <img src="@Url.Content("~/Assets/images/logo/CNTT-Logo.png")" />
                     </p>
                     <p class="footer-gd" style="margin: 0px;">
                         &copy; @DateTime.Now.Year - All Rights Reserved | Design by <a>SEPK24T-Team11</a>
@@ -74,7 +73,7 @@
                 <div class="footer two">
                     <h3>Mạng xã hội</h3>
                     <ul>
-                        <li><a style="color: #ffffff" class="fb" href="https://www.facebook.com/khoacntt.vanlang"><i></i>Facebook</a></li>
+                        <li><a style="color: #ffffff" class="fb" href="https://www.facebook.com/khoacntt.vanlang"><i></i>Kênh Facebook</a></li>
                     </ul>
                 </div>
                 <div class="footer three">
@@ -85,7 +84,7 @@
                         </li>
                         <li>028. 71099240</li>
                         <li><a style="color: #ffffff" href="mailto:k.cntt@vanlanguni.edu.vn">k.cntt@vanlanguni.edu.vn</a> </li>
-                        <li><a style="color: #ffffff" href="http://cntt.vanlanguni.edu.vn">cntt.vanlanguni.edu.vn</a> </li>
+                        <li><a data-feather="globe" style="color: #ffffff" href="http://cntt.vanlanguni.edu.vn">cntt.vanlanguni.edu.vn</a> </li>
                     </ul>
                 </div>
                 <div class="clear"></div>
