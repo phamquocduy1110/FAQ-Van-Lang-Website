@@ -302,19 +302,14 @@
     <Content Include="Assets\images\avatar\profile-pic.jpg" />
     <Content Include="Assets\images\avatar\test-man.png" />
     <Content Include="Assets\images\avatar\undraw_remotely_2j6y.svg" />
-    <Content Include="Assets\images\backgrounds\01.jpg" />
-    <Content Include="Assets\images\backgrounds\02.jpg" />
-    <Content Include="Assets\images\backgrounds\03.jpg" />
     <Content Include="Assets\images\backgrounds\auth-bg.jpg" />
-    <Content Include="Assets\images\backgrounds\beautifulbackground.jpg" />
-    <Content Include="Assets\images\backgrounds\beautifulbackground2.jpg" />
     <Content Include="Assets\images\backgrounds\beautifulbackground3.jpg" />
-    <Content Include="Assets\images\backgrounds\beautifulbackground4.jpg" />
-    <Content Include="Assets\images\backgrounds\cs3-01.jpg" />
-    <Content Include="Assets\images\backgrounds\footerbackground.png" />
-    <Content Include="Assets\images\backgrounds\homebackground.jpg" />
-    <Content Include="Assets\images\backgrounds\VanLangUniversity.jpg" />
-    <Content Include="Assets\images\backgrounds\Video.PNG" />
+    <Content Include="Assets\images\backgrounds\FAQ_BG.png" />
+    <Content Include="Assets\images\backgrounds\transaction-background-1.png" />
+    <Content Include="Assets\images\backgrounds\transaction-background-2.png" />
+    <Content Include="Assets\images\backgrounds\transaction-background-3.png" />
+    <Content Include="Assets\images\backgrounds\transaction-background-4.png" />
+    <Content Include="Assets\images\backgrounds\transaction-background-5.png" />
     <Content Include="Assets\images\blog\add.jpg" />
     <Content Include="Assets\images\blog\blog-1.jpg" />
     <Content Include="Assets\images\blog\blog-2.jpg" />
@@ -346,12 +341,12 @@
     <Content Include="Assets\images\instagram\5.jpg" />
     <Content Include="Assets\images\instagram\6.jpg" />
     <Content Include="Assets\images\logo\beautifulbackground3.jpg" />
+    <Content Include="Assets\images\logo\CNTT-Logo.png" />
     <Content Include="Assets\images\logo\HE_THONG_LOGO_CUA_TRUONG-02.png" />
     <Content Include="Assets\images\logo\LoadingLogo.png" />
     <Content Include="Assets\images\logo\logo-icon.png" />
     <Content Include="Assets\images\logo\logo-light-text.png" />
     <Content Include="Assets\images\logo\logo-text.png" />
-    <Content Include="Assets\images\logo\MicrosoftTeams-image.png" />
     <Content Include="Assets\images\logo\navigation-bar-background.jpg" />
     <Content Include="Assets\images\logo\VanLangLogo.png" />
     <Content Include="Assets\images\logo\VanLangLogoMenu.png" />
@@ -703,7 +698,6 @@
     <Content Include="Areas\Admin\Views\AspNetRoleUser\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
   </ItemGroup>
   <ItemGroup>
