@@ -13,11 +13,14 @@
     <link href='//fonts.googleapis.com/css?family=Viga' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Lato:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Viga' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
     <link href="@Url.Content("//fonts.googleapis.com/css?family=Oswald:300,400,500,700|Roboto:300,400,700")" rel="stylesheet">
     <link href="@Url.Content("~/Assets/css/AdminIndexCss/font-face.css")" rel="stylesheet" media="all">
     <link href="@Url.Content("~/Assets/vendor/AdminIndexVendor/font-awesome-4.7/css/font-awesome.min.css")" rel="stylesheet" media="all">
     <link href="@Url.Content("~/Assets/vendor/AdminIndexVendor/font-awesome-5/css/fontawesome-all.min.css")" rel="stylesheet" media="all">
     <link href="@Url.Content("~/Assets/vendor/AdminIndexVendor/mdi-font/css/material-design-iconic-font.min.css")" rel="stylesheet" media="all">
+    <link href="@Url.Content("~/Assets/css/UserPageCss/footer.css")" rel="stylesheet" type="text/css" media="all" />
 
 
     <link rel="stylesheet" href="@Url.Content("~/Assets/css/UserPageCss/bootstrap.min.css")" />
@@ -32,25 +35,22 @@
     <div id="preloder">
         <div class="loader">
             <img src="@Url.Content("~/Assets/images/logo/LoadingLogo.png")" alt="">
-            <h2>Loading.....</h2>
+            <h2>Đang tải.....</h2>
         </div>
     </div>
 
     <!-- Header section -->
-    <div class="navbar navbar-inverse navbar-fixed-top" style="position: fixed; background-color: white; border-color: white">
-        <div class="container">
-            <div class="navbar-header">
-                <a href="@Url.Action("Index", "Home")" style="padding: 15px 15px">
-                    <img src="@Url.Content("~/Assets/images/logo/VanLangLogoMenu.png")">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="position: fixed; background-size:cover; background-image: url('@Url.Content("~/Assets/images/backgrounds/beautifulbackground3.jpg")')">
+        <div class="container" style="padding: 10px 0px">
+            <div class="navbar-header" style="width: 120px; height: 50px; margin-right: 40px">
+                <a href="@Url.Action("Index", "Home")">
+                    <img src="@Url.Content("~/Assets/images/logo/HE_THONG_LOGO_CUA_TRUONG-02.png")" alt="#">
                 </a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="@Url.Action("Index", "Home")">Trang Chủ</a></li>
-                    <li><a href="@Url.Action("Index", "Services")">Dịch vụ</a></li>
                     <li><a href="@Url.Action("Index", "Questions")">Câu hỏi thường gặp</a></li>
-                    <li><a href="@Url.Action("Contact", "Home")">Liên hệ</a></li>
-                    <li><a href="@Url.Action("Index", "Statistical")">Thống kê</a></li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -58,7 +58,40 @@
     </div>
     <!-- Header section end -->
     @RenderBody()
-
+    <!-- Start Footer -->
+    <div class="page-section spad" style="padding: 0px">
+        <div class="col-10">
+            <div class="footer-grids" style="background-size: cover; background-image: url('https://tuyensinh.vanlanguni.edu.vn/vlu-include/images/vlu-header-footer.jpg')">
+                <div class="footer one">
+                    <p style="max-width:300px">
+                        <img src="@Url.Content("~/Assets/images/logo/CNTT-Logo.png")" />
+                    </p>
+                    <p class="footer-gd" style="margin: 0px;">
+                        &copy; @DateTime.Now.Year - All Rights Reserved | Design by <a>SEPK24T-Team11</a>
+                    </p>
+                </div>
+                <div class="footer two">
+                    <h3>Mạng xã hội</h3>
+                    <ul>
+                        <li><a style="color: #ffffff" class="fb" href="https://www.facebook.com/khoacntt.vanlang"><i></i>Kênh Facebook</a></li>
+                    </ul>
+                </div>
+                <div class="footer three">
+                    <h3>Địa chỉ</h3>
+                    <ul style="color: #ffffff">
+                        <li>
+                            Phòng 5.07, Tòa nhà LV, Cơ sở chính: 69/68 Đặng Thùy Trâm, P. 13, Q. Bình Thạnh, TP. HCM
+                        </li>
+                        <li>028. 71099240</li>
+                        <li><a style="color: #ffffff" href="mailto:k.cntt@vanlanguni.edu.vn">k.cntt@vanlanguni.edu.vn</a> </li>
+                        <li><a data-feather="globe" style="color: #ffffff" href="http://cntt.vanlanguni.edu.vn">cntt.vanlanguni.edu.vn</a> </li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <!--End Footer -->
     <!--====== Javascripts & Jquery ======-->
     <script src="@Url.Content("~/Assets/js/UserPageJS/jquery-2.1.4.min.js")"></script>
     <script src="@Url.Content("~/Assets/js/UserPageJS/bootstrap.min.js")"></script>

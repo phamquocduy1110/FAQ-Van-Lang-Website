@@ -46,6 +46,8 @@ namespace CNTTFAQ
             app.UseTwoFactorRememberBrowserCookie(DefaultAuthenticationTypes.TwoFactorRememberBrowserCookie);
 
             // Uncomment the following lines to enable logging in with third party login providers
+            app.UseVanLangAuthentication("https://fitlogin.vanlanguni.edu.vn/LoginManagement");
+
             //app.UseMicrosoftAccountAuthentication(
             //    clientId: "",
             //    clientSecret: "");
@@ -63,10 +65,6 @@ namespace CNTTFAQ
             //    ClientId = "",
             //    ClientSecret = ""
             //});
-
-
-            app.UseVanLangAuthentication("https://fitlogin.vanlanguni.edu.vn/LoginManagement");
-
         }
     }
 }

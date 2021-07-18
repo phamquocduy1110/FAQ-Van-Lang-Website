@@ -27,7 +27,7 @@
                             <div class="d-flex align-items-center">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb m-0 p-0">
-                                        <li class="breadcrumb-item"><a href="@Url.Action("Index", "ManageCatalog")" class="text-muted">Quay lại</a></li>
+                                        <li class="breadcrumb-item"><a href="@Url.Action("Index", "ManageQuestions")" class="text-muted">Quay lại</a></li>
                                         <li class="breadcrumb-item text-muted active" aria-current="page">Chi tiết câu hỏi</li>
                                     </ol>
                                 </nav>
@@ -41,7 +41,7 @@
                         <div class="card">
                             <div class="card-body collapse show">
                                 <h4 class="card-title">
-                                    Tên câu hỏi
+                                    Câu hỏi
                                 </h4>
                                 <p class="card-text">
                                     @Html.DisplayFor(model => model.CAU_HOI1)
@@ -137,7 +137,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center text-muted">
-                All Rights Reserved by Adminmart. Designed and Developed by <a href="https://github.com/DoAnSEP/DoAnSEP">SEPK24T-Team11</a>.
+                @DateTime.Now.Year - All Rights Reserved by Adminmart. Designed and Developed by <a>SEPK24T-Team11</a>.
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->

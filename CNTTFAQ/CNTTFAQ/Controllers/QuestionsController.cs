@@ -17,7 +17,7 @@ namespace CNTTFAQ.Controllers
         public ActionResult Index(int? page, int? category)
         {
             var pageNumber = page ?? 1;
-            var pageSize = 3;
+            var pageSize = 5;
 
             if (category != null)
             {
@@ -37,7 +37,7 @@ namespace CNTTFAQ.Controllers
         public PartialViewResult CategoryPartical(int? page)
         {
             var pageNumber = page ?? 1;
-            var pageSize = 3;
+            var pageSize = 5;
 
             var categoryList = model.DANH_MUC.OrderByDescending(x => x.DANH_MUC1).ToPagedList(pageNumber, pageSize);
             return PartialView(categoryList);

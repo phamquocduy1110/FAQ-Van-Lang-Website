@@ -4,6 +4,8 @@ using System.Web.Mvc;
 using System.Collections.Generic;
 using CNTTFAQ.Models;
 using System.Linq;
+using System.Transactions;
+using System.Web;
 using System;
 
 namespace CNTTFAQ.Tests.Controllers
@@ -35,5 +37,90 @@ namespace CNTTFAQ.Tests.Controllers
 
             Assert.IsNotNull(result);
         }
+
+        [TestMethod]
+        public void EditG()
+        {
+            var controller = new ManageCatalogController();
+            var r0 = controller.Edit(0) as HttpNotFoundResult;
+            Assert.IsNotNull(r0);
+
+            var db = new DIEUBANTHUONGHOIWEBSITEEntities();
+            var category = db.DANH_MUC.First();
+            var r1 = controller.Edit(category.ID) as ViewResult;
+            Assert.IsNotNull(r1);
+
+            var model = r1.Model as DANH_MUC;
+            Assert.IsNotNull(model);
+            Assert.AreEqual(category.DANH_MUC1, model.DANH_MUC1);
+            Assert.AreEqual(category.MO_TA, model.MO_TA);
+            Assert.AreEqual(category.HINH_ANH, model.HINH_ANH);
+            Assert.AreEqual(category.NGAY_TAO, model.NGAY_TAO);
+            Assert.AreEqual(category.ID_TAI_KHOAN, model.ID_TAI_KHOAN);
+        }
+
+        [TestMethod]
+        public void DeleteG()
+        {
+            var controller = new ManageCatalogController();
+            var r0 = controller.Delete(0) as HttpNotFoundResult;
+            Assert.IsNotNull(r0);
+
+            var db = new DIEUBANTHUONGHOIWEBSITEEntities();
+            var category = db.DANH_MUC.First();
+            var r1 = controller.Delete(category.ID) as ViewResult;
+            Assert.IsNotNull(r1);
+
+            var model = r1.Model as DANH_MUC;
+            Assert.IsNotNull(model);
+            Assert.AreEqual(category.DANH_MUC1, model.DANH_MUC1);
+            Assert.AreEqual(category.MO_TA, model.MO_TA);
+            Assert.AreEqual(category.HINH_ANH, model.HINH_ANH);
+            Assert.AreEqual(category.NGAY_TAO, model.NGAY_TAO);
+            Assert.AreEqual(category.ID_TAI_KHOAN, model.ID_TAI_KHOAN);
+        }
+
+        [TestMethod]
+        public void DeleteP()
+        {
+            var db = new DIEUBANTHUONGHOIWEBSITEEntities();
+            var category = db.DANH_MUC.AsNoTracking().First();
+
+            var controller = new ManageQuestionsController();
+            using (var scope = new TransactionScope())
+            {
+                var result1 = controller.DeleteConfirm(category.ID) as RedirectToRouteResult;
+                Assert.IsNotNull(result1);
+                Assert.AreEqual("Index", result1.RouteValues["action"]);
+            }
+        }
+
+        [TestMethod]
+        public void Details()
+        {
+            var controller = new ManageCatalogController();
+            var r0 = controller.Edit(0) as HttpNotFoundResult;
+            Assert.IsNotNull(r0);
+
+            var db = new DIEUBANTHUONGHOIWEBSITEEntities();
+            var category = db.DANH_MUC.First();
+            var r1 = controller.Edit(category.ID) as ViewResult;
+            Assert.IsNotNull(r1);
+
+            var model = r1.Model as DANH_MUC;
+            Assert.IsNotNull(model);
+            Assert.AreEqual(category.DANH_MUC1, model.DANH_MUC1);
+            Assert.AreEqual(category.MO_TA, model.MO_TA);
+            Assert.AreEqual(category.HINH_ANH, model.HINH_ANH);
+            Assert.AreEqual(category.NGAY_TAO, model.NGAY_TAO);
+            Assert.AreEqual(category.ID_TAI_KHOAN, model.ID_TAI_KHOAN);
+        }
+
+        [TestMethod]
+        public void TestDispose()
+        {
+            using (var controller = new ManageQuestionsController()) { }
+        }
+
     }
 }

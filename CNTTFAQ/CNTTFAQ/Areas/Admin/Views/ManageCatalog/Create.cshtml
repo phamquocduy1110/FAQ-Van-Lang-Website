@@ -59,9 +59,9 @@
                                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
                                         <div class="form-group">
-                                            <h4 class="card-title">Tên danh mục</h4>
+                                            <h4 class="card-title">Danh mục</h4>
                                             <div class="col-md-10">
-                                                @Html.EditorFor(model => model.DANH_MUC1, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.EditorFor(model => model.DANH_MUC1, new { htmlAttributes = new { @class = "form-control", @required = true } })
                                                 @Html.ValidationMessageFor(model => model.DANH_MUC1, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -69,7 +69,7 @@
                                         <div class="form-group">
                                             <h4 class="card-title">Mô tả</h4>
                                             <div class="col-md-10">
-                                                @Html.TextAreaFor(model => model.MO_TA, new { @class = "form-control" })
+                                                @Html.TextAreaFor(model => model.MO_TA, new { htmlAttributes = new { @class = "form-control", @required = true } })
                                                 @Html.ValidationMessageFor(model => model.MO_TA, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -85,7 +85,7 @@
                                         <div class="form-group">
                                             <h4 class="card-title">Người tạo</h4>
                                             <div class="col-md-10">
-                                                @Html.DropDownList("ID_TAI_KHOAN", new SelectList(ViewBag.account_type, "ID", "Email"), htmlAttributes: new { @class = "form-control" })
+                                                <input type="text" value="@User.Identity.Name" disabled class="form-control" />
                                                 @Html.ValidationMessageFor(model => model.ID_TAI_KHOAN, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -98,11 +98,11 @@
 
                                         <div class="form-group">
                                             <div class="customize-input float-left" style="margin-left: 10px">
-                                                <input type="button" value="Hủy bỏ" onclick="location.href='@Url.Action("Index", "ManageCatalog")'" style="color: red" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius" />
+                                                <input type="button" value="Hủy bỏ" onclick="return Confirmmessage()" style="color: red" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius" />
                                             </div>
                                         </div>
                                     </div>
-                                }
+                                 }
                             </div>
                         </div>
                     </div>
@@ -118,7 +118,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center text-muted">
-                All Rights Reserved by Adminmart. Designed and Developed by <a href="https://github.com/DoAnSEP/DoAnSEP">SEPK24T-Team11</a>.
+                @DateTime.Now.Year - All Rights Reserved by Adminmart. Designed and Developed by <a>SEPK24T-Team11</a>.
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
@@ -149,10 +149,19 @@
                 var reader = new FileReader();
 
                 reader.onload = function (e) {
-                    $('#pic').attr('src', e.target.result).attr('width', '950px').attr('height', '400px');
+                    $('#pic').attr('src', e.target.result).attr('width', '600');
                 };
 
                 reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function Confirmmessage() {
+            var alert = confirm("Cảnh báo: quá trình chưa hoàn tất! Xác nhận nếu như bạn muốn hủy bỏ?");
+            if (alert) {
+                document.location.href = '/SEP24Team11/Admin/ManageCatalog/Index';
+            } else {
+                return false;
             }
         }
     </script>

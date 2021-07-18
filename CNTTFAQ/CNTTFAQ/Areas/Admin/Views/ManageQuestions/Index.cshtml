@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CNTTFAQ.Models.CAU_HOI>
+﻿@model List<CNTTFAQ.Models.CAU_HOI>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 @{
@@ -6,7 +6,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 <head>
-    <title>Các câu hỏi thường gặp</title>
+    <title>Câu hỏi</title>
 </head>
 
 <body>
@@ -35,7 +35,9 @@
                     </div>
                     <div class="col-5 align-self-center">
                         <div class="customize-input float-right">
-                            <input type="button" value="Tạo mới câu hỏi" onclick="location.href='@Url.Action("Create", "ManageQuestions")'" style="color: green" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius" />
+                            <button onclick="location.href='@Url.Action("Create", "ManageQuestions")'" style="color: green" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius">
+                                <i class="fas fa-plus"> Tạo mới câu hỏi</i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -60,7 +62,8 @@
                                     <table id="zero_config" class="table table-striped table-bordered no-wrap">
                                         <thead>
                                             <tr>
-                                                <th>Tên câu hỏi</th>
+                                                <th>STT</th>
+                                                <th>Câu hỏi</th>
                                                 <th>Danh mục</th>
                                                 <th>Ngày tạo</th>
                                                 <th>Người đăng</th>
@@ -69,9 +72,13 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach (var item in Model)
+                                            @for (int i = 0; i < Model.Count(); i++)
                                             {
+                                                var item = Model[i];
                                                 <tr>
+                                                    <td>
+                                                        @(i + 1)
+                                                    </td>
                                                     <td>
                                                         @Html.DisplayFor(modelItem => item.CAU_HOI1)
                                                     </td>
@@ -88,11 +95,11 @@
                                                         @Html.DisplayFor(modelItem => item.LUOT_XEM)
                                                     </td>
                                                     <td>
-                                                        <a href="@Url.Action("Edit", new { id = item.ID })" class="btn btn-success btn-circle">
-                                                            <i class="fa fa-link"></i>
-                                                        </a>
                                                         <a href="@Url.Action("Details", new { id = item.ID })" class="btn btn-primary btn-circle">
                                                             <i class="fa fa-list"></i>
+                                                        </a>
+                                                        <a href="@Url.Action("Edit", new { id = item.ID })" class="btn btn-warning btn-circle">
+                                                            <i class="fa fa-eye-dropper"></i>
                                                         </a>
                                                         <a href="@Url.Action("Delete", new { id = item.ID })" class="btn btn-danger btn-circle">
                                                             <i class="fa fa-times"></i>
@@ -103,7 +110,8 @@
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th>Tên câu hỏi</th>
+                                                <th>STT</th>
+                                                <th>Câu hỏi</th>
                                                 <th>Danh mục</th>
                                                 <th>Ngày tạo</th>
                                                 <th>Người đăng</th>
@@ -128,7 +136,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center text-muted">
-                All Rights Reserved by Adminmart. Designed and Developed by <a href="https://github.com/DoAnSEP/DoAnSEP">SEPK24T-Team11</a>.
+                @DateTime.Now.Year - All Rights Reserved by Adminmart. Designed and Developed by <a>SEPK24T-Team11</a>.
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->

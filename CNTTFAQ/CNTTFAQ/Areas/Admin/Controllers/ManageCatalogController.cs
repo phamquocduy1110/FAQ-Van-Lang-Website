@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Microsoft.AspNet.Identity;
 using System.IO;
 using System.Transactions;
 using System.Web.Mvc;
@@ -9,6 +10,7 @@ using CNTTFAQ.Models;
 
 namespace CNTTFAQ.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "BCN Khoa")]
     public class ManageCatalogController : Controller
     {
         DIEUBANTHUONGHOIWEBSITEEntities model = new DIEUBANTHUONGHOIWEBSITEEntities();
@@ -17,7 +19,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         // GET: List of data from DANH_MUC /AdminManageCatalog
         public ActionResult Index()
         {
-            var category = model.DANH_MUC.ToList().OrderByDescending(x => x.ID).ToList();
+            var category = model.DANH_MUC.AsNoTracking().OrderByDescending(x => x.ID).ToList();
             return View(category);
         }
 
@@ -26,7 +28,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            ViewBag.account_type = model.AspNetUsers.OrderByDescending(x => x.Id).ToList();
+            ViewBag.ID_TAI_KHOAN = new SelectList(model.AspNetUsers, "Id", "Email");
             return View();
         }
 
@@ -40,13 +42,15 @@ namespace CNTTFAQ.Areas.Admin.Controllers
                 f.HINH_ANH = HINH_ANH.FileName;
                 string FolderPath = Path.Combine(Server.MapPath("~/Images"), f.HINH_ANH);
                 HINH_ANH.SaveAs(FolderPath);
+
+                string path = "/SEP24Team11/Images/" + f.HINH_ANH;
+                category.HINH_ANH = path;
             }
-            string path = "/Images/" + f.HINH_ANH;
+
             category.DANH_MUC1 = f.DANH_MUC1;
             category.MO_TA = f.MO_TA;
-            category.HINH_ANH = path;
             category.NGAY_TAO = DateTime.Now;
-            category.ID_TAI_KHOAN = f.ID_TAI_KHOAN;
+            category.ID_TAI_KHOAN = User.Identity.GetUserId();
             model.DANH_MUC.Add(category);
             model.SaveChanges();
             return RedirectToAction("Index");
@@ -56,8 +60,13 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var category = model.DANH_MUC.FirstOrDefault(x => x.ID == id);
-            ViewBag.account_type = model.AspNetUsers.OrderByDescending(x => x.Id).ToList();
+            var category = model.DANH_MUC.Find(id);
+            if (category == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.ID_TAI_KHOAN = new SelectList(model.AspNetUsers, "Id", "Email", category.AspNetUser);
+
             return View(category);
         }
 
@@ -66,47 +75,67 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         public ActionResult Edit(int id, DANH_MUC f, HttpPostedFileBase HINH_ANH)
         {
             var category = model.DANH_MUC.FirstOrDefault(x => x.ID == id);
-            if (HINH_ANH.ContentLength > 0)
+            if (HINH_ANH != null && HINH_ANH.ContentLength > 0)
             {
                 f.HINH_ANH = HINH_ANH.FileName;
                 string FolderPath = Path.Combine(Server.MapPath("~/Images"), f.HINH_ANH);
                 HINH_ANH.SaveAs(FolderPath);
+
+                string path = "/SEP24Team11/Images/" + f.HINH_ANH;
+                category.HINH_ANH = path;
             }
-            string path = "/Images/" + f.HINH_ANH;
             category.DANH_MUC1 = f.DANH_MUC1;
             category.MO_TA = f.MO_TA;
-            category.HINH_ANH = path;
-            category.NGAY_TAO = DateTime.Now;
-            category.ID_TAI_KHOAN = f.ID_TAI_KHOAN;
+            category.ID_TAI_KHOAN = User.Identity.GetUserId();
             model.SaveChanges();
             return RedirectToAction("Index");
         }
 
         // GET: DANH_MUC / AdminManageCatalog
-        [HttpGet]
         public ActionResult Delete(int id)
         {
-            var category = model.DANH_MUC.FirstOrDefault(x => x.ID == id);
+            var category = model.DANH_MUC.Find(id);
+            if (category == null)
+            {
+                return HttpNotFound();
+            }
             return View(category);
         }
 
         // POST: DANH_MUC / AdminManageCatalog
-        [HttpPost]
-        [ActionName("Delete")]
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirm(int id)
         {
-            var category = model.DANH_MUC.FirstOrDefault(x => x.ID == id);
-            model.DANH_MUC.Remove(category);
-            model.SaveChanges();
-            return RedirectToAction("Index");
+            using (var scope = new TransactionScope())
+            {
+                var category = model.DANH_MUC.Find(id);
+                model.DANH_MUC.Remove(category);
+                model.SaveChanges();
+
+                scope.Complete();
+                return RedirectToAction("Index");
+            }
         }
 
         // GET: DANH_MUC / AdminManageCatalog
-        [HttpGet, ValidateInput(false)]
         public ActionResult Details(int id)
         {
-            var category = model.DANH_MUC.FirstOrDefault(x => x.ID == id);
+            var category = model.DANH_MUC.Find(id);
+            if (category == null)
+            {
+                return HttpNotFound();
+            }
             return View(category);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                model.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }
