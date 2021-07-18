@@ -19,7 +19,12 @@ namespace CNTTFAQ.Controllers
             var pageNumber = page ?? 1;
             var pageSize = 5;
 
-            if (category != null)
+            if (User.IsInRole("BCN Khoa") || User.IsInRole("Admin"))
+            {
+                return Redirect("/SEP24Team11/Admin/AdminHome/Index");
+            }
+
+            else if (category != null)
             {
                 ViewBag.category = category;
                 var quesionList = model.CAU_HOI.OrderByDescending(x => x.ID).Where(x => x.ID_DANH_MUC == category).ToPagedList(pageNumber, pageSize);

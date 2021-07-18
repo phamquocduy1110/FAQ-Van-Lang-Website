@@ -27,7 +27,7 @@ namespace CNTTFAQ.Tests.Controllers
             Assert.IsNotNull(model);
 
             var db = new DIEUBANTHUONGHOIWEBSITEEntities();
-            Assert.AreEqual(db.AspNetRoles.Count(), model.Count);
+            Assert.AreEqual(db.AspNetRoles.Count(), model.Count());
 
         }
 
