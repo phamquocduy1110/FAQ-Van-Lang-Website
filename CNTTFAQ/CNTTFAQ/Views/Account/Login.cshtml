@@ -85,8 +85,17 @@
 
                         <div class="row">
                             <div class="col-lg-12 text-center" style="margin-bottom: 10px; margin-top: 10px;">
-                                @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                                @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })   
                             </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 text-center" style="margin-top: 10px;">
+                                <button class="btn-block">
+                                    <a href="@Url.Action("Index", "Home")">Trang Chủ</a>
+                                </button>
+                            </div>
+                           
+                            
                         </div>
                     </div>
                 </div>
