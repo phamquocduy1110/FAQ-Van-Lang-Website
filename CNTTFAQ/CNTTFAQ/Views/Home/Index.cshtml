@@ -17,11 +17,19 @@
     <div class="hero-section">
         <div class="hero-content">
             <div class="hero-center">
-                <h1 style="font-size: 80px; font-family: verdana; color: white">Chào mừng đến với khoa công nghệ thông tin</h1>
+                <img src="@Url.Content("~/Assets/images/logo/VLU.png")" alt="logo" style="height: 100px">
+                <p></p>
+                <h1 style="font-size: 50px; font-family: 'Gill Sans', 'Gill Sans MT', Arial, 'Trebuchet MS', sans-serif; color: white; text-shadow: 5px 2px 4px black">
+                    CHÀO MỪNG ĐẾN VỚI KHOA CÔNG NGHỆ THÔNG TIN
+                </h1>
+                <p style="font-size: 40px; color: white; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+                    " Điều Bạn Thường Hỏi "
+                </p>
             </div>
         </div>
         <!-- slider -->
         <div id="hero-slider" class="owl-carousel">
+            <div class="item  hero-item" data-bg="@Url.Content("~/Assets/images/backgrounds/transaction-background-6.png")"></div>
             <div class="item  hero-item" data-bg="@Url.Content("~/Assets/images/backgrounds/transaction-background-1.png")"></div>
             <div class="item  hero-item" data-bg="@Url.Content("~/Assets/images/backgrounds/transaction-background-2.png")"></div>
             <div class="item  hero-item" data-bg="@Url.Content("~/Assets/images/backgrounds/transaction-background-3.png")"></div>
@@ -76,98 +84,29 @@
     <!-- About section end -->
     <!-- Testimonial section -->
     <div class="testimonial-section pb100" style="padding: 0px">
-        <div class="test-overlay"></div>
+        <div class="test-overlay" style="background-image:url('@Url.Content("~/Assets/images/avatar/Book.png")')"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-4">
                     <div class="section-title left">
-                        <h2>What our clients say</h2>
+                        <h2>DANH SÁCH CÁC DANH MỤC</h2>
                     </div>
                     <div class="owl-carousel" id="testimonial-slide">
-                        <!-- single testimonial -->
-                        <div class="testimonial">
-                            <span>‘​‌‘​‌</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                            <div class="client-info">
-                                <div class="avatar">
-                                    <img src="@Url.Content("~/Assets/images/avatar/01.jpg")" alt="">
-                                </div>
-                                <div class="client-name">
-                                    <h2>Michael Smith</h2>
-                                    <p>CEO Company</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single testimonial -->
-                        <div class="testimonial">
-                            <span>‘​‌‘​‌</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                            <div class="client-info">
-                                <div class="avatar">
-                                    <img src="@Url.Content("~/Assets/images/avatar/02.jpg")" alt="">
-                                </div>
-                                <div class="client-name">
-                                    <h2>Michael Smith</h2>
-                                    <p>CEO Company</p>
+                        @foreach (var item in Model)
+                        {
+                            <!-- single testimonial -->
+                            <div class="testimonial">
+                                <p>@MvcHtmlString.Create(item.MO_TA)</p>
+                                <div class="client-info">
+                                    <div class="avatar">
+                                        <img src="@item.HINH_ANH" alt="">
+                                    </div>
+                                    <div class="client-name">
+                                        <h2>@Html.ActionLink(item.DANH_MUC1, "Index", "Questions", new { page = 1, category = @item.ID }, null)</h2>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- single testimonial -->
-                        <div class="testimonial">
-                            <span>‘​‌‘​‌</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                            <div class="client-info">
-                                <div class="avatar">
-                                    <img src="@Url.Content("~/Assets/images/avatar/01.jpg")" alt="">
-                                </div>
-                                <div class="client-name">
-                                    <h2>Michael Smith</h2>
-                                    <p>CEO Company</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single testimonial -->
-                        <div class="testimonial">
-                            <span>‘​‌‘​‌</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                            <div class="client-info">
-                                <div class="avatar">
-                                    <img src="@Url.Content("~/Assets/images/avatar/02.jpg")" alt="">
-                                </div>
-                                <div class="client-name">
-                                    <h2>Michael Smith</h2>
-                                    <p>CEO Company</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single testimonial -->
-                        <div class="testimonial">
-                            <span>‘​‌‘​‌</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                            <div class="client-info">
-                                <div class="avatar">
-                                    <img src="@Url.Content("~/Assets/images/avatar/01.jpg")" alt="">
-                                </div>
-                                <div class="client-name">
-                                    <h2>Michael Smith</h2>
-                                    <p>CEO Company</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single testimonial -->
-                        <div class="testimonial">
-                            <span>‘​‌‘​‌</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                            <div class="client-info">
-                                <div class="avatar">
-                                    <img src="@Url.Content("~/Assets/images/avatar/02.jpg")" alt="">
-                                </div>
-                                <div class="client-name">
-                                    <h2>Michael Smith</h2>
-                                    <p>CEO Company</p>
-                                </div>
-                            </div>
-                        </div>
+                         }
                     </div>
                 </div>
             </div>

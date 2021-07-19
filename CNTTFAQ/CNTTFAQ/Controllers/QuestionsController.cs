@@ -57,6 +57,14 @@ namespace CNTTFAQ.Controllers
             return View("Index", search);
         }
 
-
+        public ActionResult Details(int id)
+        {
+            var question = model.CAU_HOI.Find(id);
+            if (question == null)
+            {
+                return HttpNotFound();
+            }
+            return View(question);
+        }
     }
 }

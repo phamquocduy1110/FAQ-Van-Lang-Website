@@ -299,8 +299,8 @@
     <Content Include="Assets\images\avatar\03.jpg" />
     <Content Include="Assets\images\avatar\04.jpg" />
     <Content Include="Assets\images\avatar\05.jpg" />
+    <Content Include="Assets\images\avatar\Book.png" />
     <Content Include="Assets\images\avatar\profile-pic.jpg" />
-    <Content Include="Assets\images\avatar\test-man.png" />
     <Content Include="Assets\images\avatar\undraw_remotely_2j6y.svg" />
     <Content Include="Assets\images\backgrounds\auth-bg.jpg" />
     <Content Include="Assets\images\backgrounds\beautifulbackground3.jpg" />
@@ -310,6 +310,7 @@
     <Content Include="Assets\images\backgrounds\transaction-background-3.png" />
     <Content Include="Assets\images\backgrounds\transaction-background-4.png" />
     <Content Include="Assets\images\backgrounds\transaction-background-5.png" />
+    <Content Include="Assets\images\backgrounds\transaction-background-6.png" />
     <Content Include="Assets\images\blog\add.jpg" />
     <Content Include="Assets\images\blog\blog-1.jpg" />
     <Content Include="Assets\images\blog\blog-2.jpg" />
@@ -340,10 +341,10 @@
     <Content Include="Assets\images\instagram\4.jpg" />
     <Content Include="Assets\images\instagram\5.jpg" />
     <Content Include="Assets\images\instagram\6.jpg" />
-    <Content Include="Assets\images\logo\beautifulbackground3.jpg" />
     <Content Include="Assets\images\logo\CNTT-Logo.png" />
+    <Content Include="Assets\images\logo\VLU.png" />
+    <Content Include="Assets\images\logo\beautifulbackground3.jpg" />
     <Content Include="Assets\images\logo\HE_THONG_LOGO_CUA_TRUONG-02.png" />
-    <Content Include="Assets\images\logo\LoadingLogo.png" />
     <Content Include="Assets\images\logo\logo-icon.png" />
     <Content Include="Assets\images\logo\logo-light-text.png" />
     <Content Include="Assets\images\logo\logo-text.png" />
@@ -696,6 +697,7 @@
     <Content Include="Areas\Admin\Views\AspNetRole\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\AspNetRole\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AspNetRoleUser\Create.cshtml" />
+    <Content Include="Views\Questions\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
