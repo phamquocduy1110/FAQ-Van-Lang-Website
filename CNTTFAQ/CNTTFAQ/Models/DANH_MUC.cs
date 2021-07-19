@@ -28,6 +28,7 @@ namespace CNTTFAQ.Models
 
         public string MO_TA { get; set; }
 
+        [Required(ErrorMessage = "Trường thông tin hình ảnh là bắt buộc")]
         public string HINH_ANH { get; set; }
         public Nullable<System.DateTime> NGAY_TAO { get; set; }
         public string ID_TAI_KHOAN { get; set; }

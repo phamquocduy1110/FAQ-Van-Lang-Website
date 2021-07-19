@@ -78,7 +78,26 @@ namespace CNTTFAQ.Tests.Controllers
             Assert.AreEqual(category.MO_TA, model.MO_TA);
             Assert.AreEqual(category.HINH_ANH, model.HINH_ANH);
             Assert.AreEqual(category.NGAY_TAO, model.NGAY_TAO);
+            Assert.AreEqual(category.HINH_ANH, model.HINH_ANH);
             Assert.AreEqual(category.ID_TAI_KHOAN, model.ID_TAI_KHOAN);
+        }
+
+        [TestMethod]
+        public void EditP()
+        {
+            var db = new DIEUBANTHUONGHOIWEBSITEEntities();
+            var controller = new ManageCatalogController();
+
+            var cauhoi = db.DANH_MUC.First();
+            var result = controller.Edit(cauhoi.ID) as ViewResult;
+
+            var Models = result.Model as DANH_MUC;
+            Assert.IsNotNull(result);
+            Assert.AreEqual(cauhoi.DANH_MUC1, Models.DANH_MUC1);
+            Assert.AreEqual(cauhoi.MO_TA, Models.MO_TA);
+            Assert.AreEqual(cauhoi.NGAY_TAO, Models.NGAY_TAO);
+            Assert.AreEqual(cauhoi.HINH_ANH, Models.HINH_ANH);
+            Assert.AreEqual(cauhoi.ID_TAI_KHOAN, Models.ID_TAI_KHOAN);
         }
 
         [TestMethod]
