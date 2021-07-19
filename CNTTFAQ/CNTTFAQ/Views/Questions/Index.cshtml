@@ -18,13 +18,13 @@
 <body>
     <!-- Page header -->
     <div class="page-top-section">
-        <div class="overlay" style="background-image:url('@Url.Content("~/Assets/images/backgrounds/footerbackground.png")')"></div>
+        <div class="overlay" style="background-size: cover; background-image:url('@Url.Content("~/Assets/images/backgrounds/FAQ_BG.png")')"></div>
         <div class="container text-right">
             <div class="page-info">
-                <h2>Câu hỏi thường gặp</h2>
+                <h2 style="color: black">Câu hỏi thường gặp</h2>
                 <div class="page-links">
-                    <a href="@Url.Action("Index", "Home")">Home</a>
-                    <span>Câu hỏi</span>
+                    <a href="@Url.Action("Index", "Home")" style="color: black">Home</a>
+                    <span style="color: black">Câu hỏi</span>
                 </div>
             </div>
         </div>
@@ -40,7 +40,8 @@
                         <!-- Post item -->
                         <div class="post-item">
                             <div class="post-thumbnail">
-                                <img src="@Url.Content(item.DANH_MUC.HINH_ANH)" alt="">
+                                <a href="@Url.Action("Details", "Questions", new { item.ID })" />
+                                <img src="@Url.Action(item.DANH_MUC.HINH_ANH)" alt="">
                                 <div class="post-date">
                                     <h3>@item.NGAY_TAO</h3>
                                 </div>
@@ -63,9 +64,11 @@
                 <div class="col-md-4 col-sm-5 sidebar">
                     <!-- Single widget -->
                     <div class="widget-item">
-                        <form action="#" class="search-form">
-                            <input type="text" placeholder="Search">
-                            <button class="search-btn"><i class="fab fa-searchengin"></i></button>
+                        <form action="@Url.Action("Search", "Questions")" method="get" class="search-form">
+                            <input type="text" name="Keyword" placeholder="Nhập câu hỏi hoặc từ khóa bạn cầm tìm">
+                            <button type="submit" class="search-btn">
+                                <i class="fab fa-searchengin"></i>
+                            </button>
                         </form>
                     </div>
                     <!-- Single widget -->
