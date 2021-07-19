@@ -18,8 +18,11 @@ namespace CNTTFAQ.Controllers
             {
                 return Redirect("/SEP24Team11/Admin/AdminHome/Index");
             }
-            var category = model.DANH_MUC.AsNoTracking().OrderByDescending(x => x.ID).ToList();
-            return View(category);
+            else
+            { 
+                var category = model.DANH_MUC.OrderByDescending(x => x.ID).ToList();
+                return View(category);
+            }
         }
     }
 }
