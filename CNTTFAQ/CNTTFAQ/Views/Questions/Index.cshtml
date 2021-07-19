@@ -40,7 +40,8 @@
                         <!-- Post item -->
                         <div class="post-item">
                             <div class="post-thumbnail">
-                                <img src="@Url.Content(item.DANH_MUC.HINH_ANH)" alt="">
+                                <a href="@Url.Action("Details", "Questions", new { item.ID })" />
+                                <img src="@Url.Action(item.DANH_MUC.HINH_ANH)" alt="">
                                 <div class="post-date">
                                     <h3>@item.NGAY_TAO</h3>
                                 </div>
@@ -65,7 +66,7 @@
                     <div class="widget-item">
                         <form action="@Url.Action("Search", "Questions")" method="get" class="search-form">
                             <input type="text" name="Keyword" placeholder="Nhập câu hỏi hoặc từ khóa bạn cầm tìm">
-                            <button type="submit" class="search-btn">b
+                            <button type="submit" class="search-btn">
                                 <i class="fab fa-searchengin"></i>
                             </button>
                         </form>

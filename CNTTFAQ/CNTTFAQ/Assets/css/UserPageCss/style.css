@@ -520,7 +520,6 @@ ul {
 
 .test-overlay {
 	position: absolute;
-	background-image: url('../../images/avatar/test-man.png');
 	background-repeat: no-repeat;
 	background-position: bottom right;
 	background-size: contain;
