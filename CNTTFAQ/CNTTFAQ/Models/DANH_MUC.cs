@@ -26,7 +26,6 @@ namespace CNTTFAQ.Models
         [Required(ErrorMessage = "Trường thông tin danh mục là bắt buộc")]
         public string DANH_MUC1 { get; set; }
 
-        [Required(ErrorMessage = "Trường thông tin danh mục là bắt buộc")]
         public string MO_TA { get; set; }
 
         public string HINH_ANH { get; set; }

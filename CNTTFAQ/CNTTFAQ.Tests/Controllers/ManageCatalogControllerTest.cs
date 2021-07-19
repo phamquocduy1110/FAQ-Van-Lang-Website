@@ -7,6 +7,7 @@ using System.Linq;
 using System.Transactions;
 using System.Web;
 using System;
+using System.IO;
 
 namespace CNTTFAQ.Tests.Controllers
 {
@@ -36,6 +37,27 @@ namespace CNTTFAQ.Tests.Controllers
             var result = controller.Create() as ViewResult;
 
             Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void CreateP()
+        {
+            var rand = new Random();
+            var question = new DANH_MUC
+            {
+                HINH_ANH = "~/SEP24Team11/Images/a.jpg",
+                DANH_MUC1 = rand.NextDouble().ToString(),
+                MO_TA = rand.NextDouble().ToString(),               
+                NGAY_TAO = DateTime.Now,
+                ID_TAI_KHOAN = "45efa018-f768-46bf-836c-59bafc776fc4"
+            };
+
+            var controller = new ManageQuestionsController();
+            var result = controller.Create() as ViewResult;
+
+            Assert.IsNotNull(result);
+            Assert.IsNotNull(question);
+            controller.ModelState.Clear();
         }
 
         [TestMethod]

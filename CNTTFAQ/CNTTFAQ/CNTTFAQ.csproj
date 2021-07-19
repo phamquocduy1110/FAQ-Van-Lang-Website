@@ -645,6 +645,7 @@
     </Content>
     <Content Include="Areas\Admin\Views\ManageAccount\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ManageAccount\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\AspNetRoleUser\Delete.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
