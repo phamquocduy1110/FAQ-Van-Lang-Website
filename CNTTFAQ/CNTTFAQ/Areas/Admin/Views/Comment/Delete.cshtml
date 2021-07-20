@@ -1,0 +1,145 @@
+﻿@model CNTTFAQ.Models.CAU_TRA_LOI
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<head>
+    <title>Xóa bình luận</title>
+</head>
+
+<body>
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="page-breadcrumb">
+                    <div class="row">
+                        <div class="col-7 align-self-center">
+                            <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Bạn có chắc là muốn xóa bình luận này?</h3>
+                            <div class="d-flex align-items-center">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb m-0 p-0">
+                                        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Comment")" class="text-muted">Quay lại</a></li>
+                                        <li class="breadcrumb-item text-muted active" aria-current="page">Xóa bình luận</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Row -->
+                <div class="row">
+                    <div class="col-12 mt-4">
+                        <div class="card">
+                            <div class="card-body collapse show">
+                                <h4 class="card-title">
+                                    Câu hỏi
+                                </h4>
+                                <p class="card-text">
+                                    @Html.DisplayFor(model => model.CAU_HOI.CAU_HOI1)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Row -->
+                <!-- Row -->
+                <div class="row">
+                    <div class="col-12" style="margin-top: 0">
+                        <div class="card">
+                            <div class="card-body collapse show">
+                                <h4 class="card-title">
+                                    Bình luận
+                                </h4>
+                                <p class="card-text">
+                                    @MvcHtmlString.Create(Model.CAU_TRA_LOI1)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Row -->
+                <!-- Row -->
+                <div class="row">
+                    <div class="col-12" style="margin-top: 0">
+                        <div class="card">
+                            <div class="card-body collapse show">
+                                <h4 class="card-title">
+                                    Ngày tạo
+                                </h4>
+                                <p class="card-text">
+                                    @Html.DisplayFor(model => model.NGAY_TRA_LOI)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Row -->
+                <!-- Row -->
+                <div class="row">
+                    <div class="col-12" style="margin-top: 0">
+                        <div class="card">
+                            <div class="card-body collapse show">
+                                <h4 class="card-title">
+                                    Người tạo
+                                </h4>
+                                <p class="card-text">
+                                    @Html.DisplayFor(model => model.AspNetUser.Email)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Row -->
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="row">
+                        <div class="customize-input float-left">
+                            <input type="submit" value="Xóa bình luận" style="color: green" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius" />
+                        </div>
+
+                        <div class="customize-input float-right" style="margin-left: 10px">
+                            <input type="button" value="Hủy bỏ" onclick="location.href='@Url.Action("Index", "Comment")'" style="color: red" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius" />
+                        </div>
+                    </div>
+                }
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer text-center text-muted">
+                @DateTime.Now.Year - All Rights Reserved by Adminmart. Designed and Developed by <a>SEPK24T-Team11</a>.
+            </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+</body>
+
+</html>
