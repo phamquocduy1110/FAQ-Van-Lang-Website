@@ -26,7 +26,6 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         }
 
         // GET: DANH_MUC / AdminManageQuestions
-        [HttpGet]
         public ActionResult Create()
         {
             ViewBag.ID_DANH_MUC = new SelectList(model.DANH_MUC, "ID", "DANH_MUC1");
