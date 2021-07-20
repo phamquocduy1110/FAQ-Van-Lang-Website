@@ -127,7 +127,7 @@ namespace CNTTFAQ.Tests.Controllers
             var db = new DIEUBANTHUONGHOIWEBSITEEntities();
             var category = db.DANH_MUC.AsNoTracking().First();
 
-            var controller = new ManageQuestionsController();
+            var controller = new ManageCatalogController();
             using (var scope = new TransactionScope())
             {
                 var result1 = controller.DeleteConfirm(category.ID) as RedirectToRouteResult;
