@@ -197,6 +197,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\AuthController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CommentController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageAccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageCatalogController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageQuestionsController.cs" />
@@ -263,9 +264,6 @@
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\TAI_KHOAN.cs">
-      <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\UserTokenCach.cs">
       <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
     </Compile>
@@ -299,8 +297,8 @@
     <Content Include="Assets\images\avatar\03.jpg" />
     <Content Include="Assets\images\avatar\04.jpg" />
     <Content Include="Assets\images\avatar\05.jpg" />
+    <Content Include="Assets\images\avatar\Book.png" />
     <Content Include="Assets\images\avatar\profile-pic.jpg" />
-    <Content Include="Assets\images\avatar\test-man.png" />
     <Content Include="Assets\images\avatar\undraw_remotely_2j6y.svg" />
     <Content Include="Assets\images\backgrounds\auth-bg.jpg" />
     <Content Include="Assets\images\backgrounds\beautifulbackground3.jpg" />
@@ -310,6 +308,7 @@
     <Content Include="Assets\images\backgrounds\transaction-background-3.png" />
     <Content Include="Assets\images\backgrounds\transaction-background-4.png" />
     <Content Include="Assets\images\backgrounds\transaction-background-5.png" />
+    <Content Include="Assets\images\backgrounds\transaction-background-6.png" />
     <Content Include="Assets\images\blog\add.jpg" />
     <Content Include="Assets\images\blog\blog-1.jpg" />
     <Content Include="Assets\images\blog\blog-2.jpg" />
@@ -340,10 +339,10 @@
     <Content Include="Assets\images\instagram\4.jpg" />
     <Content Include="Assets\images\instagram\5.jpg" />
     <Content Include="Assets\images\instagram\6.jpg" />
+    <Content Include="Assets\images\logo\FAQ-Logo.png" />
+    <Content Include="Assets\images\logo\VLU.png" />
     <Content Include="Assets\images\logo\beautifulbackground3.jpg" />
-    <Content Include="Assets\images\logo\CNTT-Logo.png" />
     <Content Include="Assets\images\logo\HE_THONG_LOGO_CUA_TRUONG-02.png" />
-    <Content Include="Assets\images\logo\LoadingLogo.png" />
     <Content Include="Assets\images\logo\logo-icon.png" />
     <Content Include="Assets\images\logo\logo-light-text.png" />
     <Content Include="Assets\images\logo\logo-text.png" />
@@ -635,6 +634,9 @@
     <Content Include="Areas\Admin\Views\ManageCatalog\Details.cshtml" />
     <Content Include="Areas\Admin\Views\ManageCatalog\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ManageCatalog\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ManageAccount\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ManageAccount\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\AspNetRoleUser\Delete.cshtml" />
     <EntityDeploy Include="Models\QuanLyCauHoi.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>QuanLyCauHoi.Designer.cs</LastGenOutput>
@@ -642,8 +644,11 @@
     <Content Include="Models\QuanLyCauHoi.edmx.diagram">
       <DependentUpon>QuanLyCauHoi.edmx</DependentUpon>
     </Content>
-    <Content Include="Areas\Admin\Views\ManageAccount\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\ManageAccount\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Comment\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Comment\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Comment\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Comment\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Comment\Delete.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -692,10 +697,10 @@
     <Content Include="Views\Questions\CategoryPartical.cshtml" />
     <Content Include="Areas\Admin\Views\AspNetRole\Create.cshtml" />
     <Content Include="Areas\Admin\Views\AspNetRole\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\AspNetRole\Details.cshtml" />
     <Content Include="Areas\Admin\Views\AspNetRole\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\AspNetRole\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AspNetRoleUser\Create.cshtml" />
+    <Content Include="Views\Questions\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />

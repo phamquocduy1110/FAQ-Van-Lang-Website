@@ -19,7 +19,12 @@ namespace CNTTFAQ.Controllers
             var pageNumber = page ?? 1;
             var pageSize = 5;
 
-            if (category != null)
+            if (User.IsInRole("BCN Khoa") || User.IsInRole("Admin"))
+            {
+                return Redirect("/SEP24Team11/Admin/AdminHome/Index");
+            }
+
+            else if (category != null)
             {
                 ViewBag.category = category;
                 var quesionList = model.CAU_HOI.OrderByDescending(x => x.ID).Where(x => x.ID_DANH_MUC == category).ToPagedList(pageNumber, pageSize);
@@ -47,11 +52,20 @@ namespace CNTTFAQ.Controllers
         public ActionResult Search(string keyword, int? page)
         {
             var pageNumber = page ?? 1;
-            var pageSize = 10; var search = model.CAU_HOI.OrderByDescending(x => x.ID).Where(x => x.CAU_HOI1.ToLower().Contains(keyword.ToLower())).ToPagedList(pageNumber, pageSize);
+            var pageSize = 10; 
+            var search = model.CAU_HOI.OrderByDescending(x => x.ID).Where(x => x.CAU_HOI1.ToLower().Contains(keyword.ToLower())).ToPagedList(pageNumber, pageSize);
             ViewBag.keyword = keyword;
             return View("Index", search);
         }
 
-
+        public ActionResult Details(int id)
+        {
+            var question = model.CAU_HOI.Find(id);
+            if (question == null)
+            {
+                return HttpNotFound();
+            }
+            return View(question);
+        }
     }
 }

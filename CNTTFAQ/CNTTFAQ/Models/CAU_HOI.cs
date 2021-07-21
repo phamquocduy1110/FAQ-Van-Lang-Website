@@ -25,10 +25,8 @@ namespace CNTTFAQ.Models
 
         [Required(ErrorMessage = "Trường thông tin câu hỏi là bắt buộc")]
         public string CAU_HOI1 { get; set; }
-        
-        [Required(ErrorMessage = "Trường thông tin mô tả là bắt buộc")]
-        public string MO_TA { get; set; }
 
+        public string MO_TA { get; set; }
         public Nullable<System.DateTime> NGAY_TAO { get; set; }
         public int ID_DANH_MUC { get; set; }
         public string ID_TAI_KHOAN { get; set; }

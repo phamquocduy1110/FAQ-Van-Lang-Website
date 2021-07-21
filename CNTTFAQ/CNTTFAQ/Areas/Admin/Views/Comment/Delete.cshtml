@@ -1,4 +1,4 @@
-﻿@model CNTTFAQ.Models.CAU_HOI
+﻿@model CNTTFAQ.Models.CAU_TRA_LOI
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 @{
@@ -6,7 +6,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 <head>
-    <title>Xóa câu hỏi</title>
+    <title>Xóa bình luận</title>
 </head>
 
 <body>
@@ -23,12 +23,12 @@
                 <div class="page-breadcrumb">
                     <div class="row">
                         <div class="col-7 align-self-center">
-                            <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Bạn có chắc là muốn xóa câu hỏi này?</h3>
+                            <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Bạn có chắc là muốn xóa bình luận này?</h3>
                             <div class="d-flex align-items-center">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb m-0 p-0">
-                                        <li class="breadcrumb-item"><a href="@Url.Action("Index", "ManageQuestions")" class="text-muted">Quay lại</a></li>
-                                        <li class="breadcrumb-item text-muted active" aria-current="page">Xóa câu hỏi</li>
+                                        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Comment")" class="text-muted">Quay lại</a></li>
+                                        <li class="breadcrumb-item text-muted active" aria-current="page">Xóa bình luận</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -44,7 +44,7 @@
                                     Câu hỏi
                                 </h4>
                                 <p class="card-text">
-                                    @Html.DisplayFor(model => model.CAU_HOI1)
+                                    @Html.DisplayFor(model => model.CAU_HOI.CAU_HOI1)
                                 </p>
                             </div>
                         </div>
@@ -57,26 +57,10 @@
                         <div class="card">
                             <div class="card-body collapse show">
                                 <h4 class="card-title">
-                                    Mô tả
+                                    Bình luận
                                 </h4>
                                 <p class="card-text">
-                                    @MvcHtmlString.Create(Model.MO_TA)
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Row -->
-                <!-- Row -->
-                <div class="row">
-                    <div class="col-12" style="margin-top: 0">
-                        <div class="card">
-                            <div class="card-body collapse show">
-                                <h4 class="card-title">
-                                    Danh mục
-                                </h4>
-                                <p class="card-text">
-                                    @Html.DisplayFor(model => model.DANH_MUC.DANH_MUC1)
+                                    @MvcHtmlString.Create(Model.CAU_TRA_LOI1)
                                 </p>
                             </div>
                         </div>
@@ -92,7 +76,7 @@
                                     Ngày tạo
                                 </h4>
                                 <p class="card-text">
-                                    @Html.DisplayFor(model => model.NGAY_TAO)
+                                    @Html.DisplayFor(model => model.NGAY_TRA_LOI)
                                 </p>
                             </div>
                         </div>
@@ -115,33 +99,17 @@
                     </div>
                 </div>
                 <!-- End Row -->
-                <!-- Row -->
-                <div class="row">
-                    <div class="col-12" style="margin-top: 0">
-                        <div class="card">
-                            <div class="card-body collapse show">
-                                <h4 class="card-title">
-                                    Lượt xem
-                                </h4>
-                                <p class="card-text">
-                                    @Html.DisplayFor(model => model.LUOT_XEM)
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Row -->
                 @using (Html.BeginForm())
                 {
                     @Html.AntiForgeryToken()
 
                     <div class="row">
                         <div class="customize-input float-left">
-                            <input type="submit" value="Xóa câu hỏi" style="color: green" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius" />
+                            <input type="submit" value="Xóa bình luận" style="color: green" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius" />
                         </div>
 
                         <div class="customize-input float-right" style="margin-left: 10px">
-                            <input type="button" value="Hủy bỏ" onclick="location.href='@Url.Action("Index", "ManageQuestions")'" style="color: red" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius" />
+                            <input type="button" value="Hủy bỏ" onclick="location.href='@Url.Action("Index", "Comment")'" style="color: red" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius" />
                         </div>
                     </div>
                 }

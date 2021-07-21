@@ -1,0 +1,78 @@
+﻿@model CNTTFAQ.Models.CAU_HOI
+
+<!DOCTYPE html>
+<html lang="en">
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <title>Câu hỏi thường gặp</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Labs - Design Studio">
+    <meta name="keywords" content="lab, onepage, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <!-- Page header -->
+    <div class="page-top-section">
+        <div class="overlay" style="background-size: cover; background-image:url('@Url.Content("~/Assets/images/backgrounds/FAQ_BG.png")')"></div>
+        <div class="container text-right">
+            <div class="page-info">
+                <h2 style="color: black">Danh sách các câu hỏi</h2>
+                <div class="page-links">
+                    <a href="@Url.Action("Index", "Home")" style="color: black">Home</a>
+                    <span style="color: black">Câu hỏi</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page header end-->
+    <!-- page section -->
+    <div class="page-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-7 blog-posts">
+                    <!-- Post item -->
+                    <div class="post-item">
+                        <div class="post-thumbnail">
+                            <img src="@Url.Action(Model.DANH_MUC.HINH_ANH)" alt="">
+                            <div class="post-date">
+                                <h3>@Model.NGAY_TAO</h3>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <h2 class="post-title">@Model.CAU_HOI1</h2>
+                            <div class="post-meta">
+                                <a href="">Ngày đăng:   @Model.NGAY_TAO</a>
+                                <a href="">Được đăng bởi:   @Model.AspNetUser.Email</a>
+                                <a href="">Danh mục:   @Model.DANH_MUC.DANH_MUC1</a>
+                            </div>
+                            <p>@MvcHtmlString.Create(Model.MO_TA)</p>
+                        </div>
+                    </div>
+
+                    <h4> Viết Bình Luận <span class="glyphicon glyphicon-pencil"></span></h4>
+                    <form role="form">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary"> Gui</button>
+                    </form>
+
+                    <a class="pull-left" href="#">
+                        <img class="media-object" src="" alt="">
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">
+                            Ten Cmt
+                            <small> thoi gian cmt </small>
+                        </h4>
+                        noi dung cmt
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- page section end-->
+</body>
+</html>

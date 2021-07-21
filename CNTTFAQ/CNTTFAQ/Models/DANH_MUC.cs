@@ -26,10 +26,11 @@ namespace CNTTFAQ.Models
         [Required(ErrorMessage = "Trường thông tin danh mục là bắt buộc")]
         public string DANH_MUC1 { get; set; }
 
-        [Required(ErrorMessage = "Trường thông tin danh mục là bắt buộc")]
         public string MO_TA { get; set; }
 
+        [Required(ErrorMessage = "Trường thông tin hình ảnh là bắt buộc")]
         public string HINH_ANH { get; set; }
+
         public Nullable<System.DateTime> NGAY_TAO { get; set; }
         public string ID_TAI_KHOAN { get; set; }
     

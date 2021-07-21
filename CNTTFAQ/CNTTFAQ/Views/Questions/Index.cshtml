@@ -21,7 +21,7 @@
         <div class="overlay" style="background-size: cover; background-image:url('@Url.Content("~/Assets/images/backgrounds/FAQ_BG.png")')"></div>
         <div class="container text-right">
             <div class="page-info">
-                <h2 style="color: black">Câu hỏi thường gặp</h2>
+                <h2 style="color: black">Danh sách các câu hỏi</h2>
                 <div class="page-links">
                     <a href="@Url.Action("Index", "Home")" style="color: black">Home</a>
                     <span style="color: black">Câu hỏi</span>
@@ -41,21 +41,24 @@
                         <div class="post-item">
                             <div class="post-thumbnail">
                                 <img src="@Url.Content(item.DANH_MUC.HINH_ANH)" alt="">
-                                <div class="post-date">
+                                <div class="post-date" style="padding: 25px 0px">
                                     <h3>@item.NGAY_TAO</h3>
                                 </div>
                             </div>
                             <div class="post-content">
                                 <h2 class="post-title">@item.CAU_HOI1</h2>
                                 <div class="post-meta">
-                                    <a href="">Ngày đăng:   @item.NGAY_TAO</a>
+                                    <a href="">Ngày đăng:   @item.LUOT_XEM</a>
                                     <a href="">Được đăng bởi:   @item.AspNetUser.Email</a>
                                     <a href="">Danh mục:   @item.DANH_MUC.DANH_MUC1</a>
                                 </div>
                                 <p>@MvcHtmlString.Create(item.MO_TA)</p>
                             </div>
+                            <div>
+                                <a href="@Url.Action("Details", "Questions", new { item.ID })">Xem bình luận</a>
+                            </div>
                         </div>
-                     }
+                    }
                     Tổng số trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
                     @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page, category = ViewBag.category }))
                 </div>
@@ -65,18 +68,18 @@
                     <div class="widget-item">
                         <form action="@Url.Action("Search", "Questions")" method="get" class="search-form">
                             <input type="text" name="Keyword" placeholder="Nhập câu hỏi hoặc từ khóa bạn cầm tìm">
-                            <button type="submit" class="search-btn">b
+                            <button type="submit" class="search-btn">
                                 <i class="fab fa-searchengin"></i>
                             </button>
                         </form>
                     </div>
                     <!-- Single widget -->
-                    <div class="widget-item">
+                    <div class="widget-item" style="text-align: center">
                         <h2 class="widget-title">Danh mục</h2>
                         @Html.Action("CategoryPartical", "Questions")
                     </div>
                     <!-- Single widget -->
-                    <div class="widget-item">
+                    <div class="widget-item" style="text-align: center">
                         <h2 class="widget-title">Tags</h2>
                         <ul class="tag">
                             <li><a href="">branding</a></li>

@@ -23,11 +23,11 @@ namespace CNTTFAQ.Tests.Controllers
             var result = controller.Index() as ViewResult;
             Assert.IsNotNull(result);
 
-            var model = result.Model as List<AspNetRoleController>;
+            var model = result.Model as List<AspNetRole>;
             Assert.IsNotNull(model);
 
             var db = new DIEUBANTHUONGHOIWEBSITEEntities();
-            Assert.AreEqual(db.AspNetRoles.Count(), model.Count);
+            Assert.AreEqual(db.AspNetRoles.Count(), model.Count());
 
         }
 

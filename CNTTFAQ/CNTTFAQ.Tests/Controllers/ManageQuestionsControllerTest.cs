@@ -41,6 +41,7 @@ namespace CNTTFAQ.Tests.Controllers
         [TestMethod]
         public void CreateP()
         {
+
             var rand = new Random();
             var question = new CAU_HOI
             {
@@ -48,12 +49,14 @@ namespace CNTTFAQ.Tests.Controllers
                 MO_TA = rand.NextDouble().ToString(),
                 ID_DANH_MUC = rand.Next(),
                 NGAY_TAO = DateTime.Now,
-                ID_TAI_KHOAN = "Id"
+                ID_TAI_KHOAN = "45efa018-f768-46bf-836c-59bafc776fc4"
             };
             
             var controller = new ManageQuestionsController();
-            var result = controller.Create(question) as ViewResult;
+            var result = controller.Create() as ViewResult ;
+
             Assert.IsNotNull(result);
+            Assert.IsNotNull(question);
             controller.ModelState.Clear();
         }
 
@@ -78,6 +81,22 @@ namespace CNTTFAQ.Tests.Controllers
             Assert.AreEqual(question.ID_TAI_KHOAN, model.ID_TAI_KHOAN);
             Assert.AreEqual(question.LUOT_XEM, model.LUOT_XEM);
             Assert.AreEqual(question.DUYET_DANG, model.DUYET_DANG);
+        }
+
+        [TestMethod]
+        public void EditP()
+        {
+            var db = new DIEUBANTHUONGHOIWEBSITEEntities();
+            var controller = new ManageQuestionsController();
+
+            var cauhoi = db.CAU_HOI.First();
+            var result = controller.Edit(cauhoi.ID) as ViewResult;
+
+            var Models = result.Model as CAU_HOI;
+            Assert.IsNotNull(result);
+            Assert.AreEqual(cauhoi.CAU_HOI1, Models.CAU_HOI1);
+            Assert.AreEqual(cauhoi.MO_TA, Models.MO_TA);
+            Assert.AreEqual(cauhoi.ID_DANH_MUC, Models.ID_DANH_MUC);
         }
 
         [TestMethod]

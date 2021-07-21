@@ -26,7 +26,6 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         }
 
         // GET: DANH_MUC / AdminManageQuestions
-        [HttpGet]
         public ActionResult Create()
         {
             ViewBag.ID_DANH_MUC = new SelectList(model.DANH_MUC, "ID", "DANH_MUC1");
@@ -75,7 +74,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: DANH_MUC / AdminManageQuestions
+        // GET: CAU_HOI / AdminManageQuestions
         public ActionResult Delete(int id)
         {
             var question = model.CAU_HOI.Find(id);
@@ -87,7 +86,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             return View(question);
         }
 
-        // POST: DANH_MUC / AdminManageQuestions
+        // POST: CAU_HOI / AdminManageQuestions
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirm(int id)

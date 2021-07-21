@@ -17,11 +17,19 @@
     <div class="hero-section">
         <div class="hero-content">
             <div class="hero-center">
-                <h1 style="font-size: 80px; font-family: verdana; color: white">Chào mừng đến với khoa công nghệ thông tin</h1>
+                <img src="@Url.Content("~/Assets/images/logo/VLU.png")" alt="logo" style="height: 100px">
+                <p></p>
+                <h1 style="font-size: 50px; font-family: 'Gill Sans', 'Gill Sans MT', Arial, 'Trebuchet MS', sans-serif; color: white; text-shadow: 5px 2px 4px black">
+                    CHÀO MỪNG ĐẾN VỚI KHOA CÔNG NGHỆ THÔNG TIN
+                </h1>
+                <p style="font-size: 40px; color: white; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+                    " Điều Bạn Thường Hỏi "
+                </p>
             </div>
         </div>
         <!-- slider -->
         <div id="hero-slider" class="owl-carousel">
+            <div class="item  hero-item" data-bg="@Url.Content("~/Assets/images/backgrounds/transaction-background-6.png")"></div>
             <div class="item  hero-item" data-bg="@Url.Content("~/Assets/images/backgrounds/transaction-background-1.png")"></div>
             <div class="item  hero-item" data-bg="@Url.Content("~/Assets/images/backgrounds/transaction-background-2.png")"></div>
             <div class="item  hero-item" data-bg="@Url.Content("~/Assets/images/backgrounds/transaction-background-3.png")"></div>
@@ -75,96 +83,88 @@
     </div>
     <!-- About section end -->
     <!-- Testimonial section -->
-    <div class="testimonial-section pb100" style="padding: 0px">
-        <div class="test-overlay"></div>
+    <div class="testimonial-section pb100" style="padding: 10px; height: fit-content">
+        <div class="test-overlay" style="background-image:url('@Url.Content("~/Assets/images/avatar/Book.png")')"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-4">
                     <div class="section-title left">
-                        <h2>What our clients say</h2>
+                        <h2>DANH SÁCH CÁC DANH MỤC</h2>
                     </div>
-                    <div class="owl-carousel" id="testimonial-slide">
-                        <!-- single testimonial -->
-                        <div class="testimonial">
-                            <span>‘​‌‘​‌</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                            <div class="client-info">
-                                <div class="avatar">
-                                    <img src="@Url.Content("~/Assets/images/avatar/01.jpg")" alt="">
-                                </div>
-                                <div class="client-name">
-                                    <h2>Michael Smith</h2>
-                                    <p>CEO Company</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single testimonial -->
-                        <div class="testimonial">
-                            <span>‘​‌‘​‌</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                            <div class="client-info">
-                                <div class="avatar">
-                                    <img src="@Url.Content("~/Assets/images/avatar/02.jpg")" alt="">
-                                </div>
-                                <div class="client-name">
-                                    <h2>Michael Smith</h2>
-                                    <p>CEO Company</p>
+                    <div class="owl-carousel" id="testimonial-slide" style="padding: 30px">
+                        @foreach (var item in Model)
+                        {
+                            <!-- single testimonial -->
+                            <div class="testimonial">
+                                <p>@MvcHtmlString.Create(item.MO_TA)</p>
+                                <div class="client-info">
+                                    <div class="avatar">
+                                        <img src="@item.HINH_ANH" alt="">
+                                    </div>
+                                    <div class="client-name">
+                                        <h2>@Html.ActionLink(item.DANH_MUC1, "Index", "Questions", new { page = 1, category = @item.ID }, null)</h2>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- single testimonial -->
-                        <div class="testimonial">
-                            <span>‘​‌‘​‌</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                            <div class="client-info">
-                                <div class="avatar">
-                                    <img src="@Url.Content("~/Assets/images/avatar/01.jpg")" alt="">
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial section end-->
+    <div class="element" style="margin: 0px; padding: 60px 0px">
+        <div class="container">
+            <div class="row">
+                <!-- Progress bars -->
+                <!-- Accordions -->
+                <div class="col-md-6">
+                    <div class="site-accordions">
+                        <h3 style="font-size: 90px; font-family: 'Oswald', sans-serif">
+                            CÂU HỎI THƯỜNG GẶP
+                        </h3>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="site-accordions">
+                        <div class="panel-group" id="accordion">
+                            <!-- Single Accordions -->
+                            <div class="panel active">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">Bắt buộc phải học tất cả các học kỳ hay không?</h4>
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#accordion1"></a>
                                 </div>
-                                <div class="client-name">
-                                    <h2>Michael Smith</h2>
-                                    <p>CEO Company</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single testimonial -->
-                        <div class="testimonial">
-                            <span>‘​‌‘​‌</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                            <div class="client-info">
-                                <div class="avatar">
-                                    <img src="@Url.Content("~/Assets/images/avatar/02.jpg")" alt="">
-                                </div>
-                                <div class="client-name">
-                                    <h2>Michael Smith</h2>
-                                    <p>CEO Company</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single testimonial -->
-                        <div class="testimonial">
-                            <span>‘​‌‘​‌</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                            <div class="client-info">
-                                <div class="avatar">
-                                    <img src="@Url.Content("~/Assets/images/avatar/01.jpg")" alt="">
-                                </div>
-                                <div class="client-name">
-                                    <h2>Michael Smith</h2>
-                                    <p>CEO Company</p>
+                                <div id="accordion1" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>
+                                            Một năm học có hai học kỳ chính và một học kỳ phụ (kỳ hè). Học kỳ chính là học kỳ bắt buộc phải học. Học kỳ hè không bắt buộc phải học. Trong học kỳ hè sinh viên học các học phần học chậm tiến độ ở học kỳ chính, hoặc học lại các học phần chưa đạt, hoặc để cải thiện điểm, hoặc học vượt các học phần có ở các học kỳ sau nếu trong kỳ hè có lớp.
+                                            Kế hoạch đào tạo từng học kỳ thể hiện trong chương trình đào tạo của ngành và được công bố ở website của Trường. Sự thay đổi về chương trình đào tạo, kế hoạch đào tạo được cập nhật ở website đào tạo của Nhà trường.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- single testimonial -->
-                        <div class="testimonial">
-                            <span>‘​‌‘​‌</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                            <div class="client-info">
-                                <div class="avatar">
-                                    <img src="@Url.Content("~/Assets/images/avatar/02.jpg")" alt="">
+                            <!-- Single Accordions -->
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">Rút học phần là gì?</h4>
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#accordion2"></a>
                                 </div>
-                                <div class="client-name">
-                                    <h2>Michael Smith</h2>
-                                    <p>CEO Company</p>
+                                <div id="accordion2" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>Rút học phần đã đăng ký là: trong thời gian quy định (trong vòng 2 ngày đầu của tuần thứ 3 kể từ đầu học kỳ chính hoặc 2 ngày đầu của tuần thứ 2 của kỳ hè), thông qua mạng Internet sinh viên thực hiện bỏ một hoặc nhiều lớp học phần đã đăng ký, do bản thân bị quá sức học hoặc không đủ năng lực tài chính. Trong khoảng thời gian rút học phần, ngoài những sinh viên rút học phần thì cũng có thể có sinh viên đăng ký thêm các lớp khác. Tuy nhiên, có những lớp học phần chỉ cho rút mà không cho đăng ký thêm. Việc rút học phần phải đảm bảo quy định về số tín chỉ tối thiểu đăng ký học.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Single Accordions -->
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">Cảnh báo kết quả học tập là gì?</h4>
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#accordion3"></a>
+                                </div>
+                                <div id="accordion3" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>Cuối mỗi học kỳ, sinh viên học yếu kém sẽ bị cảnh báo kết quả học tập hoặc bị buộc thôi học. Cảnh báo kết quả học tập để sinh viên có kết quả học tập kém biết và lập phương án học tập thích hợp để có thể tốt nghiệp trong thời hạn tối đa được phép theo học chương trình.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -173,29 +173,5 @@
             </div>
         </div>
     </div>
-    <!-- Testimonial section end-->
-    <!-- Services section -->
-    <div class="services-section spad" style="padding: 0px">
-        <div class="container">
-            <div class="section-title dark">
-                <h2>DANH MỤC</h2>
-            </div>
-            <div class="row">
-                @foreach (var item in Model)
-                 {
-                    <!-- single service -->
-                    <div class="col-md-4 col-sm-6">
-                        <div class="service">
-                            <div class="service-text">
-                                <h2>@Html.ActionLink(item.DANH_MUC1, "Index", "Questions", new { page = 1, category = @item.ID }, null)</h2>
-                                <p>@MvcHtmlString.Create(item.MO_TA)</p>
-                            </div>
-                        </div>
-                    </div>
-                 }
-            </div>
-        </div>
-    </div>
-    <!-- services section end -->
 </body>
 </html>

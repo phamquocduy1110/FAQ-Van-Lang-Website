@@ -2,6 +2,8 @@
 using CNTTFAQ.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using CNTTFAQ.Models;
+using CNTTFAQ.Areas.Admin.Controllers;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,19 +14,20 @@ namespace CNTTFAQ.Tests.Controllers
     [TestClass]
     public class HomeControllerTest
     {
+
         [TestMethod]
         public void Index()
         {
-            /*// Arrange
-            HomeController controller = new HomeController();
+            DIEUBANTHUONGHOIWEBSITEEntities model = new DIEUBANTHUONGHOIWEBSITEEntities();
 
-            // Act
-            ViewResult result = controller.Index() as ViewResult;
+            var model1 = model.AspNetUsers.Count();
+            var model2 = model.CAU_HOI.Count();
+            var model3 = model.DANH_MUC.Count();
 
-            // Assert
-            Assert.IsNotNull(result);*/
+            var db = new DIEUBANTHUONGHOIWEBSITEEntities();
+            Assert.AreEqual(db.AspNetUsers.Count(), model1);
+            Assert.AreEqual(db.CAU_HOI.Count(), model2);
+            Assert.AreEqual(db.DANH_MUC.Count(), model3);
         }
-
-       
     }
 }
