@@ -40,7 +40,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             if (HINH_ANH.ContentLength > 0)
             {
                 f.HINH_ANH = HINH_ANH.FileName;
-                string FolderPath = Path.Combine(Server.MapPath("~/Images"), f.HINH_ANH);
+                string FolderPath = Path.Combine(Server.MapPath("~/Images/"), f.HINH_ANH);
                 HINH_ANH.SaveAs(FolderPath);
 
                 string path = "/SEP24Team11/Images/" + f.HINH_ANH;

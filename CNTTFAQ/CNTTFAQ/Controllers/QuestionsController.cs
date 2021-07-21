@@ -52,7 +52,8 @@ namespace CNTTFAQ.Controllers
         public ActionResult Search(string keyword, int? page)
         {
             var pageNumber = page ?? 1;
-            var pageSize = 10; var search = model.CAU_HOI.OrderByDescending(x => x.ID).Where(x => x.CAU_HOI1.ToLower().Contains(keyword.ToLower())).ToPagedList(pageNumber, pageSize);
+            var pageSize = 10; 
+            var search = model.CAU_HOI.OrderByDescending(x => x.ID).Where(x => x.CAU_HOI1.ToLower().Contains(keyword.ToLower())).ToPagedList(pageNumber, pageSize);
             ViewBag.keyword = keyword;
             return View("Index", search);
         }
