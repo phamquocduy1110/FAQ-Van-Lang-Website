@@ -58,7 +58,7 @@
                                 <a href="@Url.Action("Details", "Questions", new { item.ID })">Xem bình luận</a>
                             </div>
                         </div>
-                     }
+                    }
                     Tổng số trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
                     @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page, category = ViewBag.category }))
                 </div>
@@ -74,12 +74,12 @@
                         </form>
                     </div>
                     <!-- Single widget -->
-                    <div class="widget-item">
+                    <div class="widget-item" style="text-align: center">
                         <h2 class="widget-title">Danh mục</h2>
                         @Html.Action("CategoryPartical", "Questions")
                     </div>
                     <!-- Single widget -->
-                    <div class="widget-item">
+                    <div class="widget-item" style="text-align: center">
                         <h2 class="widget-title">Tags</h2>
                         <ul class="tag">
                             <li><a href="">branding</a></li>
