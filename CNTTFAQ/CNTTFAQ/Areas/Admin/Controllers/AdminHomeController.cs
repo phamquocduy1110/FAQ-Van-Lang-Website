@@ -26,6 +26,9 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             var categories = model.DANH_MUC.OrderByDescending(x => x.ID).Count();
             ViewBag.category = categories;
 
+            var views = model.CAU_HOI.Sum(x => x.LUOT_XEM);
+            ViewBag.view = views;
+
             return View();
         }
 

@@ -38,24 +38,17 @@
                     @foreach (var item in Model)
                     {
                         <!-- Post item -->
-                        <div class="post-item">
-                            <div class="post-thumbnail">
-                                <img src="@Url.Content(item.DANH_MUC.HINH_ANH)" alt="">
-                                <div class="post-date" style="padding: 25px 0px">
-                                    <h3>@item.NGAY_TAO</h3>
-                                </div>
-                            </div>
+                        <div class="post-item" style="margin-bottom: 50px">
                             <div class="post-content">
                                 <h2 class="post-title">@item.CAU_HOI1</h2>
-                                <div class="post-meta">
+                                <div class="post-meta" style="margin-bottom: 20px">
                                     <a href="">Lượt xem:   @item.LUOT_XEM</a>
                                     <a href="">Được đăng bởi:   @item.AspNetUser.Email</a>
                                     <a href="">Danh mục:   @item.DANH_MUC.DANH_MUC1</a>
                                 </div>
-                                <p>@MvcHtmlString.Create(item.MO_TA)</p>
                             </div>
                             <div>
-                                <a href="@Url.Action("Details", "Questions", new { item.ID })">Xem bình luận</a>
+                                <a style="font-size: 15px" href="@Url.Action("Details", "Questions", new { item.ID })">Xem chi tiết ></a>
                             </div>
                         </div>
                     }
@@ -74,12 +67,12 @@
                         </form>
                     </div>
                     <!-- Single widget -->
-                    <div class="widget-item" style="text-align: center">
+                    <div class="widget-item" style="margin-bottom: 15px">
                         <h2 class="widget-title">Danh mục</h2>
                         @Html.Action("CategoryPartical", "Questions")
                     </div>
                     <!-- Single widget -->
-                    <div class="widget-item" style="text-align: center">
+                    <div class="widget-item">
                         <h2 class="widget-title">Tags</h2>
                         <ul class="tag">
                             <li><a href="">branding</a></li>
