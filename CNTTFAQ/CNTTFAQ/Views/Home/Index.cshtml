@@ -20,7 +20,7 @@
                 <img src="@Url.Content("~/Assets/images/logo/VLU.png")" alt="logo" style="height: 100px">
                 <p></p>
                 <h1 style="font-size: 50px; font-family: 'Gill Sans', 'Gill Sans MT', Arial, 'Trebuchet MS', sans-serif; color: white; text-shadow: 5px 2px 4px black">
-                    CHÀO MỪNG ĐẾN VỚI KHOA CÔNG NGHỆ THÔNG TIN
+                    CHÀO MỪNG ĐẾN VỚI <br />KHOA CÔNG NGHỆ THÔNG TIN
                 </h1>
                 <p style="font-size: 40px; color: white; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
                     " Điều Bạn Thường Hỏi "
@@ -79,7 +79,7 @@
     </div>
 
     <div class="testimonial-section pb100" style="padding: 10px; height: fit-content">
-        <div class="test-overlay" style="background-image:url('@Url.Content("~/Assets/images/avatar/Book.png")')"></div>
+        <div class="test-overlay" style="margin-bottom: 40px ;background-image:url('@Url.Content("~/Assets/images/avatar/Category.png")')"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-4">
@@ -93,7 +93,7 @@
                             <div class="testimonial">
                                 <p>@MvcHtmlString.Create(item.MO_TA)</p>
                                 <div class="client-info">
-                                    <div class="client-name">
+                                    <div class="client-name" style="margin-bottom: 10px">
                                         <h1>@Html.ActionLink(item.DANH_MUC1, "Index", "Questions", new { page = 1, category = @item.ID }, null)</h1>
                                     </div>
                                 </div>

@@ -297,7 +297,7 @@
     <Content Include="Assets\images\avatar\03.jpg" />
     <Content Include="Assets\images\avatar\04.jpg" />
     <Content Include="Assets\images\avatar\05.jpg" />
-    <Content Include="Assets\images\avatar\Book.png" />
+    <Content Include="Assets\images\avatar\Category.png" />
     <Content Include="Assets\images\avatar\profile-pic.jpg" />
     <Content Include="Assets\images\avatar\undraw_remotely_2j6y.svg" />
     <Content Include="Assets\images\backgrounds\auth-bg.jpg" />

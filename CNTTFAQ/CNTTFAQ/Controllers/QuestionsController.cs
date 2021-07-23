@@ -62,10 +62,13 @@ namespace CNTTFAQ.Controllers
         {
             var question = model.CAU_HOI.Find(id);
             question.LUOT_XEM++;
+
             if (question == null)
             {
                 return HttpNotFound();
             }
+
+            model.SaveChanges();
             return View(question);
         }
     }

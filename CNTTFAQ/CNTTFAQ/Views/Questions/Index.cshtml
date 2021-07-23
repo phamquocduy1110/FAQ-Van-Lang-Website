@@ -41,15 +41,14 @@
                         <div class="post-item" style="margin-bottom: 50px">
                             <div class="post-content">
                                 <h2 class="post-title">@item.CAU_HOI1</h2>
-                                <div class="post-meta">
+                                <div class="post-meta" style="margin-bottom: 20px">
                                     <a href="">Lượt xem:   @item.LUOT_XEM</a>
                                     <a href="">Được đăng bởi:   @item.AspNetUser.Email</a>
                                     <a href="">Danh mục:   @item.DANH_MUC.DANH_MUC1</a>
                                 </div>
-                                <p>@MvcHtmlString.Create(item.MO_TA)</p>
                             </div>
                             <div>
-                                <a href="@Url.Action("Details", "Questions", new { item.ID })">Xem bình luận</a>
+                                <a style="font-size: 15px" href="@Url.Action("Details", "Questions", new { item.ID })">Xem chi tiết ></a>
                             </div>
                         </div>
                     }
