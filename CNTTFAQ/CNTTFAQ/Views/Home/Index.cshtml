@@ -37,10 +37,8 @@
             <div class="item  hero-item" data-bg="@Url.Content("~/Assets/images/backgrounds/transaction-background-5.png")"></div>
         </div>
     </div>
-    <!-- Intro Section -->
-    <!-- About section -->
+
     <div class="about-section">
-        <div class="overlay"></div>
         <!-- card section -->
         <div class="card-section">
             <div class="container">
@@ -78,11 +76,8 @@
                 </div>
             </div>
         </div>
-        <!-- card section end-->
-        <!-- About contant -->
     </div>
-    <!-- About section end -->
-    <!-- Testimonial section -->
+
     <div class="testimonial-section pb100" style="padding: 10px; height: fit-content">
         <div class="test-overlay" style="background-image:url('@Url.Content("~/Assets/images/avatar/Book.png")')"></div>
         <div class="container">
@@ -98,11 +93,8 @@
                             <div class="testimonial">
                                 <p>@MvcHtmlString.Create(item.MO_TA)</p>
                                 <div class="client-info">
-                                    <div class="avatar">
-                                        <img src="@item.HINH_ANH" alt="">
-                                    </div>
                                     <div class="client-name">
-                                        <h2>@Html.ActionLink(item.DANH_MUC1, "Index", "Questions", new { page = 1, category = @item.ID }, null)</h2>
+                                        <h1>@Html.ActionLink(item.DANH_MUC1, "Index", "Questions", new { page = 1, category = @item.ID }, null)</h1>
                                     </div>
                                 </div>
                             </div>
@@ -112,18 +104,14 @@
             </div>
         </div>
     </div>
-    <!-- Testimonial section end-->
-    <div class="element" style="margin: 0px; padding: 60px 0px">
+
+    <div class="services-section spad" style="margin: 0px; padding-top: 0px">
         <div class="container">
             <div class="row">
-                <!-- Progress bars -->
-                <!-- Accordions -->
-                <div class="col-md-6">
-                    <div class="site-accordions">
-                        <h3 style="font-size: 90px; font-family: 'Oswald', sans-serif">
-                            CÂU HỎI THƯỜNG GẶP
-                        </h3>
-                    </div>
+                <div class="section-title dark" style="margin: 10px">
+                    <h2>
+                        CÂU HỎI THƯỜNG GẶP
+                    </h2>
                 </div>
                 <div class="col-md-6">
                     <div class="site-accordions">
@@ -164,6 +152,59 @@
                                 <div id="accordion3" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <p>Cuối mỗi học kỳ, sinh viên học yếu kém sẽ bị cảnh báo kết quả học tập hoặc bị buộc thôi học. Cảnh báo kết quả học tập để sinh viên có kết quả học tập kém biết và lập phương án học tập thích hợp để có thể tốt nghiệp trong thời hạn tối đa được phép theo học chương trình.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="site-accordions">
+                        <div class="panel-group" id="accordion">
+                            <!-- Single Accordions -->
+                            <div class="panel active">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">Khi nào và những lớp học phần nào bị hủy?</h4>
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#accordion4"></a>
+                                </div>
+                                <div id="accordion4" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>
+                                            Lớp học phần bắt buộc được mở theo đúng kế hoạch thiết kế thì không bị hủy, trừ trường hợp giảng viên bị ốm hoặc tai nạn. Các lớp học phần tự chọn thì có thể bị hủy nếu số lượng sinh viên đăng ký quá ít. Kết thúc thời  hạn quy định đăng ký học phần trên Internet, Phòng Đào tạo sẽ hủy các lớp học phần tự chọn không đủ số lượng sinh viên đăng ký.
+                                            Sinh viên đã đăng ký vào các lớp học phần bị hủy sẽ được Phòng Đào tạo chuyển sang các lớp học phần khác còn chỗ nếu không bị xung đột thời khóa biểu.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Single Accordions -->
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">Khi bị ốm hoặc tai nạn, sinh viên hoặc thân nhân phải làm gì?</h4>
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#accordion5"></a>
+                                </div>
+                                <div id="accordion5" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>
+                                            Khi bình thường, sinh viên phải báo cho thân nhân của mình biết để thực hiện trong trường hợp mình bị ốm hoặc tai nạn:
+                                            Nếu sinh viên bị ốm hoặc tai nạn trong thời gian học của học kỳ nhưng vắng không quá 20% thời gian học thì cần phải xin phép giảng viên phụ trách các lớp học phần.
+                                            Nếu sinh viên bị ốm phải vắng thi giữa kỳ hoặc cuối kỳ, thì phải có đơn xin phép hoãn thi nộp cho Phòng Đào tạo trong vòng một tuần kể từ ngày ốm, kèm theo xác nhận cơ quan y tế trường hoặc bệnh viện.
+                                            Nếu sinh viên bị ốm dài ngày trong thời gian học của học kỳ mà vắng quá 20% thời gian học thì cần phải xin nghỉ học tạm thời kèm theo giấy xác nhận của bệnh viện từ cấp quận/ huyện trở lên.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Single Accordions -->
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">Những trường hợp nào được đăng ký muộn?</h4>
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#accordion6"></a>
+                                </div>
+                                <div id="accordion6" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>
+                                            Đăng ký muộn là đăng ký vào lớp học phần khi đã đến hoặc đã qua thời gian bắt đầu học theo kế hoạch. Trong thời gian “rút học phần” sinh viên có thể tự đăng ký muộn (qua mạng) vào một số lớp học phần nếu lớp được cho phép đăng ký thêm.
+                                            Ngoài ra, sinh viên học học kỳ đầu tiên ở chương trình thứ hai, sinh viên tạm ngừng học do ốm hoặc được điều động vào lực lượng vũ trang mới quay lại học tập, sinh viên bị ốm đau hoặc gia đình có biến cố trong thời gian đăng ký học nếu có đơn và minh chứng thì sẽ được phòng Đào tạo đăng ký muộn cho học kỳ chính nhưng không muộn quá 2 tuần kể từ đầu học kỳ.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
