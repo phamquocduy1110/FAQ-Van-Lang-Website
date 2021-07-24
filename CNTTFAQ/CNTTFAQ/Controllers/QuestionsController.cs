@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using PagedList;
 using System.Web.Mvc;
+using CNTTFAQ.Areas.Admin.Controllers;
 using CNTTFAQ.Models;
 
 namespace CNTTFAQ.Controllers
@@ -11,6 +12,7 @@ namespace CNTTFAQ.Controllers
     public class QuestionsController : Controller
     {
         DIEUBANTHUONGHOIWEBSITEEntities model = new DIEUBANTHUONGHOIWEBSITEEntities();
+        List<CAU_TRA_LOI> traloi = null;
 
         // GET: Questions / Questions
         [AllowAnonymous]

@@ -51,24 +51,23 @@
                         </div>
                     </div>
 
-                    <h4> Viết Bình Luận <span class="glyphicon glyphicon-pencil"></span></h4>
-                    <form role="form">
-                        <div class="form-group">
-                            <textarea class="form-control" rows="3"></textarea>
+                    @foreach (var cautraloi in Model.CAU_TRA_LOI)
+                    {
+                        <div>
+                            @MvcHtmlString.Create(cautraloi.CAU_TRA_LOI1)
                         </div>
-                        <button type="submit" class="btn btn-primary">Gửi</button>
-                    </form>
 
+                    }
                     <a class="pull-left" href="#">
                         <img class="media-object" src="" alt="">
                     </a>
                     @*<div class="media-body">
-                            <h4 class="media-heading">
-                                Ten Cmt
-                                <small> thoi gian cmt </small>
-                            </h4>
-                            noi dung cmt
-                        </div>*@
+            <h4 class="media-heading">
+                Ten Cmt
+                <small> thoi gian cmt </small>
+            </h4>
+            noi dung cmt
+        </div>*@
                 </div>
             </div>
         </div>
