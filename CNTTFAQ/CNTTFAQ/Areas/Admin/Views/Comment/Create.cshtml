@@ -7,7 +7,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 <head>
-    <title>Viết bình luận</title>
+    <title>Viết câu trả lời</title>
 </head>
 
 <body>
@@ -23,12 +23,12 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-7 align-self-center">
-                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Tạo mới bình luận</h4>
+                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Tạo mới câu trả lời</h4>
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb m-0 p-0">
                                     <li class="breadcrumb-item"><a href="@Url.Action("Index", "Comment")" class="text-muted">Quay lại</a></li>
-                                    <li class="breadcrumb-item text-muted active" aria-current="page">Tạo mới bình luận</li>
+                                    <li class="breadcrumb-item text-muted active" aria-current="page">Tạo mới câu trả lời</li>
                                 </ol>
                             </nav>
                         </div>
@@ -66,7 +66,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <h4 class="card-title">Bình luận</h4>
+                                            <h4 class="card-title">Trả lời</h4>
                                             <div class="col-md-10">
                                                 @Html.TextAreaFor(model => model.CAU_TRA_LOI1, new { htmlAttributes = new { @class = "form-control", @required = true } })
                                                 @Html.ValidationMessageFor(model => model.CAU_TRA_LOI1, "", new { @class = "text-danger" })
@@ -75,7 +75,7 @@
 
                                         <div class="form-group">
                                             <div class="customize-input float-left">
-                                                <input type="submit" value="Gửi bình luận" style="color: green" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius" />
+                                                <input type="submit" value="Gửi câu trả lời" style="color: green" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius" />
                                             </div>
                                         </div>
 
