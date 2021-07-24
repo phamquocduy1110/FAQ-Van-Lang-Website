@@ -38,27 +38,20 @@
                     @foreach (var item in Model)
                     {
                         <!-- Post item -->
-                        <div class="post-item">
-                            <div class="post-thumbnail">
-                                <img src="@Url.Action(item.DANH_MUC.HINH_ANH)" alt="">
-                                <div class="post-date">
-                                    <h3>@item.NGAY_TAO</h3>
-                                </div>
-                            </div>
+                        <div class="post-item" style="margin-bottom: 50px">
                             <div class="post-content">
                                 <h2 class="post-title">@item.CAU_HOI1</h2>
-                                <div class="post-meta">
-                                    <a href="">Ngày đăng:   @item.NGAY_TAO</a>
+                                <div class="post-meta" style="margin-bottom: 20px">
+                                    <a href="">Lượt xem:   @item.LUOT_XEM</a>
                                     <a href="">Được đăng bởi:   @item.AspNetUser.Email</a>
                                     <a href="">Danh mục:   @item.DANH_MUC.DANH_MUC1</a>
                                 </div>
-                                <p>@MvcHtmlString.Create(item.MO_TA)</p>
                             </div>
                             <div>
-                                <a href="@Url.Action("Details", "Questions", new { item.ID })">Xem bình luận</a>
+                                <a style="font-size: 15px" href="@Url.Action("Details", "Questions", new { item.ID })">Xem chi tiết ></a>
                             </div>
                         </div>
-                     }
+                    }
                     Tổng số trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
                     @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page, category = ViewBag.category }))
                 </div>
@@ -74,7 +67,7 @@
                         </form>
                     </div>
                     <!-- Single widget -->
-                    <div class="widget-item">
+                    <div class="widget-item" style="margin-bottom: 15px">
                         <h2 class="widget-title">Danh mục</h2>
                         @Html.Action("CategoryPartical", "Questions")
                     </div>

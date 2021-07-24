@@ -297,12 +297,15 @@
     <Content Include="Assets\images\avatar\03.jpg" />
     <Content Include="Assets\images\avatar\04.jpg" />
     <Content Include="Assets\images\avatar\05.jpg" />
-    <Content Include="Assets\images\avatar\Book.png" />
+    <Content Include="Assets\images\avatar\Category.png" />
     <Content Include="Assets\images\avatar\profile-pic.jpg" />
     <Content Include="Assets\images\avatar\undraw_remotely_2j6y.svg" />
     <Content Include="Assets\images\backgrounds\auth-bg.jpg" />
+    <Content Include="Assets\images\backgrounds\background.png" />
+    <Content Include="Assets\images\backgrounds\backgroundLogin.png" />
     <Content Include="Assets\images\backgrounds\beautifulbackground3.jpg" />
     <Content Include="Assets\images\backgrounds\FAQ_BG.png" />
+    <Content Include="Assets\images\backgrounds\LOGIN.png" />
     <Content Include="Assets\images\backgrounds\transaction-background-1.png" />
     <Content Include="Assets\images\backgrounds\transaction-background-2.png" />
     <Content Include="Assets\images\backgrounds\transaction-background-3.png" />
@@ -339,7 +342,7 @@
     <Content Include="Assets\images\instagram\4.jpg" />
     <Content Include="Assets\images\instagram\5.jpg" />
     <Content Include="Assets\images\instagram\6.jpg" />
-    <Content Include="Assets\images\logo\CNTT-Logo.png" />
+    <Content Include="Assets\images\logo\FAQ-Logo.png" />
     <Content Include="Assets\images\logo\VLU.png" />
     <Content Include="Assets\images\logo\beautifulbackground3.jpg" />
     <Content Include="Assets\images\logo\HE_THONG_LOGO_CUA_TRUONG-02.png" />

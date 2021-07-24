@@ -33,11 +33,11 @@
             <div class="row">
                 <div class="col-md-8 col-sm-7 blog-posts">
                     <!-- Post item -->
-                    <div class="post-item">
-                        <div class="post-thumbnail">
-                            <img src="@Url.Action(Model.DANH_MUC.HINH_ANH)" alt="">
+                    <div class="post-item" style="margin-bottom: 35px">
+                        <div class="post-thumbnail" style="margin-bottom: 35px">
+                            <img src="@Model.DANH_MUC.HINH_ANH" alt="">
                             <div class="post-date">
-                                <h3>@Model.NGAY_TAO</h3>
+                                <h3 style="margin: 13px">@Model.NGAY_TAO</h3>
                             </div>
                         </div>
                         <div class="post-content">
@@ -56,19 +56,19 @@
                         <div class="form-group">
                             <textarea class="form-control" rows="3"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary"> Gui</button>
+                        <button type="submit" class="btn btn-primary">Gửi</button>
                     </form>
 
                     <a class="pull-left" href="#">
                         <img class="media-object" src="" alt="">
                     </a>
-                    <div class="media-body">
-                        <h4 class="media-heading">
-                            Ten Cmt
-                            <small> thoi gian cmt </small>
-                        </h4>
-                        noi dung cmt
-                    </div>
+                    @*<div class="media-body">
+                            <h4 class="media-heading">
+                                Ten Cmt
+                                <small> thoi gian cmt </small>
+                            </h4>
+                            noi dung cmt
+                        </div>*@
                 </div>
             </div>
         </div>
