@@ -23,7 +23,7 @@
             <div class="page-info">
                 <h2 style="color: black">Danh sách các câu hỏi</h2>
                 <div class="page-links">
-                    <a href="@Url.Action("Index", "Home")" style="color: black">Home</a>
+                    <a href="@Url.Action("Index", "Home")" style="color: black">Trang chủ</a>
                     <span style="color: black">Câu hỏi</span>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                                 <div class="post-meta" style="margin-bottom: 20px">
                                     <a href="">Lượt xem:   @item.LUOT_XEM</a>
                                     <a href="">Được đăng bởi:   @item.AspNetUser.Email</a>
-                                    <a href="">Danh mục:   @item.DANH_MUC.DANH_MUC1</a>
+                                    <a href="">Chủ đề:   @item.DANH_MUC.DANH_MUC1</a>
                                 </div>
                             </div>
                             <div>
@@ -68,7 +68,7 @@
                     </div>
                     <!-- Single widget -->
                     <div class="widget-item" style="margin-bottom: 15px">
-                        <h2 class="widget-title">Danh mục</h2>
+                        <h2 class="widget-title">Chủ đề</h2>
                         @Html.Action("CategoryPartical", "Questions")
                     </div>
                     <!-- Single widget -->
