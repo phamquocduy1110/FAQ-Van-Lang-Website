@@ -6,7 +6,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 <head>
-    <title>Chi tiết bình luận</title>
+    <title>Chi tiết câu trả lời</title>
 </head>
 
 <body>
@@ -23,12 +23,12 @@
                 <div class="page-breadcrumb">
                     <div class="row">
                         <div class="col-7 align-self-center">
-                            <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Chi tiết nội dung bình luận</h3>
+                            <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Chi tiết nội dung câu trả lời</h3>
                             <div class="d-flex align-items-center">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb m-0 p-0">
                                         <li class="breadcrumb-item"><a href="@Url.Action("Index", "Comment")" class="text-muted">Quay lại</a></li>
-                                        <li class="breadcrumb-item text-muted active" aria-current="page">Chi tiết bình luận</li>
+                                        <li class="breadcrumb-item text-muted active" aria-current="page">Chi tiết câu trả lời</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -57,7 +57,7 @@
                         <div class="card">
                             <div class="card-body collapse show">
                                 <h4 class="card-title">
-                                    Câu bình luận
+                                    Câu trả lời
                                 </h4>
                                 <p class="card-text">
                                     @MvcHtmlString.Create(Model.CAU_TRA_LOI1)
@@ -73,7 +73,7 @@
                         <div class="card">
                             <div class="card-body collapse show">
                                 <h4 class="card-title">
-                                    Ngày bình luận
+                                    Ngày trả lời
                                 </h4>
                                 <p class="card-text">
                                     @Html.DisplayFor(model => model.NGAY_TRA_LOI)
@@ -89,7 +89,7 @@
                         <div class="card">
                             <div class="card-body collapse show">
                                 <h4 class="card-title">
-                                    Người bình luận
+                                    Người trả lời
                                 </h4>
                                 <p class="card-text">
                                     @Html.DisplayFor(model => model.AspNetUser.Email)

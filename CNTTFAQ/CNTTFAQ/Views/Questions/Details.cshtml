@@ -20,7 +20,7 @@
             <div class="page-info">
                 <h2 style="color: black">Danh sách các câu hỏi</h2>
                 <div class="page-links">
-                    <a href="@Url.Action("Index", "Home")" style="color: black">Home</a>
+                    <a href="@Url.Action("Index", "Home")" style="color: black">Trang chủ</a>
                     <span style="color: black">Câu hỏi</span>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                             <div class="post-meta">
                                 <a href="">Ngày đăng:   @Model.NGAY_TAO</a>
                                 <a href="">Được đăng bởi:   @Model.AspNetUser.Email</a>
-                                <a href="">Danh mục:   @Model.DANH_MUC.DANH_MUC1</a>
+                                <a href="">Chủ đề:   @Model.DANH_MUC.DANH_MUC1</a>
                             </div>
                             <p>@MvcHtmlString.Create(Model.MO_TA)</p>
                         </div>
