@@ -11,6 +11,7 @@ namespace CNTTFAQ.Controllers
     public class QuestionsController : Controller
     {
         DIEUBANTHUONGHOIWEBSITEEntities model = new DIEUBANTHUONGHOIWEBSITEEntities();
+        List<CAU_TRA_LOI> cautraloi;
 
         // GET: Questions / Questions
         [AllowAnonymous]

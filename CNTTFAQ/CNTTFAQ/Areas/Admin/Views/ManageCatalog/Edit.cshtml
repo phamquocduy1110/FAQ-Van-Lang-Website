@@ -6,7 +6,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 <head>
-    <title>Chỉnh sửa danh mục</title>
+    <title>Chỉnh sửa chủ đề</title>
 </head>
 
 <body>
@@ -22,12 +22,12 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-7 align-self-center">
-                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Chỉnh sửa danh mục</h4>
+                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Chỉnh sửa chủ đề</h4>
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb m-0 p-0">
                                     <li class="breadcrumb-item"><a href="@Url.Action("Index", "ManageCatalog")" class="text-muted">Quay lại</a></li>
-                                    <li class="breadcrumb-item text-muted active" aria-current="page">Chỉnh sửa danh mục</li>
+                                    <li class="breadcrumb-item text-muted active" aria-current="page">Chỉnh sửa chủ đề</li>
                                 </ol>
                             </nav>
                         </div>
@@ -57,7 +57,7 @@
                                         @Html.HiddenFor(model => model.ID)
 
                                         <div class="form-group">
-                                            <h4 class="card-title">Danh mục</h4>
+                                            <h4 class="card-title">Chủ đề</h4>
                                             <div class="col-md-10">
                                                 @Html.EditorFor(model => model.DANH_MUC1, new { htmlAttributes = new { @class = "form-control" } })
                                                 @Html.ValidationMessageFor(model => model.DANH_MUC1, "", new { @class = "text-danger" })
@@ -73,7 +73,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <h4 class="card-title">Hình ảnh</h4>
+                                            <h4 class="card-title">Hình đại diện</h4>
                                             <div class="col-md-10">
                                                 <input type="file" name="HINH_ANH" id="img" onchange="readPicture(this)" accept="image/gif,image/jpeg,image/png"/>
                                                 @Html.ValidationMessageFor(model => model.HINH_ANH, "", new { @class = "text-danger" })

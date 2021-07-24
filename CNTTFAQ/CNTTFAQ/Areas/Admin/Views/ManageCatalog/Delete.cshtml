@@ -6,7 +6,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 <head>
-    <title>Xóa danh mục</title>
+    <title>Xóa chủ đề</title>
 </head>
 
 <body>
@@ -23,12 +23,12 @@
                 <div class="page-breadcrumb">
                     <div class="row">
                         <div class="col-7 align-self-center">
-                            <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Bạn có chắc là muốn xóa danh mục này?</h3>
+                            <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Bạn có chắc là muốn xóa chủ đề này?</h3>
                             <div class="d-flex align-items-center">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb m-0 p-0">
                                         <li class="breadcrumb-item"><a href="@Url.Action("Index", "ManageCatalog")" class="text-muted">Quay lại</a></li>
-                                        <li class="breadcrumb-item text-muted active" aria-current="page">Xóa danh mục</li>
+                                        <li class="breadcrumb-item text-muted active" aria-current="page">Xóa chủ đề</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -41,7 +41,7 @@
                         <div class="card">
                             <div class="card-body collapse show">
                                 <h4 class="card-title">
-                                    Danh mục
+                                    Chủ đề
                                 </h4>
                                 <p class="card-text">
                                     @Html.DisplayFor(model => model.DANH_MUC1)
@@ -73,7 +73,7 @@
                         <div class="card">
                             <div class="card-body collapse show">
                                 <h4 class="card-title">
-                                    Hình ảnh
+                                    Hình đại diện
                                 </h4>
                                 <p class="card-text">
                                     <img id="pic" src="@Model.HINH_ANH" width="600">
@@ -121,7 +121,7 @@
 
                     <div class="row">
                         <div class="customize-input float-left">
-                            <input type="submit" value="Xóa danh mục" style="color: green" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius" />
+                            <input type="submit" value="Xóa chủ đề" style="color: green" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius" />
                         </div>
 
                         <div class="customize-input float-right" style="margin-left: 10px">
