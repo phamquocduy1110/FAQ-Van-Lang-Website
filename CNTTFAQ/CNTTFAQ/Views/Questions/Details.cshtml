@@ -51,6 +51,13 @@
                         </div>
                     </div>
 
+                    @foreach (var cautraloi in Model.CAU_TRA_LOI)
+                    {
+                        <div>
+                            @MvcHtmlString.Create(cautraloi.CAU_TRA_LOI1)
+                        </div>
+
+                    }
                     <a class="pull-left" href="#">
                         <img class="media-object" src="" alt="">
                     </a>
