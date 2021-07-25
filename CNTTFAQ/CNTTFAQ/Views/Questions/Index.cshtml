@@ -35,22 +35,32 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-sm-7 blog-posts">
-                    @foreach (var item in Model)
+                    <!-- Post item -->
+                    @if (Model.Count() == 0)
                     {
-                        <!-- Post item -->
-                        <div class="post-item" style="margin-bottom: 50px">
-                            <div class="post-content">
-                                <h2 class="post-title">@item.CAU_HOI1</h2>
-                                <div class="post-meta" style="margin-bottom: 20px">
-                                    <a href="">Lượt xem:   @item.LUOT_XEM</a>
-                                    <a href="">Được đăng bởi:   @item.AspNetUser.Email</a>
-                                    <a href="">Chủ đề:   @item.DANH_MUC.DANH_MUC1</a>
+                        <div class="post-content">
+                            <h2 class="post-title">Không tìm thấy kết quả</h2>
+                        </div>
+                    }
+                    else
+                    {
+                        foreach (var item in Model)
+                        {
+
+                            <div class="post-item" style="margin-bottom: 50px">
+                                <div class="post-content">
+                                    <h2 class="post-title">@item.CAU_HOI1</h2>
+                                    <div class="post-meta" style="margin-bottom: 20px">
+                                        <a href="">Lượt xem:   @item.LUOT_XEM</a>
+                                        <a href="">Được đăng bởi:   @item.AspNetUser.Email</a>
+                                        <a href="">Chủ đề:   @item.DANH_MUC.DANH_MUC1</a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <a style="font-size: 15px" href="@Url.Action("Details", "Questions", new { item.ID })">Xem chi tiết ></a>
                                 </div>
                             </div>
-                            <div>
-                                <a style="font-size: 15px" href="@Url.Action("Details", "Questions", new { item.ID })">Xem chi tiết ></a>
-                            </div>
-                        </div>
+                        }
                     }
                     Tổng số trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
                     @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page, category = ViewBag.category }))
@@ -60,7 +70,7 @@
                     <!-- Single widget -->
                     <div class="widget-item">
                         <form action="@Url.Action("Search", "Questions")" method="get" class="search-form">
-                            <input type="text" name="Keyword" placeholder="Nhập câu hỏi hoặc từ khóa bạn cầm tìm">
+                            <input type="text" name="Keyword" placeholder="Nhập câu hỏi hoặc từ khóa bạn cầm tìm" value="@ViewBag.keyword" style="background: rgb(232, 240, 254)">
                             <button type="submit" class="search-btn">
                                 <i class="fab fa-searchengin"></i>
                             </button>

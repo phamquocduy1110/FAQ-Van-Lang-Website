@@ -285,6 +285,7 @@
     <Content Include="Assets\css\LoginCss\owl.carousel.min.css" />
     <Content Include="Assets\css\LoginCss\style.css" />
     <Content Include="Assets\css\UserPageCss\bootstrap.min.css" />
+    <Content Include="Assets\css\UserPageCss\comment.css" />
     <Content Include="Assets\css\UserPageCss\flaticon.css" />
     <Content Include="Assets\css\UserPageCss\font-awesome.min.css" />
     <Content Include="Assets\css\UserPageCss\footer.css" />
