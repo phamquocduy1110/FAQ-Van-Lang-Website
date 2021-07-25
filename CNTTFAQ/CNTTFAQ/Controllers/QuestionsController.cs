@@ -12,7 +12,6 @@ namespace CNTTFAQ.Controllers
     public class QuestionsController : Controller
     {
         DIEUBANTHUONGHOIWEBSITEEntities model = new DIEUBANTHUONGHOIWEBSITEEntities();
-        List<CAU_TRA_LOI> traloi = null;
 
         // GET: Questions / Questions
         [AllowAnonymous]
@@ -55,9 +54,17 @@ namespace CNTTFAQ.Controllers
         {
             var pageNumber = page ?? 1;
             var pageSize = 10; 
+
             var search = model.CAU_HOI.OrderByDescending(x => x.ID).Where(x => x.CAU_HOI1.ToLower().Contains(keyword.ToLower())).ToPagedList(pageNumber, pageSize);
             ViewBag.keyword = keyword;
-            return View("Index", search);
+            if(search == null)
+            {
+                return View("Index", "Không tìm thấy kết quả");
+            }
+            else
+            { 
+                return View("Index", search);
+            }
         }
 
         public ActionResult Details(int id)
