@@ -40,12 +40,9 @@ namespace CNTTFAQ.Controllers
 
         // GET: Question by Category / Questions
         [AllowAnonymous]
-        public PartialViewResult CategoryPartical(int? page)
+        public PartialViewResult CategoryPartical()
         {
-            var pageNumber = page ?? 1;
-            var pageSize = 5;
-
-            var categoryList = model.DANH_MUC.OrderByDescending(x => x.DANH_MUC1).ToPagedList(pageNumber, pageSize);
+            var categoryList = model.DANH_MUC.OrderByDescending(x => x.DANH_MUC1).ToList();
             return PartialView(categoryList);
         }
 
@@ -57,14 +54,8 @@ namespace CNTTFAQ.Controllers
 
             var search = model.CAU_HOI.OrderByDescending(x => x.ID).Where(x => x.CAU_HOI1.ToLower().Contains(keyword.ToLower())).ToPagedList(pageNumber, pageSize);
             ViewBag.keyword = keyword;
-            if(search == null)
-            {
-                return View("Index", "Không tìm thấy kết quả");
-            }
-            else
-            { 
-                return View("Index", search);
-            }
+            return View("Index", search);
+
         }
 
         public ActionResult Details(int id)
