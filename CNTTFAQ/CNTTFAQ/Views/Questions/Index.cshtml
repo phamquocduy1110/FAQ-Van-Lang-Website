@@ -51,7 +51,7 @@
 <body>
     <!-- Page header -->
     <div class="page-top-section">
-        <div class="overlay" style="background-size: cover; background-image:url('@Url.Content("~/Assets/images/backgrounds/FAQ_BG.png")')"></div>
+        <div class="overlay" style="background-size: cover; background-image:url('@Url.Content("~/Assets/images/backgrounds/FAQ2_BG.png")')"></div>
         <div class="container text-right">
             <div class="page-info">
                 <h2 style="color: black">Danh sách các câu hỏi</h2>
@@ -104,7 +104,7 @@
                     <!-- Single widget -->
                     <div class="widget-item">
                         <form action="@Url.Action("Search", "Questions")" method="get" class="search-form">
-                            <input type="text" name="Keyword" placeholder="Nhập câu hỏi hoặc từ khóa bạn cầm tìm" value="@ViewBag.keyword" style="background: rgb(232, 240, 254)">
+                            <input type="text" name="Keyword" placeholder="Nhập câu hỏi hoặc từ khóa bạn cần tìm" value="@ViewBag.keyword" style="background: rgb(232, 240, 254); font-family: 'Oswald', sans-serif">
                             <button type="submit" class="search-btn">
                                 <i class="fab fa-searchengin"></i>
                             </button>
@@ -114,19 +114,6 @@
                     <div class="widget-item" style="margin-bottom: 15px">
                         <h2 class="widget-title">Chủ đề</h2>
                         @Html.Action("CategoryPartical", "Questions")
-                    </div>
-                    <!-- Single widget -->
-                    <div class="widget-item">
-                        <h2 class="widget-title">Tags</h2>
-                        <ul class="tag">
-                            <li><a href="">branding</a></li>
-                            <li><a href="">identity</a></li>
-                            <li><a href="">video</a></li>
-                            <li><a href="">design</a></li>
-                            <li><a href="">inspiration</a></li>
-                            <li><a href="">web design</a></li>
-                            <li><a href="">photography</a></li>
-                        </ul>
                     </div>
                 </div>
             </div>
