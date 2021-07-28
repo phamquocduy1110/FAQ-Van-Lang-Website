@@ -201,9 +201,11 @@
     <Compile Include="Areas\Admin\Controllers\ManageAccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageCatalogController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageQuestionsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\StudentQuestionController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\AspNetRoleUserController.cs" />
     <Compile Include="Areas\Admin\Controllers\AspNetRoleController.cs" />
+    <Compile Include="Controllers\AskQuestionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
@@ -235,10 +237,10 @@
     <Compile Include="Models\DANH_MUC.cs">
       <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\LICH_SU_CHINH_SUA_CAU_HOI.cs">
+    <Compile Include="Models\GUI_CAU_HOI.cs">
       <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LICH_SU_CHINH_SUA_DANH_MUC.cs">
       <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
     </Compile>
@@ -641,6 +643,11 @@
     <Content Include="Areas\Admin\Views\ManageAccount\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ManageAccount\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\AspNetRoleUser\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Comment\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Comment\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Comment\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Comment\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Comment\Delete.cshtml" />
     <EntityDeploy Include="Models\QuanLyCauHoi.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>QuanLyCauHoi.Designer.cs</LastGenOutput>
@@ -648,11 +655,10 @@
     <Content Include="Models\QuanLyCauHoi.edmx.diagram">
       <DependentUpon>QuanLyCauHoi.edmx</DependentUpon>
     </Content>
-    <Content Include="Areas\Admin\Views\Comment\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Comment\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Comment\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Comment\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Comment\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\StudentQuestion\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\StudentQuestion\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\StudentQuestion\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\StudentQuestion\SendMail.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -705,6 +711,7 @@
     <Content Include="Areas\Admin\Views\AspNetRole\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AspNetRoleUser\Create.cshtml" />
     <Content Include="Views\Questions\Details.cshtml" />
+    <Content Include="Views\AskQuestion\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />

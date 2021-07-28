@@ -33,7 +33,7 @@ namespace CNTTFAQ.Models
         public virtual DbSet<CAU_HOI> CAU_HOI { get; set; }
         public virtual DbSet<CAU_TRA_LOI> CAU_TRA_LOI { get; set; }
         public virtual DbSet<DANH_MUC> DANH_MUC { get; set; }
-        public virtual DbSet<LICH_SU_CHINH_SUA_CAU_HOI> LICH_SU_CHINH_SUA_CAU_HOI { get; set; }
+        public virtual DbSet<GUI_CAU_HOI> GUI_CAU_HOI { get; set; }
         public virtual DbSet<LICH_SU_CHINH_SUA_DANH_MUC> LICH_SU_CHINH_SUA_DANH_MUC { get; set; }
         public virtual DbSet<LUOT_TIM_TU_KHOA> LUOT_TIM_TU_KHOA { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
