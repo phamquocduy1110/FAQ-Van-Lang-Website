@@ -307,7 +307,6 @@
     <Content Include="Assets\images\backgrounds\background.png" />
     <Content Include="Assets\images\backgrounds\backgroundLogin.png" />
     <Content Include="Assets\images\backgrounds\beautifulbackground3.jpg" />
-    <Content Include="Assets\images\backgrounds\FAQ_BG.png" />
     <Content Include="Assets\images\backgrounds\LOGIN1.png" />
     <Content Include="Assets\images\backgrounds\FAQ2_BG.png" />
     <Content Include="Assets\images\backgrounds\transaction-background-1.png" />

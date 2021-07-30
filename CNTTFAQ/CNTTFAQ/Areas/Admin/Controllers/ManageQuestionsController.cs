@@ -103,6 +103,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         }
 
         // GET: CAU_HOI / AdminManageQuestions
+        [OutputCache(CacheProfile = "Cache1DayForList")]
         public ActionResult Details(int id)
         {
             var question = model.CAU_HOI.Find(id);

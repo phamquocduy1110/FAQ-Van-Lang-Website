@@ -22,6 +22,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         }
 
         // GET: AspNetRole/Details/5
+        [OutputCache(CacheProfile = "Cache1DayForList")]
         public ActionResult Details(string id)
         {
             if (id == null)
