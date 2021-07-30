@@ -14,6 +14,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         DIEUBANTHUONGHOIWEBSITEEntities model = new DIEUBANTHUONGHOIWEBSITEEntities();
 
         // GET: Load All List Questions / AdminManageQuestions
+        [OutputCache(CacheProfile = "Cache1Day")]
         public ActionResult Index()
         {
             var listaccount = model.AspNetUsers.ToList().OrderByDescending(x => x.Id).ToList();

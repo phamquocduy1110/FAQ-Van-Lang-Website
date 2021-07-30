@@ -17,6 +17,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         private const string PICTURE_PATH = "~/Upload/SanPhams/";
 
         // GET: List of data from DANH_MUC /AdminManageCatalog
+        [OutputCache(CacheProfile = "Cache1Day")]
         public ActionResult Index()
         {
             var category = model.DANH_MUC.AsNoTracking().OrderByDescending(x => x.ID).ToList();
@@ -119,6 +120,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         }
 
         // GET: DANH_MUC / AdminManageCatalog
+        [OutputCache(CacheProfile = "Cache1DayForList")]
         public ActionResult Details(int id)
         {
             var category = model.DANH_MUC.Find(id);
@@ -136,6 +138,11 @@ namespace CNTTFAQ.Areas.Admin.Controllers
                 model.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult GetImage(string fileName)
+        {
+            return File(Server.MapPath("~/Images/" + fileName), "img");
         }
     }
 }

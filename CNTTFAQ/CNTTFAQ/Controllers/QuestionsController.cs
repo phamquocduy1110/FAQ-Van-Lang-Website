@@ -15,6 +15,7 @@ namespace CNTTFAQ.Controllers
 
         // GET: Questions / Questions
         [AllowAnonymous]
+        [OutputCache(CacheProfile = "Cache1Day")]
         public ActionResult Index(int? page, int? category)
         {
             var pageNumber = page ?? 1;
@@ -40,6 +41,7 @@ namespace CNTTFAQ.Controllers
 
         // GET: Question by Category / Questions
         [AllowAnonymous]
+        [OutputCache(Duration = 3600 * 24)]
         public PartialViewResult CategoryPartical()
         {
             var categoryList = model.DANH_MUC.OrderByDescending(x => x.DANH_MUC1).ToList();
@@ -47,6 +49,7 @@ namespace CNTTFAQ.Controllers
         }
 
         [AllowAnonymous]
+        [OutputCache(CacheProfile = "Cache1Day")]
         public ActionResult Search(string keyword, int? page)
         {
             var pageNumber = page ?? 1;
@@ -58,6 +61,7 @@ namespace CNTTFAQ.Controllers
 
         }
 
+        [OutputCache(CacheProfile = "Cache1DayForList")]
         public ActionResult Details(int id)
         {
             var question = model.CAU_HOI.Find(id);
