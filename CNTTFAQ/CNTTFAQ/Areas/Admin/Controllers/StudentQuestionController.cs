@@ -26,7 +26,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             string subject = Request["subject"];
             string body = Request["body"];
 
-            WebMail.SmtpServer = "xxx@vanlanguni.vn";
+            WebMail.SmtpServer = "smtp.gmail.com";
             WebMail.SmtpPort = 587;
             WebMail.SmtpUseDefaultCredentials = true;
             WebMail.EnableSsl = true;
@@ -34,7 +34,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             WebMail.UserName = "Email address";
             WebMail.Password = "Password";
 
-            /*WebMail.Send(to: recipient, subject: subject, body: body, isBodyHtml: true);*/
+            WebMail.Send(to: recipient, subject: subject, body: body, isBodyHtml: true);
 
             return View();
         }

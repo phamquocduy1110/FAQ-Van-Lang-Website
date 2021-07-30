@@ -15,7 +15,6 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         DIEUBANTHUONGHOIWEBSITEEntities model = new DIEUBANTHUONGHOIWEBSITEEntities();
 
         // GET: Admin Index/AdminHome
-        [OutputCache(CacheProfile = "Cache1Day")]
         public ActionResult Index()
         {
             var clients = model.AspNetUsers.OrderByDescending(x => x.Id).Count();

@@ -67,6 +67,7 @@
                                                 <th>Câu hỏi</th>
                                                 <th>Chủ đề</th>
                                                 <th>Lượt xem</th>
+                                                <th>Tình trạng</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -97,6 +98,9 @@
                                                     <td>
                                                         @Html.DisplayFor(modelItem => item.LUOT_XEM)
                                                     </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.DUYET_DANG)
+                                                    </td>
                                                 </tr>
                                             }
                                         </tbody>
@@ -107,6 +111,7 @@
                                                 <th>Câu hỏi</th>
                                                 <th>Chủ đề</th>
                                                 <th>Lượt xem</th>
+                                                <th>Tình trạng</th>
                                             </tr>
                                         </tfoot>
                                     </table>

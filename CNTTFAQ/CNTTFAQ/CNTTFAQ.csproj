@@ -716,6 +716,7 @@
     <Content Include="Areas\Admin\Views\AspNetRoleUser\Create.cshtml" />
     <Content Include="Views\Questions\Details.cshtml" />
     <Content Include="Views\AskQuestion\Create.cshtml" />
+    <Content Include="Views\Questions\MaxQuestions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />

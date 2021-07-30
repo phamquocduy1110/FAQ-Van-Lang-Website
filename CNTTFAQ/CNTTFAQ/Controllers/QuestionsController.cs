@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using PagedList;
 using System.Web.Mvc;
+using System.Web.Helpers;
 using CNTTFAQ.Areas.Admin.Controllers;
 using CNTTFAQ.Models;
 
@@ -28,12 +29,12 @@ namespace CNTTFAQ.Controllers
             else if (category != null)
             {
                 ViewBag.category = category;
-                var quesionList = model.CAU_HOI.OrderByDescending(x => x.ID).Where(x => x.ID_DANH_MUC == category).ToPagedList(pageNumber, pageSize);
+                var quesionList = model.CAU_HOI.OrderByDescending(x => x.ID).Where(x => x.ID_DANH_MUC == category && x.DUYET_DANG != false).ToPagedList(pageNumber, pageSize);
                 return PartialView(quesionList);
             }
             else
             {
-                var quesionList = model.CAU_HOI.OrderByDescending(x => x.ID).ToPagedList(pageNumber, pageSize);
+                var quesionList = model.CAU_HOI.OrderByDescending(x => x.ID).Where(x => x.DUYET_DANG != false).ToPagedList(pageNumber, pageSize);
                 return PartialView(quesionList);
             }
         }
@@ -52,7 +53,7 @@ namespace CNTTFAQ.Controllers
         public ActionResult Search(string keyword, int? page)
         {
             var pageNumber = page ?? 1;
-            var pageSize = 10; 
+            var pageSize = 10;
 
             var search = model.CAU_HOI.OrderByDescending(x => x.ID).Where(x => x.CAU_HOI1.ToLower().Contains(keyword.ToLower())).ToPagedList(pageNumber, pageSize);
             ViewBag.keyword = keyword;
