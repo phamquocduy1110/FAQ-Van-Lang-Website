@@ -12,7 +12,6 @@ namespace CNTTFAQ.Controllers
     {
         DIEUBANTHUONGHOIWEBSITEEntities model = new DIEUBANTHUONGHOIWEBSITEEntities();
 
-        [OutputCache(CacheProfile = "Cache1Day")]
         public ActionResult Index()
         {
             if (User.IsInRole("BCN Khoa") || User.IsInRole("Admin"))

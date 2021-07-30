@@ -14,7 +14,6 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         DIEUBANTHUONGHOIWEBSITEEntities model = new DIEUBANTHUONGHOIWEBSITEEntities();
 
         // GET: CAU_TRA_LOI / Comment
-        [OutputCache(CacheProfile = "Cache1Day")]
         public ActionResult Index()
         {
             var comment = model.CAU_TRA_LOI.AsNoTracking().OrderByDescending(x => x.ID).ToList();

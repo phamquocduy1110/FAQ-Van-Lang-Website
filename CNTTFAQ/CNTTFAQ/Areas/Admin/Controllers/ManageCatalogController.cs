@@ -17,7 +17,6 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         private const string PICTURE_PATH = "~/Upload/SanPhams/";
 
         // GET: List of data from DANH_MUC /AdminManageCatalog
-        [OutputCache(CacheProfile = "Cache1Day")]
         public ActionResult Index()
         {
             var category = model.DANH_MUC.AsNoTracking().OrderByDescending(x => x.ID).ToList();

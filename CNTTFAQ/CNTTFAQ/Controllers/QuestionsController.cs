@@ -15,7 +15,6 @@ namespace CNTTFAQ.Controllers
 
         // GET: Questions / Questions
         [AllowAnonymous]
-        [OutputCache(CacheProfile = "Cache1Day")]
         public ActionResult Index(int? page, int? category)
         {
             var pageNumber = page ?? 1;
