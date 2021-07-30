@@ -43,6 +43,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             question.ID_DANH_MUC = f.ID_DANH_MUC;
             question.NGAY_TAO = DateTime.Now;
             question.ID_TAI_KHOAN = User.Identity.GetUserId();
+            question.DUYET_DANG = f.DUYET_DANG;
             model.CAU_HOI.Add(question);
             model.SaveChanges();
             return RedirectToAction("Index");
@@ -70,6 +71,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             question.MO_TA = f.MO_TA;
             question.ID_DANH_MUC = f.ID_DANH_MUC;
             question.ID_TAI_KHOAN = User.Identity.GetUserId();
+            question.DUYET_DANG = f.DUYET_DANG;
             model.SaveChanges();
             return RedirectToAction("Index");
         }
