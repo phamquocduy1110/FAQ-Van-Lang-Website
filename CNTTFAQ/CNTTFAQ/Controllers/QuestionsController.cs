@@ -22,7 +22,7 @@ namespace CNTTFAQ.Controllers
 
             if (User.IsInRole("BCN Khoa") || User.IsInRole("Admin"))
             {
-                return Redirect("/SEP24Team11/Admin/AdminHome/Index");
+                return RedirectToRoute(new { action = "Index", controller = "AdminHome", area = "Admin" }); ;
             }
 
             else if (category != null)
