@@ -1,64 +1,12 @@
 ﻿@model List<CNTTFAQ.Models.DANH_MUC>
 
-<style>
-    .site-accordions {
-        margin-top: 0px
-    }
-
-    div.site-accordions div ul li a {
-        color: #6a23b5 !important
-    }
-
-    div.site-accordions div ul li a:hover {
-        color: white !important
-    }
-
-    .alert-danger2 {
-        color: #85293a;
-        background-color: #2be6ab;
-        border-color: #ffced7;
-        margin-bottom: 10px
-    }
-
-    .alert-dismissible2 {
-        padding-right: 4rem
-    }
-
-        .alert-dismissible2 .close {
-            position: absolute;
-            top: 0;
-            right: 0;
-            padding: .75rem 1.25rem;
-            color: inherit
-        }
-
-    .bg-danger2 {
-        background-color: rgb(232, 240, 254) !important
-    }
-
-        .bg-danger2:hover {
-            background-color: #6a23b5 !important;
-            color: white
-        }
-
-    .text-white2 {
-        color: #fff !important
-    }
-
-    .border-0 {
-        border: 0 !important
-    }
-</style>
-
 @foreach (var item in Model)
 {
-    <div class="site-accordions">
-        <div class="alert-danger2 alert-dismissible2 bg-danger2 text-white2 border-0 show">
-            <ul>
-                <li style=" padding: 20px; font-family: 'Oswald', sans-serif">
-                    @Html.ActionLink(item.DANH_MUC1, "Index", "Questions", new { category = @item.ID }, null)
-                </li>
-            </ul>
-        </div>
+    <div>
+        <ul>
+            <li>
+                @Html.ActionLink(item.DANH_MUC1, "Index", "Questions", new { category = @item.ID }, null)
+            </li>
+        </ul>
     </div>
 }

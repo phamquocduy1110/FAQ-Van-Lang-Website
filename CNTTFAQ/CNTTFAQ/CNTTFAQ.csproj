@@ -205,7 +205,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\AspNetRoleUserController.cs" />
     <Compile Include="Areas\Admin\Controllers\AspNetRoleController.cs" />
-    <Compile Include="Controllers\AskQuestionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
@@ -321,6 +320,9 @@
     <Content Include="Assets\images\backgrounds\beautifulbackground3.jpg" />
     <Content Include="Assets\images\backgrounds\bottom-wave.png" />
     <Content Include="Assets\images\backgrounds\call-to-action.jpg" />
+    <Content Include="Assets\images\backgrounds\city_4.png" />
+    <Content Include="Assets\images\backgrounds\cloud.png" />
+    <Content Include="Assets\images\backgrounds\cloud_full_3.png" />
     <Content Include="Assets\images\backgrounds\LOGIN1.png" />
     <Content Include="Assets\images\backgrounds\FAQ2_BG.png" />
     <Content Include="Assets\images\backgrounds\preloader.jpg" />
@@ -343,6 +345,7 @@
     <Content Include="Assets\images\icons\icon1.png" />
     <Content Include="Assets\images\icons\icon2.png" />
     <Content Include="Assets\images\icons\icon3.png" />
+    <Content Include="Assets\images\icons\search.png" />
     <Content Include="Assets\images\icons\social1.png" />
     <Content Include="Assets\images\icons\social1hover.png" />
     <Content Include="Assets\images\icons\social2.png" />
@@ -400,9 +403,19 @@
     <Content Include="Assets\js\AdminPageJS\sidebarmenu.js" />
     <Content Include="Assets\js\AdminPageJS\sparkline.js" />
     <Content Include="Assets\js\ArshaUserPageJS\main.js" />
+    <Content Include="Assets\js\HostSpaceUserPageJS\animation.gsap.min.js" />
+    <Content Include="Assets\js\HostSpaceUserPageJS\blog.js" />
     <Content Include="Assets\js\HostSpaceUserPageJS\bootstrap.min.js" />
+    <Content Include="Assets\js\HostSpaceUserPageJS\easing.js" />
     <Content Include="Assets\js\HostSpaceUserPageJS\jquery-3.2.1.min.js" />
+    <Content Include="Assets\js\HostSpaceUserPageJS\owl.carousel.js" />
+    <Content Include="Assets\js\HostSpaceUserPageJS\parallax.min.js" />
     <Content Include="Assets\js\HostSpaceUserPageJS\popper.js" />
+    <Content Include="Assets\js\HostSpaceUserPageJS\progressbar.min.js" />
+    <Content Include="Assets\js\HostSpaceUserPageJS\ScrollMagic.min.js" />
+    <Content Include="Assets\js\HostSpaceUserPageJS\ScrollToPlugin.min.js" />
+    <Content Include="Assets\js\HostSpaceUserPageJS\TimelineMax.min.js" />
+    <Content Include="Assets\js\HostSpaceUserPageJS\TweenMax.min.js" />
     <Content Include="Assets\js\LoginJS\bootstrap.min.js" />
     <Content Include="Assets\js\LoginJS\jquery-3.3.1.min.js" />
     <Content Include="Assets\js\LoginJS\main.js" />
@@ -822,7 +835,6 @@
     <Content Include="Areas\Admin\Views\AspNetRole\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AspNetRoleUser\Create.cshtml" />
     <Content Include="Views\Questions\Details.cshtml" />
-    <Content Include="Views\AskQuestion\Create.cshtml" />
     <Content Include="Views\Questions\MaxQuestions.cshtml" />
   </ItemGroup>
   <ItemGroup>

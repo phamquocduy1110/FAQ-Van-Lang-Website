@@ -46,9 +46,8 @@
     <nav hidden>
         <div class="nav-header">
             <!-- Navbar Logo -->
-            <a href="#" class="brand">
+            <a href="@Url.Action("Index", "Home")" class="brand">
                 <img class="scrolled" src="@Url.Content("~/Assets/images/logo/FAQAdmin-Logo.png")" alt="logo">
-                <img class="top" src="@Url.Content("~/Assets/images/logo/Nav-Logo.png")" alt="logo-scrolled">
             </a>
             <!-- Burger Menu -->
             <button class="toggle-bar">
@@ -56,8 +55,7 @@
             </button>
         </div>
         <!-- Navbar Links -->
-        <ul class="menu">
-            <li><a href="@Url.Action("Index", "Home")">Trang chủ</a></li>
+        <ul class="menu"">
             <li class="scrollspy"><a href="#about">Giới thiệu</a></li>
             <li class="scrollspy"><a href="#pricing">Chủ đề</a></li>
             <li class="scrollspy"><a href="#contact">Liên hệ</a></li>
@@ -69,72 +67,7 @@
     </nav>
     <!-- Header section end -->
     @RenderBody()
-    <!-- ==============================================
-    CONTACT
-    =============================================== -->
-    <section id="contact">
-        <div class="svg-wave">
-            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 3600 248">
-                <path d="M3601,31.227S2736.31,201.97,1661,72.2C547.345-62.2,0,32.227,0,32.227V343H3602Z"></path>
-            </svg>
-        </div>
-        <div class="container">
-            <h2>Liên Hệ</h2>
-            <div class="row">
-                <div class="col-lg-4 wow fadeInLeft" data-wow-duration=".2s" data-wow-delay=".4s">
-                    <h4>Địa chỉ</h4>
-                    <a href="mailto:k.cntt@vanlanguni.edu.vn" class="email-link">k.cntt@vanlanguni.edu.vn</a>
-                    <p>028. 71099240</p>
-                    <p>Phòng 5.07, Tòa nhà LV, Cơ sở chính: 69/68 Đặng Thùy Trâm, P.13, Q.Bình Thạnh <b>TP. HCM</b></p>
-                    <ul class="social-media">
-                        <li><a href="https://www.facebook.com/khoacntt.vanlang"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="https://twitter.com/universityvan?lang=vi/"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="https://www.vanlanguni.edu.vn/"><i class="fab fa-google-plus-g"></i></a></li>
-                        <li><a href="https://www.youtube.com/user/truongdhvanlang/featured"><i class="fab fa-youtube"></i></a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-8 wow fadeInLeft" data-wow-duration=".2s" data-wow-delay=".6s">
-                    <h4>Gửi câu hỏi</h4>
-                    <form action="@Url.Action("Create", "AskQuestion")" method="post">
-                        <div class="row">
-                            <div class="col">
-                                <input type="text" name="HO_TEN" placeholder="Họ và Tên" class="form-control" required
-                                       oninvalid="this.setCustomValidity('Mời bạn nhập Họ và Tên vào ô này')"
-                                       oninput="this.setCustomValidity('')" />
-                            </div>
-                            <div class="col">
-                                <input type="text" name="ID_TAI_KHOAN" value="@User.Identity.Name" disabled class="form-control" />
-                            </div>
-                        </div>
-                        <div class="form-group wow fadeInLeft" data-wow-duration=".2s" data-wow-delay=".6s">
-                            <input type="text" name="CAU_HOI_MUON_HOI" placeholder="Tiêu đề câu hỏi" class="form-control" required
-                                   oninvalid="this.setCustomValidity('Mời bạn nhập tiêu đề câu hỏi vào ô này')"
-                                   oninput="this.setCustomValidity('')" />
-                        </div>
-                        <!-- Form Group -->
-                        <div class="form-group wow fadeInLeft" data-wow-duration=".2s" data-wow-delay=".6s">
-                            <textarea type="text" name="MO_TA" placeholder="Hãy nhập mô tả của bạn vào đây"  id="form-message" cols="30" rows="5" class="form-control" required
-                                      oninvalid="this.setCustomValidity('Mời bạn nhập mô tả vào ô này')"
-                                      oninput="this.setCustomValidity('')"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Gửi câu hỏi</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ==============================================
-    FOOTER
-    =============================================== -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <p>&copy; @DateTime.Now.Year All Rights Reserved | Design by <a>SEPK24T-Team11.</a></p>
-                </div>
-            </div>
-        </div>
-    </footer>
+
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- jQuery Easing -->
@@ -151,6 +84,8 @@
     <script src="@Url.Content("~/Assets/js/PortaUserPageJS/lightbox.min.js")"></script>
     <!-- Custom -->
     <script src="@Url.Content("~/Assets/js/PortaUserPageJS/custom.js")"></script>
+
+    <script src="@Url.Content("~/Assets/js/ArshaUserPageJS/main.js")"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

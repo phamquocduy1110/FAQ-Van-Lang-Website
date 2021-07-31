@@ -5,9 +5,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
 <head>
     <title>Danh sách câu hỏi</title>
     <meta charset="utf-8">
@@ -15,38 +12,122 @@
     <meta name="description" content="HostSpace template project">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="@Url.Action("~/Assets/css/HostSpaceUserPageCss/bootstrap.min.css")" rel="stylesheet" type="text/css" >
-    <link href="@Url.Action("~/Assets/css/HostSpaceUserPageCss/font-awesome.min.css")" rel="stylesheet" type="text/css">
+    <!-- Favicon -->
+    <link href="@Url.Content("~/Assets/images/logo/VanLangLogoPage.png")" rel="shortcut icon" />
 
-    <link rel="stylesheet" type="text/css" href="@Url.Action("~/Assets/css/HostSpaceUserPageCss/owl.carousel.css")">
-    <link rel="stylesheet" type="text/css" href="@Url.Action("~/Assets/css/HostSpaceUserPageCss/owl.theme.default.css")">
-    <link rel="stylesheet" type="text/css" href="@Url.Action("~/Assets/css/HostSpaceUserPageCss/animate.css")">
-    <link rel="stylesheet" type="text/css" href="@Url.Action("~/Assets/css/HostSpaceUserPageCss/blog.css")">
-    <link rel="stylesheet" type="text/css" href="@Url.Action("~/Assets/css/HostSpaceUserPageCss/blog_responsive.css")">
+    <!-- Questions Page-->
+    <link href="@Url.Content("~/Assets/css/HostSpaceUserPageCss/bootstrap.min.css")" rel="stylesheet" type="text/css">
+    <link href="@Url.Content("~/Assets/css/HostSpaceUserPageCss/font-awesome.min.css")" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Assets/css/HostSpaceUserPageCss/owl.carousel.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Assets/css/HostSpaceUserPageCss/owl.theme.default.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Assets/css/HostSpaceUserPageCss/animate.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Assets/css/HostSpaceUserPageCss/blog.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Assets/css/HostSpaceUserPageCss/blog_responsive.css")">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="@Url.Content("~/Assets/css/PortaUserPageCss/bootstrap.min.css")">
+    <!-- Core Navigation -->
+    <link rel="stylesheet" href="@Url.Content("~/Assets/css/PortaUserPageCss/coreNavigation-1.1.3.min.css")">
+    <!-- Navbar Style -->
+    <link rel="stylesheet" href="@Url.Content("~/Assets/css/PortaUserPageCss/navbar-style.css")">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="@Url.Content("~/Assets/css/PortaUserPageCss/owl.carousel.min.css")">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="@Url.Content("~/Assets/css/PortaUserPageCss/animate.css")">
+    <!-- Line Icons -->
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <!-- LightBox -->
+    <link rel="stylesheet" href="@Url.Content("~/Assets/css/PortaUserPageCss/lightbox.min.css")">
+    <!-- Style -->
+    <link rel="stylesheet" href="@Url.Content("~/Assets/css/PortaUserPageCss/style.css")">
+    <!-- Style SCSS-->
+    <link rel="stylesheet" href="@Url.Content("~/Assets/css/PortaUserPageCss/style.scss")">
 </head>
 <body>
     <div class="super_container">
-        <!-- Domain Search -->
+        <!-- Header -->
 
+        <header class="header trans_400">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start trans_400">
+                            <div class="logo"><a href="@Url.Action("Index", "Home")">Điều Bạn<span>Thường Hỏi</span></a></div>
+                            <nav class="main_nav ml-auto mr-auto">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                </ul>
+                            </nav>
+                            @Html.Partial("_LoginPartial")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Menu -->
+
+        <div class="menu_overlay trans_400"></div>
+        <div class="menu trans_400">
+            <div class="menu_close_container"><div class="menu_close"><div></div><div></div></div></div>
+            <div class="log_reg">
+                <div class="log_reg_content d-flex flex-row align-items-center justify-content-end">
+                    <div class="login log_reg_text"><a href="#">Login</a></div>
+                    <div class="register log_reg_text"><a href="#">Register</a></div>
+                </div>
+            </div>
+            <nav class="menu_nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="blog.html">News</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="home">
+            <div class="home_background"></div>
+            <div class="background_image background_city" style="background-image:url('@Url.Content("~/Assets/images/backgrounds/city_4.png")')"></div>
+            <div class="cloud cloud_3"><img src="@Url.Content("~/Assets/images/backgrounds/cloud_full_3.png")" alt=""></div>
+            <div class="cloud cloud_4"><img src="@Url.Content("~/Assets/images/backgrounds/cloud.png")" alt=""></div>
+            <div class="home_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_content">
+                                <div class="home_title">Danh sách câu hỏi</div>
+                                <div class="breadcrumbs">
+                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                        <li><a href="@Url.Action("Index", "Home")">Trang chủ</a></li>
+                                        <li>Danh sách câu hỏi</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Domain Search -->
         <div class="domain_search">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
                         <div class="domain_search_form_container d-flex flex-column align-items-center justify-content-center">
-                            <form action="#" id="domain_search_form" class="domain_search_form d-flex flex-md-row flex-column align-items-center justify-content-start">
+                            <form action="@Url.Action("Search", "Questions")" method="get" id="domain_search_form" class="domain_search_form d-flex flex-md-row flex-column align-items-center justify-content-start">
                                 <div class="d-flex flex-row align-items-center justify-content-start">
-                                    <input type="text" class="domain_search_input" placeholder="yourdomain" required="required">
+                                    <input type="text" class="domain_search_input" name="Keyword" placeholder="Nhập câu hỏi hoặc từ khóa bạn cần tìm" value="@ViewBag.keyword" required="required">
                                     <div class="domain_search_dropdown d-flex flex-row align-items-center justify-content-start">
-                                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                                        <div class="domain_search_selected">.io</div>
-                                        <ul>
-                                            <li>.io</li>
-                                            <li>.com</li>
-                                            <li>.net</li>
-                                        </ul>
                                     </div>
                                 </div>
-                                <button class="domain_search_button d-flex flex-row align-items-center justify-content-center"><img src="images/search.png" alt="">Search</button>
+                                <button type="submit" class="domain_search_button d-flex flex-row align-items-center justify-content-center">
+                                    <img src="@Url.Content("~/Assets/images/icons/search.png")" alt="">Search
+                                </button>
                             </form>
                         </div>
                     </div>
@@ -62,328 +143,135 @@
                     <!-- News Content -->
                     <div class="col-lg-9">
                         <div class="news_posts">
-
                             <!-- News Post -->
-                            <div class="news_post magic_fade_in">
-                                <div class="news_post_image">
-                                    <div class="news_post_date">
-                                        <a href="#" class=" d-flex flex-column align-items-center justify-content-center">
-                                            <div class="news_post_day">26</div>
-                                            <div class="news_post_month">June</div>
-                                        </a>
+                            @if (Model.Count() == 0)
+                            {
+                                <div class="post-content">
+                                    <div class="alert-danger alert-dismissible bg-danger text-white border-0 show">
+                                        <h2 style="padding: 20px">Không tìm thấy kết quả</h2>
                                     </div>
                                 </div>
-                                <div class="news_post_content">
-                                    <div class="news_post_title"><a href="#">10 reasons you need professional cloud storage</a></div>
-                                    <div class="news_post_meta">
-                                        <ul class="d-flex flex-row align-items-start justify-content-start">
-                                            <li>by <a href="#">Admin</a></li>
-                                            <li>in <a href="#">Storage</a></li>
-                                            <li><a href="#">3 Comments</a></li>
-                                        </ul>
+                            }
+                            else
+                            {
+                                foreach (var item in Model)
+                                {
+                                    <div class="news_post magic_fade_in">
+                                        <div class="news_post_content" style="padding: 30px">
+                                            <div class="news_post_title">
+                                                <a style="font-size: 20px" href="@Url.Action("Details", "Questions", new { item.ID })">@item.CAU_HOI1</a>
+                                            </div>
+                                            <div class="news_post_meta">
+                                                <ul class="d-flex flex-row align-items-start justify-content-start">
+                                                    <li>Đăng bởi: <a href="#">@item.AspNetUser.Email</a></li>
+                                                    <li>Lượt xem: <a href="#">@item.LUOT_XEM</a></li>
+                                                    <li>Chủ đề:  <a href="#">@item.DANH_MUC.DANH_MUC1</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="news_post_text">
-                                        <p>Nullam lacinia ex eleifend orci porttitor, suscipit interdum augue condimentum. Etiam pretium turpis ege. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam congue tellus vitae mauris dignissim, id porta purus varius. Suspendisse pharetra tincidunt enim.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- News Post -->
-                            <div class="news_post magic_fade_in">
-                                <div class="news_post_image">
-                                    <div class="news_post_date">
-                                        <a href="#" class=" d-flex flex-column align-items-center justify-content-center">
-                                            <div class="news_post_day">26</div>
-                                            <div class="news_post_month">June</div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="news_post_content">
-                                    <div class="news_post_title"><a href="#">10 reasons you need professional cloud storage</a></div>
-                                    <div class="news_post_meta">
-                                        <ul class="d-flex flex-row align-items-start justify-content-start">
-                                            <li>by <a href="#">Admin</a></li>
-                                            <li>in <a href="#">Storage</a></li>
-                                            <li><a href="#">3 Comments</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="news_post_text">
-                                        <p>Nullam lacinia ex eleifend orci porttitor, suscipit interdum augue condimentum. Etiam pretium turpis ege. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam congue tellus vitae mauris dignissim, id porta purus varius. Suspendisse pharetra tincidunt enim.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- News Post -->
-                            <div class="news_post magic_fade_in">
-                                <div class="news_post_image">
-                                    <div class="news_post_date">
-                                        <a href="#" class=" d-flex flex-column align-items-center justify-content-center">
-                                            <div class="news_post_day">26</div>
-                                            <div class="news_post_month">June</div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="news_post_content">
-                                    <div class="news_post_title"><a href="#">10 reasons you need professional cloud storage</a></div>
-                                    <div class="news_post_meta">
-                                        <ul class="d-flex flex-row align-items-start justify-content-start">
-                                            <li>by <a href="#">Admin</a></li>
-                                            <li>in <a href="#">Storage</a></li>
-                                            <li><a href="#">3 Comments</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="news_post_text">
-                                        <p>Nullam lacinia ex eleifend orci porttitor, suscipit interdum augue condimentum. Etiam pretium turpis ege. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam congue tellus vitae mauris dignissim, id porta purus varius. Suspendisse pharetra tincidunt enim.</p>
-                                    </div>
-                                </div>
-                            </div>
-
+                                }
+                            }
                         </div>
-
                         <!-- Page Nav -->
                         <div class="page_nav">
-                            <ul class="d-flex flex-row align-items-center justify-content-start">
-                                <li class="active"><a href="#">01.</a></li>
-                                <li><a href="#">02.</a></li>
-                                <li><a href="#">03.</a></li>
-                                <li>
-                                    <a href="#" class="d-flex flex-row align-items-center justify-content-start">
-                                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                                    </a>
-                                </li>
-                            </ul>
+                            Tổng số trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+                            @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page, category = ViewBag.category }))
                         </div>
                     </div>
 
                     <!-- News Sidebar -->
-                    <div class="col-lg-3 sidebar_col">
-                        <div class="sidebar">
-
-                            <!-- Sidebar Search -->
-                            <div class="sidebar_search magic_fade_in">
-                                <form action="#" class="sidebar_search_form d-flex flex-row align-items-center justify-content-start" id="sidebar_search_form">
-                                    <input type="text" class="sidebar_search_input" required="required">
-                                    <button class="sidebar_search_button d-flex flex-column align-items-center justify-content-center"><img src="images/search_small.png" alt=""></button>
-                                </form>
-                            </div>
-
-                            <!-- Recent Posts -->
-                            <div class="recent_posts sidebar_section magic_fade_in">
-                                <div class="sidebar_title_container">
-                                    <div>Recent Posts</div>
-                                </div>
-                                <div class="sidebar_list">
-                                    <ul>
-                                        <li>
-                                            <a href="#" class="d-flex flex-row align-items-start justify-content-start">
-                                                <div class="sidebar_dot d-flex flex-row align-items-center justify-content-start">
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                </div>
-                                                <div>Nullam lacinia ex eleifend orci...</div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="d-flex flex-row align-items-start justify-content-start">
-                                                <div class="sidebar_dot d-flex flex-row align-items-center justify-content-start">
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                </div>
-                                                <div>Suscipit interdum augue condime...</div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="d-flex flex-row align-items-start justify-content-start">
-                                                <div class="sidebar_dot d-flex flex-row align-items-center justify-content-start">
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                </div>
-                                                <div>Etiam pretium turpis ege...</div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="d-flex flex-row align-items-start justify-content-start">
-                                                <div class="sidebar_dot d-flex flex-row align-items-center justify-content-start">
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                </div>
-                                                <div>Lorem ipsum dolor sit amet...</div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- Recent Comments -->
-                            <div class="recent_posts sidebar_section magic_fade_in">
-                                <div class="sidebar_title_container">
-                                    <div>Recent Comments</div>
-                                </div>
-                                <div class="sidebar_list">
-                                    <ul>
-                                        <li>
-                                            <a href="#" class="d-flex flex-row align-items-start justify-content-start">
-                                                <div class="sidebar_dot d-flex flex-row align-items-center justify-content-start">
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                </div>
-                                                <div>Llam lacinia ex eleifend orci...</div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="d-flex flex-row align-items-start justify-content-start">
-                                                <div class="sidebar_dot d-flex flex-row align-items-center justify-content-start">
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                </div>
-                                                <div>Suscipit interdum augue condime...</div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="d-flex flex-row align-items-start justify-content-start">
-                                                <div class="sidebar_dot d-flex flex-row align-items-center justify-content-start">
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                </div>
-                                                <div>Etiam pretium turpis ege...</div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="d-flex flex-row align-items-start justify-content-start">
-                                                <div class="sidebar_dot d-flex flex-row align-items-center justify-content-start">
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                </div>
-                                                <div>Lorem ipsum dolor sit amet...</div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- Archive -->
-                            <div class="recent_posts sidebar_section magic_fade_in">
-                                <div class="sidebar_title_container">
-                                    <div>Archive</div>
-                                </div>
-                                <div class="sidebar_list">
-                                    <ul>
-                                        <li>
-                                            <a href="#" class="d-flex flex-row align-items-start justify-content-start">
-                                                <div class="sidebar_dot d-flex flex-row align-items-center justify-content-start">
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                </div>
-                                                <div>March 2018</div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="d-flex flex-row align-items-start justify-content-start">
-                                                <div class="sidebar_dot d-flex flex-row align-items-center justify-content-start">
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                </div>
-                                                <div>April 2018</div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="d-flex flex-row align-items-start justify-content-start">
-                                                <div class="sidebar_dot d-flex flex-row align-items-center justify-content-start">
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                </div>
-                                                <div>May 2018</div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="d-flex flex-row align-items-start justify-content-start">
-                                                <div class="sidebar_dot d-flex flex-row align-items-center justify-content-start">
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                </div>
-                                                <div>June 2018</div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- Categories -->
-                            <div class="recent_posts sidebar_section magic_fade_in">
-                                <div class="sidebar_title_container">
-                                    <div>Categories</div>
-                                </div>
-                                <div class="sidebar_list">
-                                    <ul>
-                                        <li>
-                                            <a href="#" class="d-flex flex-row align-items-start justify-content-start">
-                                                <div class="sidebar_dot d-flex flex-row align-items-center justify-content-start">
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                </div>
-                                                <div>Hosting & Cloud</div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="d-flex flex-row align-items-start justify-content-start">
-                                                <div class="sidebar_dot d-flex flex-row align-items-center justify-content-start">
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                </div>
-                                                <div>Computers</div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="d-flex flex-row align-items-start justify-content-start">
-                                                <div class="sidebar_dot d-flex flex-row align-items-center justify-content-start">
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                </div>
-                                                <div>Websites & Domains</div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="d-flex flex-row align-items-start justify-content-start">
-                                                <div class="sidebar_dot d-flex flex-row align-items-center justify-content-start">
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                    <i class="fa fa-chevron-right trans_200" aria-hidden="true"></i>
-                                                </div>
-                                                <div>Uncategorized</div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- Sidebar Extra -->
-                            <div class="sidebar_extra text-center magic_fade_in">
-                                <a href="#">
-                                    <div class="background_image" style="background-image:url(images/sidebar_extra.jpg)"></div>
-                                    <div class="sidebar_extra_icon"><img src="images/icon_10.svg" alt=""></div>
-                                    <div class="sidebar_extra_title"><span>30 </span>Days money back guarantee</div>
-                                    <div class="sidebar_extra_text">Nullam lacinia ex eleifend orci porttitor, suscipit in.</div>
-                                </a>
-                            </div>
+                    <div class="sidebar_search magic_fade_in">
+                        <div class="sidebar_title_container">
+                            <div>Recent Posts</div>
+                        </div>
+                        <div class="sidebar_list">
+                            <div>@Html.Action("CategoryPartical", "Questions")</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- ==============================================
+    CONTACT
+    =============================================== -->
+    <section id="contact">
+        <div class="svg-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 3600 248">
+                <path d="M3601,31.227S2736.31,201.97,1661,72.2C547.345-62.2,0,32.227,0,32.227V343H3602Z"></path>
+            </svg>
+        </div>
+        <div class="container">
+            <h2>Liên Hệ</h2>
+            <div class="row">
+                <div class="col-lg-4 wow fadeInLeft" data-wow-duration=".2s" data-wow-delay=".4s">
+                    <h4>Địa chỉ</h4>
+                    <a href="mailto:k.cntt@vanlanguni.edu.vn" class="email-link">k.cntt@vanlanguni.edu.vn</a>
+                    <p>028. 71099240</p>
+                    <p>Phòng 5.07, Tòa nhà LV, Cơ sở chính: 69/68 Đặng Thùy Trâm, P.13, Q.Bình Thạnh <b>TP. HCM</b></p>
+                    <ul class="social-media">
+                        <li><a href="https://www.facebook.com/khoacntt.vanlang"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="https://twitter.com/universityvan?lang=vi/"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="https://www.vanlanguni.edu.vn/"><i class="fab fa-google-plus-g"></i></a></li>
+                        <li><a href="https://www.youtube.com/user/truongdhvanlang/featured"><i class="fab fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-8 wow fadeInLeft" data-wow-duration=".2s" data-wow-delay=".6s">
+                    <h4>Gửi câu hỏi</h4>
+                    <form action="@Url.Action("Index", "Questions")" method="post">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" name="HO_TEN" placeholder="Họ và Tên" class="form-control" required
+                                       oninvalid="this.setCustomValidity('Mời bạn nhập Họ và Tên vào ô này')"
+                                       oninput="this.setCustomValidity('')" />
+                            </div>
+                            <div class="col">
+                                <input type="text" name="ID_TAI_KHOAN" value="@User.Identity.Name" disabled class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group wow fadeInLeft" data-wow-duration=".2s" data-wow-delay=".6s">
+                            <input type="text" name="CAU_HOI_MUON_HOI" placeholder="Tiêu đề câu hỏi" class="form-control" required
+                                   oninvalid="this.setCustomValidity('Mời bạn nhập tiêu đề câu hỏi vào ô này')"
+                                   oninput="this.setCustomValidity('')" />
+                        </div>
+                        <!-- Form Group -->
+                        <div class="form-group wow fadeInLeft" data-wow-duration=".2s" data-wow-delay=".6s">
+                            <textarea type="text" name="MO_TA" placeholder="Hãy nhập mô tả của bạn vào đây" id="form-message" cols="30" rows="5" class="form-control" required
+                                      oninvalid="this.setCustomValidity('Mời bạn nhập mô tả vào ô này')"
+                                      oninput="this.setCustomValidity('')"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Gửi câu hỏi</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ==============================================
+    FOOTER
+    =============================================== -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <p>&copy; @DateTime.Now.Year All Rights Reserved | Design by <a>SEPK24T-Team11.</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="styles/bootstrap-4.1.2/popper.js"></script>
-    <script src="styles/bootstrap-4.1.2/bootstrap.min.js"></script>
-    <script src="plugins/greensock/TweenMax.min.js"></script>
-    <script src="plugins/greensock/TimelineMax.min.js"></script>
-    <script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
-    <script src="plugins/greensock/animation.gsap.min.js"></script>
-    <script src="plugins/greensock/ScrollToPlugin.min.js"></script>
-    <script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-    <script src="plugins/easing/easing.js"></script>
-    <script src="plugins/progressbar/progressbar.min.js"></script>
-    <script src="plugins/parallax-js-master/parallax.min.js"></script>
-    <script src="js/blog.js"></script>
+    <script src="@Url.Content("~/Assets/js/HostSpaceUserPageJS/jquery-3.2.1.min.js")"></script>
+    <script src="@Url.Content("~/Assets/js/HostSpaceUserPageJS/popper.js")"></script>
+    <script src="@Url.Content("~/Assets/js/HostSpaceUserPageJS/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/Assets/js/HostSpaceUserPageJS/TweenMax.min.js")"></script>
+    <script src="@Url.Content("~/Assets/js/HostSpaceUserPageJS/TimelineMax.min.js")"></script>
+    <script src="@Url.Content("~/Assets/js/HostSpaceUserPageJS/ScrollMagic.min.js")"></script>
+    <script src="@Url.Content("~/Assets/js/HostSpaceUserPageJS/animation.gsap.min.js")"></script>
+    <script src="@Url.Content("~/Assets/js/HostSpaceUserPageJS/ScrollToPlugin.min.js")"></script>
+    <script src="@Url.Content("~/Assets/js/HostSpaceUserPageJS/owl.carousel.js")"></script>
+    <script src="@Url.Content("~/Assets/js/HostSpaceUserPageJS/easing.js")"></script>
+    <script src="@Url.Content("~/Assets/js/HostSpaceUserPageJS/progressbar.min.js")"></script>
+    <script src="@Url.Content("~/Assets/js/HostSpaceUserPageJS/parallax.min.js")"></script>
+    <script src="@Url.Content("~/Assets/js/HostSpaceUserPageJS/blog.js")"></script>
 </body>
 </html>

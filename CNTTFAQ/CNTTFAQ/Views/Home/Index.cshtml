@@ -26,7 +26,6 @@
                             <div class="tabel">
                                 <div class="tabel-cell">
                                     <div class="slider-content">
-                                        <h3>Freelance Designer</h3>
                                         <h1>CHÀO MÙNG ĐẾN VỚI<br />KHOA CÔNG NGHỆ THÔNG TIN</h1>
                                     </div>
                                 </div>
@@ -39,10 +38,7 @@
                             <div class="tabel">
                                 <div class="tabel-cell">
                                     <div class="slider-content">
-                                        <h3>Freelance Developer</h3>
-                                        <h1>Digital Design Agency.</h1>
-                                        <a href="#" class="btn btn-transparent">Let's Work Together</a>
-                                        <a href="#" class="btn btn-white">About Us</a>
+                                        <h1>CHÀO MÙNG ĐẾN VỚI<br />KHOA CÔNG NGHỆ THÔNG TIN</h1>
                                     </div>
                                 </div>
                             </div>
@@ -95,13 +91,7 @@
     <!-- ==============================================
     Frequently Asked Questions Section
     =============================================== -->
-    <section id="portfolio" class="faq section-bg">
-        <div class="svg-wave">
-            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 3600 248">
-                <path d="M3601,31.227S2736.31,201.97,1661,72.2C547.345-62.2,0,32.227,0,32.227V343H3602Z"></path>
-            </svg>
-        </div>
-
+    <section id="faq" class="faq section-bg">
         <div class="container" data-aos="fade-up">
             <div class="section-title">
                 <h2 style="font-size: 2.5rem; font-family: inherit; color: black">Câu Hỏi Thường Gặp</h2>
@@ -111,13 +101,15 @@
                 <div class="faq-list">
                     <ul>
                         <li data-aos="fade-up" data-aos-delay="100">
-                            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" href="#@list.ID">@list.CAU_HOI1</a>
+                            <i class="bx bx-help-circle icon-help"></i> 
+                            <a data-bs-toggle="collapse" class="collapse" data-bs-target="#@list.ID">
+                                @list.CAU_HOI1
+                                <i class="bx bx-chevron-down icon-show"></i>
+                                <i class="bx bx-chevron-up icon-close"></i>
+                            </a>
                             <div id="@list.ID" class="collapse show" data-bs-parent=".faq-list">
                                 <p>
                                     @MvcHtmlString.Create(list.MO_TA)
-                                </p>
-                                <p>
-                                    Lượt xem: @list.LUOT_XEM
                                 </p>
                             </div>
                         </li>
@@ -278,5 +270,71 @@
             </div>
         </div>
     </section>
+    <!-- ==============================================
+    CONTACT
+    =============================================== -->
+    <section id="contact">
+        <div class="svg-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 3600 248">
+                <path d="M3601,31.227S2736.31,201.97,1661,72.2C547.345-62.2,0,32.227,0,32.227V343H3602Z"></path>
+            </svg>
+        </div>
+        <div class="container">
+            <h2>Liên Hệ</h2>
+            <div class="row">
+                <div class="col-lg-4 wow fadeInLeft" data-wow-duration=".2s" data-wow-delay=".4s">
+                    <h4>Địa chỉ</h4>
+                    <a href="mailto:k.cntt@vanlanguni.edu.vn" class="email-link">k.cntt@vanlanguni.edu.vn</a>
+                    <p>028. 71099240</p>
+                    <p>Phòng 5.07, Tòa nhà LV, Cơ sở chính: 69/68 Đặng Thùy Trâm, P.13, Q.Bình Thạnh <b>TP. HCM</b></p>
+                    <ul class="social-media">
+                        <li><a href="https://www.facebook.com/khoacntt.vanlang"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="https://twitter.com/universityvan?lang=vi/"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="https://www.vanlanguni.edu.vn/"><i class="fab fa-google-plus-g"></i></a></li>
+                        <li><a href="https://www.youtube.com/user/truongdhvanlang/featured"><i class="fab fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-8 wow fadeInLeft" data-wow-duration=".2s" data-wow-delay=".6s">
+                    <h4>Gửi câu hỏi</h4>
+                    <form action="@Url.Action("Index", "Home")" method="post">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" name="HO_TEN" placeholder="Họ và Tên" class="form-control" required
+                                       oninvalid="this.setCustomValidity('Mời bạn nhập Họ và Tên vào ô này')"
+                                       oninput="this.setCustomValidity('')" />
+                            </div>
+                            <div class="col">
+                                <input type="text" name="ID_TAI_KHOAN" value="@User.Identity.Name" disabled class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group wow fadeInLeft" data-wow-duration=".2s" data-wow-delay=".6s">
+                            <input type="text" name="CAU_HOI_MUON_HOI" placeholder="Tiêu đề câu hỏi" class="form-control" required
+                                   oninvalid="this.setCustomValidity('Mời bạn nhập tiêu đề câu hỏi vào ô này')"
+                                   oninput="this.setCustomValidity('')" />
+                        </div>
+                        <!-- Form Group -->
+                        <div class="form-group wow fadeInLeft" data-wow-duration=".2s" data-wow-delay=".6s">
+                            <textarea type="text" name="MO_TA" placeholder="Hãy nhập mô tả của bạn vào đây" id="form-message" cols="30" rows="5" class="form-control" required
+                                      oninvalid="this.setCustomValidity('Mời bạn nhập mô tả vào ô này')"
+                                      oninput="this.setCustomValidity('')"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Gửi câu hỏi</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ==============================================
+    FOOTER
+    =============================================== -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <p>&copy; @DateTime.Now.Year All Rights Reserved | Design by <a>SEPK24T-Team11.</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
