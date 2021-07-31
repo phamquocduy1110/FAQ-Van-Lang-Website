@@ -8,138 +8,275 @@
 <head>
     <title>Chào mừng đến với trang chủ</title>
     <meta charset="UTF-8">
-    <meta name="description" content="Labs - Design Studio">
-    <meta name="keywords" content="lab, onepage, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        .client-name h1 a:hover {
-            color: white !important
-        }
-    </style>
+    <!-- Template Main CSS File -->
+    <link href="@Url.Content("~/Assets/css/ArshaUserPageCss/style.css")" rel="stylesheet">
+
 </head>
 <body>
-    <!-- Intro Section -->
-    <div class="hero-section">
-        <div class="hero-content">
-            <div class="hero-center">
-                <img src="@Url.Content("~/Assets/images/logo/VLU.png")" alt="logo" style="height: 100px">
-                <p></p>
-                <h1 style="font-size: 50px; font-family: 'Gill Sans', 'Gill Sans MT', Arial, 'Trebuchet MS', sans-serif; color: white; text-shadow: 5px 2px 4px black">
-                    CHÀO MỪNG ĐẾN VỚI <br />KHOA CÔNG NGHỆ THÔNG TIN
-                </h1>
-            </div>
-        </div>
-        <!-- slider -->
-        <div id="hero-slider" class="owl-carousel">
-            <div class="item  hero-item" data-bg="@Url.Content("~/Assets/images/backgrounds/transaction-background-6.png")"></div>
-            <div class="item  hero-item" data-bg="@Url.Content("~/Assets/images/backgrounds/transaction-background-1.png")"></div>
-            <div class="item  hero-item" data-bg="@Url.Content("~/Assets/images/backgrounds/transaction-background-2.png")"></div>
-            <div class="item  hero-item" data-bg="@Url.Content("~/Assets/images/backgrounds/transaction-background-3.png")"></div>
-            <div class="item  hero-item" data-bg="@Url.Content("~/Assets/images/backgrounds/transaction-background-4.png")"></div>
-            <div class="item  hero-item" data-bg="@Url.Content("~/Assets/images/backgrounds/transaction-background-5.png")"></div>
-        </div>
-    </div>
-
-    <div class="about-section">
-        <!-- card section -->
-        <div class="card-section">
-            <div class="container">
-                <div class="row">
-                    <!-- single card -->
-                    <div class="col-md-4 col-sm-6">
-                        <div class="lab-card">
-                            <div class="icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <h2>BẤT CỨ LÚC NÀO, Ở BẤT CỨ ĐÂU</h2>
-                            <p>Tiện lợi, hữu ích, đơn giản, dễ sử dụng, dễ tìm kiếm, có thể hỗ trợ giải đáp thắc mắc sinh viên khoa công nghệ thông tin</p>
-                        </div>
-                    </div>
-                    <!-- single card -->
-                    <div class="col-md-4 col-sm-6">
-                        <div class="lab-card">
-                            <div class="icon">
-                                <i class="fas fa-paper-plane"></i>
-                            </div>
-                            <h2>XỬ LÝ NHANH CHÓNG</h2>
-                            <p>Khi nhận thắc mắc từ sinh viên, đội ngũ khoa công nghệ thông tin của Nhà trường sẽ xử lý và hồi đáp nhanh chóng.</p>
-                        </div>
-                    </div>
-                    <!-- single card -->
-                    <div class="col-md-4 col-sm-12">
-                        <div class="lab-card">
-                            <div class="icon">
-                                <i class="fas fa-thumbs-up"></i>
-                            </div>
-                            <h2>NƠI GIẢI ĐÁP THẮC MẮC</h2>
-                            <p>Hỗ trợ sinh viên trả lời những thắc mắc về ngành học và môn học, chính sách và thủ tục tại trường, hỗ trợ cải thiện kết quả học tập.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="testimonial-section pb100" style="padding: 10px; height: fit-content">
-        <div class="test-overlay" style="margin-bottom: 40px ;background-image:url('@Url.Content("~/Assets/images/avatar/Category.png")')"></div>
-        <div class="container">
+    <!-- ==============================================
+    BANNER
+    =============================================== -->
+    <section class="slider-area">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-md-8 col-md-offset-4">
-                    <div class="section-title left">
-                        <h2>DANH SÁCH CÁC CHỦ ĐỀ</h2>
-                    </div>
-                    <div class="owl-carousel" id="testimonial-slide" style="padding: 30px">
-                        @foreach (var item in Model)
-                        {
-                            <!-- single testimonial -->
-                            <div class="testimonial">
-                                <p>@MvcHtmlString.Create(item.MO_TA)</p>
-                                <div class="client-info">
-                                    <div class="client-name" style="margin-bottom: 10px">
-                                        <h1>@Html.ActionLink(item.DANH_MUC1, "Index", "Questions", new { page = 1, category = @item.ID }, null)</h1>
+                <div class="owl-carousel main-slider">
+                    <!-- Single slide 1-->
+                    <div class="single-slide slide-bg-1" style="background-image:url('@Url.Content("~/Assets/images/backgrounds/transaction-background-6.png")')">
+                        <div class="col-md-12">
+                            <div class="tabel">
+                                <div class="tabel-cell">
+                                    <div class="slider-content">
+                                        <h3>Freelance Designer</h3>
+                                        <h1>CHÀO MÙNG ĐẾN VỚI<br />KHOA CÔNG NGHỆ THÔNG TIN</h1>
                                     </div>
                                 </div>
                             </div>
-                        }
+                        </div>
+                    </div><!-- /.single-slide -->
+                    <!-- Single slide 2 -->
+                    <div class="single-slide slide-bg-2" style="background-image:url('@Url.Content("~/Assets/images/backgrounds/transaction-background-2.png")')">
+                        <div class="col-md-12">
+                            <div class="tabel">
+                                <div class="tabel-cell">
+                                    <div class="slider-content">
+                                        <h3>Freelance Developer</h3>
+                                        <h1>Digital Design Agency.</h1>
+                                        <a href="#" class="btn btn-transparent">Let's Work Together</a>
+                                        <a href="#" class="btn btn-white">About Us</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /.single-slide -->
+
+                </div><!-- /.main-slider -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================================
+    ABOUT US
+    =============================================== -->
+    <section id="about">
+        <div class="container">
+            <h2 style="margin-bottom: 0px">Phương Châm</h2>
+        </div>
+    </section>
+    <!-- ==============================================
+    FEATURES
+    =============================================== -->
+    <section id="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 wow fadeInLeft" data-wow-duration=".2s" data-wow-delay=".2s">
+                    <div class="feature-box">
+                        <span class="lnr lnr-rocket"></span>
+                        <h4>BẤT CỨ LÚC NÀO</h4>
+                        <p>Tiện lợi, hữu ích, đơn giản, dễ sử dụng, dễ tìm kiếm, có thể hỗ trợ giải đáp thắc mắc sinh viên khoa công nghệ thông tin</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 wow fadeInLeft" data-wow-duration=".2s" data-wow-delay=".4s">
+                    <div class="feature-box">
+                        <span class="lnr lnr-laptop-phone"></span>
+                        <h4>XỬ LÝ NHANH CHÓNG</h4>
+                        <p>Khi nhận thắc mắc từ sinh viên, đội ngũ khoa công nghệ thông tin của Nhà trường sẽ xử lý và hồi đáp nhanh chóng</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 wow fadeInLeft" data-wow-duration=".2s" data-wow-delay=".6s">
+                    <div class="feature-box">
+                        <span class="lnr lnr-bubble"></span>
+                        <h4>NƠI GIẢI ĐÁP THẮC MẮC</h4>
+                        <p>Hỗ trợ sinh viên trả lời những thắc mắc về ngành học và môn học, chính sách và thủ tục tại trường, cải thiện kết quả học tập</p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+    <!-- ==============================================
+    Frequently Asked Questions Section
+    =============================================== -->
+    <section id="portfolio" class="faq section-bg">
+        <div class="svg-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 3600 248">
+                <path d="M3601,31.227S2736.31,201.97,1661,72.2C547.345-62.2,0,32.227,0,32.227V343H3602Z"></path>
+            </svg>
+        </div>
 
-    <div class="services-section spad">
-        <div class="container">
-            <div class="row">
-                <div class="section-title dark" style="margin: 10px; padding: 0px">
-                    <h2 style="font-family: 'Oswald', sans-serif">
-                        CÂU HỎI THƯỜNG GẶP
-                    </h2>
+        <div class="container" data-aos="fade-up">
+            <div class="section-title">
+                <h2 style="font-size: 2.5rem; font-family: inherit; color: black">Câu Hỏi Thường Gặp</h2>
+            </div>
+            @foreach (var list in ViewBag.MaxQuestion)
+            {
+                <div class="faq-list">
+                    <ul>
+                        <li data-aos="fade-up" data-aos-delay="100">
+                            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" href="#@list.ID">@list.CAU_HOI1</a>
+                            <div id="@list.ID" class="collapse show" data-bs-parent=".faq-list">
+                                <p>
+                                    @MvcHtmlString.Create(list.MO_TA)
+                                </p>
+                                <p>
+                                    Lượt xem: @list.LUOT_XEM
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                @foreach (var list in ViewBag.MaxQuestion)
+            }
+        </div>
+    </section>
+    <!-- ==============================================
+    CALL TO ACTION
+    =============================================== -->
+    <section id="call-to-action" style="background-image: url('@Url.Content("~/Assets/images/backgrounds/call-to-action.jpg")')">
+        <div class="container">
+            <h1 class="wow fadeInDown" data-wow-duration=".2s" data-wow-delay=".4s">ĐIỀU BẠN THƯỜNG HỎI</h1>
+            <a style="font-size: 1.5rem">Nếu bạn có câu hỏi muốn được tư vấn. Hãy liên hệ với ban chủ nhiệm khoa để được giáp đáp một các chi tiết</a>
+        </div>
+    </section>
+    <!-- ==============================================
+    SERVICES
+    =============================================== -->
+    <section id="pricing">
+        <div class="svg-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 3600 248">
+                <path d="M3601,31.227S2736.31,201.97,1661,72.2C547.345-62.2,0,32.227,0,32.227V343H3602Z"></path>
+            </svg>
+        </div>
+        <div class="container">
+            <h2>Chủ Đề</h2>
+            <div class="row">
+                @foreach (var item in Model)
                 {
-                    <div class="col-md-30">
-                        <div class="site-accordions">
-                            <div class="panel-group" id="accordion">
-                                <!-- Single Accordions -->
-                                <div class="panel active">
-                                    <div class="panel-heading">
-                                        <h1 class="panel-title" style="font-size: 120%">@list.CAU_HOI1</h1>
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#@list.ID"></a>
-                                    </div>
-                                    <div id="@list.ID" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            <p>
-                                                @MvcHtmlString.Create(list.MO_TA)
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="col-lg-4 wow fadeInLeft" data-wow-duration=".2s" data-wow-delay=".6s">
+                        <div class="service">
+                            <div class="service-icon">
+                                <span class="lnr lnr-layers"></span>
+                            </div>
+                            <div class="service-content">
+                                <h5>@Html.ActionLink(item.DANH_MUC1, "Index", "Questions", new { page = 1, category = @item.ID }, null)</h5>
+                                <p>@MvcHtmlString.Create(item.MO_TA)</p>
                             </div>
                         </div>
                     </div>
-                 }
+                }
             </div>
         </div>
-    </div>
+        <div class="svg-wave bottom">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 3600 248">
+                <path d="M3601,31.227S2736.31,201.97,1661,72.2C547.345-62.2,0,32.227,0,32.227V343H3602Z"></path>
+            </svg>
+        </div>
+    </section>
+    <!-- ==============================================
+    PRICING
+    =============================================== -->
+    <!-- ==============================================
+    TEAM
+    =============================================== -->
+    <section id="team" style="padding: 0px">
+        <div class="container">
+            <h2>Ban Chủ Nhiệm Khoa</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-12 wow fadeInRight" data-wow-duration=".2s" data-wow-delay=".2s">
+                    <div class="team-member">
+                        <div class="team-img">
+                            <img src="@Url.Content("~/Assets/images/avatar/team_1.jpg")" class="img-fluid" alt="team-1">
+                        </div>
+                        <div class="team-caption">
+                            <h4>Nguyễn Văn Trung</h4>
+                            <p>Giảng viên lập trình Java</p>
+                            <ul class="social-media">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 wow fadeInRight" data-wow-duration=".2s" data-wow-delay=".4s">
+                    <div class="team-member">
+                        <div class="team-img">
+                            <img src="@Url.Content("~/Assets/images/avatar/team-3.jpg")" class="img-fluid" alt="team-2">
+                        </div>
+                        <div class="team-caption">
+                            <h4>Phạm Ngọc Duy</h4>
+                            <p>Giảng viên lập trình C#</p>
+                            <ul class="social-media">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 wow fadeInRight" data-wow-duration=".2s" data-wow-delay=".6s">
+                    <div class="team-member">
+                        <div class="team-img">
+                            <img src="@Url.Content("~/Assets/images/avatar/team-2.jpg")" class="img-fluid" alt="team-3">
+                        </div>
+                        <div class="team-caption">
+                            <h4>Phan Thị Hồng</h4>
+                            <p>Giảng viên kiểm thử phần mềm</p>
+                            <ul class="social-media">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 wow fadeInRight" data-wow-duration=".2s" data-wow-delay=".6s">
+                    <div class="team-member">
+                        <div class="team-img">
+                            <img src="@Url.Content("~/Assets/images/avatar/team-4.jpg")" class="img-fluid" alt="team-3">
+                        </div>
+                        <div class="team-caption">
+                            <h4>Lý Thị Huyền Châu</h4>
+                            <p>Giảng viên thiết kế Database</p>
+                            <ul class="social-media">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 wow fadeInRight" data-wow-duration=".2s" data-wow-delay=".6s">
+                    <div class="team-member">
+                        <div class="team-img">
+                            <img src="@Url.Content("~/Assets/images/avatar/team_4.jpg")" class="img-fluid" alt="team-3">
+                        </div>
+                        <div class="team-caption">
+                            <h4>Nguyễn Hữu Quốc</h4>
+                            <p>Giảng viên quản trị dự án phần mềm</p>
+                            <ul class="social-media">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 wow fadeInRight" data-wow-duration=".2s" data-wow-delay=".6s">
+                    <div class="team-member">
+                        <div class="team-img">
+                            <img src="@Url.Content("~/Assets/images/avatar/team-1.jpg")" class="img-fluid" alt="team-3">
+                        </div>
+                        <div class="team-caption">
+                            <h4>Trần Công Thanh</h4>
+                            <p>Giảng viên lập trình Mobile</p>
+                            <ul class="social-media">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>

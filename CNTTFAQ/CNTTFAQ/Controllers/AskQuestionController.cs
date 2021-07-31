@@ -39,7 +39,7 @@ namespace CNTTFAQ.Controllers
             askquestion.NGAY_CHINH_SUA = DateTime.Now;
             model.GUI_CAU_HOI.Add(askquestion);
             model.SaveChanges();
-            return RedirectToAction("Create");
+            return RedirectToAction("Index", "Home");
         }
     }
 }
