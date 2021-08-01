@@ -11,6 +11,11 @@
     <meta name="description" content="Labs - Design Studio">
     <meta name="keywords" content="lab, onepage, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .client-name h1 a:hover {
+            color: white !important
+        }
+    </style>
 </head>
 <body>
     <!-- Intro Section -->
@@ -22,9 +27,6 @@
                 <h1 style="font-size: 50px; font-family: 'Gill Sans', 'Gill Sans MT', Arial, 'Trebuchet MS', sans-serif; color: white; text-shadow: 5px 2px 4px black">
                     CHÀO MỪNG ĐẾN VỚI <br />KHOA CÔNG NGHỆ THÔNG TIN
                 </h1>
-                <p style="font-size: 40px; color: white; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
-                    " Điều Bạn Thường Hỏi "
-                </p>
             </div>
         </div>
         <!-- slider -->
@@ -105,112 +107,37 @@
         </div>
     </div>
 
-    <div class="services-section spad" style="margin: 0px; padding-top: 0px">
+    <div class="services-section spad">
         <div class="container">
             <div class="row">
-                <div class="section-title dark" style="margin: 10px">
-                    <h2>
+                <div class="section-title dark" style="margin: 10px; padding: 0px">
+                    <h2 style="font-family: 'Oswald', sans-serif">
                         CÂU HỎI THƯỜNG GẶP
                     </h2>
                 </div>
-                <div class="col-md-6">
-                    <div class="site-accordions">
-                        <div class="panel-group" id="accordion">
-                            <!-- Single Accordions -->
-                            <div class="panel active">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">Bắt buộc phải học tất cả các học kỳ hay không?</h4>
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#accordion1"></a>
-                                </div>
-                                <div id="accordion1" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <p>
-                                            Một năm học có hai học kỳ chính và một học kỳ phụ (kỳ hè). Học kỳ chính là học kỳ bắt buộc phải học. Học kỳ hè không bắt buộc phải học. Trong học kỳ hè sinh viên học các học phần học chậm tiến độ ở học kỳ chính, hoặc học lại các học phần chưa đạt, hoặc để cải thiện điểm, hoặc học vượt các học phần có ở các học kỳ sau nếu trong kỳ hè có lớp.
-                                            Kế hoạch đào tạo từng học kỳ thể hiện trong chương trình đào tạo của ngành và được công bố ở website của Trường. Sự thay đổi về chương trình đào tạo, kế hoạch đào tạo được cập nhật ở website đào tạo của Nhà trường.
-                                        </p>
+                @foreach (var list in ViewBag.MaxQuestion)
+                {
+                    <div class="col-md-30">
+                        <div class="site-accordions">
+                            <div class="panel-group" id="accordion">
+                                <!-- Single Accordions -->
+                                <div class="panel active">
+                                    <div class="panel-heading">
+                                        <h1 class="panel-title" style="font-size: 120%">@list.CAU_HOI1</h1>
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#@list.ID"></a>
                                     </div>
-                                </div>
-                            </div>
-                            <!-- Single Accordions -->
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">Rút học phần là gì?</h4>
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#accordion2"></a>
-                                </div>
-                                <div id="accordion2" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <p>Rút học phần đã đăng ký là: trong thời gian quy định (trong vòng 2 ngày đầu của tuần thứ 3 kể từ đầu học kỳ chính hoặc 2 ngày đầu của tuần thứ 2 của kỳ hè), thông qua mạng Internet sinh viên thực hiện bỏ một hoặc nhiều lớp học phần đã đăng ký, do bản thân bị quá sức học hoặc không đủ năng lực tài chính. Trong khoảng thời gian rút học phần, ngoài những sinh viên rút học phần thì cũng có thể có sinh viên đăng ký thêm các lớp khác. Tuy nhiên, có những lớp học phần chỉ cho rút mà không cho đăng ký thêm. Việc rút học phần phải đảm bảo quy định về số tín chỉ tối thiểu đăng ký học.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Single Accordions -->
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">Cảnh báo kết quả học tập là gì?</h4>
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#accordion3"></a>
-                                </div>
-                                <div id="accordion3" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <p>Cuối mỗi học kỳ, sinh viên học yếu kém sẽ bị cảnh báo kết quả học tập hoặc bị buộc thôi học. Cảnh báo kết quả học tập để sinh viên có kết quả học tập kém biết và lập phương án học tập thích hợp để có thể tốt nghiệp trong thời hạn tối đa được phép theo học chương trình.</p>
+                                    <div id="@list.ID" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <p>
+                                                @MvcHtmlString.Create(list.MO_TA)
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="site-accordions">
-                        <div class="panel-group" id="accordion">
-                            <!-- Single Accordions -->
-                            <div class="panel active">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">Khi nào và những lớp học phần nào bị hủy?</h4>
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#accordion4"></a>
-                                </div>
-                                <div id="accordion4" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <p>
-                                            Lớp học phần bắt buộc được mở theo đúng kế hoạch thiết kế thì không bị hủy, trừ trường hợp giảng viên bị ốm hoặc tai nạn. Các lớp học phần tự chọn thì có thể bị hủy nếu số lượng sinh viên đăng ký quá ít. Kết thúc thời  hạn quy định đăng ký học phần trên Internet, Phòng Đào tạo sẽ hủy các lớp học phần tự chọn không đủ số lượng sinh viên đăng ký.
-                                            Sinh viên đã đăng ký vào các lớp học phần bị hủy sẽ được Phòng Đào tạo chuyển sang các lớp học phần khác còn chỗ nếu không bị xung đột thời khóa biểu.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Single Accordions -->
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">Khi bị ốm hoặc tai nạn, sinh viên hoặc thân nhân phải làm gì?</h4>
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#accordion5"></a>
-                                </div>
-                                <div id="accordion5" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <p>
-                                            Khi bình thường, sinh viên phải báo cho thân nhân của mình biết để thực hiện trong trường hợp mình bị ốm hoặc tai nạn:
-                                            Nếu sinh viên bị ốm hoặc tai nạn trong thời gian học của học kỳ nhưng vắng không quá 20% thời gian học thì cần phải xin phép giảng viên phụ trách các lớp học phần.
-                                            Nếu sinh viên bị ốm phải vắng thi giữa kỳ hoặc cuối kỳ, thì phải có đơn xin phép hoãn thi nộp cho Phòng Đào tạo trong vòng một tuần kể từ ngày ốm, kèm theo xác nhận cơ quan y tế trường hoặc bệnh viện.
-                                            Nếu sinh viên bị ốm dài ngày trong thời gian học của học kỳ mà vắng quá 20% thời gian học thì cần phải xin nghỉ học tạm thời kèm theo giấy xác nhận của bệnh viện từ cấp quận/ huyện trở lên.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Single Accordions -->
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">Những trường hợp nào được đăng ký muộn?</h4>
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#accordion6"></a>
-                                </div>
-                                <div id="accordion6" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <p>
-                                            Đăng ký muộn là đăng ký vào lớp học phần khi đã đến hoặc đã qua thời gian bắt đầu học theo kế hoạch. Trong thời gian “rút học phần” sinh viên có thể tự đăng ký muộn (qua mạng) vào một số lớp học phần nếu lớp được cho phép đăng ký thêm.
-                                            Ngoài ra, sinh viên học học kỳ đầu tiên ở chương trình thứ hai, sinh viên tạm ngừng học do ốm hoặc được điều động vào lực lượng vũ trang mới quay lại học tập, sinh viên bị ốm đau hoặc gia đình có biến cố trong thời gian đăng ký học nếu có đơn và minh chứng thì sẽ được phòng Đào tạo đăng ký muộn cho học kỳ chính nhưng không muộn quá 2 tuần kể từ đầu học kỳ.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                 }
             </div>
         </div>
     </div>

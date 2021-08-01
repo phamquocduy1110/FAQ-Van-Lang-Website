@@ -1,4 +1,4 @@
-﻿@model CNTTFAQ.Models.CAU_HOI
+﻿@model CNTTFAQ.Models.GUI_CAU_HOI
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 @{
@@ -6,7 +6,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 <head>
-    <title>Chi tiết câu hỏi</title>
+    <title>Chi tiết câu hỏi của sinh viên</title>
 </head>
 
 <body>
@@ -44,7 +44,7 @@
                                     Câu hỏi
                                 </h4>
                                 <p class="card-text">
-                                    @Html.DisplayFor(model => model.CAU_HOI1)
+                                    @Html.DisplayFor(model => model.CAU_HOI_MUON_HOI)
                                 </p>
                             </div>
                         </div>
@@ -73,10 +73,10 @@
                         <div class="card">
                             <div class="card-body collapse show">
                                 <h4 class="card-title">
-                                    Chủ đề
+                                    Ngày gửi
                                 </h4>
                                 <p class="card-text">
-                                    @Html.DisplayFor(model => model.DANH_MUC.DANH_MUC1)
+                                    @Html.DisplayFor(model => model.NGAY_CHINH_SUA)
                                 </p>
                             </div>
                         </div>
@@ -89,10 +89,10 @@
                         <div class="card">
                             <div class="card-body collapse show">
                                 <h4 class="card-title">
-                                    Ngày tạo
+                                    Họ và Tên
                                 </h4>
                                 <p class="card-text">
-                                    @Html.DisplayFor(model => model.NGAY_TAO)
+                                    @Html.DisplayFor(model => model.HO_TEN)
                                 </p>
                             </div>
                         </div>
@@ -105,7 +105,7 @@
                         <div class="card">
                             <div class="card-body collapse show">
                                 <h4 class="card-title">
-                                    Người tạo
+                                    Tài khoản
                                 </h4>
                                 <p class="card-text">
                                     @Html.DisplayFor(model => model.AspNetUser.Email)
@@ -115,47 +115,9 @@
                     </div>
                 </div>
                 <!-- End Row -->
-                <!-- Row -->
                 <div class="row">
-                    <div class="col-12" style="margin-top: 0">
-                        <div class="card">
-                            <div class="card-body collapse show">
-                                <h4 class="card-title">
-                                    Lượt xem
-                                </h4>
-                                <p class="card-text">
-                                    @Html.DisplayFor(model => model.LUOT_XEM)
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Row -->
-                <!-- Row -->
-                <div class="row">
-                    <div class="col-12" style="margin-top: 0">
-                        <div class="card">
-                            <div class="card-body collapse show">
-                                <h4 class="card-title">
-                                    Lượt xem
-                                </h4>
-                                <p class="card-text">
-                                    @Html.DisplayFor(model => model.DUYET_DANG)
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Row -->
-                <div class="row">
-                    <div class="customize-input float-left">
-                        <a href="@Url.Action("Edit", new { id = Model.ID })" style="color: green" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius">
-                            Chỉnh sửa
-                        </a>
-                    </div>
-
                     <div class="customize-input float-right" style="margin-left: 10px">
-                        <input type="button" value="Hủy bỏ" onclick="location.href='@Url.Action("Index", "ManageQuestions")'" style="color: red" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius" />
+                        <input type="button" value="Quay về" onclick="location.href='@Url.Action("Index", "StudentQuestion")'" style="color: red" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius" />
                     </div>
                 </div>
                 <!-- ============================================================== -->

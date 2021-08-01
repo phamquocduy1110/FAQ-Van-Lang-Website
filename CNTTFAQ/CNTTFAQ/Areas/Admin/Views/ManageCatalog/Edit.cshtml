@@ -59,7 +59,7 @@
                                         <div class="form-group">
                                             <h4 class="card-title">Chủ đề</h4>
                                             <div class="col-md-10">
-                                                @Html.EditorFor(model => model.DANH_MUC1, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.EditorFor(model => model.DANH_MUC1, new { htmlAttributes = new { @class = "form-control", @required = true, @minLength = "5" } })
                                                 @Html.ValidationMessageFor(model => model.DANH_MUC1, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -75,15 +75,15 @@
                                         <div class="form-group">
                                             <h4 class="card-title">Hình đại diện</h4>
                                             <div class="col-md-10">
-                                                <input type="file" name="HINH_ANH" id="img" onchange="readPicture(this)" accept="image/gif,image/jpeg,image/png"/>
+                                                <input type="file" name="HINH_ANH" id="IMG" onchange="readURL(this)" accept="image/gif,image/jpeg,image/png" required title="Trường thông tin hình ảnh là bắt buộc" />
                                                 @Html.ValidationMessageFor(model => model.HINH_ANH, "", new { @class = "text-danger" })
-
                                             </div>
                                             <img id="pic" src="@Model.HINH_ANH" width="600" />
+                                            <img id="pic" />
                                         </div>
 
                                         <div class="form-group">
-                                            <h4 class="card-title">Người tạo</h4>
+                                            <h4 class="card-title">Người chỉnh sửa</h4>
                                             <div class="col-md-10">
                                                 <input type="text" value="@User.Identity.Name" disabled class="form-control" />
                                                 @Html.ValidationMessageFor(model => model.ID_TAI_KHOAN, "", new { @class = "text-danger" })
@@ -159,7 +159,7 @@
         function Confirmmessage() {
             var alert = confirm("Cảnh báo: quá trình chưa hoàn tất! Xác nhận nếu như bạn muốn hủy bỏ?");
             if (alert) {
-                document.location.href = '/SEP24Team11/Admin/ManageCatalog/Index';
+                document.location.href = '@Url.Action("Index", "ManageCatalog")';
             } else {
                 return false;
             }

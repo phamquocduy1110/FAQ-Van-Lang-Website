@@ -324,7 +324,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return Redirect("/SEP24Team11/Account/Login");
+            return RedirectToRoute(new { action = "Login", controller = "Account", area = "" }); ;
         }
 
         //

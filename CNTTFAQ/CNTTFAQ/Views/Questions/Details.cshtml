@@ -15,7 +15,7 @@
 <body>
     <!-- Page header -->
     <div class="page-top-section">
-        <div class="overlay" style="background-size: cover; background-image:url('@Url.Content("~/Assets/images/backgrounds/FAQ_BG.png")')"></div>
+        <div class="overlay" style="background-size: cover; background-image:url('@Url.Content("~/Assets/images/backgrounds/FAQ2_BG.png")')"></div>
         <div class="container text-right">
             <div class="page-info">
                 <h2 style="color: black">Danh sách các câu hỏi</h2>
@@ -28,7 +28,7 @@
     </div>
     <!-- Page header end-->
     <!-- page section -->
-    <div class="page-section spad">
+    <div class="page-section spad" style="padding-bottom: 15px">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-sm-7 blog-posts">
@@ -50,26 +50,39 @@
                             <p>@MvcHtmlString.Create(Model.MO_TA)</p>
                         </div>
                     </div>
-
-                    @foreach (var cautraloi in Model.CAU_TRA_LOI)
-                    {
-                        <div>
-                            @MvcHtmlString.Create(cautraloi.CAU_TRA_LOI1)
-                        </div>
-
-                    }
-                    <a class="pull-left" href="#">
-                        <img class="media-object" src="" alt="">
-                    </a>
-                    @*<div class="media-body">
-            <h4 class="media-heading">
-                Ten Cmt
-                <small> thoi gian cmt </small>
-            </h4>
-            noi dung cmt
-        </div>*@
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="be-comment-block">
+        <h1 class="comments-title">XEM THÊM CÂU TRẢ LỜI</h1>
+        <div class="be-comment">
+            @if (Model.CAU_TRA_LOI.Count() == 0)
+            {
+                <div>Hiện tại chưa có thêm câu trả lời nào</div>
+            }
+            else
+            {
+                foreach (var cautraloi in Model.CAU_TRA_LOI)
+                {
+                    <div class="be-img-comment">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="be-ava-comment">
+                    </div>
+                    <div class="be-comment-content">
+                        <span class="be-comment-name">
+                            @cautraloi.AspNetUser.Email
+                        </span>
+                        <span class="be-comment-time">
+                            <i class="fa fa-clock-o"></i>
+                            @cautraloi.NGAY_TRA_LOI
+                        </span>
+
+                        <div class="be-comment-text">
+                            @MvcHtmlString.Create(cautraloi.CAU_TRA_LOI1)
+                        </div>
+                    </div>
+                }
+            }
         </div>
     </div>
     <!-- page section end-->

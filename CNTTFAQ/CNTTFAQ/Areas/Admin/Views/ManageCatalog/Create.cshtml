@@ -61,7 +61,7 @@
                                         <div class="form-group">
                                             <h4 class="card-title">Chủ đề</h4>
                                             <div class="col-md-10">
-                                                @Html.EditorFor(model => model.DANH_MUC1, new { htmlAttributes = new { @class = "form-control", @required = true } })
+                                                @Html.EditorFor(model => model.DANH_MUC1, new { htmlAttributes = new { @class = "form-control", @required = true, @minLength = "5" } })
                                                 @Html.ValidationMessageFor(model => model.DANH_MUC1, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -160,7 +160,7 @@
         function Confirmmessage() {
             var alert = confirm("Cảnh báo: quá trình chưa hoàn tất! Xác nhận nếu như bạn muốn hủy bỏ?");
             if (alert) {
-                document.location.href = '/SEP24Team11/Admin/ManageCatalog/Index';
+                document.location.href = '@Url.Action("Index", "ManageCatalog")';
             } else {
                 return false;
             }

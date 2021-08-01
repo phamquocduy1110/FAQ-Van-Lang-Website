@@ -48,7 +48,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                @using (Html.BeginForm())
+                                @using (Html.BeginForm("Edit", "ManageQuestions", FormMethod.Post, new { enctype = "multipart/form-data" }))
                                 {
                                     @Html.AntiForgeryToken()
 
@@ -81,7 +81,15 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <h4 class="card-title">Người tạo</h4>
+                                            <h4 class="card-title">Duyệt Đăng</h4>
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.DUYET_DANG, new { htmlAttributes = new { @class = "form-control", @required = true } })
+                                                @Html.ValidationMessageFor(model => model.DUYET_DANG, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <h4 class="card-title">Người chỉnh sửa</h4>
                                             <div class="col-md-10">
                                                 <input type="text" value="@User.Identity.Name" disabled class="form-control" />
                                                 @Html.ValidationMessageFor(model => model.ID_TAI_KHOAN, "", new { @class = "text-danger" })
@@ -145,10 +153,12 @@
         function Confirmmessage() {
             var alert = confirm("Cảnh báo: quá trình chưa hoàn tất! Xác nhận nếu như bạn muốn hủy bỏ?");
             if (alert) {
-                document.location.href = '/SEP24Team11/Admin/ManageQuestions/Index';
+                document.location.href = '@Url.Action("Index", "ManageQuestions")';
             } else {
                 return false;
             }
         }
+
+        $("#myselect option:selected").text();
     </script>
 }
