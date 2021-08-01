@@ -83,7 +83,7 @@
                                         <div class="form-group">
                                             <h4 class="card-title">Duyệt Đăng</h4>
                                             <div class="col-md-10">
-                                                @Html.EditorFor(model => model.DUYET_DANG, new { htmlAttributes = new { @class = "form-control", @required = true } })
+                                                @Html.EditorFor(model => model.DUYET_DANG, new { htmlAttributes = new { @class = "form-control col-md-1", @required = true } })
                                                 @Html.ValidationMessageFor(model => model.DUYET_DANG, "", new { @class = "text-danger" })
                                             </div>
                                         </div>

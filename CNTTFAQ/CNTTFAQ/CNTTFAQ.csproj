@@ -272,6 +272,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\images\avatar\team_1.jpg" />
     <Content Include="Assets\css\AdminIndexCss\bootstrap-datetimepicker.min.css" />
     <Content Include="Assets\css\AdminIndexCss\font-face.css" />
     <Content Include="Assets\css\AdminIndexCss\theme.css" />
@@ -307,16 +308,18 @@
     <Content Include="Assets\css\UserPageCss\owl.carousel.css" />
     <Content Include="Assets\css\UserPageCss\style.css" />
     <Content Include="Assets\images\avatar\Category.png" />
+    <Content Include="Assets\images\avatar\team-1.jpg" />
+    <Content Include="Assets\images\avatar\team-4.jpg" />
+    <Content Include="Assets\images\avatar\team_1.png" />
+    <Content Include="Assets\images\avatar\team-4.png" />
+    <Content Include="Assets\images\avatar\team-1.png" />
     <Content Include="Assets\images\avatar\team_4.jpg" />
     <Content Include="Assets\images\avatar\profile-pic.jpg" />
-    <Content Include="Assets\images\avatar\team-1.jpg" />
     <Content Include="Assets\images\avatar\team-2.jpg" />
     <Content Include="Assets\images\avatar\team-3.jpg" />
-    <Content Include="Assets\images\avatar\team-4.jpg" />
-    <Content Include="Assets\images\avatar\team_1.jpg" />
+    <Content Include="Assets\images\avatar\team_5.png" />
     <Content Include="Assets\images\avatar\undraw_remotely_2j6y.svg" />
-    <Content Include="Assets\images\backgrounds\background.png" />
-    <Content Include="Assets\images\backgrounds\backgroundLogin.png" />
+    <Content Include="Assets\images\backgrounds\02.jpg" />
     <Content Include="Assets\images\backgrounds\beautifulbackground3.jpg" />
     <Content Include="Assets\images\backgrounds\bottom-wave.png" />
     <Content Include="Assets\images\backgrounds\call-to-action.jpg" />
@@ -326,6 +329,8 @@
     <Content Include="Assets\images\backgrounds\LOGIN1.png" />
     <Content Include="Assets\images\backgrounds\FAQ2_BG.png" />
     <Content Include="Assets\images\backgrounds\preloader.jpg" />
+    <Content Include="Assets\images\backgrounds\transaction-background-1.jpeg" />
+    <Content Include="Assets\images\backgrounds\transaction-background-2.jpeg" />
     <Content Include="Assets\images\backgrounds\transaction-background-1.png" />
     <Content Include="Assets\images\backgrounds\transaction-background-2.png" />
     <Content Include="Assets\images\backgrounds\transaction-background-3.png" />
@@ -736,13 +741,6 @@
     <Content Include="Areas\Admin\Views\Comment\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Comment\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Comment\Delete.cshtml" />
-    <EntityDeploy Include="Models\QuanLyCauHoi.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QuanLyCauHoi.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\QuanLyCauHoi.edmx.diagram">
-      <DependentUpon>QuanLyCauHoi.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\StudentQuestion\Index.cshtml" />
     <Content Include="Areas\Admin\Views\StudentQuestion\Details.cshtml" />
     <Content Include="Areas\Admin\Views\StudentQuestion\Delete.cshtml" />
@@ -783,6 +781,15 @@
     <Content Include="Assets\vendor\ArshaUserPageVendor\remixicon\remixicon.ttf" />
     <Content Include="Assets\vendor\ArshaUserPageVendor\remixicon\remixicon.woff" />
     <Content Include="Assets\vendor\ArshaUserPageVendor\remixicon\remixicon.woff2" />
+    <EntityDeploy Include="Models\QuanLyCauHoi.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QuanLyCauHoi.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\QuanLyCauHoi.edmx.diagram">
+      <DependentUpon>QuanLyCauHoi.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\StudentQuestion\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\StudentQuestion\Test.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

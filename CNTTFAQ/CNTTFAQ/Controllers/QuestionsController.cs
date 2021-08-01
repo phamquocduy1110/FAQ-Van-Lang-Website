@@ -16,7 +16,6 @@ namespace CNTTFAQ.Controllers
         DIEUBANTHUONGHOIWEBSITEEntities model = new DIEUBANTHUONGHOIWEBSITEEntities();
 
         // GET: Questions / Questions
-        [Authorize]
         public ActionResult Index(int? page, int? category)
         {
             var pageNumber = page ?? 1;

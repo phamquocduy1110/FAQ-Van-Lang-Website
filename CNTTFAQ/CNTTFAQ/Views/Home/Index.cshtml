@@ -8,9 +8,48 @@
 <head>
     <title>Chào mừng đến với trang chủ</title>
     <meta charset="UTF-8">
-    <!-- Template Main CSS File -->
     <link href="@Url.Content("~/Assets/css/ArshaUserPageCss/style.css")" rel="stylesheet">
 
+    <style>
+        .slider-area:after {
+            content: "";
+            position: absolute;
+            bottom: -1%;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100px;
+            background: transparent;
+            background-size: 100% 100%;
+            background-image: url('@Url.Content("~/Assets/images/backgrounds/bottom-wave.png")');
+        }
+        #call-to-action {
+            background-image: url('@Url.Content("~/Assets/images/backgrounds/bottom-wave.png")');
+	        background-position: center;
+	        background-size: cover;
+	        background-attachment: fixed;
+	        position: relative;
+	        padding: 100px 0;
+	        text-align: center;
+	        color: $white;
+        }
+        #call-to-action:after {
+	        content: "";
+	        position: absolute;
+	        bottom: -8%;
+	        left: 0;
+	        z-index: 1;
+	        width: 100%;
+	        height: 100px;
+	        background: transparent;
+	        background-size: 100% 100%;
+            background-image: url('@Url.Content("~/Assets/images/backgrounds/bottom-wave.png")');
+        }
+
+        div.service-content h5 a {
+            color: black
+        }
+    </style>
 </head>
 <body>
     <!-- ==============================================
@@ -21,35 +60,21 @@
             <div class="row">
                 <div class="owl-carousel main-slider">
                     <!-- Single slide 1-->
-                    <div class="single-slide slide-bg-1" style="background-image:url('@Url.Content("~/Assets/images/backgrounds/transaction-background-6.png")')">
+                    <div class="single-slide slide-bg-1" style="background-image:url('@Url.Content("~/Assets/images/backgrounds/transaction-background-1.jpeg")')">
                         <div class="col-md-12">
                             <div class="tabel">
                                 <div class="tabel-cell">
                                     <div class="slider-content">
-                                        <h1>CHÀO MÙNG ĐẾN VỚI<br />KHOA CÔNG NGHỆ THÔNG TIN</h1>
+                                        <h1>CHÀO MỪNG ĐẾN VỚI<br />KHOA CÔNG NGHỆ THÔNG TIN</h1>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div><!-- /.single-slide -->
-                    <!-- Single slide 2 -->
-                    <div class="single-slide slide-bg-2" style="background-image:url('@Url.Content("~/Assets/images/backgrounds/transaction-background-2.png")')">
-                        <div class="col-md-12">
-                            <div class="tabel">
-                                <div class="tabel-cell">
-                                    <div class="slider-content">
-                                        <h1>CHÀO MÙNG ĐẾN VỚI<br />KHOA CÔNG NGHỆ THÔNG TIN</h1>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- /.single-slide -->
-
                 </div><!-- /.main-slider -->
             </div>
         </div>
     </section>
-
     <!-- ==============================================
     ABOUT US
     =============================================== -->
@@ -91,21 +116,18 @@
     <!-- ==============================================
     Frequently Asked Questions Section
     =============================================== -->
-    <section id="faq" class="faq section-bg">
+    <section id="faq" class="faq section-bg" style="padding: 30px">
         <div class="container" data-aos="fade-up">
             <div class="section-title">
-                <h2 style="font-size: 2.5rem; font-family: inherit; color: black">Câu Hỏi Thường Gặp</h2>
+                <h2 style="color: black">Câu Hỏi Thường Gặp</h2>
             </div>
             @foreach (var list in ViewBag.MaxQuestion)
             {
                 <div class="faq-list">
                     <ul>
                         <li data-aos="fade-up" data-aos-delay="100">
-                            <i class="bx bx-help-circle icon-help"></i> 
-                            <a data-bs-toggle="collapse" class="collapse" data-bs-target="#@list.ID">
-                                @list.CAU_HOI1
-                                <i class="bx bx-chevron-down icon-show"></i>
-                                <i class="bx bx-chevron-up icon-close"></i>
+                            <a data-bs-toggle="collapse" class="collapse" data-bs-target="#@list.ID" style="font-size: 150%">
+                                <i>@list.CAU_HOI1</i>
                             </a>
                             <div id="@list.ID" class="collapse show" data-bs-parent=".faq-list">
                                 <p>
@@ -117,37 +139,32 @@
                 </div>
             }
         </div>
-    </section>
+    </section><!-- End Frequently Asked Questions Section -->
     <!-- ==============================================
     CALL TO ACTION
     =============================================== -->
     <section id="call-to-action" style="background-image: url('@Url.Content("~/Assets/images/backgrounds/call-to-action.jpg")')">
         <div class="container">
             <h1 class="wow fadeInDown" data-wow-duration=".2s" data-wow-delay=".4s">ĐIỀU BẠN THƯỜNG HỎI</h1>
-            <a style="font-size: 1.5rem">Nếu bạn có câu hỏi muốn được tư vấn. Hãy liên hệ với ban chủ nhiệm khoa để được giáp đáp một các chi tiết</a>
+            <a style="font-size: 1.5rem">Nếu bạn có câu hỏi muốn được tư vấn. Hãy liên hệ với Ban Chủ Nhiệm Khoa để được giải đáp một các chi tiết</a>
         </div>
     </section>
     <!-- ==============================================
     SERVICES
     =============================================== -->
-    <section id="pricing">
-        <div class="svg-wave">
-            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 3600 248">
-                <path d="M3601,31.227S2736.31,201.97,1661,72.2C547.345-62.2,0,32.227,0,32.227V343H3602Z"></path>
-            </svg>
-        </div>
+    <section id="pricing" style="background-color: white">
         <div class="container">
             <h2>Chủ Đề</h2>
             <div class="row">
                 @foreach (var item in Model)
                 {
-                    <div class="col-lg-4 wow fadeInLeft" data-wow-duration=".2s" data-wow-delay=".6s">
+                    <div class="col-lg-4 wow fadeInLeft" data-wow-duration=".2s" data-wow-delay=".2s">
                         <div class="service">
                             <div class="service-icon">
                                 <span class="lnr lnr-layers"></span>
                             </div>
                             <div class="service-content">
-                                <h5>@Html.ActionLink(item.DANH_MUC1, "Index", "Questions", new { page = 1, category = @item.ID }, null)</h5>
+                                <h5>@Html.ActionLink(item.DANH_MUC1, "Index", "Questions", new { category = @item.ID }, null)</h5>
                                 <p>@MvcHtmlString.Create(item.MO_TA)</p>
                             </div>
                         </div>
@@ -155,15 +172,63 @@
                 }
             </div>
         </div>
-        <div class="svg-wave bottom">
-            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 3600 248">
-                <path d="M3601,31.227S2736.31,201.97,1661,72.2C547.345-62.2,0,32.227,0,32.227V343H3602Z"></path>
-            </svg>
-        </div>
     </section>
     <!-- ==============================================
-    PRICING
+    TESTIMONIALS
     =============================================== -->
+    <section id="testimonials">
+        <div class="container">
+            <h2>Hỏi Team</h2>
+            <div class="row">
+                <div class="col-lg-8 col-sm-offset-2 mx-auto wow fadeInDown" data-wow-duration=".2s" data-wow-delay=".4s">
+                    <div class="owl-carousel owl-testimonials">
+                        <div class="item">
+                            <img src="@Url.Content("~/Assets/images/avatar/team-2.jpg")" class="img-fluid" alt="client-1">
+                            <h6>Trần Nguyễn Bảo Ngọc</h6>
+                            <span>Nhóm 1</span>
+                            <span class="lnr lnr-smile"></span>
+                            <p class="quote">Scrum Master</p>
+                        </div>
+                        <div class="item">
+                            <img src="@Url.Content("~/Assets/images/avatar/team-3.jpg")" class="img-fluid" alt="client-2">
+                            <h6>Phạm Quốc Duy</h6>
+                            <span>Nhóm 2</span>
+                            <span class="lnr lnr-smile"></span>
+                            <p class="quote">"Scrum Team"</p>
+                        </div>
+                        <div class="item">
+                            <img src="@Url.Content("~/Assets/images/avatar/team-4.jpg")" class="img-fluid" alt="client-3">
+                            <h6>Lê Hoàng Phương Anh</h6>
+                            <span>Nhóm 3</span>
+                            <span class="lnr lnr-smile"></span>
+                            <p class="quote">"Product Owner"</p>
+                        </div>
+                        <div class="item">
+                            <img src="@Url.Content("~/Assets/images/avatar/team-1.jpg")" class="img-fluid" alt="client-4">
+                            <h6>Võ Lê Huy Hoàng</h6>
+                            <span>Nhóm 4</span>
+                            <span class="lnr lnr-smile"></span>
+                            <p class="quote">Scrum Team</p>
+                        </div>
+                        <div class="item">
+                            <img src="@Url.Content("~/Assets/images/avatar/team_1.jpg")" class="img-fluid" alt="client-5">
+                            <h6>Đặng Hoàng Vinh</h6>
+                            <span>Nhóm 5</span>
+                            <span class="lnr lnr-smile"></span>
+                            <p class="quote">Scrum Team</p>
+                        </div>
+                        <div class="item">
+                            <img src="@Url.Content("~/Assets/images/avatar/team_4.jpg")" class="img-fluid" alt="client-6">
+                            <h6>Vũ Hữu Thịnh</h6>
+                            <span>Nhóm 6</span>
+                            <span class="lnr lnr-smile"></span>
+                            <p class="quote">Scrum Team</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- ==============================================
     TEAM
     =============================================== -->
@@ -174,11 +239,43 @@
                 <div class="col-lg-4 col-md-12 wow fadeInRight" data-wow-duration=".2s" data-wow-delay=".2s">
                     <div class="team-member">
                         <div class="team-img">
-                            <img src="@Url.Content("~/Assets/images/avatar/team_1.jpg")" class="img-fluid" alt="team-1">
+                            <img src="@Url.Content("~/Assets/images/avatar/team_1.png")" class="img-fluid" alt="team-1">
                         </div>
                         <div class="team-caption">
-                            <h4>Nguyễn Văn Trung</h4>
-                            <p>Giảng viên lập trình Java</p>
+                            <h4>Hoàng Lê Minh</h4>
+                            <p>Trưởng khoa công nghệ thông tin</p>
+                            <ul class="social-media">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 wow fadeInRight" data-wow-duration=".2s" data-wow-delay=".6s">
+                    <div class="team-member">
+                        <div class="team-img">
+                            <img src="@Url.Content("~/Assets/images/avatar/team-1.png")" class="img-fluid" alt="team-3">
+                        </div>
+                        <div class="team-caption">
+                            <h4>Bùi Minh Phụng</h4>
+                            <p>Phó trưởng khoa công nghệ thông tin</p>
+                            <ul class="social-media">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 wow fadeInRight" data-wow-duration=".2s" data-wow-delay=".6s">
+                    <div class="team-member">
+                        <div class="team-img">
+                            <img src="@Url.Content("~/Assets/images/avatar/team-2.jpg")" class="img-fluid" alt="team-3">
+                        </div>
+                        <div class="team-caption">
+                            <h4>Võ Thị Kim Thoa</h4>
+                            <p>Trợ lý công tác sinh viên</p>
                             <ul class="social-media">
                                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
@@ -194,7 +291,7 @@
                         </div>
                         <div class="team-caption">
                             <h4>Phạm Ngọc Duy</h4>
-                            <p>Giảng viên lập trình C#</p>
+                            <p>Phó bộ môn Kỹ thuật phần mềm</p>
                             <ul class="social-media">
                                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
@@ -206,23 +303,7 @@
                 <div class="col-lg-4 col-md-12 wow fadeInRight" data-wow-duration=".2s" data-wow-delay=".6s">
                     <div class="team-member">
                         <div class="team-img">
-                            <img src="@Url.Content("~/Assets/images/avatar/team-2.jpg")" class="img-fluid" alt="team-3">
-                        </div>
-                        <div class="team-caption">
-                            <h4>Phan Thị Hồng</h4>
-                            <p>Giảng viên kiểm thử phần mềm</p>
-                            <ul class="social-media">
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12 wow fadeInRight" data-wow-duration=".2s" data-wow-delay=".6s">
-                    <div class="team-member">
-                        <div class="team-img">
-                            <img src="@Url.Content("~/Assets/images/avatar/team-4.jpg")" class="img-fluid" alt="team-3">
+                            <img src="@Url.Content("~/Assets/images/avatar/team-4.png")" class="img-fluid" alt="team-3">
                         </div>
                         <div class="team-caption">
                             <h4>Lý Thị Huyền Châu</h4>
@@ -238,27 +319,11 @@
                 <div class="col-lg-4 col-md-12 wow fadeInRight" data-wow-duration=".2s" data-wow-delay=".6s">
                     <div class="team-member">
                         <div class="team-img">
-                            <img src="@Url.Content("~/Assets/images/avatar/team_4.jpg")" class="img-fluid" alt="team-3">
+                            <img src="@Url.Content("~/Assets/images/avatar/team_5.png")" class="img-fluid" alt="team-3">
                         </div>
                         <div class="team-caption">
-                            <h4>Nguyễn Hữu Quốc</h4>
-                            <p>Giảng viên quản trị dự án phần mềm</p>
-                            <ul class="social-media">
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12 wow fadeInRight" data-wow-duration=".2s" data-wow-delay=".6s">
-                    <div class="team-member">
-                        <div class="team-img">
-                            <img src="@Url.Content("~/Assets/images/avatar/team-1.jpg")" class="img-fluid" alt="team-3">
-                        </div>
-                        <div class="team-caption">
-                            <h4>Trần Công Thanh</h4>
-                            <p>Giảng viên lập trình Mobile</p>
+                            <h4>Nguyễn Thị Bích Liên</h4>
+                            <p>Trợ lý giáo vụ</p>
                             <ul class="social-media">
                                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>

@@ -12,7 +12,6 @@ namespace CNTTFAQ.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.Web.Mvc;
 
     public partial class CAU_HOI
     {
@@ -26,26 +25,16 @@ namespace CNTTFAQ.Models
 
         [Required(ErrorMessage = "Trường thông tin câu hỏi là bắt buộc")]
         public string CAU_HOI1 { get; set; }
-
         public string MO_TA { get; set; }
         public Nullable<System.DateTime> NGAY_TAO { get; set; }
         public int ID_DANH_MUC { get; set; }
         public string ID_TAI_KHOAN { get; set; }
         public int LUOT_XEM { get; set; }
-
-        [Required(ErrorMessage = "Trường thông tin duyệt đăng là bắt buộc")]
-        public Nullable<bool> DUYET_DANG { get; set; }
-
-        public static IEnumerable<SelectListItem>GetStatusSelectItems()
-        {
-            yield return new SelectListItem { Text = "Duyệt", Value = "1" };
-            yield return new SelectListItem { Text = "Chưa Duyệt", Value = "0" };
-        }
-
+        public bool DUYET_DANG { get; set; }
+    
         public virtual AspNetUser AspNetUser { get; set; }
         public virtual DANH_MUC DANH_MUC { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CAU_TRA_LOI> CAU_TRA_LOI { get; set; }
-
     }
 }

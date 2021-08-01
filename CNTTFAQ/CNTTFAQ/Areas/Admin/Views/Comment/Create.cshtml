@@ -68,7 +68,9 @@
                                         <div class="form-group">
                                             <h4 class="card-title">Trả lời</h4>
                                             <div class="col-md-10">
-                                                @Html.TextAreaFor(model => model.CAU_TRA_LOI1, new { htmlAttributes = new { @class = "form-control", @required = true } })
+                                                <textarea type="text" name="CAU_TRA_LOI1" placeholder="Hãy nhập mô tả của bạn vào đây" class="form-control" required
+                                                          oninvalid="this.setCustomValidity('Mời bạn nhập câu trả lời vào ô này')"
+                                                          oninput="this.setCustomValidity('')"></textarea>                                                
                                                 @Html.ValidationMessageFor(model => model.CAU_TRA_LOI1, "", new { @class = "text-danger" })
                                             </div>
                                         </div>

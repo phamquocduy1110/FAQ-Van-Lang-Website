@@ -58,8 +58,9 @@
                                                 <th>STT</th>
                                                 <th>Tùy chỉnh</th>
                                                 <th>Họ và Tên</th>
-                                                <th>Email</th>
+                                                <th>Tài khoản</th>
                                                 <th>Tiêu đề câu hỏi</th>
+                                                <th>Đã xem</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -74,6 +75,9 @@
                                                         <a title="Xem chi tiết" href="@Url.Action("Details", new { id = item.ID })" class="btn btn-primary btn-circle">
                                                             <i class="fa fa-list"></i>
                                                         </a>
+                                                        <a title="Chỉnh sửa" href="@Url.Action("Edit", new { id = item.ID })" class="btn btn-warning btn-circle">
+                                                            <i class="fa fa-eye-dropper"></i>
+                                                        </a>
                                                         <a title="Xóa" href="@Url.Action("Delete", new { id = item.ID })" class="btn btn-danger btn-circle">
                                                             <i class="fa fa-times"></i>
                                                         </a>
@@ -87,6 +91,9 @@
                                                     <td>
                                                         @Html.DisplayFor(modelItem => item.CAU_HOI_MUON_HOI)
                                                     </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.TRANG_THAI)
+                                                    </td>
                                                 </tr>
                                             }
                                         </tbody>
@@ -95,8 +102,9 @@
                                                 <th>STT</th>
                                                 <th>Tùy chỉnh</th>
                                                 <th>Họ và Tên</th>
-                                                <th>Email</th>
+                                                <th>Tài khoản</th>
                                                 <th>Tiêu đề câu hỏi</th>
+                                                <th>Đã xem</th>
                                             </tr>
                                         </tfoot>
                                     </table>
