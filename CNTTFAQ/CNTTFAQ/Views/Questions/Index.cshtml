@@ -71,7 +71,7 @@
                         <div class="header_content d-flex flex-row align-items-center justify-content-start trans_400">
                             <div class="logo">
                                 <a href="@Url.Action("Index", "Home")">
-                                    <img src="@Url.Content("~/Assets/images/logo/Nav-Logo.png")" style="width: 20%"/>
+                                    <img src="@Url.Content("~/Assets/images/logo/Nav-Logo.png")" style="width: 20%" />
                                 </a>
                             </div>
                             <nav class="main_nav ml-auto mr-auto">
@@ -84,6 +84,15 @@
                 </div>
             </div>
         </header>
+
+        @if (ViewBag.ResultMessage != null)
+        {
+            <script type="text/javascript">
+                    window.onload = function () {
+                        alert("@ViewBag.ResultMessage");
+                    }
+            </script>
+        }
 
         <div class="home">
             <div class="home_background"></div>
@@ -143,11 +152,7 @@
                             <!-- News Post -->
                             @if (Model.Count() == 0)
                             {
-                                <div class="post-content">
-                                    <div class="alert-danger alert-dismissible bg-danger text-white border-0 show">
-                                        <h2 style="padding: 20px">Không tìm thấy kết quả</h2>
-                                    </div>
-                                </div>
+                                <h2 style="padding: 20px">Không tìm thấy kết quả</h2>
                             }
                             else
                             {

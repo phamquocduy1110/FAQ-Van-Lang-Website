@@ -27,7 +27,7 @@ namespace CNTTFAQ.Controllers
                                 .OrderByDescending(p => p.LUOT_XEM)
                                 .Take(6);
                 ViewBag.MaxQuestion = maxquestions;
-
+                ViewBag.ResultMessage = TempData["ResultMessage"];
                 return View(category);
             }
         }
@@ -46,6 +46,7 @@ namespace CNTTFAQ.Controllers
             askquestion.NGAY_CHINH_SUA = DateTime.Now;
             model.GUI_CAU_HOI.Add(askquestion);
             model.SaveChanges();
+            TempData["ResultMessage"] = "Post successfully.";
             return RedirectToAction("Index", "Home");
         }
     }

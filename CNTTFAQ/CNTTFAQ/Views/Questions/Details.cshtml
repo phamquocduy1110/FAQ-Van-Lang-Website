@@ -84,6 +84,15 @@
             </div>
         </header>
 
+        @if (ViewBag.ResultMessage != null)
+        {
+            <script type="text/javascript">
+                    window.onload = function () {
+                        alert("@ViewBag.ResultMessage");
+                    }
+            </script>
+        }
+
         <div class="home">
             <div class="home_background"></div>
             <div class="background_image background_city" style="background-image:url('@Url.Content("~/Assets/images/backgrounds/city_4.png")')"></div>
@@ -234,7 +243,7 @@
                 </div>
                 <div class="col-lg-8 wow fadeInLeft" data-wow-duration=".2s" data-wow-delay=".6s">
                     <h4>Gửi câu hỏi</h4>
-                    <form action="@Url.Action("Create", "AskQuestion")" method="post">
+                    <form action="@Url.Action("Details", "Questions")" method="post">
                         <div class="row">
                             <div class="col">
                                 <input type="text" name="HO_TEN" placeholder="Họ và Tên" class="form-control" required

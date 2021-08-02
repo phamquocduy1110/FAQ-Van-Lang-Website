@@ -33,7 +33,6 @@
 	margin: 0;
 	padding: 0;
 	-webkit-font-smoothing: antialiased;
-	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
 	text-shadow: rgba(0,0,0,.01) 0 0 1px;
 }
 body
@@ -65,7 +64,6 @@ p
 	font-weight: 400;
 	color: #656566;
 	-webkit-font-smoothing: antialiased;
-	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
 	text-shadow: rgba(0,0,0,.01) 0 0 1px;
 }
 p a
@@ -76,7 +74,6 @@ p a
 	border-bottom: solid 1px #ffa07f;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
-	-ms-transition: all 200ms ease;
 	-o-transition: all 200ms ease;
 	transition: all 200ms ease;
 }
@@ -88,7 +85,6 @@ a
 {
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
-	-ms-transition: all 200ms ease;
 	-o-transition: all 200ms ease;
 	transition: all 200ms ease;
 }
@@ -96,7 +92,6 @@ a, a:hover, a:visited, a:active, a:link
 {
 	text-decoration: none;
 	-webkit-font-smoothing: antialiased;
-	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
 	text-shadow: rgba(0,0,0,.01) 0 0 1px;
 }
 p a:active
@@ -131,7 +126,6 @@ h1, h2, h3, h4, h5, h6
 {
 	font-family: 'Raleway', sans-serif;
 	-webkit-font-smoothing: antialiased;
-	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
 	text-shadow: rgba(0,0,0,.01) 0 0 1px;
 	line-height: 1.2;
 	font-weight: 700;
@@ -185,7 +179,6 @@ section
 {
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
-	-ms-transition: all 200ms ease;
 	-o-transition: all 200ms ease;
 	transition: all 200ms ease;
 }
@@ -193,7 +186,6 @@ section
 {
 	-webkit-transition: all 300ms ease;
 	-moz-transition: all 300ms ease;
-	-ms-transition: all 300ms ease;
 	-o-transition: all 300ms ease;
 	transition: all 300ms ease;
 }
@@ -201,7 +193,6 @@ section
 {
 	-webkit-transition: all 400ms ease;
 	-moz-transition: all 400ms ease;
-	-ms-transition: all 400ms ease;
 	-o-transition: all 400ms ease;
 	transition: all 400ms ease;
 }
@@ -209,7 +200,6 @@ section
 {
 	-webkit-transition: all 500ms ease;
 	-moz-transition: all 500ms ease;
-	-ms-transition: all 500ms ease;
 	-o-transition: all 500ms ease;
 	transition: all 500ms ease;
 }
@@ -288,7 +278,6 @@ section
 	height: 124px;
 	-webkit-transition: all 400ms ease;
 	-moz-transition: all 400ms ease;
-	-ms-transition: all 400ms ease;
 	-o-transition: all 400ms ease;
 	transition: all 400ms ease;
 }
@@ -372,7 +361,6 @@ section
 	border-radius: 7px;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
-	-ms-transition: all 200ms ease;
 	-o-transition: all 200ms ease;
 	transition: all 200ms ease;
 }
@@ -455,7 +443,6 @@ section
     top: 8px;
     -webkit-transition: all 200ms ease;
     -moz-transition: all 200ms ease;
-    -ms-transition: all 200ms ease;
     -o-transition: all 200ms ease;
     transition: all 200ms ease;
 }
@@ -695,12 +682,6 @@ section
 	font-weight: 500 !important;
 	color: #1f1d22 !important;
 }
-.domain_search_input::input-placeholder
-{
-	font-size: 24px !important;
-	font-weight: 500 !important;
-	color: #1f1d22 !important;
-}
 .domain_search_dropdown
 {
 	position: absolute;
@@ -751,7 +732,6 @@ section
 	color: #1f1d22;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
-	-ms-transition: all 200ms ease;
 	-o-transition: all 200ms ease;
 	transition: all 200ms ease;
 }
@@ -1136,12 +1116,6 @@ section
 } 
 .contact_input:-ms-input-placeholder
 { 
-	font-size: 12px !important;
-	font-weight: 400 !important;
-	color: #FFFFFF !important;
-}
-.contact_input::input-placeholder
-{
 	font-size: 12px !important;
 	font-weight: 400 !important;
 	color: #FFFFFF !important;

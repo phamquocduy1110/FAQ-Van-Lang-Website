@@ -126,10 +126,6 @@
 	{ 
 		font-size: 20px !important;
 	}
-	.domain_search_input::input-placeholder
-	{
-		font-size: 20px !important;
-	}
 	.domain_search_selected,
 	.domain_search_dropdown ul li,
 	.domain_search_button
@@ -244,10 +240,6 @@
 	} 
 	.domain_search_input:-ms-input-placeholder
 	{ 
-		font-size: 16px !important;
-	}
-	.domain_search_input::input-placeholder
-	{
 		font-size: 16px !important;
 	}
 	.domain_search_selected,
