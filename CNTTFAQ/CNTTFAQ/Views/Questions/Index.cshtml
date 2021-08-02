@@ -59,6 +59,10 @@
             background-size: 100% 100%;
             background-image: url('@Url.Content("~/Assets/images/backgrounds/bottom-wave.png")');
         }
+        .news_post_content {
+            padding-top: 0px !important;
+            padding-bottom: 33px !important
+        }
     </style>
 </head>
 <body>
@@ -159,7 +163,7 @@
                                 foreach (var item in Model)
                                 {
                                     <div class="news_post magic_fade_in">
-                                        <div class="news_post_content" style="padding: 30px">
+                                        <div class="news_post_content">
                                             <div class="news_post_title">
                                                 <a style="font-size: 20px" href="@Url.Action("Details", "Questions", new { item.ID })">@item.CAU_HOI1</a>
                                             </div>

@@ -273,6 +273,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\css\Login2Css\style.css" />
+    <Content Include="Assets\images\avatar\team-2.jpg" />
     <Content Include="Assets\images\avatar\unknow.png" />
     <Content Include="Assets\images\avatar\team-2.png" />
     <Content Include="Assets\images\avatar\team_1.jpg" />
