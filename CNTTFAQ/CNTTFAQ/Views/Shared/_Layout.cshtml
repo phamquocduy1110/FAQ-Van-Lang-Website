@@ -76,6 +76,18 @@
     </nav>
     <!-- Header section end -->
     @RenderBody()
+    <!-- ==============================================
+    FOOTER
+    =============================================== -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <p>&copy; @DateTime.Now.Year All Rights Reserved | Design by <a>SEPK24T-Team11.</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -94,7 +106,7 @@
     <!-- Custom -->
     <script src="@Url.Content("~/Assets/js/PortaUserPageJS/custom.js")"></script>
 
-@*    <script src="@Url.Content("~/Assets/js/ArshaUserPageJS/main.js")"></script>
-*@    @RenderSection("scripts", required: false)
+    @*    <script src="@Url.Content("~/Assets/js/ArshaUserPageJS/main.js")"></script>
+    *@    @RenderSection("scripts", required: false)
 </body>
 </html>

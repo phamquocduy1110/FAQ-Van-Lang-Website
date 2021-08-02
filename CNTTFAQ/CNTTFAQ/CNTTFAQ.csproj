@@ -272,6 +272,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\css\Login2Css\style.css" />
+    <Content Include="Assets\images\avatar\unknow.png" />
+    <Content Include="Assets\images\avatar\team-2.png" />
     <Content Include="Assets\images\avatar\team_1.jpg" />
     <Content Include="Assets\css\AdminIndexCss\bootstrap-datetimepicker.min.css" />
     <Content Include="Assets\css\AdminIndexCss\font-face.css" />
@@ -315,12 +318,12 @@
     <Content Include="Assets\images\avatar\team-1.png" />
     <Content Include="Assets\images\avatar\team_4.jpg" />
     <Content Include="Assets\images\avatar\profile-pic.jpg" />
-    <Content Include="Assets\images\avatar\team-2.jpg" />
     <Content Include="Assets\images\avatar\team-3.jpg" />
     <Content Include="Assets\images\avatar\team_5.png" />
     <Content Include="Assets\images\avatar\undraw_remotely_2j6y.svg" />
     <Content Include="Assets\images\backgrounds\02.jpg" />
     <Content Include="Assets\images\backgrounds\beautifulbackground3.jpg" />
+    <Content Include="Assets\images\backgrounds\Loginbg.jpg" />
     <Content Include="Assets\images\backgrounds\bottom-wave.png" />
     <Content Include="Assets\images\backgrounds\call-to-action.jpg" />
     <Content Include="Assets\images\backgrounds\city_4.png" />
@@ -337,6 +340,7 @@
     <Content Include="Assets\images\backgrounds\transaction-background-4.png" />
     <Content Include="Assets\images\backgrounds\transaction-background-5.png" />
     <Content Include="Assets\images\backgrounds\transaction-background-6.png" />
+    <Content Include="Assets\images\backgrounds\LoginBG.mp4" />
     <Content Include="Assets\images\blog\add.jpg" />
     <Content Include="Assets\images\blog\blog-1.jpg" />
     <Content Include="Assets\images\blog\blog-2.jpg" />
