@@ -27,7 +27,7 @@
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb m-0 p-0">
-                                    <li class="breadcrumb-item"><a href="@Url.Action("Index", "AdminHome")" class="text-muted">Trang chủ</a></li>
+                                    <li class="breadcrumb-item"><a href="@Url.Action("Index", "AdminHome")" class="text-muted">DashBoard</a></li>
                                     <li class="breadcrumb-item text-muted active" aria-current="page">Danh sách các danh mục</li>
                                 </ol>
                             </nav>
@@ -35,8 +35,8 @@
                     </div>
                     <div class="col-5 align-self-center">
                         <div class="customize-input float-right">
-                            <button onclick="location.href='@Url.Action("Create", "AspNetRole")'" style="color: green" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius">
-                                <i class="fas fa-plus"> Tạo quyền mới</i>
+                            <button onclick="location.href='@Url.Action("Create", "AspNetRole")'" style="color: green; font-family: Rubik,sans-serif; font-size: 18px" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius">
+                                <i><b>+ Tạo quyền mới</b></i>
                             </button>
                         </div>
                     </div>
@@ -62,13 +62,13 @@
                                     <h4 class="card-title">Bảng quyền @roleName.Name</h4>
                                     <div class="table-responsive">
                                         <div class="table-responsive">
-                                            <a href="@Url.Action("Create", "AspNetRoleUser", new { RoleId = roleName.Id })" class="btn btn-success btn-circle">
+                                            <a title="Thêm" href="@Url.Action("Create", "AspNetRoleUser", new { RoleId = roleName.Id })" class="btn btn-success btn-circle">
                                                 <i class="fa fa-plus"></i>
                                             </a>
-                                            <a href="@Url.Action("Edit", new { id = roleName.Id })" class="btn btn-warning btn-circle">
+                                            <a title="Chỉnh sửa" href="@Url.Action("Edit", new { id = roleName.Id })" class="btn btn-warning btn-circle">
                                                 <i class="fa fa-eye-dropper"></i>
                                             </a>
-                                            <a href="@Url.Action("Delete", new { id = roleName.Id })" class="btn btn-danger btn-circle">
+                                            <a title="Xóa" href="@Url.Action("Delete", new { id = roleName.Id })" class="btn btn-danger btn-circle">
                                                 <i class="fa fa-times"></i>
                                             </a>
                                         </div>
@@ -90,7 +90,7 @@
                                                             <tr>
                                                                 <td>@user.UserName</td>
                                                                 <td>
-                                                                    <a href="@Url.Action("Delete", "AspNetRoleUser", new { RoleId = role.Id, UserId = user.Id })" class="btn btn-danger btn-circle">
+                                                                    <a title="Xóa tài khoản" href="@Url.Action("Delete", "AspNetRoleUser", new { RoleId = role.Id, UserId = user.Id })" class="btn btn-danger btn-circle">
                                                                         <i class="fa fa-times"></i>
                                                                     </a>
                                                                 </td>

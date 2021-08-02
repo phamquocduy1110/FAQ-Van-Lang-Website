@@ -8,170 +8,386 @@
 <head>
     <title>Chào mừng đến với trang chủ</title>
     <meta charset="UTF-8">
-    <meta name="description" content="Labs - Design Studio">
-    <meta name="keywords" content="lab, onepage, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="@Url.Content("~/Assets/css/ArshaUserPageCss/style.css")" rel="stylesheet">
+
+    <style>
+        .slider-area:after {
+            content: "";
+            position: absolute;
+            bottom: -1%;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100px;
+            background: transparent;
+            background-size: 100% 100%;
+            background-image: url('@Url.Content("~/Assets/images/backgrounds/bottom-wave.png")');
+        }
+        #call-to-action {
+            background-image: url('@Url.Content("~/Assets/images/backgrounds/bottom-wave.png")');
+	        background-position: center;
+	        background-size: cover;
+	        background-attachment: fixed;
+	        position: relative;
+	        padding: 100px 0;
+	        text-align: center;
+	        color: white;
+        }
+        #call-to-action:after {
+	        content: "";
+	        position: absolute;
+	        bottom: -8%;
+	        left: 0;
+	        z-index: 1;
+	        width: 100%;
+	        height: 100px;
+	        background: transparent;
+	        background-size: 100% 100%;
+            background-image: url('@Url.Content("~/Assets/images/backgrounds/bottom-wave.png")');
+        }
+
+        div.service-content h5 a {
+            color: black
+        }
+    </style>
 </head>
 <body>
-    <!-- Intro Section -->
-    <div class="hero-section">
-        <div class="hero-content">
-            <div class="hero-center">
-                <img src="@Url.Content("~/Assets/images/logo/VLU.png")" alt="logo" style="height: 100px">
-                <p></p>
-                <h1 style="font-size: 50px; font-family: 'Gill Sans', 'Gill Sans MT', Arial, 'Trebuchet MS', sans-serif; color: white; text-shadow: 5px 2px 4px black">
-                    CHÀO MỪNG ĐẾN VỚI KHOA CÔNG NGHỆ THÔNG TIN
-                </h1>
-                <p style="font-size: 40px; color: white; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
-                    " Điều Bạn Thường Hỏi "
-                </p>
+    <!-- ==============================================
+    BANNER
+    =============================================== -->
+    <section class="slider-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="owl-carousel main-slider">
+                    <!-- Single slide 1-->
+                    <div class="single-slide slide-bg-1" style="background-image:url('@Url.Content("~/Assets/images/backgrounds/transaction-background-1.jpeg")')">
+                        <div class="col-md-12">
+                            <div class="tabel">
+                                <div class="tabel-cell">
+                                    <div class="slider-content">
+                                        <h1>CHÀO MỪNG ĐẾN VỚI<br />KHOA CÔNG NGHỆ THÔNG TIN</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /.single-slide -->
+                </div><!-- /.main-slider -->
             </div>
         </div>
-        <!-- slider -->
-        <div id="hero-slider" class="owl-carousel">
-            <div class="item  hero-item" data-bg="@Url.Content("~/Assets/images/backgrounds/transaction-background-6.png")"></div>
-            <div class="item  hero-item" data-bg="@Url.Content("~/Assets/images/backgrounds/transaction-background-1.png")"></div>
-            <div class="item  hero-item" data-bg="@Url.Content("~/Assets/images/backgrounds/transaction-background-2.png")"></div>
-            <div class="item  hero-item" data-bg="@Url.Content("~/Assets/images/backgrounds/transaction-background-3.png")"></div>
-            <div class="item  hero-item" data-bg="@Url.Content("~/Assets/images/backgrounds/transaction-background-4.png")"></div>
-            <div class="item  hero-item" data-bg="@Url.Content("~/Assets/images/backgrounds/transaction-background-5.png")"></div>
+    </section>
+    <!-- ==============================================
+    ABOUT US
+    =============================================== -->
+    <section id="about">
+        <div class="container">
+            <h2 style="margin-bottom: 0px">Phương Châm</h2>
         </div>
-    </div>
-    <!-- Intro Section -->
-    <!-- About section -->
-    <div class="about-section">
-        <div class="overlay"></div>
-        <!-- card section -->
-        <div class="card-section">
-            <div class="container">
-                <div class="row">
-                    <!-- single card -->
-                    <div class="col-md-4 col-sm-6">
-                        <div class="lab-card">
-                            <div class="icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <h2>BẤT CỨ LÚC NÀO, Ở BẤT CỨ ĐÂU</h2>
-                            <p>Tiện lợi, hữu ích, đơn giản, dễ sử dụng, dễ tìm kiếm, có thể hỗ trợ giải đáp thắc mắc sinh viên khoa công nghệ thông tin</p>
-                        </div>
+    </section>
+    <!-- ==============================================
+    FEATURES
+    =============================================== -->
+    <section id="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 wow fadeInLeft" data-wow-duration=".2s" data-wow-delay=".2s">
+                    <div class="feature-box">
+                        <span class="lnr lnr-rocket"></span>
+                        <h4>BẤT CỨ LÚC NÀO</h4>
+                        <p>Tiện lợi, hữu ích, đơn giản, dễ sử dụng, dễ tìm kiếm, có thể hỗ trợ giải đáp thắc mắc sinh viên khoa công nghệ thông tin</p>
                     </div>
-                    <!-- single card -->
-                    <div class="col-md-4 col-sm-6">
-                        <div class="lab-card">
-                            <div class="icon">
-                                <i class="fas fa-paper-plane"></i>
-                            </div>
-                            <h2>XỬ LÝ NHANH CHÓNG</h2>
-                            <p>Khi nhận thắc mắc từ sinh viên, đội ngũ khoa công nghệ thông tin của Nhà trường sẽ xử lý và hồi đáp nhanh chóng.</p>
-                        </div>
+                </div>
+                <div class="col-lg-4 wow fadeInLeft" data-wow-duration=".2s" data-wow-delay=".4s">
+                    <div class="feature-box">
+                        <span class="lnr lnr-laptop-phone"></span>
+                        <h4>XỬ LÝ NHANH CHÓNG</h4>
+                        <p>Khi nhận thắc mắc từ sinh viên, đội ngũ khoa công nghệ thông tin của Nhà trường sẽ xử lý và hồi đáp nhanh chóng</p>
                     </div>
-                    <!-- single card -->
-                    <div class="col-md-4 col-sm-12">
-                        <div class="lab-card">
-                            <div class="icon">
-                                <i class="fas fa-thumbs-up"></i>
-                            </div>
-                            <h2>NƠI GIẢI ĐÁP THẮC MẮC</h2>
-                            <p>Hỗ trợ sinh viên trả lời những thắc mắc về ngành học và môn học, chính sách và thủ tục tại trường, hỗ trợ cải thiện kết quả học tập.</p>
-                        </div>
+                </div>
+                <div class="col-lg-4 wow fadeInLeft" data-wow-duration=".2s" data-wow-delay=".6s">
+                    <div class="feature-box">
+                        <span class="lnr lnr-bubble"></span>
+                        <h4>NƠI GIẢI ĐÁP THẮC MẮC</h4>
+                        <p>Hỗ trợ sinh viên trả lời những thắc mắc về ngành học và môn học, chính sách và thủ tục tại trường, cải thiện kết quả học tập</p>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- card section end-->
-        <!-- About contant -->
-    </div>
-    <!-- About section end -->
-    <!-- Testimonial section -->
-    <div class="testimonial-section pb100" style="padding: 10px; height: fit-content">
-        <div class="test-overlay" style="background-image:url('@Url.Content("~/Assets/images/avatar/Book.png")')"></div>
+    </section>
+    <!-- ==============================================
+    Frequently Asked Questions Section
+    =============================================== -->
+    <section id="faq" class="faq section-bg" style="padding: 30px">
+        <div class="container" data-aos="fade-up">
+            <div class="section-title">
+                <h2 style="color: black">Câu Hỏi Thường Gặp</h2>
+            </div>
+            @foreach (var list in ViewBag.MaxQuestion)
+            {
+                <div class="faq-list">
+                    <ul>
+                        <li data-aos="fade-up" data-aos-delay="100">
+                            <a data-bs-toggle="collapse" class="collapse" data-bs-target="#@list.ID" style="font-size: 150%">
+                                <i>@list.CAU_HOI1</i>
+                            </a>
+                            <div id="@list.ID" class="collapse show" data-bs-parent=".faq-list">
+                                <p>
+                                    @MvcHtmlString.Create(list.MO_TA)
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            }
+        </div>
+    </section><!-- End Frequently Asked Questions Section -->
+    <!-- ==============================================
+    CALL TO ACTION
+    =============================================== -->
+    <section id="call-to-action" style="background-image: url('@Url.Content("~/Assets/images/backgrounds/call-to-action.jpg")')">
         <div class="container">
+            <h1 class="wow fadeInDown" data-wow-duration=".2s" data-wow-delay=".4s">ĐIỀU BẠN THƯỜNG HỎI</h1>
+            <a style="font-size: 1.5rem">Nếu bạn có câu hỏi muốn được tư vấn. Hãy liên hệ với Ban Chủ Nhiệm Khoa để được giải đáp một các chi tiết</a>
+        </div>
+    </section>
+    <!-- ==============================================
+    SERVICES
+    =============================================== -->
+    <section id="pricing" style="background-color: white">
+        <div class="container">
+            <h2>Chủ Đề</h2>
             <div class="row">
-                <div class="col-md-8 col-md-offset-4">
-                    <div class="section-title left">
-                        <h2>DANH SÁCH CÁC DANH MỤC</h2>
-                    </div>
-                    <div class="owl-carousel" id="testimonial-slide" style="padding: 30px">
-                        @foreach (var item in Model)
-                        {
-                            <!-- single testimonial -->
-                            <div class="testimonial">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-4 wow fadeInLeft" data-wow-duration=".2s" data-wow-delay=".2s">
+                        <div class="service">
+                            <div class="service-icon">
+                                <span class="lnr lnr-layers"></span>
+                            </div>
+                            <div class="service-content">
+                                <h5>@Html.ActionLink(item.DANH_MUC1, "Index", "Questions", new { category = @item.ID }, null)</h5>
                                 <p>@MvcHtmlString.Create(item.MO_TA)</p>
-                                <div class="client-info">
-                                    <div class="avatar">
-                                        <img src="@item.HINH_ANH" alt="">
-                                    </div>
-                                    <div class="client-name">
-                                        <h2>@Html.ActionLink(item.DANH_MUC1, "Index", "Questions", new { page = 1, category = @item.ID }, null)</h2>
-                                    </div>
-                                </div>
                             </div>
-                        }
+                        </div>
                     </div>
-                </div>
+                }
             </div>
         </div>
-    </div>
-    <!-- Testimonial section end-->
-    <div class="element" style="margin: 0px; padding: 60px 0px">
+    </section>
+    <!-- ==============================================
+    TESTIMONIALS
+    =============================================== -->
+    <section id="testimonials">
         <div class="container">
+            <h2>Hỏi Team</h2>
             <div class="row">
-                <!-- Progress bars -->
-                <!-- Accordions -->
-                <div class="col-md-6">
-                    <div class="site-accordions">
-                        <h3 style="font-size: 90px; font-family: 'Oswald', sans-serif">
-                            CÂU HỎI THƯỜNG GẶP
-                        </h3>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="site-accordions">
-                        <div class="panel-group" id="accordion">
-                            <!-- Single Accordions -->
-                            <div class="panel active">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">Bắt buộc phải học tất cả các học kỳ hay không?</h4>
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#accordion1"></a>
-                                </div>
-                                <div id="accordion1" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <p>
-                                            Một năm học có hai học kỳ chính và một học kỳ phụ (kỳ hè). Học kỳ chính là học kỳ bắt buộc phải học. Học kỳ hè không bắt buộc phải học. Trong học kỳ hè sinh viên học các học phần học chậm tiến độ ở học kỳ chính, hoặc học lại các học phần chưa đạt, hoặc để cải thiện điểm, hoặc học vượt các học phần có ở các học kỳ sau nếu trong kỳ hè có lớp.
-                                            Kế hoạch đào tạo từng học kỳ thể hiện trong chương trình đào tạo của ngành và được công bố ở website của Trường. Sự thay đổi về chương trình đào tạo, kế hoạch đào tạo được cập nhật ở website đào tạo của Nhà trường.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Single Accordions -->
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">Rút học phần là gì?</h4>
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#accordion2"></a>
-                                </div>
-                                <div id="accordion2" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <p>Rút học phần đã đăng ký là: trong thời gian quy định (trong vòng 2 ngày đầu của tuần thứ 3 kể từ đầu học kỳ chính hoặc 2 ngày đầu của tuần thứ 2 của kỳ hè), thông qua mạng Internet sinh viên thực hiện bỏ một hoặc nhiều lớp học phần đã đăng ký, do bản thân bị quá sức học hoặc không đủ năng lực tài chính. Trong khoảng thời gian rút học phần, ngoài những sinh viên rút học phần thì cũng có thể có sinh viên đăng ký thêm các lớp khác. Tuy nhiên, có những lớp học phần chỉ cho rút mà không cho đăng ký thêm. Việc rút học phần phải đảm bảo quy định về số tín chỉ tối thiểu đăng ký học.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Single Accordions -->
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">Cảnh báo kết quả học tập là gì?</h4>
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#accordion3"></a>
-                                </div>
-                                <div id="accordion3" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <p>Cuối mỗi học kỳ, sinh viên học yếu kém sẽ bị cảnh báo kết quả học tập hoặc bị buộc thôi học. Cảnh báo kết quả học tập để sinh viên có kết quả học tập kém biết và lập phương án học tập thích hợp để có thể tốt nghiệp trong thời hạn tối đa được phép theo học chương trình.</p>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="col-lg-8 col-sm-offset-2 mx-auto wow fadeInDown" data-wow-duration=".2s" data-wow-delay=".4s">
+                    <div class="owl-carousel owl-testimonials">
+                        <div class="item">
+                            <img src="@Url.Content("~/Assets/images/avatar/team-2.jpg")" class="img-fluid" alt="client-1">
+                            <h6>Trần Nguyễn Bảo Ngọc</h6>
+                            <span>Nhóm 1</span>
+                            <span class="lnr lnr-smile"></span>
+                            <p class="quote">Scrum Master</p>
+                        </div>
+                        <div class="item">
+                            <img src="@Url.Content("~/Assets/images/avatar/team-3.jpg")" class="img-fluid" alt="client-2">
+                            <h6>Phạm Quốc Duy</h6>
+                            <span>Nhóm 2</span>
+                            <span class="lnr lnr-smile"></span>
+                            <p class="quote">"Scrum Team"</p>
+                        </div>
+                        <div class="item">
+                            <img src="@Url.Content("~/Assets/images/avatar/team-4.jpg")" class="img-fluid" alt="client-3">
+                            <h6>Lê Hoàng Phương Anh</h6>
+                            <span>Nhóm 3</span>
+                            <span class="lnr lnr-smile"></span>
+                            <p class="quote">"Product Owner"</p>
+                        </div>
+                        <div class="item">
+                            <img src="@Url.Content("~/Assets/images/avatar/team-1.jpg")" class="img-fluid" alt="client-4">
+                            <h6>Võ Lê Huy Hoàng</h6>
+                            <span>Nhóm 4</span>
+                            <span class="lnr lnr-smile"></span>
+                            <p class="quote">Scrum Team</p>
+                        </div>
+                        <div class="item">
+                            <img src="@Url.Content("~/Assets/images/avatar/team_1.jpg")" class="img-fluid" alt="client-5">
+                            <h6>Đặng Hoàng Vinh</h6>
+                            <span>Nhóm 5</span>
+                            <span class="lnr lnr-smile"></span>
+                            <p class="quote">Scrum Team</p>
+                        </div>
+                        <div class="item">
+                            <img src="@Url.Content("~/Assets/images/avatar/team_4.jpg")" class="img-fluid" alt="client-6">
+                            <h6>Vũ Hữu Thịnh</h6>
+                            <span>Nhóm 6</span>
+                            <span class="lnr lnr-smile"></span>
+                            <p class="quote">Scrum Team</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+    <!-- ==============================================
+    TEAM
+    =============================================== -->
+    <section id="team" style="padding: 0px">
+        <div class="container">
+            <h2>Ban Chủ Nhiệm Khoa</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-12 wow fadeInRight" data-wow-duration=".2s" data-wow-delay=".2s">
+                    <div class="team-member">
+                        <div class="team-img">
+                            <img src="@Url.Content("~/Assets/images/avatar/team_1.png")" class="img-fluid" alt="team-1">
+                        </div>
+                        <div class="team-caption">
+                            <h4>Hoàng Lê Minh</h4>
+                            <p>Trưởng khoa công nghệ thông tin</p>
+                            <ul class="social-media">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 wow fadeInRight" data-wow-duration=".2s" data-wow-delay=".6s">
+                    <div class="team-member">
+                        <div class="team-img">
+                            <img src="@Url.Content("~/Assets/images/avatar/team-1.png")" class="img-fluid" alt="team-3">
+                        </div>
+                        <div class="team-caption">
+                            <h4>Bùi Minh Phụng</h4>
+                            <p>Phó trưởng khoa công nghệ thông tin</p>
+                            <ul class="social-media">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 wow fadeInRight" data-wow-duration=".2s" data-wow-delay=".6s">
+                    <div class="team-member">
+                        <div class="team-img">
+                            <img src="@Url.Content("~/Assets/images/avatar/unknow.png")" class="img-fluid" alt="team-3">
+                        </div>
+                        <div class="team-caption">
+                            <h4>Phan Tấn Bình</h4>
+                            <p>Phó trưởng khoa công nghệ thông tin</p>
+                            <ul class="social-media">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 wow fadeInRight" data-wow-duration=".2s" data-wow-delay=".4s">
+                    <div class="team-member">
+                        <div class="team-img">
+                            <img src="@Url.Content("~/Assets/images/avatar/unknow.png")" class="img-fluid" alt="team-2">
+                        </div>
+                        <div class="team-caption">
+                            <h4>Phạm Ngọc Duy</h4>
+                            <p>Phó bộ môn Kỹ thuật phần mềm</p>
+                            <ul class="social-media">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 wow fadeInRight" data-wow-duration=".2s" data-wow-delay=".6s">
+                    <div class="team-member">
+                        <div class="team-img">
+                            <img src="@Url.Content("~/Assets/images/avatar/team-2.png")" class="img-fluid" alt="team-3">
+                        </div>
+                        <div class="team-caption">
+                            <h4>Võ Thị Kim Thoa</h4>
+                            <p>Trợ lý công tác sinh viên</p>
+                            <ul class="social-media">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 wow fadeInRight" data-wow-duration=".2s" data-wow-delay=".6s">
+                    <div class="team-member">
+                        <div class="team-img">
+                            <img src="@Url.Content("~/Assets/images/avatar/unknow.png")" class="img-fluid" alt="team-3">
+                        </div>
+                        <div class="team-caption">
+                            <h4>Nguyễn Thị Bích Liên</h4>
+                            <p>Trợ lý giáo vụ</p>
+                            <ul class="social-media">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ==============================================
+    CONTACT
+    =============================================== -->
+    <section id="contact">
+        <div class="svg-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 3600 248">
+                <path d="M3601,31.227S2736.31,201.97,1661,72.2C547.345-62.2,0,32.227,0,32.227V343H3602Z"></path>
+            </svg>
+        </div>
+        <div class="container">
+            <h2>Liên Hệ</h2>
+            <div class="row">
+                <div class="col-lg-4 wow fadeInLeft" data-wow-duration=".2s" data-wow-delay=".4s">
+                    <h4>Địa chỉ</h4>
+                    <a href="mailto:k.cntt@vanlanguni.edu.vn" class="email-link">k.cntt@vanlanguni.edu.vn</a>
+                    <p>028. 71099240</p>
+                    <p>Phòng 5.07, Tòa nhà LV, Cơ sở chính: 69/68 Đặng Thùy Trâm, P.13, Q.Bình Thạnh <b>TP. HCM</b></p>
+                    <ul class="social-media">
+                        <li><a href="https://www.facebook.com/khoacntt.vanlang"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="https://twitter.com/universityvan?lang=vi/"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="https://www.vanlanguni.edu.vn/"><i class="fab fa-google-plus-g"></i></a></li>
+                        <li><a href="https://www.youtube.com/user/truongdhvanlang/featured"><i class="fab fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-8 wow fadeInLeft" data-wow-duration=".2s" data-wow-delay=".6s">
+                    <h4>Gửi câu hỏi</h4>
+                    <form action="@Url.Action("Index", "Home")" method="post">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" name="HO_TEN" placeholder="Họ và Tên" class="form-control" required
+                                       oninvalid="this.setCustomValidity('Mời bạn nhập Họ và Tên vào ô này')"
+                                       oninput="this.setCustomValidity('')" />
+                            </div>
+                            <div class="col">
+                                <input type="text" name="ID_TAI_KHOAN" value="@User.Identity.Name" disabled class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group wow fadeInLeft" data-wow-duration=".2s" data-wow-delay=".6s">
+                            <input type="text" name="CAU_HOI_MUON_HOI" placeholder="Câu hỏi" class="form-control" required
+                                   oninvalid="this.setCustomValidity('Mời bạn nhập tiêu đề câu hỏi vào ô này')"
+                                   oninput="this.setCustomValidity('')" />
+                        </div>
+                        <!-- Form Group -->
+                        <div class="form-group wow fadeInLeft" data-wow-duration=".2s" data-wow-delay=".6s">
+                            <textarea type="text" name="MO_TA" placeholder="Mô tả" id="form-message" cols="30" rows="5" class="form-control" required
+                                      oninvalid="this.setCustomValidity('Mời bạn nhập mô tả vào ô này')"
+                                      oninput="this.setCustomValidity('')"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Gửi câu hỏi</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>

@@ -119,6 +119,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         }
 
         // GET: DANH_MUC / AdminManageCatalog
+        [OutputCache(CacheProfile = "Cache1DayForList")]
         public ActionResult Details(int id)
         {
             var category = model.DANH_MUC.Find(id);
@@ -136,6 +137,11 @@ namespace CNTTFAQ.Areas.Admin.Controllers
                 model.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult GetImage(string fileName)
+        {
+            return File(Server.MapPath("~/Images/" + fileName), "img");
         }
     }
 }

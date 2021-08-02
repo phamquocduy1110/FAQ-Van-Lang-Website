@@ -1,0 +1,124 @@
+﻿@using CNTTFAQ.Models;
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<CAU_HOI>
+
+<!DOCTYPE html>
+<html lang="en">
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <title>Câu hỏi thường gặp</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Labs - Design Studio">
+    <meta name="keywords" content="lab, onepage, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        .alert-danger {
+            color: #85293a;
+            background-color: #ffdce2;
+            border-color: #ffced7;
+            margin-bottom: 10px
+        }
+
+        .alert-dismissible {
+            padding-right: 4rem
+        }
+
+            .alert-dismissible .close {
+                position: absolute;
+                top: 0;
+                right: 0;
+                padding: .75rem 1.25rem;
+                color: inherit
+            }
+
+        .bg-danger {
+            background-color: #ff4f70 !important
+        }
+
+        .text-white {
+            color: #fff !important
+        }
+
+        .border-0 {
+            border: 0 !important
+        }
+    </style>
+</head>
+<body>
+    <!-- Page header -->
+    <div class="page-top-section">
+        <div class="overlay" style="background-size: cover; background-image:url('@Url.Content("~/Assets/images/backgrounds/FAQ2_BG.png")')"></div>
+        <div class="container text-right">
+            <div class="page-info">
+                <h2 style="color: black">Danh sách các câu hỏi</h2>
+                <div class="page-links">
+                    <a href="@Url.Action("Index", "Home")" style="color: black">Trang chủ</a>
+                    <span style="color: black">Câu hỏi</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page header end-->
+    <!-- page section -->
+    <div class="page-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-7 blog-posts">
+                    <!-- Post item -->
+                    @if (Model.Count() == 0)
+                    {
+                        <div class="post-content">
+                            <div class="alert-danger alert-dismissible bg-danger text-white border-0 show">
+                                <h2 style="padding: 20px">Không tìm thấy kết quả</h2>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        foreach (var item in Model)
+                        {
+                            <div class="post-item" style="margin-bottom: 50px">
+                                <div class="post-content">
+                                    <h2 class="post-title">@item.CAU_HOI1</h2>
+                                    <div class="post-meta" style="margin-bottom: 20px">
+                                        <a href="">Lượt xem:   @item.LUOT_XEM</a>
+                                        <a href="">Được đăng bởi:   @item.AspNetUser.Email</a>
+                                        <a href="">Chủ đề:   @item.DANH_MUC.DANH_MUC1</a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <a style="font-size: 15px" href="@Url.Action("Details", "Questions", new { item.ID })">Xem chi tiết ></a>
+                                </div>
+                            </div>
+                        }
+                    }
+                    Tổng số trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page, category = ViewBag.category }))
+                </div>
+                <!-- Sidebar area -->
+                <div class="col-md-4 col-sm-5 sidebar">
+                    <!-- Single widget -->
+                    <div class="widget-item">
+                        <form action="@Url.Action("Search", "Questions")" method="get" class="search-form">
+                            <input type="text" name="Keyword" placeholder="Nhập câu hỏi hoặc từ khóa bạn cần tìm" value="@ViewBag.keyword" style="background: rgb(232, 240, 254); font-family: 'Oswald', sans-serif">
+                            <button type="submit" class="search-btn">
+                                <i class="fab fa-searchengin"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <!-- Single widget -->
+                    <div class="widget-item" style="margin-bottom: 15px">
+                        <h2 class="widget-title">Chủ đề</h2>
+                        @Html.Action("CategoryPartical", "Questions")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- page section end-->
+</body>
+</html>

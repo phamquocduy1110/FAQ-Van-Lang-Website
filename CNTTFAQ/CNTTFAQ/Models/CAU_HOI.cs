@@ -31,7 +31,7 @@ namespace CNTTFAQ.Models
         public int ID_DANH_MUC { get; set; }
         public string ID_TAI_KHOAN { get; set; }
         public int LUOT_XEM { get; set; }
-        public Nullable<bool> DUYET_DANG { get; set; }
+        public bool DUYET_DANG { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
         public virtual DANH_MUC DANH_MUC { get; set; }

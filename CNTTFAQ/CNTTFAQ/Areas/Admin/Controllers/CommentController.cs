@@ -96,6 +96,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         }
 
         // GET: CAU_TRA_LOI / Comment
+        [OutputCache(CacheProfile = "Cache1DayForList")]
         public ActionResult Details(int id)
         {
             var comment = model.CAU_TRA_LOI.Find(id);

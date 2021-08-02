@@ -1,20 +1,12 @@
-﻿@using CNTTFAQ.Models;
-@using PagedList;
-@using PagedList.Mvc;
-@model PagedList.IPagedList<DANH_MUC>
-
+﻿@model List<CNTTFAQ.Models.DANH_MUC>
 
 @foreach (var item in Model)
 {
-<div class="site-accordions">
-    <ul>
-        <li>
-            @Html.ActionLink(item.DANH_MUC1, "Index", "Questions", new { page = 1, category = @item.ID }, null)
-        </li>
-    </ul>
-</div>
+    <div>
+        <ul>
+            <li>
+                @Html.ActionLink(item.DANH_MUC1, "Index", "Questions", new { category = @item.ID }, null)
+            </li>
+        </ul>
+    </div>
 }
-<hr />
-Tổng số trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
-@Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
-
