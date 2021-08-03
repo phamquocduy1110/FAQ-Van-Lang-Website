@@ -48,12 +48,12 @@ namespace CNTTFAQ.Models
 
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Mời bạn nhập tên tài khoản")]
         [Display(Name = "Email")]
-        [EmailAddress]
+        [EmailAddress(ErrorMessage = "Email không hợp lệ")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Mời bạn nhập mật khẩu")]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }

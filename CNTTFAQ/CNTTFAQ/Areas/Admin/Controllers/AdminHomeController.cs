@@ -29,6 +29,24 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             var views = model.CAU_HOI.Sum(x => x.LUOT_XEM);
             ViewBag.view = views;
 
+            var questionAnswers = model.CAU_TRA_LOI.OrderByDescending(x => x.ID).Count();
+            ViewBag.questionAnswer = questionAnswers;
+
+            var askQuestions = model.GUI_CAU_HOI.OrderByDescending(x => x.ID).Count();
+            ViewBag.askQuestion = askQuestions;
+
+            var QuestionsApproved = model.CAU_HOI.OrderByDescending(x => x.ID).Where(x => x.DUYET_DANG != false).Count();
+            ViewBag.QuestionApproved = QuestionsApproved;
+
+            var QuestionsNotApproved = model.CAU_HOI.OrderByDescending(x => x.ID).Where(x => x.DUYET_DANG != true).Count();
+            ViewBag.QuestionNotApproved = QuestionsNotApproved;
+
+            var QuestionsSeen = model.GUI_CAU_HOI.OrderByDescending(x => x.ID).Where(x => x.TRANG_THAI != false).Count();
+            ViewBag.QuestionSeen = QuestionsSeen;
+
+            var QuestionsNotSeen = model.GUI_CAU_HOI.OrderByDescending(x => x.ID).Where(x => x.TRANG_THAI != true).Count();
+            ViewBag.QuestionNotSeen = QuestionsNotSeen;
+
             return View();
         }
 
@@ -39,7 +57,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             ArrayList yValue = new ArrayList();
 
             var result = (from c in _context.CAU_HOI select c);
-            result.ToList().ForEach(rs => xValue.Add(rs.ID));
+            result.ToList().ForEach(rs => xValue.Add(rs.CAU_HOI1));
             result.ToList().ForEach(rs => yValue.Add(rs.LUOT_XEM));
 
             new Chart(width: 600, height: 400, theme:ChartTheme.Vanilla)

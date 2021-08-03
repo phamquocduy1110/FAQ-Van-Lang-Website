@@ -28,6 +28,7 @@ namespace CNTTFAQ.Models
 
         [Required(ErrorMessage = "Mời bạn nhập Họ và Tên vào ô này")]
         public string HO_TEN { get; set; }
+        public bool TRANG_THAI { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
     }

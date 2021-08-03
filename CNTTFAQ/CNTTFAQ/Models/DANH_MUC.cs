@@ -26,7 +26,6 @@ namespace CNTTFAQ.Models
         [Required(ErrorMessage = "Trường thông tin danh mục là bắt buộc")]
         [MinLength(5, ErrorMessage = "Tên chủ đề phải tối thiếu ít nhất là 5 kí tự")]
         public string DANH_MUC1 { get; set; }
-
         public string MO_TA { get; set; }
 
         [Required(ErrorMessage = "Trường thông tin hình ảnh là bắt buộc")]

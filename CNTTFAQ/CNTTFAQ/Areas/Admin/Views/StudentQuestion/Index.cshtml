@@ -33,6 +33,13 @@
                             </nav>
                         </div>
                     </div>
+                    <div class="col-5 align-self-center">
+                        <div class="customize-input float-right">
+                            <button onclick="location.href='@Url.Action("Index", "EmailSetup")'" style="color: green; font-family: Rubik,sans-serif; font-size: 18px" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius">
+                                <i><b>+ Gửi mail phản hồi</b></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- ============================================================== -->
@@ -58,8 +65,9 @@
                                                 <th>STT</th>
                                                 <th>Tùy chỉnh</th>
                                                 <th>Họ và Tên</th>
-                                                <th>Email</th>
-                                                <th>Tiêu đề câu hỏi</th>
+                                                <th>Tài khoản</th>
+                                                <th>Câu hỏi</th>
+                                                <th>Đã xem</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -74,6 +82,9 @@
                                                         <a title="Xem chi tiết" href="@Url.Action("Details", new { id = item.ID })" class="btn btn-primary btn-circle">
                                                             <i class="fa fa-list"></i>
                                                         </a>
+                                                        <a title="Chỉnh sửa" href="@Url.Action("Edit", new { id = item.ID })" class="btn btn-warning btn-circle">
+                                                            <i class="fa fa-eye-dropper"></i>
+                                                        </a>
                                                         <a title="Xóa" href="@Url.Action("Delete", new { id = item.ID })" class="btn btn-danger btn-circle">
                                                             <i class="fa fa-times"></i>
                                                         </a>
@@ -87,6 +98,9 @@
                                                     <td>
                                                         @Html.DisplayFor(modelItem => item.CAU_HOI_MUON_HOI)
                                                     </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.TRANG_THAI)
+                                                    </td>
                                                 </tr>
                                             }
                                         </tbody>
@@ -95,8 +109,9 @@
                                                 <th>STT</th>
                                                 <th>Tùy chỉnh</th>
                                                 <th>Họ và Tên</th>
-                                                <th>Email</th>
-                                                <th>Tiêu đề câu hỏi</th>
+                                                <th>Tài khoản</th>
+                                                <th>Câu hỏi</th>
+                                                <th>Đã xem</th>
                                             </tr>
                                         </tfoot>
                                     </table>

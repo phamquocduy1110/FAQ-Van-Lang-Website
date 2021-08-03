@@ -77,7 +77,7 @@
           <Property Name="ID_DANH_MUC" Type="int" Nullable="false" />
           <Property Name="ID_TAI_KHOAN" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="LUOT_XEM" Type="int" Nullable="false" />
-          <Property Name="DUYET_DANG" Type="bit" />
+          <Property Name="DUYET_DANG" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="CAU_TRA_LOI">
           <Key>
@@ -85,7 +85,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_CAU_HOI" Type="int" Nullable="false" />
-          <Property Name="CAU_TRA_LOI" Type="nvarchar(max)" />
+          <Property Name="CAU_TRA_LOI" Type="nvarchar(max)" Nullable="false" />
           <Property Name="NGAY_TRA_LOI" Type="datetime2" Precision="7" />
           <Property Name="ID_TAI_KHOAN" Type="nvarchar" MaxLength="128" Nullable="false" />
         </EntityType>
@@ -110,6 +110,7 @@
           <Property Name="NGAY_CHINH_SUA" Type="datetime2" Precision="7" />
           <Property Name="ID_TAI_KHOAN" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="HO_TEN" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="TRANG_THAI" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="LICH_SU_CHINH_SUA_DANH_MUC">
           <Key>
@@ -432,7 +433,7 @@
           <Property Name="ID_DANH_MUC" Type="Int32" Nullable="false" />
           <Property Name="ID_TAI_KHOAN" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LUOT_XEM" Type="Int32" Nullable="false" />
-          <Property Name="DUYET_DANG" Type="Boolean" />
+          <Property Name="DUYET_DANG" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="AspNetUser" Relationship="Self.FK_CAU_HOI_AspNetUsers" FromRole="CAU_HOI" ToRole="AspNetUsers" />
           <NavigationProperty Name="DANH_MUC" Relationship="Self.FK_CAU_HOI_DANH_MUC" FromRole="CAU_HOI" ToRole="DANH_MUC" />
           <NavigationProperty Name="CAU_TRA_LOI" Relationship="Self.FK_CAU_TRA_LOI_CAU_HOI" FromRole="CAU_HOI" ToRole="CAU_TRA_LOI" />
@@ -443,7 +444,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_CAU_HOI" Type="Int32" Nullable="false" />
-          <Property Name="CAU_TRA_LOI1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CAU_TRA_LOI1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NGAY_TRA_LOI" Type="DateTime" Precision="7" />
           <Property Name="ID_TAI_KHOAN" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="AspNetUser" Relationship="Self.FK_CAU_TRA_LOI_AspNetUsers" FromRole="CAU_TRA_LOI" ToRole="AspNetUsers" />
@@ -472,6 +473,7 @@
           <Property Name="NGAY_CHINH_SUA" Type="DateTime" Precision="7" />
           <Property Name="ID_TAI_KHOAN" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="HO_TEN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TRANG_THAI" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="AspNetUser" Relationship="Self.FK_LICH_SU_CHINH_SUA_CAU_HOI_AspNetUsers" FromRole="GUI_CAU_HOI" ToRole="AspNetUsers" />
         </EntityType>
         <EntityType Name="LICH_SU_CHINH_SUA_DANH_MUC">
@@ -794,6 +796,7 @@
                 <ScalarProperty Name="NGAY_CHINH_SUA" ColumnName="NGAY_CHINH_SUA" />
                 <ScalarProperty Name="ID_TAI_KHOAN" ColumnName="ID_TAI_KHOAN" />
                 <ScalarProperty Name="HO_TEN" ColumnName="HO_TEN" />
+                <ScalarProperty Name="TRANG_THAI" ColumnName="TRANG_THAI" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

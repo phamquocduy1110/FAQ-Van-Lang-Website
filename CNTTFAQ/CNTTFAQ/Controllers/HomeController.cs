@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PagedList;
+using Microsoft.AspNet.Identity;
 using CNTTFAQ.Models;
 
 namespace CNTTFAQ.Controllers
@@ -26,9 +27,27 @@ namespace CNTTFAQ.Controllers
                                 .OrderByDescending(p => p.LUOT_XEM)
                                 .Take(6);
                 ViewBag.MaxQuestion = maxquestions;
-
+                ViewBag.ResultMessage = TempData["ResultMessage"];
                 return View(category);
             }
+        }
+
+        // POST: CAU_HOI / AdminManageQuestions
+        [Authorize]
+        [HttpPost, ValidateInput(false)]
+        public ActionResult Index(GUI_CAU_HOI f)
+        {
+            var askquestion = new GUI_CAU_HOI();
+
+            askquestion.HO_TEN = f.HO_TEN;
+            askquestion.ID_TAI_KHOAN = User.Identity.GetUserId();
+            askquestion.CAU_HOI_MUON_HOI = f.CAU_HOI_MUON_HOI;
+            askquestion.MO_TA = f.MO_TA;
+            askquestion.NGAY_CHINH_SUA = DateTime.Now;
+            model.GUI_CAU_HOI.Add(askquestion);
+            model.SaveChanges();
+            TempData["ResultMessage"] = "Post successfully.";
+            return RedirectToAction("Index", "Home");
         }
     }
 }

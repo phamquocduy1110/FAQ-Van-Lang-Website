@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Helpers;
 using System.Transactions;
+using Microsoft.AspNet.Identity;
 using CNTTFAQ.Models;
 using System.Web.Mvc;
 
@@ -20,23 +21,30 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             return View(studentquestion);
         }
 
-        public ActionResult SendMail()
+        // GET: List of data from CAU_HOI /AdminManageQuestions
+        public ActionResult Edit(int id)
         {
-            string recipient = Request["to"];
-            string subject = Request["subject"];
-            string body = Request["body"];
+            var askquestion = model.GUI_CAU_HOI.Find(id);
+            if (askquestion == null)
+            {
+                return HttpNotFound();
+            }
 
-            WebMail.SmtpServer = "smtp.gmail.com";
-            WebMail.SmtpPort = 587;
-            WebMail.SmtpUseDefaultCredentials = true;
-            WebMail.EnableSsl = true;
+            return View(askquestion);
+        }
 
-            WebMail.UserName = "Email address";
-            WebMail.Password = "Password";
-
-            WebMail.Send(to: recipient, subject: subject, body: body, isBodyHtml: true);
-
-            return View();
+        // POST: CAU_HOI / AdminManageQuestions
+        [HttpPost, ValidateInput(false)]
+        public ActionResult Edit(int id, GUI_CAU_HOI f)
+        {
+            var askquestion = model.GUI_CAU_HOI.FirstOrDefault(x => x.ID == id);
+            askquestion.HO_TEN = f.HO_TEN;
+            askquestion.ID_TAI_KHOAN = f.ID_TAI_KHOAN;
+            askquestion.CAU_HOI_MUON_HOI = f.CAU_HOI_MUON_HOI;
+            askquestion.TRANG_THAI = f.TRANG_THAI;
+            askquestion.MO_TA = f.MO_TA;
+            model.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         // GET: CAU_HOI_TU_SINH_VIEN / StudentQuestion

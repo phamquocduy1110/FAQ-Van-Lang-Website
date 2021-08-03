@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace CNTTFAQ.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "BCN Khoa")]
     public class CommentController : Controller
     {
         DIEUBANTHUONGHOIWEBSITEEntities model = new DIEUBANTHUONGHOIWEBSITEEntities();

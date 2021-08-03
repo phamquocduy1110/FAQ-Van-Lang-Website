@@ -75,7 +75,7 @@
                                         <div class="form-group">
                                             <h4 class="card-title">Hình đại diện</h4>
                                             <div class="col-md-10">
-                                                <input type="file" name="HINH_ANH" id="IMG" onchange="readURL(this)" accept="image/gif,image/jpeg,image/png" required title="Trường thông tin hình ảnh là bắt buộc" />
+                                                <input type="file" name="HINH_ANH" id="IMG" onchange="readURL(this)" accept="image/gif,image/jpeg,image/png"/>
                                                 @Html.ValidationMessageFor(model => model.HINH_ANH, "", new { @class = "text-danger" })
                                             </div>
                                             <img id="pic" src="@Model.HINH_ANH" width="600" />
