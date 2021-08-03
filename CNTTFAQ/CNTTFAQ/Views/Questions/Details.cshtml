@@ -133,7 +133,7 @@
                             <form action="@Url.Action("Search", "Questions")" method="get" id="domain_search_form" class="domain_search_form d-flex flex-md-row flex-column align-items-center justify-content-start">
                                 <div class="d-flex flex-row align-items-center justify-content-start">
                                     <input type="text" class="domain_search_input" name="Keyword" placeholder="Nhập câu hỏi hoặc từ khóa bạn cần tìm" value="@ViewBag.keyword" required="required">
-                                    <div class="domain_search_dropdown d-flex flex-row align-items-center justify-content-start">
+                                    <div style="background-color: white" class="domain_search_dropdown d-flex flex-row align-items-center justify-content-start">
                                     </div>
                                 </div>
                                 <button type="submit" class="domain_search_button d-flex flex-row align-items-center justify-content-center">
@@ -165,9 +165,9 @@
                                     </div>
                                     <div class="news_post_meta">
                                         <ul class="d-flex flex-row align-items-start justify-content-start">
-                                            <li>Ngày đăng: <a href="#">@Model.NGAY_TAO</a></li>
-                                            <li>Lượt xem: <a href="#">@Model.LUOT_XEM</a></li>
-                                            <li>Chủ đề:  <a href="#">@Model.DANH_MUC.DANH_MUC1</a></li>
+                                            <li>Ngày đăng: <b>@Model.NGAY_TAO</b></li>
+                                            <li>Lượt xem: <b>@Model.LUOT_XEM</b></li>
+                                            <li>Chủ đề:  <b>@Model.DANH_MUC.DANH_MUC1</b></li>
                                         </ul>
                                     </div>
                                     <div class="news_post_text">
