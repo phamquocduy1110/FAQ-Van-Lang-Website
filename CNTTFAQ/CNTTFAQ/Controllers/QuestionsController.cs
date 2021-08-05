@@ -61,7 +61,6 @@ namespace CNTTFAQ.Controllers
 
         // GET: Question by Category / Questions
         [AllowAnonymous]
-        [OutputCache(Duration = 3600 * 24)]
         public PartialViewResult CategoryPartical()
         {
             var categoryList = model.DANH_MUC.OrderByDescending(x => x.DANH_MUC1).ToList();

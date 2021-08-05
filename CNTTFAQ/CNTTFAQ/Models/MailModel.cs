@@ -11,9 +11,6 @@ namespace CNTTFAQ.Models
 
     public class MailModel
     {
-        [Required(ErrorMessage = "Mời bạn nhập Email của Ban Chủ Nhiệm Khoa")]
-        [EmailAddress(ErrorMessage = "Email không hợp lệ")]
-        [Display(Name = "Email address")]
         public string From { get; set; }
 
         [Required(ErrorMessage = "Mời bạn nhập Email người cần gửi")]
