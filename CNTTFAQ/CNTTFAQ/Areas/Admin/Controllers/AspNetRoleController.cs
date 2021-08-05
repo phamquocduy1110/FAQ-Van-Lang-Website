@@ -52,10 +52,17 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                var RoleAlreadyExists = db.AspNetRoles.Any(x => x.Name == aspNetRole.Name);
+
+                if(RoleAlreadyExists)
+                {
+                    ModelState.AddModelError("Name", "Quyền này đã tồn tại. Mời bạn nhập quyền khác");
+                    return View(aspNetRole);
+                }
+
                 aspNetRole.Id = Guid.NewGuid().ToString();
                 db.AspNetRoles.Add(aspNetRole);
                 db.SaveChanges();
-                return RedirectToAction("Index");
             }
 
             return View(aspNetRole);

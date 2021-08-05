@@ -59,7 +59,7 @@
                                         <div class="form-group">
                                             <h4 class="card-title">Chủ đề</h4>
                                             <div class="col-md-10">
-                                                @Html.EditorFor(model => model.DANH_MUC1, new { htmlAttributes = new { @class = "form-control", @required = true, @minLength = "5" } })
+                                                @Html.EditorFor(model => model.DANH_MUC1, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled"} })
                                                 @Html.ValidationMessageFor(model => model.DANH_MUC1, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -149,7 +149,7 @@
                 var reader = new FileReader();
 
                 reader.onload = function (e) {
-                    $('#pic').attr('src', e.target.result).attr('width', '600').attr('height', '400');
+                    $('#pic').attr('src', e.target.result).attr('width', '600');
                 };
 
                 reader.readAsDataURL(input.files[0]);
