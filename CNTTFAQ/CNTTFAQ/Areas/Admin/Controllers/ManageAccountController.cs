@@ -8,13 +8,13 @@ using CNTTFAQ.Models;
 
 namespace CNTTFAQ.Areas.Admin.Controllers
 {
+    [HandleError]
     [Authorize(Roles = "Admin")]
     public class ManageAccountController : Controller
     {
         DIEUBANTHUONGHOIWEBSITEEntities model = new DIEUBANTHUONGHOIWEBSITEEntities();
 
         // GET: Load All List Questions / AdminManageQuestions
-        [OutputCache(CacheProfile = "Cache1Day")]
         public ActionResult Index()
         {
             var listaccount = model.AspNetUsers.ToList().OrderByDescending(x => x.Id).ToList();
@@ -27,7 +27,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             var listaccount = model.AspNetUsers.Find(id);
             if (listaccount == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "ErrorController");
             }
 
             return View(listaccount);

@@ -13,6 +13,7 @@ using CNTTFAQ.Models;
 
 namespace CNTTFAQ.Areas.Admin.Controllers
 {
+    [HandleError]
     [Authorize (Roles = "BCN Khoa")]
     public class ManageQuestionsController : Controller
     {
@@ -69,7 +70,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             var question = model.CAU_HOI.Find(id);
             if (question == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "ErrorController");
             }
             ViewBag.ID_DANH_MUC = new SelectList(model.DANH_MUC, "ID", "DANH_MUC1", question.DANH_MUC);
 
@@ -95,7 +96,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             var question = model.CAU_HOI.Find(id);
             if (question == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "ErrorController");
             }
 
             return View(question);
@@ -118,13 +119,13 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         }
 
         // GET: CAU_HOI / AdminManageQuestions
-        [OutputCache(CacheProfile = "Cache1DayForList")]
+        [OutputCache(CacheProfile = "Cache60Seconds")]
         public ActionResult Details(int id)
         {
             var question = model.CAU_HOI.Find(id);
             if (question == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "ErrorController");
             }
             return View(question);
         }

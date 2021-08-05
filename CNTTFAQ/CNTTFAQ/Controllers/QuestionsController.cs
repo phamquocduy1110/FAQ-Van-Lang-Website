@@ -11,6 +11,8 @@ using CNTTFAQ.Models;
 
 namespace CNTTFAQ.Controllers
 {
+    [HandleError]
+    [Authorize]
     public class QuestionsController : Controller
     {
         DIEUBANTHUONGHOIWEBSITEEntities model = new DIEUBANTHUONGHOIWEBSITEEntities();
@@ -68,7 +70,7 @@ namespace CNTTFAQ.Controllers
         }
 
         [AllowAnonymous]
-        [OutputCache(CacheProfile = "Cache1Day")]
+        [OutputCache(CacheProfile = "Cache60Seconds")]
         public ActionResult Search(string keyword, int? page)
         {
             var pageNumber = page ?? 1;
@@ -82,16 +84,15 @@ namespace CNTTFAQ.Controllers
 
         }
 
+        [OutputCache(CacheProfile = "Cache60Seconds")]
         public ActionResult Details(int id)
         {
             var question = model.CAU_HOI.Find(id);
-            question.LUOT_XEM++;
-
             if (question == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "ErrorController");
             }
-
+            question.LUOT_XEM++;
             model.SaveChanges();
             ViewBag.ResultMessage = TempData["ResultMessage"];
             return View(question);
