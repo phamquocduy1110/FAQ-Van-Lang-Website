@@ -10,6 +10,7 @@ using CNTTFAQ.Models;
 
 namespace CNTTFAQ.Areas.Admin.Controllers
 {
+    [HandleError]
     [Authorize(Roles = "BCN Khoa")]
     public class ManageCatalogController : Controller
     {
@@ -69,13 +70,12 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         }
 
         // GET: List of data from DANH_MUC /AdminManageCatalog
-        [HttpGet]
         public ActionResult Edit(int id)
         {
             var category = model.DANH_MUC.Find(id);
             if (category == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "ErrorController");
             }
             ViewBag.ID_TAI_KHOAN = new SelectList(model.AspNetUsers, "Id", "Email", category.AspNetUser);
 
@@ -108,7 +108,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             var category = model.DANH_MUC.Find(id);
             if (category == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "ErrorController");
             }
             return View(category);
         }
@@ -130,13 +130,13 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         }
 
         // GET: DANH_MUC / AdminManageCatalog
-        [OutputCache(CacheProfile = "Cache1DayForList")]
+        [OutputCache(CacheProfile = "Cache60Seconds")]
         public ActionResult Details(int id)
         {
             var category = model.DANH_MUC.Find(id);
             if (category == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "ErrorController");
             }
             return View(category);
         }

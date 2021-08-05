@@ -9,7 +9,7 @@ using CNTTFAQ.Models;
 
 namespace CNTTFAQ.Areas.Admin.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "BCN Khoa, Admin")]
     public class AdminHomeController : Controller
     {
         DIEUBANTHUONGHOIWEBSITEEntities model = new DIEUBANTHUONGHOIWEBSITEEntities();
