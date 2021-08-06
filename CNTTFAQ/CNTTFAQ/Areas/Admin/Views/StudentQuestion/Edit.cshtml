@@ -7,6 +7,17 @@
 }
 <head>
     <title>Chỉnh sửa câu hỏi</title>
+    <style>
+        .customize-input input:hover {
+            background: green !important;
+            color: #ffffff !important;
+        }
+
+        .customize-input input.cancel:hover {
+            background: #ff0000 !important;
+            color: #ffffff !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -83,13 +94,13 @@
                                         <div class="form-group">
                                             <h4 class="card-title">Tài khoản</h4>
                                             <div class="col-md-10">
-                                                @Html.TextBoxFor(model => model.ID_TAI_KHOAN, new { @class = "form-control", @readonly = "readonly" })
+                                                <input type="text" value="@Model.AspNetUser.Email" disabled class="form-control" />
                                                 @Html.ValidationMessageFor(model => model.ID_TAI_KHOAN, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <h4 class="card-title">Đã xem</h4>
+                                            <h4 class="card-title">Đã phản hồi</h4>
                                             <div class="col-md-10">
                                                 @Html.EditorFor(model => model.TRANG_THAI, new { htmlAttributes = new { @class = "form-control col-md-1" } })
                                                 @Html.ValidationMessageFor(model => model.TRANG_THAI, "", new { @class = "text-danger" })
@@ -104,7 +115,7 @@
 
                                         <div class="form-group">
                                             <div class="customize-input float-left" style="margin-left: 10px">
-                                                <input type="button" value="Hủy bỏ" onclick="return Confirmmessage()" style="color: red" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius" />
+                                                <input type="button" value="Hủy bỏ" onclick="return Confirmmessage()" style="color: red" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius cancel" />
                                             </div>
                                         </div>
                                     </div>

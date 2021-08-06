@@ -26,7 +26,6 @@ namespace CNTTFAQ.Areas.Admin.Controllers
 
 
         // GET: DANH_MUC / AdminManageCatalog
-        [HttpGet]
         public ActionResult Create()
         {
             ViewBag.ID_TAI_KHOAN = new SelectList(model.AspNetUsers, "Id", "Email");
@@ -45,7 +44,9 @@ namespace CNTTFAQ.Areas.Admin.Controllers
                     ModelState.AddModelError("DANH_MUC1", "Chủ đề này đã tồn tại. Mời bạn nhập chủ đề khác");
                     return View(f);
                 }
+
                 DANH_MUC category = new DANH_MUC();
+
                 if (HINH_ANH.ContentLength > 0)
                 {
                     f.HINH_ANH = HINH_ANH.FileName;
@@ -62,8 +63,8 @@ namespace CNTTFAQ.Areas.Admin.Controllers
                 category.ID_TAI_KHOAN = User.Identity.GetUserId();
                 model.DANH_MUC.Add(category);
                 model.SaveChanges();
-                return RedirectToAction("Index");
 
+                return RedirectToAction("Index");
             }
 
             return View(f);
