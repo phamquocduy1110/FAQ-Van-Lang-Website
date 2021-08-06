@@ -9,7 +9,6 @@ using CNTTFAQ.Models;
 
 namespace CNTTFAQ.Controllers
 {
-    [Authorize]
     public class HomeController : Controller
     {
         DIEUBANTHUONGHOIWEBSITEEntities model = new DIEUBANTHUONGHOIWEBSITEEntities();
