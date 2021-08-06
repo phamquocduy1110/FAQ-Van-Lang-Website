@@ -856,6 +856,7 @@
     <Content Include="Views\Questions\Details.cshtml" />
     <Content Include="Views\Questions\MaxQuestions.cshtml" />
     <Content Include="Views\Error\PageNotFound.cshtml" />
+    <Content Include="Views\Test\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
