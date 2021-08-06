@@ -24,8 +24,8 @@ namespace CNTTFAQ.Models
         public int ID { get; set; }
 
         [Required(ErrorMessage = "Trường thông tin câu hỏi là bắt buộc")]
+        [MinLength(5, ErrorMessage = "Tên câu hỏi phải tối thiếu ít nhất là 5 kí tự")]
         public string CAU_HOI1 { get; set; }
-
         public string MO_TA { get; set; }
         public Nullable<System.DateTime> NGAY_TAO { get; set; }
         public int ID_DANH_MUC { get; set; }

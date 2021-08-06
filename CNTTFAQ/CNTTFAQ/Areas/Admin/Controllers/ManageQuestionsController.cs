@@ -30,6 +30,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         public ActionResult Create()
         {
             ViewBag.ID_DANH_MUC = new SelectList(model.DANH_MUC, "ID", "DANH_MUC1");
+            ViewBag.ID_TAI_KHOAN = new SelectList(model.AspNetUsers, "Id", "Email");
             return View();
         }
 
@@ -40,8 +41,6 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var QuestionAlreadyExists = model.CAU_HOI.Any(x => x.CAU_HOI1 == f.CAU_HOI1);
-                ViewBag.ID_DANH_MUC = new SelectList(model.DANH_MUC, "ID", "DANH_MUC1", f.CAU_HOI1);
-
                 if (QuestionAlreadyExists)
                 {
                     ModelState.AddModelError("CAU_HOI1", "Câu hỏi này đã tồn tại. Mời bạn nhập câu hỏi khác");
@@ -58,6 +57,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
                 question.DUYET_DANG = f.DUYET_DANG;
                 model.CAU_HOI.Add(question);
                 model.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 

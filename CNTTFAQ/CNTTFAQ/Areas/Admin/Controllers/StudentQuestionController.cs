@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace CNTTFAQ.Areas.Admin.Controllers
 {
+    [HandleError]
     [Authorize(Roles = "BCN Khoa")]
     public class StudentQuestionController : Controller
     {
@@ -27,7 +28,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             var askquestion = model.GUI_CAU_HOI.Find(id);
             if (askquestion == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "ErrorController");
             }
 
             return View(askquestion);
@@ -53,7 +54,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             var studentquestion = model.GUI_CAU_HOI.Find(id);
             if (studentquestion == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "ErrorController");
             }
 
             return View(studentquestion);
@@ -81,7 +82,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             var studentquestion = model.GUI_CAU_HOI.Find(id);
             if (studentquestion == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "ErrorController");
             }
             return View(studentquestion);
         }

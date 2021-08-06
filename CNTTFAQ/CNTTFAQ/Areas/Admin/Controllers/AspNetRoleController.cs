@@ -64,6 +64,8 @@ namespace CNTTFAQ.Areas.Admin.Controllers
                 aspNetRole.Id = Guid.NewGuid().ToString();
                 db.AspNetRoles.Add(aspNetRole);
                 db.SaveChanges();
+
+                return RedirectToAction("Index");
             }
 
             return View(aspNetRole);
