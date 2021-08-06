@@ -9,6 +9,8 @@ using System.Web.Mvc;
 
 namespace CNTTFAQ.Areas.Admin.Controllers
 {
+    [HandleError]
+    [Authorize(Roles = "BCN Khoa")]
     public class CommentController : Controller
     {
         DIEUBANTHUONGHOIWEBSITEEntities model = new DIEUBANTHUONGHOIWEBSITEEntities();
@@ -48,7 +50,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             var comment = model.CAU_TRA_LOI.Find(id);
             if (comment == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "ErrorController");
             }
             ViewBag.ID_CAU_HOI = new SelectList(model.CAU_HOI, "ID", "CAU_HOI1", comment.CAU_HOI);
 
@@ -73,7 +75,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             var comment = model.CAU_TRA_LOI.Find(id);
             if (comment == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "ErrorController");
             }
 
             return View(comment);
@@ -96,13 +98,13 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         }
 
         // GET: CAU_TRA_LOI / Comment
-        [OutputCache(CacheProfile = "Cache1DayForList")]
+        [OutputCache(CacheProfile = "Cache60Seconds")]
         public ActionResult Details(int id)
         {
             var comment = model.CAU_TRA_LOI.Find(id);
             if (comment == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "ErrorController");
             }
             return View(comment);
         }

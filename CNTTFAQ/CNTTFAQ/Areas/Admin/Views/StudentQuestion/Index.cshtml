@@ -7,6 +7,12 @@
 }
 <head>
     <title>Câu hỏi từ sinh viên</title>
+    <style>
+        .customize-input button:hover {
+            background: green !important;
+            color: #ffffff !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -31,6 +37,13 @@
                                     <li class="breadcrumb-item text-muted active" aria-current="page">Câu hỏi từ sinh viên</li>
                                 </ol>
                             </nav>
+                        </div>
+                    </div>
+                    <div class="col-5 align-self-center">
+                        <div class="customize-input float-right">
+                            <button onclick="location.href='@Url.Action("Index", "EmailSetup")'" style="color: green; font-family: Rubik,sans-serif; font-size: 18px" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius">
+                                <i><b>+ Gửi mail phản hồi</b></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -60,7 +73,7 @@
                                                 <th>Họ và Tên</th>
                                                 <th>Tài khoản</th>
                                                 <th>Câu hỏi</th>
-                                                <th>Đã xem</th>
+                                                <th>Đã phản hồi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -104,7 +117,7 @@
                                                 <th>Họ và Tên</th>
                                                 <th>Tài khoản</th>
                                                 <th>Câu hỏi</th>
-                                                <th>Đã xem</th>
+                                                <th>Đã phản hồi</th>
                                             </tr>
                                         </tfoot>
                                     </table>

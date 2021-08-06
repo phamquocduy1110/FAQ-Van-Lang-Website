@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace CNTTFAQ.Areas.Admin.Controllers
 {
+    [HandleError]
     [Authorize(Roles = "BCN Khoa")]
     public class StudentQuestionController : Controller
     {
@@ -21,32 +22,13 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             return View(studentquestion);
         }
 
-        public ActionResult SendMail()
-        {
-            string recipient = Request["to"];
-            string subject = Request["subject"];
-            string body = Request["body"];
-
-            WebMail.SmtpServer = "smtp.gmail.com";
-            WebMail.SmtpPort = 587;
-            WebMail.SmtpUseDefaultCredentials = true;
-            WebMail.EnableSsl = true;
-
-            WebMail.UserName = "Email address";
-            WebMail.Password = "Password";
-
-            WebMail.Send(to: recipient, subject: subject, body: body, isBodyHtml: true);
-
-            return View();
-        }
-
         // GET: List of data from CAU_HOI /AdminManageQuestions
         public ActionResult Edit(int id)
         {
             var askquestion = model.GUI_CAU_HOI.Find(id);
             if (askquestion == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "ErrorController");
             }
 
             return View(askquestion);
@@ -58,7 +40,6 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         {
             var askquestion = model.GUI_CAU_HOI.FirstOrDefault(x => x.ID == id);
             askquestion.HO_TEN = f.HO_TEN;
-            askquestion.ID_TAI_KHOAN = f.ID_TAI_KHOAN;
             askquestion.CAU_HOI_MUON_HOI = f.CAU_HOI_MUON_HOI;
             askquestion.TRANG_THAI = f.TRANG_THAI;
             askquestion.MO_TA = f.MO_TA;
@@ -72,7 +53,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             var studentquestion = model.GUI_CAU_HOI.Find(id);
             if (studentquestion == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "ErrorController");
             }
 
             return View(studentquestion);
@@ -100,7 +81,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             var studentquestion = model.GUI_CAU_HOI.Find(id);
             if (studentquestion == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "ErrorController");
             }
             return View(studentquestion);
         }

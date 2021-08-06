@@ -13,6 +13,7 @@ using CNTTFAQ.Models;
 
 namespace CNTTFAQ.Areas.Admin.Controllers
 {
+    [HandleError]
     [Authorize (Roles = "BCN Khoa")]
     public class ManageQuestionsController : Controller
     {
@@ -29,6 +30,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         public ActionResult Create()
         {
             ViewBag.ID_DANH_MUC = new SelectList(model.DANH_MUC, "ID", "DANH_MUC1");
+            ViewBag.ID_TAI_KHOAN = new SelectList(model.AspNetUsers, "Id", "Email");
             return View();
         }
 
@@ -36,17 +38,30 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         [HttpPost, ValidateInput(false)]
         public ActionResult Create(CAU_HOI f)
         {
-            var question = new CAU_HOI();
+            if (ModelState.IsValid)
+            {
+                var QuestionAlreadyExists = model.CAU_HOI.Any(x => x.CAU_HOI1 == f.CAU_HOI1);
+                if (QuestionAlreadyExists)
+                {
+                    ModelState.AddModelError("CAU_HOI1", "Câu hỏi này đã tồn tại. Mời bạn nhập câu hỏi khác");
+                    return View(f);
+                }
 
-            question.CAU_HOI1 = f.CAU_HOI1;
-            question.MO_TA = f.MO_TA;
-            question.ID_DANH_MUC = f.ID_DANH_MUC;
-            question.NGAY_TAO = DateTime.Now;
-            question.ID_TAI_KHOAN = User.Identity.GetUserId();
-            question.DUYET_DANG = f.DUYET_DANG;
-            model.CAU_HOI.Add(question);
-            model.SaveChanges();
-            return RedirectToAction("Index");
+                CAU_HOI question = new CAU_HOI();
+
+                question.CAU_HOI1 = f.CAU_HOI1;
+                question.MO_TA = f.MO_TA;
+                question.ID_DANH_MUC = f.ID_DANH_MUC;
+                question.NGAY_TAO = DateTime.Now;
+                question.ID_TAI_KHOAN = User.Identity.GetUserId();
+                question.DUYET_DANG = f.DUYET_DANG;
+                model.CAU_HOI.Add(question);
+                model.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+
+            return View(f);
         }
 
         // GET: List of data from CAU_HOI /AdminManageQuestions
@@ -55,7 +70,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             var question = model.CAU_HOI.Find(id);
             if (question == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "ErrorController");
             }
             ViewBag.ID_DANH_MUC = new SelectList(model.DANH_MUC, "ID", "DANH_MUC1", question.DANH_MUC);
 
@@ -67,7 +82,6 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         public ActionResult Edit(int id, CAU_HOI f)
         {
             var question = model.CAU_HOI.FirstOrDefault(x => x.ID == id);
-            question.CAU_HOI1 = f.CAU_HOI1;
             question.MO_TA = f.MO_TA;
             question.ID_DANH_MUC = f.ID_DANH_MUC;
             question.ID_TAI_KHOAN = User.Identity.GetUserId();
@@ -82,7 +96,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             var question = model.CAU_HOI.Find(id);
             if (question == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "ErrorController");
             }
 
             return View(question);
@@ -105,13 +119,13 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         }
 
         // GET: CAU_HOI / AdminManageQuestions
-        [OutputCache(CacheProfile = "Cache1DayForList")]
+        [OutputCache(CacheProfile = "Cache60Seconds")]
         public ActionResult Details(int id)
         {
             var question = model.CAU_HOI.Find(id);
             if (question == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "ErrorController");
             }
             return View(question);
         }

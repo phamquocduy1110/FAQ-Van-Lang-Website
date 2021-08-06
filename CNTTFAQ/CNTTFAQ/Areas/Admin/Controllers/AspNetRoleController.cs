@@ -10,6 +10,7 @@ using CNTTFAQ.Models;
 
 namespace CNTTFAQ.Areas.Admin.Controllers
 {
+    [HandleError]
     [Authorize(Roles = "Admin")]
     public class AspNetRoleController : Controller
     {
@@ -22,7 +23,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         }
 
         // GET: AspNetRole/Details/5
-        [OutputCache(CacheProfile = "Cache1DayForList")]
+        [OutputCache(CacheProfile = "Cache60Seconds")]
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -32,7 +33,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             AspNetRole aspNetRole = db.AspNetRoles.Find(id);
             if (aspNetRole == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "ErrorController");
             }
             return View(aspNetRole);
         }
@@ -52,9 +53,18 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                var RoleAlreadyExists = db.AspNetRoles.Any(x => x.Name == aspNetRole.Name);
+
+                if(RoleAlreadyExists)
+                {
+                    ModelState.AddModelError("Name", "Quyền này đã tồn tại. Mời bạn nhập quyền khác");
+                    return View(aspNetRole);
+                }
+
                 aspNetRole.Id = Guid.NewGuid().ToString();
                 db.AspNetRoles.Add(aspNetRole);
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 
@@ -71,7 +81,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             AspNetRole aspNetRole = db.AspNetRoles.Find(id);
             if (aspNetRole == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "ErrorController");
             }
             return View(aspNetRole);
         }
@@ -102,7 +112,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             AspNetRole aspNetRole = db.AspNetRoles.Find(id);
             if (aspNetRole == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "ErrorController");
             }
             return View(aspNetRole);
         }

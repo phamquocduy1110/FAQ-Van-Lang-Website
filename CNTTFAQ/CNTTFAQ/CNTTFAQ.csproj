@@ -198,6 +198,7 @@
     <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\AuthController.cs" />
     <Compile Include="Areas\Admin\Controllers\CommentController.cs" />
+    <Compile Include="Areas\Admin\Controllers\EmailSetupController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageAccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageCatalogController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageQuestionsController.cs" />
@@ -205,6 +206,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\AspNetRoleUserController.cs" />
     <Compile Include="Areas\Admin\Controllers\AspNetRoleController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
@@ -236,6 +238,7 @@
     <Compile Include="Models\DANH_MUC.cs">
       <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MailModel.cs" />
     <Compile Include="Models\GUI_CAU_HOI.cs">
       <DependentUpon>QuanLyCauHoi.tt</DependentUpon>
     </Compile>
@@ -332,6 +335,7 @@
     <Content Include="Assets\images\backgrounds\cloud_full_3.png" />
     <Content Include="Assets\images\backgrounds\LOGIN1.png" />
     <Content Include="Assets\images\backgrounds\FAQ2_BG.png" />
+    <Content Include="Assets\images\backgrounds\404-PageNotFound.png" />
     <Content Include="Assets\images\backgrounds\preloader.jpg" />
     <Content Include="Assets\images\backgrounds\transaction-background-1.jpeg" />
     <Content Include="Assets\images\backgrounds\transaction-background-2.jpeg" />
@@ -426,6 +430,10 @@
     <Content Include="Assets\js\HostSpaceUserPageJS\ScrollToPlugin.min.js" />
     <Content Include="Assets\js\HostSpaceUserPageJS\TimelineMax.min.js" />
     <Content Include="Assets\js\HostSpaceUserPageJS\TweenMax.min.js" />
+    <Content Include="Assets\js\Login2Css\bootstrap.min.js" />
+    <Content Include="Assets\js\Login2Css\jquery.min.js" />
+    <Content Include="Assets\js\Login2Css\main.js" />
+    <Content Include="Assets\js\Login2Css\popper.js" />
     <Content Include="Assets\js\LoginJS\bootstrap.min.js" />
     <Content Include="Assets\js\LoginJS\jquery-3.3.1.min.js" />
     <Content Include="Assets\js\LoginJS\main.js" />
@@ -749,7 +757,6 @@
     <Content Include="Areas\Admin\Views\StudentQuestion\Index.cshtml" />
     <Content Include="Areas\Admin\Views\StudentQuestion\Details.cshtml" />
     <Content Include="Areas\Admin\Views\StudentQuestion\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\StudentQuestion\SendMail.cshtml" />
     <Content Include="Assets\css\PortaUserPageCss\style.css.map" />
     <Content Include="Assets\css\PortaUserPageCss\style.scss" />
     <Content Include="Assets\vendor\ArshaUserPageVendor\bootstrap-icons\bootstrap-icons.json" />
@@ -794,7 +801,7 @@
       <DependentUpon>QuanLyCauHoi.edmx</DependentUpon>
     </Content>
     <Content Include="Areas\Admin\Views\StudentQuestion\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\StudentQuestion\Test.cshtml" />
+    <Content Include="Areas\Admin\Views\EmailSetup\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -848,6 +855,7 @@
     <Content Include="Areas\Admin\Views\AspNetRoleUser\Create.cshtml" />
     <Content Include="Views\Questions\Details.cshtml" />
     <Content Include="Views\Questions\MaxQuestions.cshtml" />
+    <Content Include="Views\Error\PageNotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />

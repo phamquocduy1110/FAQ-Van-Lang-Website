@@ -4,13 +4,16 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Login 10</title>
+    <title>Đăng nhập</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Favicon -->
+    <link href="@Url.Content("~/Assets/images/logo/VanLangLogoPage.png")" rel="shortcut icon" />
 
     <link rel="stylesheet" href="@Url.Content("~/Assets/css/Login2Css/style.css")">
 
@@ -21,7 +24,7 @@
     </video>
     <section class="ftco-section">
         <div class="container">
-            <div class="row justify-content-center" style="margin-top: 50px !important">
+            <div class="row justify-content-center" style="margin-top: 40px !important">
                 <div class="col-md-6 text-center mb-5" style="margin-bottom: 20px !important">
                     <h2 class="heading-section">Chào mừng đến với</h2>
                 </div>
@@ -29,8 +32,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-6 col-lg-4">
                     <div class="login-wrap p-0">
-                        <img src="@Url.Content("~/Assets/images/logo/Nav-Logo.png")" width="200" style="margin-left: 70px" />
-                        <h3 class="mb-4 text-center"><b>Đăng nhập</b></h3>
+                        <img src="@Url.Content("~/Assets/images/logo/Nav-Logo.png")" width="200" style="margin-left: 70px; margin-bottom: 1.5rem !important" />
                         @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                         {
                             @Html.AntiForgeryToken()
@@ -51,7 +53,7 @@
                                 <div class="w-50">
                                     <label class="checkbox-wrap checkbox-primary" style="color: white">
                                         Ghi nhớ
-                                        <input type="checkbox" checked>
+                                        @Html.CheckBoxFor(m => m.RememberMe)
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
@@ -70,10 +72,10 @@
         </div>
     </section>
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
-
+    <!----Login Scripts----->
+    <script src="@Url.Content("~/Assets/js/Login2Css/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Assets/js/Login2Css/popper.js")"></script>
+    <script src="@Url.Content("~/Assets/js/Login2Css/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/Assets/js/Login2Css/main.js")"></script>
 </body>
 </html>

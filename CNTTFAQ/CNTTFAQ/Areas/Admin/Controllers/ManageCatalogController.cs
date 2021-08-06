@@ -10,6 +10,7 @@ using CNTTFAQ.Models;
 
 namespace CNTTFAQ.Areas.Admin.Controllers
 {
+    [HandleError]
     [Authorize(Roles = "BCN Khoa")]
     public class ManageCatalogController : Controller
     {
@@ -25,7 +26,6 @@ namespace CNTTFAQ.Areas.Admin.Controllers
 
 
         // GET: DANH_MUC / AdminManageCatalog
-        [HttpGet]
         public ActionResult Create()
         {
             ViewBag.ID_TAI_KHOAN = new SelectList(model.AspNetUsers, "Id", "Email");
@@ -36,34 +36,47 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         [HttpPost, ValidateInput(false)]
         public ActionResult Create(DANH_MUC f, HttpPostedFileBase HINH_ANH)
         {
-            var category = new DANH_MUC();
-            if (HINH_ANH.ContentLength > 0)
+            if(ModelState.IsValid)
             {
-                f.HINH_ANH = HINH_ANH.FileName;
-                string FolderPath = Path.Combine(Server.MapPath("~/Images/"), f.HINH_ANH);
-                HINH_ANH.SaveAs(FolderPath);
+                var CatalogAlreadyExits = model.DANH_MUC.Any(x => x.DANH_MUC1 == f.DANH_MUC1);
+                if(CatalogAlreadyExits)
+                {
+                    ModelState.AddModelError("DANH_MUC1", "Chủ đề này đã tồn tại. Mời bạn nhập chủ đề khác");
+                    return View(f);
+                }
 
-                string path = "/SEP24Team11/Images/" + f.HINH_ANH;
-                category.HINH_ANH = path;
+                DANH_MUC category = new DANH_MUC();
+
+                if (HINH_ANH.ContentLength > 0)
+                {
+                    f.HINH_ANH = HINH_ANH.FileName;
+                    string FolderPath = Path.Combine(Server.MapPath("~/Images/"), f.HINH_ANH);
+                    HINH_ANH.SaveAs(FolderPath);
+
+                    string path = "/SEP24Team11/Images/" + f.HINH_ANH;
+                    category.HINH_ANH = path;
+                }
+
+                category.DANH_MUC1 = f.DANH_MUC1;
+                category.MO_TA = f.MO_TA;
+                category.NGAY_TAO = DateTime.Now;
+                category.ID_TAI_KHOAN = User.Identity.GetUserId();
+                model.DANH_MUC.Add(category);
+                model.SaveChanges();
+
+                return RedirectToAction("Index");
             }
 
-            category.DANH_MUC1 = f.DANH_MUC1;
-            category.MO_TA = f.MO_TA;
-            category.NGAY_TAO = DateTime.Now;
-            category.ID_TAI_KHOAN = User.Identity.GetUserId();
-            model.DANH_MUC.Add(category);
-            model.SaveChanges();
-            return RedirectToAction("Index");
+            return View(f);
         }
 
         // GET: List of data from DANH_MUC /AdminManageCatalog
-        [HttpGet]
         public ActionResult Edit(int id)
         {
             var category = model.DANH_MUC.Find(id);
             if (category == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "ErrorController");
             }
             ViewBag.ID_TAI_KHOAN = new SelectList(model.AspNetUsers, "Id", "Email", category.AspNetUser);
 
@@ -84,7 +97,6 @@ namespace CNTTFAQ.Areas.Admin.Controllers
                 string path = "/SEP24Team11/Images/" + f.HINH_ANH;
                 category.HINH_ANH = path;
             }
-            category.DANH_MUC1 = f.DANH_MUC1;
             category.MO_TA = f.MO_TA;
             category.ID_TAI_KHOAN = User.Identity.GetUserId();
             model.SaveChanges();
@@ -97,7 +109,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             var category = model.DANH_MUC.Find(id);
             if (category == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "ErrorController");
             }
             return View(category);
         }
@@ -119,13 +131,13 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         }
 
         // GET: DANH_MUC / AdminManageCatalog
-        [OutputCache(CacheProfile = "Cache1DayForList")]
+        [OutputCache(CacheProfile = "Cache60Seconds")]
         public ActionResult Details(int id)
         {
             var category = model.DANH_MUC.Find(id);
             if (category == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "ErrorController");
             }
             return View(category);
         }
