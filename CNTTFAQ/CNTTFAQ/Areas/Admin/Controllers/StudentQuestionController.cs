@@ -40,7 +40,6 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         {
             var askquestion = model.GUI_CAU_HOI.FirstOrDefault(x => x.ID == id);
             askquestion.HO_TEN = f.HO_TEN;
-            askquestion.ID_TAI_KHOAN = f.ID_TAI_KHOAN;
             askquestion.CAU_HOI_MUON_HOI = f.CAU_HOI_MUON_HOI;
             askquestion.TRANG_THAI = f.TRANG_THAI;
             askquestion.MO_TA = f.MO_TA;
