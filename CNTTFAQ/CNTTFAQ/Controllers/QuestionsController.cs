@@ -12,7 +12,6 @@ using CNTTFAQ.Models;
 namespace CNTTFAQ.Controllers
 {
     [HandleError]
-    [Authorize]
     public class QuestionsController : Controller
     {
         DIEUBANTHUONGHOIWEBSITEEntities model = new DIEUBANTHUONGHOIWEBSITEEntities();
@@ -63,6 +62,7 @@ namespace CNTTFAQ.Controllers
 
         // GET: Question by Category / Questions
         [AllowAnonymous]
+        [OutputCache(Duration = 60)]
         public PartialViewResult CategoryPartical()
         {
             var categoryList = model.DANH_MUC.OrderByDescending(x => x.DANH_MUC1).ToList();
@@ -84,7 +84,6 @@ namespace CNTTFAQ.Controllers
 
         }
 
-        [OutputCache(CacheProfile = "Cache60Seconds")]
         public ActionResult Details(int id)
         {
             var question = model.CAU_HOI.Find(id);

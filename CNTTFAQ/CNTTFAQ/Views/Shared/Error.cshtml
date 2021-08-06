@@ -3,7 +3,32 @@
 @{
     ViewBag.Title = "Error";
 }
+<!DOCTYPE html>
 
-<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>404-PageNotFound</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
 
+        .bg {
+            /* The image used */
+            background-image: url('@Url.Content("~/Assets/images/backgrounds/404-PageNotFound.png")');
+            /* Full height */
+            height: 100%;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg"></div>
+</body>
+</html>
