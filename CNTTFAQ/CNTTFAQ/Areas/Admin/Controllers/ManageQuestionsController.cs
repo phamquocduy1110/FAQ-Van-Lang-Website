@@ -38,6 +38,8 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         [HttpPost, ValidateInput(false)]
         public ActionResult Create(CAU_HOI f)
         {
+            ViewBag.ID_DANH_MUC = new SelectList(model.DANH_MUC, "ID", "DANH_MUC1", f.DANH_MUC);
+
             if (ModelState.IsValid)
             {
                 var QuestionAlreadyExists = model.CAU_HOI.Any(x => x.CAU_HOI1 == f.CAU_HOI1);
@@ -73,7 +75,6 @@ namespace CNTTFAQ.Areas.Admin.Controllers
                 return RedirectToAction("Error", "ErrorController");
             }
             ViewBag.ID_DANH_MUC = new SelectList(model.DANH_MUC, "ID", "DANH_MUC1", question.DANH_MUC);
-
             return View(question);
         }
 

@@ -18,7 +18,8 @@ namespace CNTTFAQ.Models
         public int ID { get; set; }
         public int ID_CAU_HOI { get; set; }
 
-        [Required(ErrorMessage = "Mời bạn nhập câu trả lời")]
+        [Required(ErrorMessage = "Mời bạn nhập câu trả lời vào ô này")]
+        [MinLength(5, ErrorMessage = "Nội dung câu trả lời phải tối thiếu ít nhất là 5 kí tự")]
         public string CAU_TRA_LOI1 { get; set; }
 
         public Nullable<System.DateTime> NGAY_TRA_LOI { get; set; }
