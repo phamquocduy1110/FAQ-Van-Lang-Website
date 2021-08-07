@@ -79,9 +79,7 @@
                                         <div class="form-group">
                                             <h4 class="card-title">Trả lời</h4>
                                             <div class="col-md-10">
-                                                <textarea type="text" name="CAU_TRA_LOI1" placeholder="Hãy nhập mô tả của bạn vào đây" class="form-control" required
-                                                          oninvalid="this.setCustomValidity('Mời bạn nhập câu trả lời vào ô này')"
-                                                          oninput="this.setCustomValidity('')"></textarea>                                                
+                                                <textarea type="text" name="CAU_TRA_LOI1" class="form-control" required title="Mời bạn nhập câu trả lời vào ô này"></textarea>
                                                 @Html.ValidationMessageFor(model => model.CAU_TRA_LOI1, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -135,10 +133,10 @@
     @Scripts.Render("~/bundles/jqueryval")
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
-        tinymce.init({
+        @*tinymce.init({
             selector: '#CAU_TRA_LOI1',
             menubar: false
-        });
+        });*@
 
         function Confirmmessage() {
             var alert = confirm("Cảnh báo: quá trình chưa hoàn tất! Xác nhận nếu như bạn muốn hủy bỏ?");

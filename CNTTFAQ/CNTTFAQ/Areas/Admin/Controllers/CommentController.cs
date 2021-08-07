@@ -33,15 +33,22 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         [HttpPost, ValidateInput(false)]
         public ActionResult Create(CAU_TRA_LOI f)
         {
-            var comment = new CAU_TRA_LOI();
+            ViewBag.ID_CAU_HOI = new SelectList(model.CAU_HOI, "ID", "CAU_HOI1", f.CAU_HOI);
 
-            comment.ID_CAU_HOI = f.ID_CAU_HOI;
-            comment.CAU_TRA_LOI1 = f.CAU_TRA_LOI1;
-            comment.NGAY_TRA_LOI = DateTime.Now;
-            comment.ID_TAI_KHOAN = User.Identity.GetUserId();
-            model.CAU_TRA_LOI.Add(comment);
-            model.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                CAU_TRA_LOI comment = new CAU_TRA_LOI();
+
+                comment.ID_CAU_HOI = f.ID_CAU_HOI;
+                comment.CAU_TRA_LOI1 = f.CAU_TRA_LOI1;
+                comment.NGAY_TRA_LOI = DateTime.Now;
+                comment.ID_TAI_KHOAN = User.Identity.GetUserId();
+                model.CAU_TRA_LOI.Add(comment);
+                model.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(f);
         }
 
         // GET: CAU_TRA_LOI / Comment

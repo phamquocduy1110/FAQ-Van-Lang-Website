@@ -44,10 +44,8 @@ namespace CNTTFAQ.Areas.Admin.Controllers
                 smtp.Send(mail);
                 return RedirectToAction("Index", "StudentQuestion", _objModelMail);
             }
-            else
-            {
-                return View();
-            }
+
+            return View(_objModelMail);
         }
     }
 }
