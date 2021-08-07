@@ -95,9 +95,18 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(aspNetRole).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                var RoleAlreadyExists = db.AspNetRoles.Any(x => x.Name == aspNetRole.Name);
+                if(RoleAlreadyExists)
+                {
+                    ModelState.AddModelError("Name", "Quyền này đã tồn tại. Mời bạn nhập quyền khác");
+                    return View(aspNetRole);
+                }
+                else
+                {
+                    db.Entry(aspNetRole).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
             return View(aspNetRole);
         }
