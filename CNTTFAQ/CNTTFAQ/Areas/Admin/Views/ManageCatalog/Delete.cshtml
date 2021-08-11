@@ -7,6 +7,7 @@
 }
 <head>
     <title>Xóa chủ đề</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <style>
         .customize-input input:hover {
             background: green !important;
@@ -19,7 +20,6 @@
         }
     </style>
 </head>
-
 <body>
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
@@ -28,6 +28,14 @@
         <!-- ============================================================== -->
         <div class="page-wrapper">
             <div class="container-fluid">
+                @if (ViewBag.ResultMessage != null)
+                {
+                    <script type="text/javascript">
+                        window.onload = function () {
+                            alert("@ViewBag.ResultMessage");
+                        }
+                    </script>
+                }
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->

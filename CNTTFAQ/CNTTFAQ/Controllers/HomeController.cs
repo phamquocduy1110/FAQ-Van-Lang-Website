@@ -37,17 +37,22 @@ namespace CNTTFAQ.Controllers
         [HttpPost, ValidateInput(false)]
         public ActionResult Index(GUI_CAU_HOI f)
         {
-            var askquestion = new GUI_CAU_HOI();
+            if (ModelState.IsValid)
+            {
+                var askquestion = new GUI_CAU_HOI();
 
-            askquestion.HO_TEN = f.HO_TEN;
-            askquestion.ID_TAI_KHOAN = User.Identity.GetUserId();
-            askquestion.CAU_HOI_MUON_HOI = f.CAU_HOI_MUON_HOI;
-            askquestion.MO_TA = f.MO_TA;
-            askquestion.NGAY_CHINH_SUA = DateTime.Now;
-            model.GUI_CAU_HOI.Add(askquestion);
-            model.SaveChanges();
-            TempData["ResultMessage"] = "Post successfully.";
-            return RedirectToAction("Index", "Home");
+                askquestion.HO_TEN = f.HO_TEN;
+                askquestion.ID_TAI_KHOAN = User.Identity.GetUserId();
+                askquestion.CAU_HOI_MUON_HOI = f.CAU_HOI_MUON_HOI;
+                askquestion.MO_TA = f.MO_TA;
+                askquestion.NGAY_CHINH_SUA = DateTime.Now;
+                model.GUI_CAU_HOI.Add(askquestion);
+                model.SaveChanges();
+                TempData["ResultMessage"] = "Post successfully.";
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View(f);
         }
     }
 }

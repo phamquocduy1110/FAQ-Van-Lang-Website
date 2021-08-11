@@ -100,6 +100,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
                 return RedirectToAction("Error", "ErrorController");
             }
 
+            ViewBag.ResultMessage = TempData["ResultMessage"];
             return View(question);
         }
 
@@ -108,14 +109,23 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirm(int id)
         {
-            using(var scope = new TransactionScope())
+            var CheckExitstsQuestion = model.CAU_TRA_LOI.OrderByDescending(x => x.ID).Where(x => x.ID_CAU_HOI == id).Count();
+            if (CheckExitstsQuestion != 0)
             {
-                var question = model.CAU_HOI.Find(id);
-                model.CAU_HOI.Remove(question);
-                model.SaveChanges();
+                TempData["ResultMessage"] = "This catalog cannot be deleted because there is an existing question comment";
+                return RedirectToAction("Delete", "ManageQuestions");
+            }
+            else
+            {
+                using (var scope = new TransactionScope())
+                {
+                    var question = model.CAU_HOI.Find(id);
+                    model.CAU_HOI.Remove(question);
+                    model.SaveChanges();
 
-                scope.Complete();
-                return RedirectToAction("Index");
+                    scope.Complete();
+                    return RedirectToAction("Index");
+                }
             }
         }
 
