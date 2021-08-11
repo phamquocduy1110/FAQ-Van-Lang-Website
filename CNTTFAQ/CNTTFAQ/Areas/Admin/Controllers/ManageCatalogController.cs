@@ -7,6 +7,7 @@ using System.IO;
 using System.Transactions;
 using System.Web.Mvc;
 using CNTTFAQ.Models;
+using System.Web.Services.Description;
 
 namespace CNTTFAQ.Areas.Admin.Controllers
 {
@@ -63,7 +64,6 @@ namespace CNTTFAQ.Areas.Admin.Controllers
                 category.ID_TAI_KHOAN = User.Identity.GetUserId();
                 model.DANH_MUC.Add(category);
                 model.SaveChanges();
-
                 return RedirectToAction("Index");
             }
 
@@ -111,6 +111,8 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             {
                 return RedirectToAction("Error", "ErrorController");
             }
+
+            ViewBag.ResultMessage = TempData["ResultMessage"];
             return View(category);
         }
 
@@ -119,14 +121,24 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirm(int id)
         {
-            using (var scope = new TransactionScope())
-            {
-                var category = model.DANH_MUC.Find(id);
-                model.DANH_MUC.Remove(category);
-                model.SaveChanges();
 
-                scope.Complete();
-                return RedirectToAction("Index");
+            var CheckExitstsQuestion = model.CAU_HOI.OrderByDescending(x => x.ID).Where(x => x.ID_DANH_MUC == id).Count();
+            if(CheckExitstsQuestion != 0)
+            {
+                TempData["ResultMessage"] = "This catalog cannot be deleted because there is an existing question";
+                return RedirectToAction("Delete", "ManageCatalog");
+            }
+            else
+            {
+                using (var scope = new TransactionScope())
+                {
+                    var category = model.DANH_MUC.Find(id);
+                    model.DANH_MUC.Remove(category);
+                    model.SaveChanges();
+
+                    scope.Complete();
+                    return RedirectToAction("Index");
+                }
             }
         }
 

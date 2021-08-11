@@ -28,6 +28,14 @@
         <!-- ============================================================== -->
         <div class="page-wrapper">
             <div class="container-fluid">
+                @if (ViewBag.ResultMessage != null)
+                {
+                    <script type="text/javascript">
+                        window.onload = function () {
+                            alert("@ViewBag.ResultMessage");
+                        }
+                    </script>
+                }
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->

@@ -32,7 +32,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-6 col-lg-4">
                     <div class="login-wrap p-0">
-                        <img src="@Url.Content("~/Assets/images/logo/Nav-Logo.png")" width="200" style="margin-left: 70px; margin-bottom: 1.5rem !important" />
+                        <img src="@Url.Content("~/Assets/images/logo/Nav-Logo.png")" width="200" style="margin-left: 70px; margin-bottom: 1.5rem !important" alt="FAQ IT Văn Lang"/>
                         @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                         {
                             @Html.AntiForgeryToken()
