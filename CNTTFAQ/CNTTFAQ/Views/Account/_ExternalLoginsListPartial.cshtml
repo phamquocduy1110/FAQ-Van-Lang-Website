@@ -23,7 +23,9 @@
                     @foreach (AuthenticationDescription p in loginProviders)
                     {
 
-                        <button type="submit" class="btn btn-block btn-dark" style="background-color: orangered; border-color: orangered" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>
+                        <button type="submit" style="background-color: orangered !important; border: orangered !important" class="form-control btn btn-primary submit px-3" style="background-color: orangered; border-color: orangered" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">
+                            Office 365 Văn Lang
+                        </button>
                         }
                 </p>
             </div>

@@ -24,14 +24,14 @@ namespace CNTTFAQ.Models
         public int ID { get; set; }
 
         [Required(ErrorMessage = "Trường thông tin câu hỏi là bắt buộc")]
+        [MinLength(5, ErrorMessage = "Tên câu hỏi phải tối thiếu ít nhất là 5 kí tự")]
         public string CAU_HOI1 { get; set; }
-
         public string MO_TA { get; set; }
         public Nullable<System.DateTime> NGAY_TAO { get; set; }
         public int ID_DANH_MUC { get; set; }
         public string ID_TAI_KHOAN { get; set; }
         public int LUOT_XEM { get; set; }
-        public Nullable<bool> DUYET_DANG { get; set; }
+        public bool DUYET_DANG { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
         public virtual DANH_MUC DANH_MUC { get; set; }

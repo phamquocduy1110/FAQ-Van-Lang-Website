@@ -1,0 +1,170 @@
+﻿@model CNTTFAQ.Models.GUI_CAU_HOI
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<head>
+    <title>Chỉnh sửa câu hỏi</title>
+    <style>
+        .customize-input input:hover {
+            background: green !important;
+            color: #ffffff !important;
+        }
+
+        .customize-input input.cancel:hover {
+            background: #ff0000 !important;
+            color: #ffffff !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb">
+                <div class="row">
+                    <div class="col-7 align-self-center">
+                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Chỉnh sửa câu hỏi</h4>
+                        <div class="d-flex align-items-center">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb m-0 p-0">
+                                    <li class="breadcrumb-item"><a href="@Url.Action("Index", "ManageQuestions")" class="text-muted">Quay lại</a></li>
+                                    <li class="breadcrumb-item text-muted active" aria-current="page">Chỉnh sửa câu hỏi</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                @using (Html.BeginForm("Edit", "StudentQuestion", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    @Html.AntiForgeryToken()
+
+                                    <div class="form-horizontal">
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                        @Html.HiddenFor(model => model.ID)
+
+                                        <div class="form-group">
+                                            <h4 class="card-title">Câu hỏi</h4>
+                                            <div class="col-md-10">
+                                                @Html.TextBoxFor(model => model.CAU_HOI_MUON_HOI, new { @class = "form-control", @readonly = "readonly" })
+                                                @Html.ValidationMessageFor(model => model.CAU_HOI_MUON_HOI, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <h4 class="card-title">Mô tả</h4>
+                                            <div class="col-md-10">
+                                                @Html.TextBoxFor(model => model.MO_TA, new { @class = "form-control", @readonly = "readonly" })
+                                                @Html.ValidationMessageFor(model => model.MO_TA, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <h4 class="card-title">Họ và Tên</h4>
+                                            <div class="col-md-10">
+                                                @Html.TextBoxFor(model => model.HO_TEN, new { @class = "form-control", @readonly = "readonly" })
+                                                @Html.ValidationMessageFor(model => model.HO_TEN, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <h4 class="card-title">Tài khoản</h4>
+                                            <div class="col-md-10">
+                                                <input type="text" value="@Model.AspNetUser.Email" disabled class="form-control" />
+                                                @Html.ValidationMessageFor(model => model.ID_TAI_KHOAN, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <h4 class="card-title">Đã phản hồi</h4>
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.TRANG_THAI, new { htmlAttributes = new { @class = "form-control col-md-1" } })
+                                                @Html.ValidationMessageFor(model => model.TRANG_THAI, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="customize-input float-left">
+                                                <input type="submit" value="Lưu chỉnh sửa" style="color: green" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="customize-input float-left" style="margin-left: 10px">
+                                                <input type="button" value="Hủy bỏ" onclick="return Confirmmessage()" style="color: red" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius cancel" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Page wrapper  -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer text-center text-muted">
+                @DateTime.Now.Year - All Rights Reserved by Adminmart. Designed and Developed by <a>SEPK24T-Team11</a>.
+            </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- End PAge Content -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- End Wrapper -->
+            <!-- ============================================================== -->
+            <!-- End Wrapper -->
+            <!-- ============================================================== -->
+        </div>
+    </div>
+</body>
+</html>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        function Confirmmessage() {
+            var alert = confirm("Cảnh báo: quá trình chưa hoàn tất! Xác nhận nếu như bạn muốn hủy bỏ?");
+            if (alert) {
+                document.location.href = '@Url.Action("Index", "StudentQuestion")';
+            } else {
+                return false;
+            }
+        }
+
+        $("#myselect option:selected").text();
+    </script>
+}

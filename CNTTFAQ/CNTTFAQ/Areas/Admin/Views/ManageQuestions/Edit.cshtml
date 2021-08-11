@@ -7,6 +7,17 @@
 }
 <head>
     <title>Chỉnh sửa câu hỏi</title>
+    <style>
+        .customize-input input:hover {
+            background: green !important;
+            color: #ffffff !important;
+        }
+
+        .customize-input input.cancel:hover {
+            background: #ff0000 !important;
+            color: #ffffff !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -48,7 +59,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                @using (Html.BeginForm())
+                                @using (Html.BeginForm("Edit", "ManageQuestions", FormMethod.Post, new { enctype = "multipart/form-data" }))
                                 {
                                     @Html.AntiForgeryToken()
 
@@ -59,7 +70,7 @@
                                         <div class="form-group">
                                             <h4 class="card-title">Câu hỏi</h4>
                                             <div class="col-md-10">
-                                                @Html.EditorFor(model => model.CAU_HOI1, new { htmlAttributes = new { @class = "form-control", @required = true } })
+                                                @Html.EditorFor(model => model.CAU_HOI1, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
                                                 @Html.ValidationMessageFor(model => model.CAU_HOI1, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -73,7 +84,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <h4 class="card-title">Danh mục</h4>
+                                            <h4 class="card-title">Chủ đề</h4>
                                             <div class="col-md-10">
                                                 @Html.DropDownList("ID_DANH_MUC", null, htmlAttributes: new { @class = "form-control" })
                                                 @Html.ValidationMessageFor(model => model.ID_DANH_MUC, "", new { @class = "text-danger" })
@@ -81,7 +92,15 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <h4 class="card-title">Người tạo</h4>
+                                            <h4 class="card-title">Duyệt Đăng</h4>
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.DUYET_DANG, new { htmlAttributes = new { @class = "form-control col-md-1"} })
+                                                @Html.ValidationMessageFor(model => model.DUYET_DANG, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <h4 class="card-title">Người chỉnh sửa</h4>
                                             <div class="col-md-10">
                                                 <input type="text" value="@User.Identity.Name" disabled class="form-control" />
                                                 @Html.ValidationMessageFor(model => model.ID_TAI_KHOAN, "", new { @class = "text-danger" })
@@ -96,7 +115,7 @@
 
                                         <div class="form-group">
                                             <div class="customize-input float-left" style="margin-left: 10px">
-                                                <input type="button" value="Hủy bỏ" onclick="return Confirmmessage()" style="color: red" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius" />
+                                                <input type="button" value="Hủy bỏ" onclick="return Confirmmessage()" style="color: red" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius cancel" />
                                             </div>
                                         </div>
                                     </div>
@@ -145,10 +164,12 @@
         function Confirmmessage() {
             var alert = confirm("Cảnh báo: quá trình chưa hoàn tất! Xác nhận nếu như bạn muốn hủy bỏ?");
             if (alert) {
-                document.location.href = '/SEP24Team11/Admin/ManageQuestions/Index';
+                document.location.href = '@Url.Action("Index", "ManageQuestions")';
             } else {
                 return false;
             }
         }
+
+        $("#myselect option:selected").text();
     </script>
 }

@@ -6,7 +6,18 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 <head>
-    <title>Xóa bình luận</title>
+    <title>Xóa câu trả lời</title>
+    <style>
+        .customize-input input:hover {
+            background: green !important;
+            color: #ffffff !important;
+        }
+
+        .customize-input input.cancel:hover {
+            background: #ff0000 !important;
+            color: #ffffff !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,12 +34,12 @@
                 <div class="page-breadcrumb">
                     <div class="row">
                         <div class="col-7 align-self-center">
-                            <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Bạn có chắc là muốn xóa bình luận này?</h3>
+                            <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Bạn có chắc là muốn xóa câu trả lời này?</h3>
                             <div class="d-flex align-items-center">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb m-0 p-0">
                                         <li class="breadcrumb-item"><a href="@Url.Action("Index", "Comment")" class="text-muted">Quay lại</a></li>
-                                        <li class="breadcrumb-item text-muted active" aria-current="page">Xóa bình luận</li>
+                                        <li class="breadcrumb-item text-muted active" aria-current="page">Xóa câu trả lời</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -57,7 +68,7 @@
                         <div class="card">
                             <div class="card-body collapse show">
                                 <h4 class="card-title">
-                                    Bình luận
+                                    Câu trả lời
                                 </h4>
                                 <p class="card-text">
                                     @MvcHtmlString.Create(Model.CAU_TRA_LOI1)
@@ -73,7 +84,7 @@
                         <div class="card">
                             <div class="card-body collapse show">
                                 <h4 class="card-title">
-                                    Ngày tạo
+                                    Ngày trả lời
                                 </h4>
                                 <p class="card-text">
                                     @Html.DisplayFor(model => model.NGAY_TRA_LOI)
@@ -89,7 +100,7 @@
                         <div class="card">
                             <div class="card-body collapse show">
                                 <h4 class="card-title">
-                                    Người tạo
+                                    Người trả lời
                                 </h4>
                                 <p class="card-text">
                                     @Html.DisplayFor(model => model.AspNetUser.Email)
@@ -105,11 +116,11 @@
 
                     <div class="row">
                         <div class="customize-input float-left">
-                            <input type="submit" value="Xóa bình luận" style="color: green" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius" />
+                            <input type="submit" value="Xóa câu trả lời" style="color: green" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius" />
                         </div>
 
                         <div class="customize-input float-right" style="margin-left: 10px">
-                            <input type="button" value="Hủy bỏ" onclick="location.href='@Url.Action("Index", "Comment")'" style="color: red" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius" />
+                            <input type="button" value="Hủy bỏ" onclick="location.href='@Url.Action("Index", "Comment")'" style="color: red" class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius cancel" />
                         </div>
                     </div>
                 }
