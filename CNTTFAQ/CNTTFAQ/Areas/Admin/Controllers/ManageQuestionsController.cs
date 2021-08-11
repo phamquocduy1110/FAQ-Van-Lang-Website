@@ -112,7 +112,7 @@ namespace CNTTFAQ.Areas.Admin.Controllers
             var CheckExitstsQuestion = model.CAU_TRA_LOI.OrderByDescending(x => x.ID).Where(x => x.ID_CAU_HOI == id).Count();
             if (CheckExitstsQuestion != 0)
             {
-                TempData["ResultMessage"] = "This catalog cannot be deleted because there is an existing question comment";
+                TempData["ResultMessage"] = "This catalog cannot be deleted because there is an existing question comment. Please change status if you want to hide";
                 return RedirectToAction("Delete", "ManageQuestions");
             }
             else

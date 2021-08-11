@@ -68,12 +68,18 @@ namespace CNTTFAQ.Areas.Admin.Controllers
         [HttpPost, ValidateInput(false)]
         public ActionResult Edit(int id, CAU_TRA_LOI f)
         {
-            var comment = model.CAU_TRA_LOI.FirstOrDefault(x => x.ID == id);
-            comment.ID_CAU_HOI = f.ID_CAU_HOI;
-            comment.CAU_TRA_LOI1 = f.CAU_TRA_LOI1;
-            comment.ID_TAI_KHOAN = User.Identity.GetUserId();
-            model.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                var comment = model.CAU_TRA_LOI.FirstOrDefault(x => x.ID == id);
+
+                comment.ID_CAU_HOI = f.ID_CAU_HOI;
+                comment.CAU_TRA_LOI1 = f.CAU_TRA_LOI1;
+                comment.ID_TAI_KHOAN = User.Identity.GetUserId();
+                model.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(f);
         }
 
         // GET: CAU_TRA_LOI / Comment

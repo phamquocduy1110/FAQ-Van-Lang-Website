@@ -805,7 +805,10 @@
     </Content>
     <Content Include="Areas\Admin\Views\StudentQuestion\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\EmailSetup\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FTPProfile1.pubxml" />
+    <None Include="Properties\PublishProfiles\FTPProfile2.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -857,7 +860,6 @@
     <Content Include="Areas\Admin\Views\AspNetRole\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AspNetRoleUser\Create.cshtml" />
     <Content Include="Views\Questions\Details.cshtml" />
-    <Content Include="Views\Questions\MaxQuestions.cshtml" />
     <Content Include="Views\Error\PageNotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
