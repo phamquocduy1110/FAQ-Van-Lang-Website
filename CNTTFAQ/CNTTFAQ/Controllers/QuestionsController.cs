@@ -70,11 +70,10 @@ namespace CNTTFAQ.Controllers
         }
 
         [AllowAnonymous]
-        [OutputCache(CacheProfile = "Cache60Seconds")]
         public ActionResult Search(string keyword, int? page)
         {
             var pageNumber = page ?? 1;
-            var pageSize = 10;
+            var pageSize = 5;
 
             var search = model.CAU_HOI.OrderByDescending(x => x.ID)
                                       .Where(x => x.CAU_HOI1.ToLower().Contains(keyword.ToLower()) || x.MO_TA.ToLower().Contains(keyword.ToLower()))
