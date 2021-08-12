@@ -325,16 +325,11 @@
     <Content Include="Assets\images\avatar\team-3.jpg" />
     <Content Include="Assets\images\avatar\team_5.png" />
     <Content Include="Assets\images\avatar\undraw_remotely_2j6y.svg" />
-    <Content Include="Assets\images\backgrounds\02.jpg" />
-    <Content Include="Assets\images\backgrounds\beautifulbackground3.jpg" />
-    <Content Include="Assets\images\backgrounds\Loginbg.jpg" />
     <Content Include="Assets\images\backgrounds\bottom-wave.png" />
     <Content Include="Assets\images\backgrounds\call-to-action.jpg" />
     <Content Include="Assets\images\backgrounds\city_4.png" />
     <Content Include="Assets\images\backgrounds\cloud.png" />
     <Content Include="Assets\images\backgrounds\cloud_full_3.png" />
-    <Content Include="Assets\images\backgrounds\LOGIN1.png" />
-    <Content Include="Assets\images\backgrounds\FAQ2_BG.png" />
     <Content Include="Assets\images\backgrounds\404-PageNotFound.png" />
     <Content Include="Assets\images\backgrounds\preloader.jpg" />
     <Content Include="Assets\images\backgrounds\transaction-background-1.jpeg" />

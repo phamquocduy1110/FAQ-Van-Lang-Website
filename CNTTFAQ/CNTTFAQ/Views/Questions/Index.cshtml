@@ -82,13 +82,17 @@
                                 <ul class="d-flex flex-row align-items-center justify-content-start">
                                 </ul>
                             </nav>
-                            @Html.Partial("_LoginPartial")
+                            <div class="log_reg">
+                                <div class="log_reg_content d-flex flex-row align-items-center justify-content-start">
+                                    @Html.Partial("_LoginPartial")
+                                </div>
+                            </div>
+                            <div class="hamburger ml-auto">@Html.Partial("_LoginPartial")</div>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
-
         @if (ViewBag.ResultMessage != null)
         {
             <script type="text/javascript">
@@ -101,6 +105,8 @@
         <div class="home">
             <div class="home_background"></div>
             <div class="background_image background_city" style="background-image:url('@Url.Content("~/Assets/images/backgrounds/city_4.png")')"></div>
+            <div class="cloud cloud_1"><img src="@Url.Content("~/Assets/images/backgrounds/cloud.png")" alt=""></div>
+            <div class="cloud cloud_2"><img src="@Url.Content("~/Assets/images/backgrounds/cloud.png")" alt=""></div>
             <div class="cloud cloud_3"><img src="@Url.Content("~/Assets/images/backgrounds/cloud_full_3.png")" alt=""></div>
             <div class="cloud cloud_4"><img src="@Url.Content("~/Assets/images/backgrounds/cloud.png")" alt=""></div>
             <div class="home_container">
@@ -130,9 +136,9 @@
                         <div class="domain_search_form_container d-flex flex-column align-items-center justify-content-center">
                             <form action="@Url.Action("Search", "Questions")" method="get" id="domain_search_form" class="domain_search_form d-flex flex-md-row flex-column align-items-center justify-content-start">
                                 <div class="d-flex flex-row align-items-center justify-content-start">
-                                    <input type="text" class="domain_search_input" name="Keyword" placeholder="Nhập từ khóa cần tìm" value="@ViewBag.keyword" required 
-                                            oninvalid="this.setCustomValidity('Mời bạn nhập từ khóa vào ô này')"
-                                            oninput="this.setCustomValidity('')" />
+                                    <input type="text" class="domain_search_input" name="Keyword" placeholder="Từ khóa tìm kiếm" value="@ViewBag.keyword" required
+                                           oninvalid="this.setCustomValidity('Mời bạn nhập từ khóa vào ô này')"
+                                           oninput="this.setCustomValidity('')" />
                                     <div style="background-color: white" class="domain_search_dropdown d-flex flex-row align-items-center justify-content-start">
                                     </div>
                                 </div>
