@@ -70,6 +70,7 @@ namespace CNTTFAQ.Controllers
         }
 
         [AllowAnonymous]
+        [OutputCache(Duration = 60)]
         public ActionResult Search(string keyword, int? page)
         {
             var pageNumber = page ?? 1;
