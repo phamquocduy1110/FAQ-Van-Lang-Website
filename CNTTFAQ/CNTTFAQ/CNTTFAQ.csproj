@@ -674,22 +674,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\360_F_289616456_wwOUZZTsYTOcIxGbwffOS8iP4QatFHa1.jpg" />
-    <Content Include="Images\4550812850_10d35acb9e_b.jpg" />
-    <Content Include="Images\beautifulbackground.jpg" />
-    <Content Include="Images\beautifulbackground2.jpg" />
-    <Content Include="Images\beautifulbackground3.jpg" />
-    <Content Include="Images\beautifulbackground4.jpg" />
+    <Content Include="Images\Câu Hỏi Khác.png" />
     <Content Include="Images\Công Tác Sinh Viên.jpg" />
+    <Content Include="Images\Công Tác Đào tạo.jpg" />
     <Content Include="Images\du-hoc-uc-nganh-ky-su-phan-mem-3.jpg" />
-    <Content Include="Images\images %281%29.jpg" />
-    <Content Include="Images\images.jfif" />
-    <Content Include="Images\a.jpg" />
-    <Content Include="Images\navigation-bar-background.jpg" />
+    <Content Include="Images\Học Phí.jpg" />
     <Content Include="Images\Nghiên Cứu Khoa Học.jpg" />
-    <Content Include="Images\unnamed %281%29.jpg" />
-    <Content Include="Images\vanlang2.jpg" />
-    <Content Include="Images\yellow-sparkles-dark-blue-background-fireflies-flying-night-golden-stardust-light-effect-abstract-evening-sky-backdrop_134821-79.jpg" />
     <Content Include="Models\QuanLyCauHoi.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>QuanLyCauHoi.edmx</DependentUpon>
@@ -805,7 +795,10 @@
     </Content>
     <Content Include="Areas\Admin\Views\StudentQuestion\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\EmailSetup\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FTPProfile1.pubxml" />
+    <None Include="Properties\PublishProfiles\FTPProfile2.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -857,7 +850,6 @@
     <Content Include="Areas\Admin\Views\AspNetRole\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AspNetRoleUser\Create.cshtml" />
     <Content Include="Views\Questions\Details.cshtml" />
-    <Content Include="Views\Questions\MaxQuestions.cshtml" />
     <Content Include="Views\Error\PageNotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
